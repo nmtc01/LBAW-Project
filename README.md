@@ -1,13 +1,13 @@
-# ProductName (e.g. MediaLibrary 2018)
+# Collaborative Q&A
 
 ## Project
 
 ### Team
 
-* Group member 1 name, email
-* Group member 2 name, email
-* Group member 3 name, email
-* Group member 4 name, email
+* Antonio Pedro Reis Ribeiro Sousa Dantas, up201703878@fe.up.pt
+* Eduardo João Santana Macedo, up201703658@fe.up.pt
+* Nuno Miguel Teixeira Cardoso, up201706162@fe.up.pt
+* Paulo Roberto Dias Mourato, up201705616@fe.up.pt
 
 ### Artefacts
 
@@ -27,4 +27,4 @@
   * [A10: Presentation and discussion](a10)
 
 ***
-GROUP20gg, DD/MM/2020
+GROUP2064, 17/02/2020
