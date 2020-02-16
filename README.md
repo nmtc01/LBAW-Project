@@ -12,7 +12,7 @@
 ### Artefacts
 
 * User Requirements specification
-  * [A1: Project presentation](a1)
+  * [A1: Project presentation](https://git.fe.up.pt/lbaw/lbaw1920/lbaw2064/-/wikis/a1)
   * [A2: Actors and User stories](a2)
   * [A3: User Interfaces Prototype](a3)
 * Database specification
