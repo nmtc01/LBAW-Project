@@ -1,8 +1,8 @@
 # lbaw2064
 
-## Tema 5 - Collaborative Q&A
+## Theme 5 - Collaborative Q&A
 
-The purpose of this project is to develop Collaborative Q&A, named **Answerly** where people from anywhere around the world can ask and answer questions of all topics imaginable! 
+The purpose of this project is to develop Collaborative Q&A, named *Answerly* where people from anywhere around the world can ask and answer questions of all topics imaginable! 
 We aim to create a clean and helpful web application that users will enjoy exploring and interacting
 
 ## Group Members:
