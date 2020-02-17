@@ -2,9 +2,10 @@
 
 ## Tema 5 - Collaborative Q&A
 
-Falta isto (eles têm em pt)
+The purpose of this project is to develop Collaborative Q&A, named **Answerly** where people from anywhere around the world can ask and answer questions of all topics imaginable! 
+We aim to create a clean and helpful web application that users will enjoy exploring and interacting
 
-## Membros do grupo:
+## Group Members:
 
 * Antonio Pedro Reis Ribeiro Sousa Dantas, up201703878@fe.up.pt
 * Eduardo João Santana Macedo, up201703658@fe.up.pt
