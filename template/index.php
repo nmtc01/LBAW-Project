@@ -21,7 +21,7 @@
             <a class="navbar-brand"></a>
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn my-2 my-sm-0" type="submit" style="background-color:	white; color: #6545c9">Search</button>
+                <button class="btn my-2 my-sm-0" type="submit">Search</button>
             </form>
         </nav>
     </header>
