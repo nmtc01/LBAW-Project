@@ -64,6 +64,8 @@
 
     </header>
 
+
+
     <button class="input-button">
         What is your question?
     </button>
@@ -199,13 +201,17 @@
     </div>
 
 
-    <div class="btn-group-vertical text-right">
-        <span class="pull-right">Success</span>
-        <span class="pull-right ">Info</span>
-        <span class="pull-right">Warning</span>
-        <span class="pull-right">Danger</span>
-        <span class="pull-righ">Other</span>
+    <div class="sidenav">
+        <div class="elements">
+            <a href="#about">Sports</a>
+            <a href="#services">Movies</a>
+            <a href="#clients">TV</a>
+            <a href="#contact">Philosophy</a>
+            <a href="#contact">Science</a>
+        </div>
     </div>
+
+    
 
 </body>
 

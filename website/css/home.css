@@ -61,3 +61,43 @@ body {
 .icon{
     color: #6545c9;
 }
+
+
+.sidenav {
+    width: 15%;
+    height: 100%;
+    position: fixed;
+    top:0%;
+    right: 0px;
+    background: white;
+    border-left: 2px solid #6545c9;
+    z-index: -1;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    
+}
+
+.elements{
+    width: 15%;
+    height: 25%;
+    position: fixed;
+    top:30%;
+    right: 0px;
+    background: white;
+    border-left: 2px solid #6545c9;
+    z-index: -1;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+  
+.sidenav a {
+    vertical-align: middle;
+    margin-left: 15px;
+    text-decoration: none;
+    color: #6545c9;
+    width: 100%;
+}
