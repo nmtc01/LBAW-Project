@@ -28,21 +28,17 @@
 
 
     <div class="wrapper">
-
         <form class="form-signin">
+            <h2 class="form-signin-heading text-center display-3">Answerly</h2>
 
-            <h2 class="form-signin-heading text-center display-3" style="text-align: center;">Answerly</h2>
-
-            <button id="api" class="btn  btn-lg btn-block" style="background-color:  #DB4437; color: white;">Sign in
-                with Google</button>
+            <button id="api" class="btn  btn-lg btn-block">Sign in with Google</button>
             <input type="text" class="form-control" name="username" placeholder="Email Address">
             <input type="password" class="form-control" name="password" placeholder="Password">
-            <button type="button" class="btn  btn-lg btn-block" style="background-color: 	#6545c9; color: white">Login</button>
-
+            <button type="button" class="btn  btn-lg btn-block">Login</button>
+            
             <div id="register">
-                Don't have an account? <a href="#" style="color: #6545c9;">Register</button>
+                Don't have an account? <a href="#">Register</button>
             </div>
-
 
         </form>
 

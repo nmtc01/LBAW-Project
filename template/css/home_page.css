@@ -46,3 +46,21 @@ body {
     margin-top: 50px;
     text-align: center;
 }
+
+.wrapper form h2 {
+    text-align: center;
+}
+
+.wrapper form #api {
+    background-color: #DB4437; 
+    color: white;
+}
+
+.wrapper form [type="button"] {
+    background-color: #6545c9; 
+    color: white;
+}
+
+.wrapper form #register {
+    color: #6545c9;
+}

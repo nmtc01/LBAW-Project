@@ -2,6 +2,10 @@ header nav {
     background-color: #6545c9;
 }
 
+.navbar-light .navbar-brand {
+    color: white;
+}
+
 form [type="submit"] {
     background-color: white; 
     color: #6545c9;
