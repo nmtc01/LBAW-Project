@@ -9,9 +9,8 @@
     <script src="https://kit.fontawesome.com/6d90d25abc.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/layout.css">
 
-    <style type="text/css">
-    </style>
 </head>
 
 <body>
@@ -24,30 +23,30 @@
     <header>
 
 
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #6545c9">
-            <a href="#" class="navbar-brand" style="color: white;">Answerly</a>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="#" class="navbar-brand">Answerly</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="color: white;">
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <button class="btn my-2 my-sm-0" type="submit" style="background-color:	white; color:#6545c9">Ask
+                        <button class="btn my-2 my-sm-0" type="submit">Ask
                             Something</button>
                     </li>
                 </ul>
 
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li>
-                        <a class="nav-link" href="#" style="color: white">
+                        <a class="nav-link" href="#" >
                             <i class="fas fa-user fa-lg"></i>
                         </a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#" style="color: white">
+                        <a class="nav-link" href="#" >
                             <i class="fas fa-bell fa-lg"></i>
                         </a>
                     </li>
@@ -57,11 +56,9 @@
 
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn my-2 my-sm-0" type="submit" style="background-color:	white; color:#6545c9">Search</button>
+                    <button class="btn my-2 my-sm-0" type="submit" >Search</button>
                 </form>
             </div>
-
-
 
         </nav>
 
@@ -76,7 +73,7 @@
 
     <div class="wrapper">
         <div class="media">
-            <img src="resources/adam_sandler.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
+            <img src="../resources/adam_sandler.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
                 height="64px">
             <div class="media-body">
                 <h5 class="mt-0">Adam Sandler's cool experiment</h5>
@@ -88,13 +85,13 @@
 
         <br>
 
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="far fa-thumbs-up fa-lg"></i>
         </a>
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="far fa-thumbs-down fa-lg"></i>
         </a>
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="fas fa-reply fa-lg"></i>
         </a>
 
@@ -103,7 +100,7 @@
 
     <div class="wrapper">
         <div class="media">
-            <img src="resources/bob_iger.jpeg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
+            <img src="../resources/bob_iger.jpeg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
                 height="64px">
             <div class="media-body">
                 <h5 class="mt-0">Adam Sandler's cool experiment</h5>
@@ -115,20 +112,20 @@
 
         <br>
 
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="far fa-thumbs-up fa-lg"></i>
         </a>
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="far fa-thumbs-down fa-lg"></i>
         </a>
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="fas fa-reply fa-lg"></i>
         </a>
     </div>
 
     <div class="wrapper">
         <div class="media">
-            <img src="resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
+            <img src="../resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
                 height="64px">
             <div class="media-body">
                 <h5 class="mt-0">Adam Sandler's cool experiment</h5>
@@ -140,20 +137,20 @@
 
         <br>
 
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="far fa-thumbs-up fa-lg"></i>
         </a>
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="far fa-thumbs-down fa-lg"></i>
         </a>
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="fas fa-reply fa-lg"></i>
         </a>
     </div>
 
     <div class="wrapper">
         <div class="media">
-            <img src="resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
+            <img src="../resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
                 height="64px">
             <div class="media-body">
                 <h5 class="mt-0">Adam Sandler's cool experiment</h5>
@@ -165,20 +162,20 @@
 
         <br>
 
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="far fa-thumbs-up fa-lg"></i>
         </a>
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="far fa-thumbs-down fa-lg"></i>
         </a>
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="fas fa-reply fa-lg"></i>
         </a>
     </div>
 
     <div class="wrapper">
         <div class="media">
-            <img src="resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
+            <img src="../resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
                 height="64px">
             <div class="media-body">
                 <h5 class="mt-0">Adam Sandler's cool experiment</h5>
@@ -190,24 +187,24 @@
 
         <br>
 
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="far fa-thumbs-up fa-lg"></i>
         </a>
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="far fa-thumbs-down fa-lg"></i>
         </a>
-        <a class="icon" href="#" style="color: #6545c9">
+        <a class="icon" href="#">
             <i class="fas fa-reply fa-lg"></i>
         </a>
     </div>
 
 
-    <div class="btn-group-vertical">
-        <span class="label success">Success</span>
-        <span class="label info">Info</span>
-        <span class="label warning">Warning</span>
-        <span class="label danger">Danger</span>
-        <span class="label other">Other</span>
+    <div class="btn-group-vertical text-right">
+        <span class="pull-right">Success</span>
+        <span class="pull-right ">Info</span>
+        <span class="pull-right">Warning</span>
+        <span class="pull-right">Danger</span>
+        <span class="pull-righ">Other</span>
     </div>
 
 </body>
