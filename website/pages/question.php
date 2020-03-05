@@ -18,19 +18,21 @@
     <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <header>
-        <nav class="navbar navbar-light">
-            <a href="#" class="navbar-brand">Answerly</a>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn my-2 my-sm-0" type="submit">Search</button>
-            </form>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-default fixed-top">
+            <div class="container">
+                <a href="#" class="navbar-brand">Answerly</a>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
         </nav>
     </header>
 
     <div class="wrapper">
 
         <div class="media">
-            <img src="resources/adam_sandler.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
+            <img src="../resources/adam_sandler.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
                 height="64px">
             <div class="media-body">
                 <h5 class="mt-0">Adam Sandler's cool experiment</h5>
@@ -38,7 +40,7 @@
 
                 <div class="media mt-3">
                     <a class="mr-3" href="#">
-                        <img src="resources/bob_iger.jpeg" class="align-self-start mr-3" alt="bob_iger profile pic " width="64px" height="64px">
+                        <img src="../resources/bob_iger.jpeg" class="align-self-start mr-3" alt="bob_iger profile pic " width="64px" height="64px">
                     </a>
                     <div class="media-body">
                         <h5 class="mt-0">Bob Iger says </h5>

@@ -21,47 +21,45 @@
     <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <header>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-default fixed-top">
+            <div class="container">
+                <a href="#" class="navbar-brand">Answerly</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <button class="btn my-2 my-sm-0" type="submit">Ask
+                                Something</button>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li>
+                            <a class="nav-link" href="#" >
+                                <i class="fas fa-user fa-lg"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#" >
+                                <i class="fas fa-bell fa-lg"></i>
+                            </a>
+                        </li>
+                    </ul>
 
 
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a href="#" class="navbar-brand">Answerly</a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <button class="btn my-2 my-sm-0" type="submit">Ask
-                            Something</button>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li>
-                        <a class="nav-link" href="#" >
-                            <i class="fas fa-user fa-lg"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#" >
-                            <i class="fas fa-bell fa-lg"></i>
-                        </a>
-                    </li>
-                </ul>
-
-
-
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn my-2 my-sm-0" type="submit" >Search</button>
-                </form>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn my-2 my-sm-0" type="submit" >Search</button>
+                    </form>
+                </div>
             </div>
-
         </nav>
-
     </header>
 
     <button class="input-button">

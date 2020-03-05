@@ -1,3 +1,7 @@
+body { 
+    padding-top: 60px; 
+}
+
 header nav {
     background-color: #6545c9;
 }
@@ -27,5 +31,9 @@ form [type="submit"] {
 
 .btn {
     color: #6545c9;
+    border-radius: .25rem;
+}
+
+li.nav-item {
     border-radius: .25rem;
 }
