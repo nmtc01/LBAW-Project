@@ -11,6 +11,7 @@
         body {
             background: #eee;
             background-image: url("resources/wallpaper2.png");
+            background-size: 100% 100%;
         }
 
         .wrapper {
