@@ -36,7 +36,7 @@
                 height="64px">
             <div class="media-body">
                 <h5 class="mt-0">Adam Sandler's cool experiment</h5>
-                Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I wnat it to be 100% cientifically correct... 
+                Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... 
 
                 <div class="media mt-3">
                     <a class="mr-3" href="#">
