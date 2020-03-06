@@ -10,6 +10,10 @@ header nav {
     color: white;
 }
 
+.navbar-light .container{
+    margin-left: 0;
+}
+
 form [type="submit"] {
     background-color: white; 
     color: #6545c9;

@@ -5,3 +5,8 @@
     background-color: #fff;
     padding: 15px 40px 50px;
 }
+
+.wrapper img {
+    width: 4em;
+    height: 4em;
+}

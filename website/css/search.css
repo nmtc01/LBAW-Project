@@ -1,0 +1,22 @@
+body { 
+    padding-top: 150px; 
+}
+
+.filters {
+    margin: 70px;
+    max-width: 75%;
+    margin: 0 auto;
+    background-color: #806bbe;
+    padding: 30px 30px 30px;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    color: white;
+}
+
+.navbar .container .form-inline {
+    margin: auto;
+}
+
+.wrapper ul li.media {
+    margin-top: 1rem;
+}
