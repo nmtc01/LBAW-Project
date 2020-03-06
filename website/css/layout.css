@@ -1,0 +1,43 @@
+body { 
+    padding-top: 60px; 
+}
+
+header nav {
+    background-color: #6545c9;
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+.navbar-light .container{
+    margin-left: 0;
+}
+
+form [type="submit"] {
+    background-color: white; 
+    color: #6545c9;
+}
+
+.navbar-light .navbar-toggler-icon{
+    color: white;
+}
+
+
+.navbar-nav .fas{
+    color: white;
+}
+
+.navbar-nav .nav-item{
+    background-color: white; 
+    
+}
+
+.btn {
+    color: #6545c9;
+    border-radius: .25rem;
+}
+
+li.nav-item {
+    border-radius: .25rem;
+}

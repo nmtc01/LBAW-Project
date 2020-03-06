@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/home_page.css">
-    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/layout.css">
 </head>
 
 <body>
@@ -17,32 +17,30 @@
     <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <header>    
-        <nav class="navbar navbar-light">
-            <a class="navbar-brand"></a>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn my-2 my-sm-0" type="submit" style="background-color:	white; color: #6545c9">Search</button>
-            </form>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-default fixed-top">
+            <div class="container">
+                <a class="navbar-brand"></a>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
         </nav>
     </header>
 
 
     <div class="wrapper">
-
         <form class="form-signin">
+            <h2 class="form-signin-heading text-center display-3">Answerly</h2>
 
-            <h2 class="form-signin-heading text-center display-3" style="text-align: center;">Answerly</h2>
-
-            <button id="api" class="btn  btn-lg btn-block" style="background-color:  #DB4437; color: white;">Sign in
-                with Google</button>
+            <button id="api" class="btn  btn-lg btn-block">Sign in with Google</button>
             <input type="text" class="form-control" name="username" placeholder="Email Address">
             <input type="password" class="form-control" name="password" placeholder="Password">
-            <button type="button" class="btn  btn-lg btn-block" style="background-color: 	#6545c9; color: white">Login</button>
-
+            <button type="button" onclick="location.href='pages/home.php';" class="btn  btn-lg btn-block">Login</button>
+            
             <div id="register">
-                Don't have an account? <a href="#" style="color: #6545c9;">Register</button>
+                Don't have an account? <a href="#">Register</button>
             </div>
-
 
         </form>
 
