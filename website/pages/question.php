@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
         crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/6d90d25abc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/question.css">
     <link rel="stylesheet" href="../css/layout.css">
 </head>
@@ -20,7 +21,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light navbar-default fixed-top">
             <div class="container">
-                <a href="#" class="navbar-brand">Answerly</a>
+                <a href="../pages/home.php" class="navbar-brand">Answerly</a>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn my-2 my-sm-0" type="submit">Search</button>
@@ -32,23 +33,123 @@
     <div class="wrapper">
 
         <div class="media">
-            <img src="../resources/adam_sandler.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
-                height="64px">
+            <img class="mr-3" src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
             <div class="media-body">
-                <h5 class="mt-0">Adam Sandler's cool experiment</h5>
-                Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... 
+                <h5 class="mt-0">Question heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                <div class=icons>
+                    <a class="icon" href="#">
+                        <i class="fas fa-thumbs-up fa-lg"> 35</i>
+                    </a>
+                    <a class="icon" href="#">
+                        <i class="fas fa-thumbs-down fa-lg"> 4</i>
+                    </a>
+                    <a class="icon" href="#">
+                        <i class="fas fa-reply fa-lg"> 6</i>
+                    </a>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea class="form-control" placeholder="Do you know the answer to this question?"id="exampleFormControlTextarea1" rows="7"></textarea>
+                </div>
+
+                <hr class="purple">
+
+                <h5 class="mt-0">Comments</h5>
+
+                <div class="media-body">
+
+                    <hr>
+                    
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                    <hr>
+
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                </div>
+
+                <hr class="purple">
+
+                <h5 class="mt-0">Answers</h5>
+
+                <hr>
 
                 <div class="media mt-3">
-                    <a class="mr-3" href="#">
-                        <img src="../resources/bob_iger.jpeg" class="align-self-start mr-3" alt="bob_iger profile pic " width="64px" height="64px">
+
+                    
+
+                    <a class="pr-3" href="#">
+                        <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
                     </a>
                     <div class="media-body">
-                        <h5 class="mt-0">Bob Iger says </h5>
-                        Get a job!
+
+                        <h5 class="mt-0">Answer heading</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                        <div class=icons-answers>
+                            <a class="icon-answers" href="#">
+                                <i class="fas fa-thumbs-up"> 35</i>
+                            </a>
+                            <a class="icon-answers" href="#">
+                                <i class="fas fa-thumbs-down"> 4</i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="media mt-3">
+
+                    <a class="pr-3" href="#">
+                        <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+                    </a>
+                    <div class="media-body">
+                        <h5 class="mt-0">Answer heading</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    
+                        <div class=icons-answers>
+                            <a class="icon-answers" href="#">
+                                <i class="fas fa-thumbs-up"> 35</i>
+                            </a>
+                            <a class="icon-answers" href="#">
+                                <i class="fas fa-thumbs-down"> 4</i>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
-            </div>
 
+                <hr>
+
+                <div class="media mt-3">
+
+                    <a class="pr-3" href="#">
+                        <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+                    </a>
+                    <div class="media-body">
+                        <h5 class="mt-0">Answer heading</h5>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                    
+                        <div class=icons-answers>
+                            <a class="icon-answers" href="#">
+                                <i class="fas fa-thumbs-up"> 35</i>
+                            </a>
+                            <a class="icon-answers" href="#">
+                                <i class="fas fa-thumbs-down"> 4</i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
         </div>
 
     </div>
