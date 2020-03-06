@@ -8,6 +8,7 @@
         crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/6d90d25abc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/question.css">
+    <link rel="stylesheet" href="../css/list_format.css">
     <link rel="stylesheet" href="../css/layout.css">
 </head>
 
@@ -65,7 +66,7 @@
         <div class="media">
             <img class="mr-3" src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
             <div class="media-body">
-                <h5 class="mt-0">Question heading</h5>
+                <h1 class="mt-0">Question heading</h1>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 
                 <div class=icons>
@@ -86,38 +87,23 @@
                     <textarea class="form-control" placeholder="Do you know the answer to this question?"id="exampleFormControlTextarea1" rows="7"></textarea>
                 </div>
 
-                <hr class="purple">
-
-                <h5 class="mt-0">Comments</h5>
+                <h2 class="mt-0">Comments</h2>
 
                 <div class="media-body">
-
-                    <hr>
-                    
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-                    <hr>
-
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                 </div>
 
-                <hr class="purple">
-
-                <h5 class="mt-0">Answers</h5>
-
-                <hr>
-
+                <h2 class="mt-0">Answers</h2>
+                
                 <div class="media mt-3">
-
-                    
 
                     <a class="pr-3" href="#">
                         <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
                     </a>
                     <div class="media-body">
 
-                        <h5 class="mt-0">Answer heading</h5>
+                        <h3 class="mt-0">Answer heading</h3>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 
                         <div class=icons-answers>
@@ -132,15 +118,13 @@
 
                 </div>
 
-                <hr>
-
                 <div class="media mt-3">
 
                     <a class="pr-3" href="#">
                         <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
                     </a>
                     <div class="media-body">
-                        <h5 class="mt-0">Answer heading</h5>
+                        <h3 class="mt-0">Answer heading</h3>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                     
                         <div class=icons-answers>
@@ -155,15 +139,13 @@
                     </div>
                 </div>
 
-                <hr>
-
                 <div class="media mt-3">
 
                     <a class="pr-3" href="#">
                         <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
                     </a>
                     <div class="media-body">
-                        <h5 class="mt-0">Answer heading</h5>
+                        <h3 class="mt-0">Answer heading</h3>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
                     
                         <div class=icons-answers>

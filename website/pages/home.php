@@ -73,8 +73,7 @@
     <? for($i = 0; $i < 10; $i++){ ?>
     <div class="wrapper">
         <div class="media">
-            <img src="../resources/bob_iger.jpeg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
-                height="64px">
+            <img src="../resources/bob_iger.jpeg" class="align-self-start mr-3" alt="adam_sandler profile pic">
             <div class="media-body">
                 <h5 class="mt-0"><a id="question-header" href="question.php">This is a question template</a></h5>
                 Lorem ipsum dolor sit amet, nullam posuere urna duis id maecenas feugiat, dictum ante proin praesent at, dolor laoreet arcu, gravida pede gravida hymenaeos. Diam nunc leo tristique sed vel augue, non sem. Velit molestie diam justo turpis molestie justo, justo et. Aenean integer luctus aliquam massa, nunc aliquam varius justo, aliquam non ipsum elit tellus maecenas, consequat consectetuer nascetur sem, vel tellus. Eu purus, viverra sociosqu faucibus cras integer facilisis aenean, libero voluptatem dolor non class vivamus nulla, elit turpis auctor gravida, vel tempor.
@@ -102,8 +101,7 @@
     <!--
     <div class="wrapper">
         <div class="media">
-            <img src="../resources/bob_iger.jpeg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
-                height="64px">
+            <img src="../resources/bob_iger.jpeg" class="align-self-start mr-3" alt="adam_sandler profile pic">
             <div class="media-body">
                 <h5 class="mt-0">Adam Sandler's cool experiment</h5>
                 Lorem ipsum dolor sit amet, nullam posuere urna duis id maecenas feugiat, dictum ante proin praesent at, dolor laoreet arcu, gravida pede gravida hymenaeos. Diam nunc leo tristique sed vel augue, non sem. Velit molestie diam justo turpis molestie justo, justo et. Aenean integer luctus aliquam massa, nunc aliquam varius justo, aliquam non ipsum elit tellus maecenas, consequat consectetuer nascetur sem, vel tellus. Eu purus, viverra sociosqu faucibus cras integer facilisis aenean, libero voluptatem dolor non class vivamus nulla, elit turpis auctor gravida, vel tempor.
@@ -126,8 +124,7 @@
 
     <div class="wrapper">
         <div class="media">
-            <img src="../resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
-                height="64px">
+            <img src="../resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic">
             <div class="media-body">
                 <h5 class="mt-0">Adam Sandler's cool experiment</h5>
                 Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing
@@ -151,8 +148,7 @@
 
     <div class="wrapper">
         <div class="media">
-            <img src="../resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
-                height="64px">
+            <img src="../resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic">
             <div class="media-body">
                 <h5 class="mt-0">Adam Sandler's cool experiment</h5>
                 Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing
@@ -176,8 +172,7 @@
 
     <div class="wrapper">
         <div class="media">
-            <img src="../resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic" width="64px"
-                height="64px">
+            <img src="../resources/will-ferrel.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic">
             <div class="media-body">
                 <h5 class="mt-0">Adam Sandler's cool experiment</h5>
                 Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing
@@ -203,11 +198,11 @@
 
     <div class="sidenav">
         <div class="elements">
-            <a href="#about">Sports</a>
-            <a href="#services">Movies</a>
-            <a href="#clients">TV</a>
-            <a href="#contact">Philosophy</a>
-            <a href="#contact">Science</a>
+            <a href="#">Sports</a>
+            <a href="#">Movies</a>
+            <a href="#">TV</a>
+            <a href="#">Philosophy</a>
+            <a href="#">Science</a>
         </div>
     </div>
 
