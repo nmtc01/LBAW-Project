@@ -46,55 +46,32 @@
     </header>
 
     <div class="wrapper">
-
-        <ul class="list-unstyled">
-            <li class="media">
-                <img src="../resources/adam_sandler.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic">
-                <div class="media-body">
-                    <h5 class="mt-0">Adam Sandler's cool experiment</h5>
-                    Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... 
-                </div>
-            </li>
-            <li class="media">
-                <img src="../resources/adam_sandler.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic">
-                <div class="media-body">
-                    <h5 class="mt-0">Adam Sandler's cool experiment</h5>
-                    Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... 
-                </div>
-            </li>
-            <li class="media">
-                <img src="../resources/adam_sandler.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic">
-                <div class="media-body">
-                    <h5 class="mt-0">Adam Sandler's cool experiment</h5>
-                    Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... 
-                </div>
-            </li>
-            <li class="media">
-                <img src="../resources/adam_sandler.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic">
-                <div class="media-body">
-                    <h5 class="mt-0">Adam Sandler's cool experiment</h5>
-                    Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... 
-                </div>
-            </li>
-            <li class="media">
-                <img src="../resources/adam_sandler.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic">
-                <div class="media-body">
-                    <h5 class="mt-0">Adam Sandler's cool experiment</h5>
-                    Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... 
-                </div>
-            </li>
-            <li class="media">
-                <img src="../resources/adam_sandler.jpg" class="align-self-start mr-3" alt="adam_sandler profile pic">
-                <div class="media-body">
-                    <h5 class="mt-0">Adam Sandler's cool experiment</h5>
-                    Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... 
-                </div>
-            </li>
-        </ul>
-
+        <div class="media">
+            <div class="media-body">
+                <h1 class="mt-0">Search Results</h1>
+                <ul class="list-unstyled">
+                    <li class="media mt-3">
+                        <a class="pr-3" href="#">
+                            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+                        </a>
+                        <div class="media-body">
+                            <h2 class="mt-0">Adam Sandler's cool experiment</h2>
+                            <p>Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... </p>
+                        </div>
+                    </li>
+                    <li class="media mt-3">
+                        <a class="pr-3" href="#">
+                            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+                        </a>
+                        <div class="media-body">
+                            <h2 class="mt-0">Adam Sandler's cool experiment</h2>
+                            <p>Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>   
+        </div>
     </div>
-
-
 </body>
 
 </html>

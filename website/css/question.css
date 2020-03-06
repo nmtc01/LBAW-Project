@@ -43,11 +43,6 @@
     border: none;
 }
 
-.wrapper img {
-    width: 4em;
-    height: 4em;
-}
-
 .wrapper .media .media-body .media-body p {
     border-top-style: solid;
     border-top-width: .05rem;

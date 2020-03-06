@@ -32,8 +32,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <button class="btn my-2 my-sm-0" type="submit">Ask
-                                Something</button>
+                            <button class="btn my-2 my-sm-0" type="submit">Ask Something</button>
                         </li>
                     </ul>
 
@@ -50,8 +49,6 @@
                         </li>
                     </ul>
 
-
-
                     <form class="form-inline">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn my-2 my-sm-0" type="submit" >Search</button>
@@ -67,7 +64,7 @@
             <img class="mr-3" src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
             <div class="media-body">
                 <h1 class="mt-0">Question heading</h1>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
 
                 <div class=icons>
                     <a class="icon" href="#">
@@ -80,7 +77,6 @@
                         <i class="fas fa-reply fa-lg"> 6</i>
                     </a>
                 </div>
-
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1"></label>
@@ -96,71 +92,73 @@
 
                 <h2 class="mt-0">Answers</h2>
                 
-                <div class="media mt-3">
+                <ul class="list-unstyled">
+                    <li class="media mt-3">
 
-                    <a class="pr-3" href="#">
-                        <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
-                    </a>
-                    <div class="media-body">
+                        <a class="pr-3" href="#">
+                            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+                        </a>
+                        <div class="media-body">
 
-                        <h3 class="mt-0">Answer heading</h3>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            <h3 class="mt-0">Answer heading</h3>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 
-                        <div class=icons-answers>
-                            <a class="icon-answers" href="#">
-                                <i class="fas fa-thumbs-up"> 35</i>
-                            </a>
-                            <a class="icon-answers" href="#">
-                                <i class="fas fa-thumbs-down"> 4</i>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="media mt-3">
-
-                    <a class="pr-3" href="#">
-                        <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
-                    </a>
-                    <div class="media-body">
-                        <h3 class="mt-0">Answer heading</h3>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    
-                        <div class=icons-answers>
-                            <a class="icon-answers" href="#">
-                                <i class="fas fa-thumbs-up"> 35</i>
-                            </a>
-                            <a class="icon-answers" href="#">
-                                <i class="fas fa-thumbs-down"> 4</i>
-                            </a>
+                            <div class=icons-answers>
+                                <a class="icon-answers" href="#">
+                                    <i class="fas fa-thumbs-up"> 35</i>
+                                </a>
+                                <a class="icon-answers" href="#">
+                                    <i class="fas fa-thumbs-down"> 4</i>
+                                </a>
+                            </div>
                         </div>
 
-                    </div>
-                </div>
+                    </li>
 
-                <div class="media mt-3">
+                    <li class="media mt-3">
 
-                    <a class="pr-3" href="#">
-                        <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
-                    </a>
-                    <div class="media-body">
-                        <h3 class="mt-0">Answer heading</h3>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    
-                        <div class=icons-answers>
-                            <a class="icon-answers" href="#">
-                                <i class="fas fa-thumbs-up"> 35</i>
-                            </a>
-                            <a class="icon-answers" href="#">
-                                <i class="fas fa-thumbs-down"> 4</i>
-                            </a>
+                        <a class="pr-3" href="#">
+                            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+                        </a>
+                        <div class="media-body">
+
+                            <h3 class="mt-0">Answer heading</h3>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                            <div class=icons-answers>
+                                <a class="icon-answers" href="#">
+                                    <i class="fas fa-thumbs-up"> 35</i>
+                                </a>
+                                <a class="icon-answers" href="#">
+                                    <i class="fas fa-thumbs-down"> 4</i>
+                                </a>
+                            </div>
                         </div>
 
-                    </div>
-                </div>
+                    </li>
 
+                    <li class="media mt-3">
 
+                        <a class="pr-3" href="#">
+                            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+                        </a>
+                        <div class="media-body">
+
+                            <h3 class="mt-0">Answer heading</h3>
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                            <div class=icons-answers>
+                                <a class="icon-answers" href="#">
+                                    <i class="fas fa-thumbs-up"> 35</i>
+                                </a>
+                                <a class="icon-answers" href="#">
+                                    <i class="fas fa-thumbs-down"> 4</i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
             </div>
         </div>
 
