@@ -10,8 +10,12 @@
         
         body {
             background: #eee;
-            background-image: url("resources/wallpaper2.png");
-        }
+            background-image: url("../resources/wallpaper2.png");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+}
 
         .wrapper {
             margin: 70px;
@@ -53,6 +57,10 @@
             text-align: center;
         }
 
+        .container{
+            margin: auto;
+        }
+
         h1{
             margin-bottom: 2rem;
         }
@@ -75,17 +83,56 @@
         }
 
         /* design */
-        table { 
+        table:not(.fixed_header) { 
             padding-left: 3rem;
             border-collapse: collapse; 
+            width: 20rem;
         }
         tr { 
             background: #FFF; 
+            width: 20rem;
         }
         th {
-            color: white;
+            color: purple;
+            width: 20rem;
         }
-        .header{
+        td{
+            height: 35px;
+            border-bottom: solid;
+            width: 20rem;
+        }
+        .fixed_header{
+            width: 400px;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        .fixed_header tbody{
+            display:block;
+            width: 100%;
+            overflow: auto;
+            height: 100px;
+        }
+
+        .fixed_header thead tr {
+            display: block;
+        }
+
+        .fixed_header thead {
+            background: black;
+            color:#fff;
+        }
+
+        .fixed_header th, .fixed_header td {
+            padding: 5px;
+            text-align: left;
+            width: 200px;
+        }
+        .table-container{
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            padding-top: 50px;
         }
 
     </style>
@@ -118,50 +165,82 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <table style="height: 150px; width: 20rem">
-  <tr> <th><div>first</div> <th>
-  <tr> <td>foo <td>
-  <tr> <td>foo foo  foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
+      <table style="height: 150px; ">
+  <tr> <th><div>Questions</div> <th>
+  <tr> <td>Question 1 <td>
+  <tr> <td>Question 2<td>
+  <tr> <td>Question 3<td>
+  <tr> <td>Question 4<td>
+  <tr> <td>Question 5<td>
+  <tr> <td>Question 6<td>
+  <tr> <td>Question 7<td>
+  <tr> <td>Question 8<td>
 </table>
     </div>
     <div class="col">
-      <table style="height: 150px; width: 20rem">
-  <tr> <th><div>first</div> <th>
-  <tr> <td>foo <td>
-  <tr> <td>foo fo foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
+      <table style="height: 150px; ">
+  <tr> <th><div>Answers</div> <th>
+  <tr> <td>Answer 1<td>
+  <tr> <td>Answer 2<td>
+  <tr> <td>Answer 3<td>
+  <tr> <td>Answer 4<td>
+  <tr> <td>Answer 5<td>
+  <tr> <td>Answer 6<td>
+  <tr> <td>Answer 7<td>
   
 </table>
     </div>
     <div class="col">
-      <table style="height: 150px; width: 20rem">
-  <tr> <th><div>first</div> <th>
-  <tr> <td>foo <td>
-  <tr> <td>foo fooo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
-  <tr> <td>foo <td>
+      <table style="height: 150px; ">
+  <tr> <th><div>Comments</div> <th>
+  <tr> <td>Comment 1<td>
+  <tr> <td>Comment 2<td>
+  <tr> <td>Comment 3<td>
+  <tr> <td>Comment 4<td>
+  <tr> <td>Comment 5<td>
 </table>
     </div>
   </div>
   
 </div>
-
+<div class="table-container">
+    <table class="fixed_header">
+    <thead>
+        <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td>john1</td>
+        <td>john</td>
+        <td>81</td>
+        </tr>
+        <tr>
+        <td>mary1999</td>
+        <td>Mary</td>
+        <td>8</td>
+        </tr>
+        <tr>
+        <td>Susieiei</td>
+        <td>Susan</td>
+        <td>666</td>
+        </tr>
+        <tr>
+        <td>Tony</td>
+        <td>Anthony</td>
+        <td>43</td>
+        </tr>
+        <tr>
+        <td>stan</td>
+        <td>Marshall</td>
+        <td>-56</td>
+        </tr>
+    </tbody>
+    </table>
+</div>
 
 
 </body>
