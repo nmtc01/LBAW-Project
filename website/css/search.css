@@ -15,10 +15,33 @@ h2 {
     max-width: 75%;
     margin: 0 auto;
     background-color: #806bbe;
-    padding: 30px 30px 30px;
+    padding: 15px 40px 40px;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
     color: white;
+}
+
+.filters form #filters-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filters form #filters-bar .dates {
+    display: flex;
+}
+
+.filters form #filters-bar .checkboxes{
+    display: flex;
+}
+
+.filters form #filters-bar .dates label{
+    margin: 0rem .5rem 0rem 1rem
+}
+
+.filters form #filters-bar .dates input{
+    color: #806bbe;
+    border-radius: .25rem;
+    border-color: #806bbe;
 }
 
 .navbar .container .form-inline {
@@ -27,4 +50,18 @@ h2 {
 
 .wrapper ul li.media {
     margin-top: 1rem;
+}
+
+nav .pagination .page-item .page-link{
+    color: #6545c9;
+}
+
+nav .pagination .page-item #previous{
+    background-color: #6545c9;
+    color: white;
+}
+
+nav .pagination .page-item #next{
+    background-color: #6545c9;
+    color: white;
 }

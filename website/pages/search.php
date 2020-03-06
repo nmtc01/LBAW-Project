@@ -32,13 +32,27 @@
             <div class="filters">
                 <form>
                     <label>Filter:</label>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1">Answered</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">+Positive Score</label>
+                    <div id="filters-bar">
+                        <div class="checkboxes">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Answered</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">+Positive Score</label>
+                            </div>
+                        </div>
+                        <div class="dates">
+                            <div>
+                                <label>Start</label>
+                                <input type="date" value="dd-mm-yyyy">
+                            </div>
+                            <div>
+                                <label>End</label>
+                                <input type="date" value="dd-mm-yyyy">
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -72,6 +86,24 @@
             </div>   
         </div>
     </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+            <a id="previous" class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+            <a id="next" class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+
+    <footer>
+
+    </footer>
 </body>
 
 </html>
