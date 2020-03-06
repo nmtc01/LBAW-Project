@@ -41,3 +41,30 @@ form [type="submit"] {
 li.nav-item {
     border-radius: .25rem;
 }
+
+footer {
+    margin-top: 5rem;
+    background-color: #6545c9;
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: yellow;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 1.7rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}

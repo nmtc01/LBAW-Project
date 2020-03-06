@@ -2,14 +2,6 @@ body {
     padding-top: 150px; 
 }
 
-h1 {
-    font-size: 1.7rem;
-}
-
-h2 {
-    font-size: 1.2rem;
-}
-
 .filters {
     margin: 70px;
     max-width: 75%;
@@ -19,6 +11,14 @@ h2 {
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
     color: white;
+}
+
+.filters:hover {
+    transition: .5s;
+}
+
+.filters input {
+    cursor: pointer;
 }
 
 .filters form #filters-bar {
