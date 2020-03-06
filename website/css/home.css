@@ -71,7 +71,6 @@ body {
     right: 0px;
     background: white;
     border-left: 2px solid #6545c9;
-    z-index: -1;
     
     display: flex;
     flex-wrap: wrap;
@@ -80,14 +79,14 @@ body {
 }
 
 .elements{
+    z-index: 0;
     width: 15%;
     height: 25%;
     position: fixed;
-    top:30%;
+    top:40%;
     right: 0px;
     background: white;
     border-left: 2px solid #6545c9;
-    z-index: -1;
     
     display: flex;
     flex-wrap: wrap;
@@ -98,6 +97,10 @@ body {
     vertical-align: middle;
     margin-left: 15px;
     text-decoration: none;
-    color: #6545c9;
+    color: grey;
     width: 100%;
+}
+
+.sidenav a:hover{
+    color: #6545c9;
 }

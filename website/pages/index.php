@@ -36,7 +36,7 @@
             <button id="api" class="btn  btn-lg btn-block">Sign in with Google</button>
             <input type="text" class="form-control" name="username" placeholder="Email Address">
             <input type="password" class="form-control" name="password" placeholder="Password">
-            <button type="button" class="btn  btn-lg btn-block">Login</button>
+            <button type="button" onclick="location.href='home.php';" class="btn  btn-lg btn-block">Login</button>
             
             <div id="register">
                 Don't have an account? <a href="#">Register</button>
