@@ -1,0 +1,49 @@
+body {
+    background: #eee;
+    background-image: url("../resources/wallpaper2.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+}
+   
+.wrapper2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 100px);
+}
+
+.container{
+    margin: auto;
+}
+       
+h1  {
+    margin-left: 2.3rem;
+    padding-top:3rem;
+}
+
+.badge-secondary {
+    color: #fff;
+    background-color: #6545c9;
+}
+
+.td{
+    background-color: white;
+}
+
+thead{
+    Background: #6545c9;
+    border-top: solid;
+    border-color: #6545c9;
+}
+.table{
+    width:90%;
+    margin: auto;
+    background: white;
+}
