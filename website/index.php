@@ -39,7 +39,7 @@
             <button type="button" onclick="location.href='pages/home.php';" class="btn  btn-lg btn-block">Login</button>
             
             <div id="register">
-                Don't have an account? <a href="#">Register</button>
+                Don't have an account? <a href="pages/register.php">Register</button>
             </div>
 
         </form>
