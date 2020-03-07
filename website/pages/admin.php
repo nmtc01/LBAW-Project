@@ -129,7 +129,7 @@
     <h1><span class="badge badge-secondary">Promote</span></h1>
 
 
-<div class="wrapper2">
+<div class="wrapper">
    <div class="box1"><table class="table">
     <thead class="thead">
     <tr>

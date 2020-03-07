@@ -10,14 +10,6 @@ body {
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 100px);
-    margin-left: 40px;
-    margin-right: 40px;
-}
-   
-.wrapper2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     margin-left: 40px;
     margin-right: 40px;
 }
