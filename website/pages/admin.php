@@ -151,7 +151,7 @@
    <div class="box1"><table class="table">
     <thead class="thead">
     <tr>
-      <th scope="col">Users</th>
+      <th scope="col"><span>Users</span></th>
     </tr>
     <tr>
       <th scope="col">Username</th>
@@ -160,20 +160,20 @@
   </thead>
   <tbody>
     <tr>
-      <td>johny1</td>
-      <td>John</td>
+      <td>joee</td>
+      <td>146</td>
     </tr>
     <tr>
-      <td>mary123</td>
-      <td>Mary</td>
+      <td>doe23</td>
+      <td>95</td>
     </tr>
     <tr>
-      <td>redflag</td>
-      <td>Simon</td>
+      <td>penguinxD</td>
+      <td>89</td>
     </tr>
     <tr>
-      <td>Suzz987</td>
-      <td>Susan</td>
+      <td>somethinggg</td>
+      <td>67</td>
     </tr>
   </tbody>
 </table></div>
@@ -181,7 +181,7 @@
     <table class="table">
     <thead class="thead">
     <tr>
-      <th scope="col">Moderators</th>
+      <th scope="col"><span>Moderators</span></th>
     </tr>
     <tr>
       <th scope="col">Username</th>
@@ -191,19 +191,19 @@
   <tbody>
     <tr>
       <td>johny1</td>
-      <td>John</td>
+      <td>32</td>
     </tr>
     <tr>
       <td>mary123</td>
-      <td>Mary</td>
+      <td>-35</td>
     </tr>
     <tr>
       <td>redflag</td>
-      <td>Simon</td>
+      <td>75</td>
     </tr>
     <tr>
       <td>Suzz987</td>
-      <td>Susan</td>
+      <td>3</td>
     </tr>
   </tbody>
 </table>

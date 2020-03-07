@@ -10,38 +10,53 @@ body {
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 100px);
+    grid-template-rows: repeat(2, 100px);
+    margin-left: 40px;
+    margin-right: 40px;
 }
    
 .wrapper2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 100px);
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+th{
+    background-color:white;
+    border-top:solid;
+    border-color: white;
 }
 
 .container{
-    margin: auto;
+    mmargin-left: 40px;
+    margin-right: 40px;
+
 }
        
 h1  {
-    margin-left: 2.3rem;
+    margin-left: 40px;
+    margin-right: 40px;
     padding-top:3rem;
 }
+
+
 
 .badge-secondary {
     color: #fff;
     background-color: #6545c9;
 }
 
-.td{
-    background-color: white;
+tr:hover{
+   background-color: grey;
 }
 
-thead{
-    Background: #6545c9;
-    border-top: solid;
-    border-color: #6545c9;
+span{
+    color: #0091E9;
+    font-size: x-large;
 }
+
 .table{
     width:90%;
     margin: auto;
