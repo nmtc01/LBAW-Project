@@ -18,7 +18,7 @@
     <div class="container register">
         <div class="row">
             <div class="col-md-3 register-left">
-                <div>🇦​🇳​🇸​🇼​🇪​🇷​🇱​🇾​</div>
+                <h1>Answerly</h1>
                 <p>Hope you have a lot of questions ready to be answered!</p>
                 <button type="button" onclick="location.href='../index.php';" class="btn btn-outline-primary">Login</button>
             </div>
