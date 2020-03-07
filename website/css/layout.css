@@ -68,3 +68,7 @@ h2 {
 h3 {
     font-size: 1.2rem;
 }
+
+.wrapper img {
+    border-radius: .25rem;
+}
