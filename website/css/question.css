@@ -50,6 +50,15 @@
     border-top-color: #b3afaf;
 }
 
+.wrapper .media .media-body .media-body .comment p .username {
+    color: black;
+    font-weight: bold;
+}
+
+.wrapper .media .media-body .media-body .comment p .username:hover {
+    color: #6545c9;
+}
+
 .wrapper .media .media-body h2 {
     border-top-style: solid;
     border-top-width: .1rem;
