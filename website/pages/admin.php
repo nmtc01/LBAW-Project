@@ -3,12 +3,12 @@
 
     draw_main_document();
 ?>
-    <link rel="stylesheet" href="../css/modmin.css">
 
+    <link rel="stylesheet" href="../css/modmin.css">
 </head>
 
 <body>   
-<header>
+    <header>
         <?php 
             draw_nav_bar("full_bar");
         ?>
