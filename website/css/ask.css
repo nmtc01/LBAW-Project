@@ -1,0 +1,28 @@
+.wrapper .media-body h1 {
+    text-align: center;
+}
+
+.wrapper .media-body button[type="submit"] {
+    border-color: #6545c9;
+    background-color: #6545c9;
+    color: white;
+}
+
+.wrapper .media-body button[type="submit"]:hover {
+    background-color: #4c3397;
+}
+
+.wrapper .media-body #form-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper .col-3 {
+    align-self: center;
+    text-align: center;
+}
+
+.wrapper img.mr-3 {
+    width: 12em;
+    height: 12em;
+}
