@@ -10,44 +10,9 @@
 
 <body>
     <header>
-        <div class="fixed-top">
-            <nav class="navbar navbar-expand-lg navbar-light navbar-default">
-                <div class="container">
-                    <a href="#" class="navbar-brand">Answerly</a>
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </nav>
-            <div class="filters">
-                <form>
-                    <label>Filter:</label>
-                    <div id="filters-bar">
-                        <div class="checkboxes">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                <label class="form-check-label" for="inlineCheckbox1">Answered</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                <label class="form-check-label" for="inlineCheckbox2">+Positive Score</label>
-                            </div>
-                        </div>
-                        <div class="dates">
-                            <div>
-                                <label>Start</label>
-                                <input type="date" value="dd-mm-yyyy">
-                            </div>
-                            <div>
-                                <label>End</label>
-                                <input type="date" value="dd-mm-yyyy">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <?php
+            draw_nav_bar("full_filters");
+        ?>
     </header>
 
     <div class="wrapper">

@@ -9,15 +9,9 @@
 
 <body>
     <header>    
-        <nav class="navbar navbar-expand-lg navbar-light navbar-default fixed-top">
-            <div class="container">
-                <a class="navbar-brand"></a>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
+        <?php 
+            draw_nav_bar("simple");
+        ?>
     </header>
 
 

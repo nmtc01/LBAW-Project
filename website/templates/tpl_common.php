@@ -107,3 +107,97 @@ function draw_footer() {
 </html>
 <?php } 
 ?>
+
+<?php
+function draw_nav_bar($nav_type) {
+    if ($nav_type == "full_filters") {
+?>
+    <div class="fixed-top">
+<?php 
+    }
+?>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-default <?php if ($nav_type != "full_filters") {?> fixed-top <?php } ?>">
+        <div class="container">
+            <?php
+                if ($nav_type == "simple") {
+            ?>
+            <a class="navbar-brand"></a>
+            <?php
+                } 
+                else {
+            ?>
+            <a href="../pages/home.php" class="navbar-brand">Answerly</a>
+            <?php 
+                }
+            ?>
+            <?php
+                if ($nav_type != "simple") {
+            ?>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <button class="btn my-2 my-sm-0" type="submit">Ask Something</button>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li>
+                        <a class="nav-link" href="#" >
+                            <i class="fas fa-user fa-lg"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#" >
+                            <i class="fas fa-bell fa-lg"></i>
+                        </a>
+                    </li>
+                </ul>
+                <?php 
+                    }
+                ?>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn my-2 my-sm-0" type="submit" >Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+<?php
+    if ($nav_type == "full_filters") {
+?>
+        <div class="filters">
+            <form>
+                <label>Filter:</label>
+                <div id="filters-bar">
+                    <div class="checkboxes">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Answered</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">+Positive Score</label>
+                        </div>
+                    </div>
+                    <div class="dates">
+                        <div>
+                            <label>Start</label>
+                            <input type="date" value="dd-mm-yyyy">
+                        </div>
+                        <div>
+                            <label>End</label>
+                            <input type="date" value="dd-mm-yyyy">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<?php 
+    } 
+} 
+?>
