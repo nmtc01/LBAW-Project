@@ -91,7 +91,7 @@
 
 
 
-    <h1><span class="badge badge-secondary">Users Reported</span></h1>
+    <h1><span class="badge badge-secondary">Reported Users</span></h1>
 
 
 <table class="table table-striped">
@@ -111,17 +111,17 @@
     <tr>
       <td>mary123</td>
       <td>Mary</td>
-      <td>-35</td>
+      <td>25</td>
     </tr>
     <tr>
       <td>redflag</td>
       <td>Simon</td>
-      <td>75</td>
+      <td>3</td>
     </tr>
     <tr>
       <td>Suzz987</td>
       <td>Susan</td>
-      <td>3</td>
+      <td>-35</td>
     </tr>
   </tbody>
 </table>
@@ -177,11 +177,11 @@
     </tr>
     <tr>
       <td>mary123</td>
-      <td>-35</td>
+      <td>15</td>
     </tr>
     <tr>
       <td>redflag</td>
-      <td>75</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>Suzz987</td>
@@ -193,6 +193,6 @@
 
 
 </div>
-
-
-</body>
+<?php
+    draw_footer();
+?>
