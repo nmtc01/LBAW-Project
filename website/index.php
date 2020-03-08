@@ -31,8 +31,19 @@
         </form>
 
     </div>
+    <div class="popular">
+        <h1 id="pop_questions">Popular questions</h1>
+<?php
+    $img = "../resources/bob_iger.jpeg";
+    $user = "nmtc01";
+    $question = "In what order should I watch all the mcu?";
+    $info = "I'm about to start a marathon of marvel movies. I have never seen one and I would like to know what do you guuys think is the best order to see them. I heard that there are at least 20 ways to watch it.";
 
-
-</body>
-
-</html>
+    for($i = 0; $i < 10; $i++){ 
+        draw_home_question($img, $user, $question, $info);
+    }
+?>
+    </div>
+<?php
+    draw_footer();
+?>

@@ -205,7 +205,7 @@ function draw_nav_bar($nav_type) {
 <?php
 function draw_home_question($img, $user, $question, $info) {
 ?>
-    <div class="wrapper">
+    <div class="wrapper home_question">
         <div class="media">
             <img src=<?=$img?> class="align-self-start mr-3" alt="profile pic">
             <div class="media-body">
