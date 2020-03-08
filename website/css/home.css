@@ -24,7 +24,9 @@ body {
     color: #6545c9;
 }
 
-
+.wrapper .media img{
+    height: 8rem;
+}
 
 .input-button {
     width: 70%;
