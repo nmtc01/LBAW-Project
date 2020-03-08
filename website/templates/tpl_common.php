@@ -87,9 +87,6 @@ function draw_footer() {
                             <li>
                             <a href="#!">About us</a>
                             </li>
-                            <li>
-                            <a href="#!">Contacts</a>
-                            </li>
                         </ul>
                     </div>
                     <!-- Grid column -->

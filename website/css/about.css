@@ -1,0 +1,24 @@
+body {
+    background: #eee;
+    background-image: url("../resources/wallpaper2.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+#about {
+    margin: 3rem 10rem;
+    background-color: #eee;
+    padding: 4rem;
+    border-radius: .25rem;
+}
+
+#about h1 {
+    font-size: 1.5rem;
+    color: #6545c9;
+}
+
+#about article p span {
+    color: #6545c9;
+}
