@@ -35,13 +35,13 @@ function draw_footer() {
                         <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Labels</h3>
                         <ul class="list-unstyled">
                             <li>
-                            <a href="#!">Access my profile</a>
+                            <a href="../pages/profile.php">Access my profile</a>
                             </li>
                             <li>
-                            <a href="#!">Add a question</a>
+                            <a href="../pages/ask.php">Add a question</a>
                             </li>
                             <li>
-                            <a href="#!">Get back home</a>
+                            <a href="../pages/home.php">Get back home</a>
                             </li>
                         </ul>
                     </div>
@@ -203,17 +203,20 @@ function draw_nav_bar($nav_type) {
 ?>
 
 <?php
-function draw_home_question($img, $user, $question, $info) {
+function draw_home_question($type, $img, $user, $question, $info) {
 ?>
     <div class="wrapper home_question">
         <div class="media">
             <img src=<?=$img?> class="align-self-start mr-3" alt="profile pic">
             <div class="media-body">
                 <h1 class="mt-0"><a id="question-header" href="/pages/question.php"><?=$question?></a></h1>
-                <h2><?=$user?></h2>
+                <p><a href="/pages/profile.php"><?=$user?></a></p>
                 <p><?=$info?></p>
             </div>
         </div>
+        <?php
+        if ($type != "guest") {
+        ?>
         <div class="icons">
             <a class="icon" href="#">
                 <i class="fas fa-thumbs-up fa-lg"> 35</i>
@@ -225,7 +228,28 @@ function draw_home_question($img, $user, $question, $info) {
                 <i class="fas fa-reply fa-lg"> 6</i>
             </a>
         </div>
+        <?php
+        }
+        ?>
     </div>
+<?php
+}
+?>
+
+<?php
+function draw_search_result($img, $question, $info) {
+?>
+    <li class="media mt-3">
+        <a class="pr-3" href="..pages/profile.php">
+            <img src=<?="../resources/".$img?> alt="Generic placeholder image">
+        </a>
+        <a class="search_result" href="..pages/question.php">
+            <div class="media-body">
+                <h2 class="mt-0"><?=$question?></h2>
+                <p><?=$info?></p>
+            </div>
+        </a>
+    </li>
 <?php
 }
 ?>

@@ -20,24 +20,15 @@
             <div class="media-body">
                 <h1 class="mt-0">Search Results</h1>
                 <ul class="list-unstyled">
-                    <li class="media mt-3">
-                        <a class="pr-3" href="#">
-                            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
-                        </a>
-                        <div class="media-body">
-                            <h2 class="mt-0">Adam Sandler's cool experiment</h2>
-                            <p>Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... </p>
-                        </div>
-                    </li>
-                    <li class="media mt-3">
-                        <a class="pr-3" href="#">
-                            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
-                        </a>
-                        <div class="media-body">
-                            <h2 class="mt-0">Adam Sandler's cool experiment</h2>
-                            <p>Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... </p>
-                        </div>
-                    </li>
+                    <?php
+                    $img = "bob_iger.jpeg";
+                    $question = "Adam Sandler's cool experiment";
+                    $info = "Hey guys! Can anyone tell me if mixing coke with mentos creates an explosive reaction? I'm doing research for my next movie and I want it to be 100% cientifically correct... ";
+                    
+                    for($i = 0; $i < 5; $i++){
+                        draw_search_result($img, $question, $info);
+                    }
+                    ?>
                 </ul>
             </div>   
         </div>
