@@ -20,7 +20,7 @@
 
     <? 
     $type = "auth";
-    $img = "../resources/bob_iger.jpeg";
+    $img = "bob_iger.jpeg";
     $user = "nmtc01";
     $question = "In what order should I watch all the mcu?";
     $info = "I'm about to start a marathon of marvel movies. I have never seen one and I would like to know what do you guuys think is the best order to see them. I heard that there are at least 20 ways to watch it.";

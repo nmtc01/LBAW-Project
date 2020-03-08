@@ -18,10 +18,13 @@
     <div class="wrapper">
 
         <div class="media">
-            <img class="mr-3" src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+        <a class="pr-3" href="profile.php">
+            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+        </a>
             <div class="media-body">
-                <h1 class="mt-0">Question heading</h1>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                <h1 class="mt-0">In what order should I watch all the mcu?</h1>
+                <p><a href="/pages/profile.php">pedro_dantas</a></p>
+                <p>I'm about to start a marathon of marvel movies. I have never seen one and I would like to know what do you guuys think is the best order to see them. I heard that there are at least 20 ways to watch it.</p>
 
                 <div class=icons>
                     <a class="icon" href="#">
@@ -41,8 +44,6 @@
                     <button class="btn my-2 my-sm-0" type="submit">Answer</button>
                 </div>
 
-                
-
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1"></label>
                     <textarea class="form-control" placeholder="Do you want to comment this question?"id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -54,13 +55,13 @@
                 <div class="media-body">
                     <div class="comment">
                         <p>
-                        <a href="#" class="username">Username</a>
+                        <a href="profile.php" class="username">nmtc01</a>
                         <br>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                     </div>
                     <div class="comment">
                         <p>
-                        <a href="#" class="username">Username</a>
+                        <a href="profile.php" class="username">pedro_dantas</a>
                         <br>
                         Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                     </div>
