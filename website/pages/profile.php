@@ -11,7 +11,7 @@ draw_main_document();
 <body>
     <header>
         <?php
-        draw_nav_bar("simple");
+        draw_nav_bar("full_nav");
         ?>
     </header>
 
@@ -233,6 +233,7 @@ draw_main_document();
             </div>
         </div>
     </div>
-</body>
 
-</html>
+<?php 
+    draw_footer();
+?>
