@@ -20,7 +20,7 @@
             <div class="col-md-3 register-left">
                 <h1>Answerly</h1>
                 <p>Hope you have a lot of questions ready to be answered!</p>
-                <button type="button" class="btn btn-outline-primary">Login</button>
+                <button type="button" onclick="location.href='../index.php';" class="btn btn-outline-primary">Login</button>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
