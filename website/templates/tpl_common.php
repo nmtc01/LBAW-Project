@@ -253,3 +253,28 @@ function draw_search_result($img, $question, $info) {
 <?php
 }
 ?>
+
+<?php
+function draw_answer($img, $user, $answer, $score) {
+?>
+    <li class="media mt-3">
+        <a class="pr-3" href="../pages/profile.php">
+            <img src=<?="../resources/".$img?> alt="Generic placeholder image">
+            <p><?=$score?></p>
+        </a>
+        <div class="media-body">
+            <h3 class="mt-0"><a href="../pages/profile.php"><?=$user?></a></h3>
+            <p><?=$answer?></p>
+            <div class=icons-answers>
+                <a class="icon-answers" href="#">
+                    <i class="fas fa-thumbs-up"> 35</i>
+                </a>
+                <a class="icon-answers" href="#">
+                    <i class="fas fa-thumbs-down"> 4</i>
+                </a>
+            </div>
+        </div>
+    </li>
+<?php
+}
+?>

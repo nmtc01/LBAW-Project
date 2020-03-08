@@ -43,7 +43,7 @@
     border: none;
 }
 
-.wrapper .media .media-body .media-body p {
+.wrapper .media .media-body .media-body .comment p {
     border-top-style: solid;
     border-top-width: .05rem;
     padding-top: 1rem;
@@ -69,4 +69,18 @@
 
 .wrapper .media .media-body p a {
     color: #6545c9;
+}
+
+.wrapper .media .media-body .media-body h3 a {
+    color: black;
+}
+
+.wrapper .media .media-body .media-body h3 a:hover {
+    color: #6545c9;
+}
+
+.wrapper .media .media-body .pr-3 p {
+    color: #6545c9;
+    text-align: center;
+    margin-top: .25rem;
 }

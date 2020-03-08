@@ -22,9 +22,9 @@
             <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
         </a>
             <div class="media-body">
-                <h1 class="mt-0">In what order should I watch all the mcu?</h1>
+                <h1 class="mt-0">How to generate a random string of a fixed length in Go?</h1>
                 <p><a href="/pages/profile.php">pedro_dantas</a></p>
-                <p>I'm about to start a marathon of marvel movies. I have never seen one and I would like to know what do you guuys think is the best order to see them. I heard that there are at least 20 ways to watch it.</p>
+                <p>I want a random string of characters only (uppercase or lowercase), no numbers, in Go. What is the fastest and simplest way to do this?</p>
 
                 <div class=icons>
                     <a class="icon" href="#">
@@ -57,83 +57,29 @@
                         <p>
                         <a href="profile.php" class="username">nmtc01</a>
                         <br>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                        Here's a meta topic discussing basic questions. meta.stackoverflow.com/q/274645/395461 Personally, I think basic questions are ok if written well and are on-topic. Look at the answers below, they illustrate a bunch of things that would be useful for someone new to go. For loops, type casting, make(), etc.</p>
                     </div>
                     <div class="comment">
                         <p>
-                        <a href="profile.php" class="username">pedro_dantas</a>
+                        <a href="profile.php" class="username">edu1234</a>
                         <br>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                        "This question does not show any research effort" (first highly upvoted answer in your link) - That's what I was referring to. He shows no research effort. No effort at all (an attempt, or even stating that he looked online, which he obviously hasn't). Although it would be useful for someone new, this site is not focused on teaching new people. It's focused on answering specific programming problems/questions, not tutorials/guides. Although it could be used for the latter, that is not the focus, and thus this question should be closed. Instead, its spoonfed</p>
                     </div>
                 </div>                
                 <h2 class="mt-0">Answers</h2>
                 
                 <ul class="list-unstyled">
-                    <li class="media mt-3">
+                    <?php
+                        $img = "bob_iger.jpeg";
+                        $user = "bob_mourato";
+                        $answer = "The question asks for the the fastest and simplest way. Let's address the fastest part too. We'll arrive at our final, fastest code in an iterative manner. Benchmarking each iteration can be found at the end of the answer.
+                        All the solutions and the benchmarking code can be found on the Go Playground. The code on the Playground is a test file, not an executable.";
+                        $score = 33;
 
-                        <a class="pr-3" href="#">
-                            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
-                        </a>
-                        <div class="media-body">
-
-                            <h3 class="mt-0">Answer heading</h3>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-                            <div class=icons-answers>
-                                <a class="icon-answers" href="#">
-                                    <i class="fas fa-thumbs-up"> 35</i>
-                                </a>
-                                <a class="icon-answers" href="#">
-                                    <i class="fas fa-thumbs-down"> 4</i>
-                                </a>
-                            </div>
-                        </div>
-
-                    </li>
-
-                    <li class="media mt-3">
-
-                        <a class="pr-3" href="#">
-                            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
-                        </a>
-                        <div class="media-body">
-
-                            <h3 class="mt-0">Answer heading</h3>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-                            <div class=icons-answers>
-                                <a class="icon-answers" href="#">
-                                    <i class="fas fa-thumbs-up"> 35</i>
-                                </a>
-                                <a class="icon-answers" href="#">
-                                    <i class="fas fa-thumbs-down"> 4</i>
-                                </a>
-                            </div>
-                        </div>
-
-                    </li>
-
-                    <li class="media mt-3">
-
-                        <a class="pr-3" href="#">
-                            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
-                        </a>
-                        <div class="media-body">
-
-                            <h3 class="mt-0">Answer heading</h3>
-                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-                            <div class=icons-answers>
-                                <a class="icon-answers" href="#">
-                                    <i class="fas fa-thumbs-up"> 35</i>
-                                </a>
-                                <a class="icon-answers" href="#">
-                                    <i class="fas fa-thumbs-down"> 4</i>
-                                </a>
-                            </div>
-                        </div>
-
-                    </li>
+                        for($i = 0; $i < 3; $i++){
+                            draw_answer($img, $user, $answer, $score);
+                        }
+                    ?>
                 </ul>
             </div>
         </div>
