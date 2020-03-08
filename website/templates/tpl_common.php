@@ -201,3 +201,31 @@ function draw_nav_bar($nav_type) {
     } 
 } 
 ?>
+
+<?php
+function draw_home_question($img, $user, $question, $info) {
+?>
+    <div class="wrapper">
+        <div class="media">
+            <img src=<?=$img?> class="align-self-start mr-3" alt="profile pic">
+            <div class="media-body">
+                <h1 class="mt-0"><a id="question-header" href="question.php"><?=$question?></a></h1>
+                <h2><?=$user?></h2>
+                <p><?=$info?></p>
+            </div>
+        </div>
+        <div class="icons">
+            <a class="icon" href="#">
+                <i class="fas fa-thumbs-up fa-lg"> 35</i>
+            </a>
+            <a class="icon" href="#">
+                <i class="fas fa-thumbs-down fa-lg"> 4</i>
+            </a>
+            <a class="icon" href="#">
+                <i class="fas fa-reply fa-lg"> 6</i>
+            </a>
+        </div>
+    </div>
+<?php
+}
+?>
