@@ -35,13 +35,13 @@ function draw_footer() {
                         <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Labels</h3>
                         <ul class="list-unstyled">
                             <li>
-                            <a href="#!">Access my profile</a>
+                            <a href="../pages/profile.php">Access my profile</a>
                             </li>
                             <li>
-                            <a href="#!">Add a question</a>
+                            <a href="../pages/ask.php">Add a question</a>
                             </li>
                             <li>
-                            <a href="#!">Get back home</a>
+                            <a href="../pages/home.php">Get back home</a>
                             </li>
                         </ul>
                     </div>
