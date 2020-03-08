@@ -20,7 +20,7 @@
             <div class="col-md-3 register-left">
                 <h1>Answerly</h1>
                 <p>Hope you have a lot of questions ready to be answered!</p>
-                <button type="button" onclick="location.href='../index.php';" class="btn btn-outline-primary">Login</button>
+                <button type="button" class="btn btn-outline-primary">Login</button>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
@@ -65,7 +65,7 @@
                                 <div class="form-group" contentEditable="true">
                                     <textarea class="form-control" placeholder="Description *" value="" rows="5"></textarea>
                                 </div>
-                                <input type="submit" onclick="location.href='home.php';" class="btnRegister" value="Register" />
+                                <input type="submit" class="btnRegister" value="Register" />
                             </div>
                         </div>
                     </div>

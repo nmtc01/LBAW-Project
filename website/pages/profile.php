@@ -100,33 +100,33 @@ draw_main_document();
                     </div>
                     <div class="tab-pane" id="messages">
                         <div class="alert alert-info alert-dismissable">
-                            <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
+                            <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Used to show important messages to the user.
                         </div>
                         <table class="table table-hover table-striped">
                             <tbody>
                                 <tr>
                                     <td>
-                                        <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+                                        <span class="float-right font-weight-bold">3 hrs ago</span> You were reported by SociedadeAntiPesca.
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+                                        <span class="float-right font-weight-bold">Yesterday</span> Your account is being verified for suspected behavior.
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
+                                        <span class="float-right font-weight-bold">9/10</span> New features on the website soon, stay tuned!
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus.
+                                        <span class="float-right font-weight-bold">9/6</span> You have been a very active user!
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros.
+                                        <span class="float-right font-weight-bold">9/4</span> Welcome to our website!!!
                                     </td>
                                 </tr>
                             </tbody>
@@ -137,67 +137,31 @@ draw_main_document();
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">First name</label>
                                 <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="Jane">
+                                    <input class="form-control" type="text" value="António">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                                 <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="Bishop">
+                                    <input class="form-control" type="text" value="Sardinha">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Email</label>
                                 <div class="col-lg-9">
-                                    <input class="form-control" type="email" value="email@gmail.com">
+                                    <input class="form-control" type="email" value="fishforlife@email.com">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Company</label>
+                                <label class="col-lg-3 col-form-label form-control-label">Description</label>
                                 <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Website</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="url" value="">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                                <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="" placeholder="Street">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label"></label>
-                                <div class="col-lg-6">
-                                    <input class="form-control" type="text" value="" placeholder="City">
-                                </div>
-                                <div class="col-lg-3">
-                                    <input class="form-control" type="text" value="" placeholder="State">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
-                                <div class="col-lg-9">
-                                    <select id="user_time_zone" class="form-control" size="0">
-                                        <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                        <option value="Alaska">(GMT-09:00) Alaska</option>
-                                        <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                                        <option value="Arizona">(GMT-07:00) Arizona</option>
-                                        <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                                        <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                                        <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                                        <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                                    </select>
+                                    <input class="form-control" type="text" value="Fisherman and Poet">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Username</label>
                                 <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="janeuser">
+                                    <input class="form-control" type="text" value="Tuna">
                                 </div>
                             </div>
                             <div class="form-group row">
