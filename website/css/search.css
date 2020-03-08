@@ -61,3 +61,12 @@ nav .pagination .page-item #next{
     background-color: #6545c9;
     color: white;
 }
+
+.wrapper .media .media-body .list-unstyled .search_result {
+    text-decoration: none;
+    color: black;
+}
+
+.wrapper .media .media-body .list-unstyled .search_result:hover {
+    color: #6545c9;
+}

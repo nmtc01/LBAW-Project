@@ -235,3 +235,21 @@ function draw_home_question($type, $img, $user, $question, $info) {
 <?php
 }
 ?>
+
+<?php
+function draw_search_result($img, $question, $info) {
+?>
+    <li class="media mt-3">
+        <a class="pr-3" href="..pages/profile.php">
+            <img src=<?="../resources/".$img?> alt="Generic placeholder image">
+        </a>
+        <a class="search_result" href="..pages/question.php">
+            <div class="media-body">
+                <h2 class="mt-0"><?=$question?></h2>
+                <p><?=$info?></p>
+            </div>
+        </a>
+    </li>
+<?php
+}
+?>
