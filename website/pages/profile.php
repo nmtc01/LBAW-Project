@@ -48,51 +48,52 @@ draw_main_document();
                                 </p>
                             </div>
                             <div class="col-md-6">
-                                <h6>Recent badges</h6>
-                                <a href="#" class="badge badge-dark badge-pill">html5</a>
-                                <a href="#" class="badge badge-dark badge-pill">react</a>
-                                <a href="#" class="badge badge-dark badge-pill">codeply</a>
-                                <a href="#" class="badge badge-dark badge-pill">angularjs</a>
-                                <a href="#" class="badge badge-dark badge-pill">css3</a>
-                                <a href="#" class="badge badge-dark badge-pill">jquery</a>
-                                <a href="#" class="badge badge-dark badge-pill">bootstrap</a>
-                                <a href="#" class="badge badge-dark badge-pill">responsive-design</a>
+                                <h6>Recent labels</h6>
+                                <a href="#" class="badge badge-dark badge-pill">cana de pesca</a>
+                                <a href="#" class="badge badge-dark badge-pill">anzol</a>
+                                <a href="#" class="badge badge-dark badge-pill">isco</a>
+                                <a href="#" class="badge badge-dark badge-pill">barco</a>
+                                <a href="#" class="badge badge-dark badge-pill">rabanada de vento</a>
+                                <a href="#" class="badge badge-dark badge-pill">mastro</a>
+                                <a href="#" class="badge badge-dark badge-pill">rede</a>
+                                <a href="#" class="badge badge-dark badge-pill">pesca</a>
                                 <hr>
-                                <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
-                                <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
-                                <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
+                                <span class="badge badge-success"><i class="fas fa-star"></i> Score 9999</span>
                             </div>
                             <div class="col-md-12">
                                 <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
-                                <table class="table table-sm table-hover table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Question</th>
+                                                <th scope="col">Number of Answers</th>
+                                                <th scope="col">Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Como é que meto o anzol na linha?</td>
+                                                <td>8</td>
+                                                <td>300</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Está bom tempo para ir pescar?</td>
+                                                <td>17</td>
+                                                <td>146</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Estamos na época da sardinha?</td>
+                                                <td>3</td>
+                                                <td>421</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         <!--/row-->
