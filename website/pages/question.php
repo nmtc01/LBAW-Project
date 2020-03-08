@@ -38,6 +38,15 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1"></label>
                     <textarea class="form-control" placeholder="Do you know the answer to this question?"id="exampleFormControlTextarea1" rows="7"></textarea>
+                    <button class="btn my-2 my-sm-0" type="submit">Answer</button>
+                </div>
+
+                
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea class="form-control" placeholder="Do you want to comment this question?"id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <button class="btn my-2 my-sm-0" type="submit">Comment</button>
                 </div>
 
                 <h2 class="mt-0">Comments</h2>
