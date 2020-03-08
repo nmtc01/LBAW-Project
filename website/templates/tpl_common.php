@@ -85,7 +85,7 @@ function draw_footer() {
                         <h3 class="font-weight-bold text-uppercase mt-3 mb-4">About</h3>
                         <ul class="list-unstyled">
                             <li>
-                            <a href="#!">About us</a>
+                            <a href="../pages/about.php">About us</a>
                             </li>
                         </ul>
                     </div>
