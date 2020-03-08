@@ -26,6 +26,7 @@
                             <label for="exampleFormControlTextarea1">Write your question here</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
+                        <a href="#" class="badge badge-dark badge-pill">+</a>
                         <div id="form-buttons" class="form-group">
                             <input type="file" class="form-control-file" id="exampleFormControlFile1" accept="image/png, image/jpeg">
                             <button class="btn btn-primary btn-lg" type="submit">Add</button>

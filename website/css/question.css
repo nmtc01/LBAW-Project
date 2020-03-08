@@ -67,3 +67,6 @@
     margin-top: 1rem;
 }
 
+.wrapper .media .media-body p a {
+    color: #6545c9;
+}
