@@ -27,6 +27,10 @@ body {
     height: 8rem;
 }
 
+.wrapper .media .media-body p a {
+    color: #6545c9;
+}
+
 .input-button {
     width: 70%;
     background-color: #6545c9;
