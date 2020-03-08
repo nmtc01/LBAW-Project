@@ -210,7 +210,7 @@ function draw_home_question($img, $user, $question, $info) {
             <img src=<?=$img?> class="align-self-start mr-3" alt="profile pic">
             <div class="media-body">
                 <h1 class="mt-0"><a id="question-header" href="/pages/question.php"><?=$question?></a></h1>
-                <h2><?=$user?></h2>
+                <p><a href="/pages/profile.php"><?=$user?></a></p>
                 <p><?=$info?></p>
             </div>
         </div>
