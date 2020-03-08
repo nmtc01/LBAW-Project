@@ -85,10 +85,7 @@ function draw_footer() {
                         <h3 class="font-weight-bold text-uppercase mt-3 mb-4">About</h3>
                         <ul class="list-unstyled">
                             <li>
-                            <a href="#!">About us</a>
-                            </li>
-                            <li>
-                            <a href="#!">Contacts</a>
+                            <a href="../pages/about.php">About us</a>
                             </li>
                         </ul>
                     </div>
@@ -243,12 +240,37 @@ function draw_search_result($img, $question, $info) {
         <a class="pr-3" href="..pages/profile.php">
             <img src=<?="../resources/".$img?> alt="Generic placeholder image">
         </a>
-        <a class="search_result" href="..pages/question.php">
+        <a class="search_result" href="question.php">
             <div class="media-body">
                 <h2 class="mt-0"><?=$question?></h2>
                 <p><?=$info?></p>
             </div>
         </a>
+    </li>
+<?php
+}
+?>
+
+<?php
+function draw_answer($img, $user, $answer, $score) {
+?>
+    <li class="media mt-3">
+        <a class="pr-3" href="../pages/profile.php">
+            <img src=<?="../resources/".$img?> alt="Generic placeholder image">
+            <p><?=$score?></p>
+        </a>
+        <div class="media-body">
+            <h3 class="mt-0"><a href="../pages/profile.php"><?=$user?></a></h3>
+            <p><?=$answer?></p>
+            <div class=icons-answers>
+                <a class="icon-answers" href="#">
+                    <i class="fas fa-thumbs-up"> 35</i>
+                </a>
+                <a class="icon-answers" href="#">
+                    <i class="fas fa-thumbs-down"> 4</i>
+                </a>
+            </div>
+        </div>
     </li>
 <?php
 }
