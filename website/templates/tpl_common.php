@@ -203,7 +203,7 @@ function draw_nav_bar($nav_type) {
 ?>
 
 <?php
-function draw_home_question($img, $user, $question, $info) {
+function draw_home_question($type, $img, $user, $question, $info) {
 ?>
     <div class="wrapper home_question">
         <div class="media">
@@ -214,6 +214,9 @@ function draw_home_question($img, $user, $question, $info) {
                 <p><?=$info?></p>
             </div>
         </div>
+        <?php
+        if ($type != "guest") {
+        ?>
         <div class="icons">
             <a class="icon" href="#">
                 <i class="fas fa-thumbs-up fa-lg"> 35</i>
@@ -225,6 +228,9 @@ function draw_home_question($img, $user, $question, $info) {
                 <i class="fas fa-reply fa-lg"> 6</i>
             </a>
         </div>
+        <?php
+        }
+        ?>
     </div>
 <?php
 }
