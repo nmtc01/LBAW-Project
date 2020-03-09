@@ -16,12 +16,11 @@
     align-items: center;
 }
 
-.wrapper .col-3 {
+.wrapper .col-sm-3 {
     align-self: center;
     text-align: center;
 }
 
-.wrapper img.mr-3 {
-    width: 12em;
-    height: 12em;
+#exampleFormControlFile1 {
+    padding-left: 0;
 }
