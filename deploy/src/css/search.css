@@ -1,0 +1,62 @@
+body { 
+    padding-top: 200px; 
+}
+
+.filters {
+    max-width: 75%;
+    margin: 0 auto;
+    background-color: #806bbe;
+    padding: 3% 20px 3% 20px;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    color: white;
+}
+
+.filters:hover {
+    transition: .5s;
+}
+
+.filters input {
+    cursor: pointer;
+}
+
+.filters form #filters-bar .dates label{
+    margin: 0rem .5rem 0rem 1rem
+}
+
+.filters form #filters-bar .dates input{
+    color: #806bbe;
+    border-radius: .25rem;
+    border-color: #806bbe;
+}
+
+.wrapper ul li.media {
+    margin-top: 1rem;
+}
+
+nav .pagination .page-item .page-link{
+    color: #6545c9;
+}
+
+nav .pagination .page-item #previous{
+    background-color: #6545c9;
+    color: white;
+}
+
+nav .pagination .page-item #next{
+    background-color: #6545c9;
+    color: white;
+}
+
+.wrapper .media .media-body .list-unstyled .search_result {
+    text-decoration: none;
+    color: black;
+}
+
+.wrapper .media .media-body .list-unstyled .search_result:hover {
+    color: #6545c9;
+}
+
+.wrapper {
+    padding: 2% 5% 5%;
+}

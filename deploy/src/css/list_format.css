@@ -1,0 +1,30 @@
+body{
+    background-color: #eee;
+}
+
+.wrapper {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 15px 40px 40px;
+    border: 2px solid #e5e5e5;
+    border-radius: 10px;
+    border-color: #6545c9;
+}
+
+.wrapper a.pr-3 {
+    width: 100%;
+}
+
+.wrapper img {
+    width: 100%;
+}
+
+.wrapper .media .media-body .media.mt-3 {
+    border-top-style: solid;
+    border-top-width: .05rem;
+    padding-top: 1rem;
+    border-top-color: #6545c9;
+}
