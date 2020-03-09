@@ -1,0 +1,54 @@
+body {
+    background: #eee;
+    background-image: url("../resources/wallpaper2.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+th{
+    background-color:white;
+    border-top:solid;
+    border-color: white;
+}
+
+.container{
+    margin-left: 40px;
+    margin-right: 40px;
+
+}
+       
+h1  {
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-top:3rem;
+}
+
+
+.badge-secondary {
+    color: #fff;
+    background-color: #6545c9;
+}
+
+tr:hover{
+   background-color: grey;
+}
+
+span{
+    color: #0091E9;
+    font-size: x-large;
+}
+
+.table{
+    width:90%;
+    margin: auto;
+    background: white;
+}
