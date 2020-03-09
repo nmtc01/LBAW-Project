@@ -30,7 +30,7 @@ draw_main_document();
     }
     ?>
 
-    <div class="sidenav">
+    <div class="sidenav	d-none d-sm-block">
         <div class="elements">
             <a href="#">Sports</a>
             <a href="#">Movies</a>

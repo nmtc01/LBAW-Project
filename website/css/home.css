@@ -11,8 +11,8 @@ body {
     border-color: #6545c9;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 7%;
+    margin-right: 14%;
 }
 
 .wrapper #question-header{
@@ -35,8 +35,8 @@ body {
     border-radius: 10px;
     border-color: #6545c9;
     margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 7%;
+    margin-right: 14%;
     text-align: left;
     color: white;
     transition: 0.5s ease;

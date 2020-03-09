@@ -32,7 +32,7 @@
 .register-left :first-child {
     font-size: larger;
     margin-top: 15%;
-    margin-bottom: 30%;
+    margin-bottom: 10%;
     -webkit-animation: mover 2s infinite alternate;
     animation: mover 1s infinite alternate;
 }
