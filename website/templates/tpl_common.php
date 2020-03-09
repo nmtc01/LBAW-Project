@@ -168,26 +168,28 @@ function draw_nav_bar($nav_type) {
 ?>
         <div class="filters">
             <form>
-                <label>Filter:</label>
-                <div id="filters-bar">
-                    <div class="checkboxes">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">Answered</label>
+                <h3>Filter:</h3>
+                <div id="filters-bar container row">
+                    <div class="row">
+                        <div class="checkboxes col-sm-6">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Answered</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">+Positive Score</label>
+                            </div>
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">+Positive Score</label>
-                        </div>
-                    </div>
-                    <div class="dates">
-                        <div>
-                            <label>Start</label>
-                            <input type="date" value="dd-mm-yyyy">
-                        </div>
-                        <div>
-                            <label>End</label>
-                            <input type="date" value="dd-mm-yyyy">
+                        <div class="dates col-sm-6 row">
+                            <div class="col-sm-6">
+                                <label>Start</label>
+                                <input type="date" value="dd-mm-yyyy">
+                            </div>
+                            <div class="col-sm-6">
+                                <label>End</label>
+                                <input type="date" value="dd-mm-yyyy">
+                            </div>
                         </div>
                     </div>
                 </div>
