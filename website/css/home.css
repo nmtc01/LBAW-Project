@@ -24,7 +24,7 @@ body {
 }
 
 .wrapper .media img{
-    height: 8rem;
+    width: 20%;
 }
 
 .wrapper .media .media-body p a {

@@ -14,9 +14,12 @@ body{
     border-color: #6545c9;
 }
 
+.wrapper a.pr-3 {
+    width: 20%;
+}
+
 .wrapper img {
-    width: 4em;
-    height: 4em;
+    width: 100%;
 }
 
 .wrapper .media .media-body .media.mt-3 {

@@ -15,12 +15,12 @@
         ?>
     </header>
 
-    <div class="wrapper">
+    <div class="wrapper container">
 
         <div class="media">
-        <a class="pr-3" href="profile.php">
-            <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
-        </a>
+            <a class="pr-3" href="profile.php">
+                <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+            </a>
             <div class="media-body">
                 <h1 class="mt-0">How to generate a random string of a fixed length in Go?</h1>
                 <p><a href="/pages/profile.php">pedro_dantas</a></p>
