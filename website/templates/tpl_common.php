@@ -41,6 +41,9 @@ function draw_footer() {
                             <a href="../pages/ask.php">Add a question</a>
                             </li>
                             <li>
+                            <a href="../pages/admin.php">Moderate</a>
+                            </li>
+                            <li>
                             <a href="../pages/home.php">Get back home</a>
                             </li>
                         </ul>
