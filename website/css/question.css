@@ -84,3 +84,7 @@
     text-align: center;
     margin-top: .25rem;
 }
+
+.wrapper img {
+    margin-bottom: 0;
+}

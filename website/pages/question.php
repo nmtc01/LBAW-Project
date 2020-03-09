@@ -17,11 +17,11 @@
 
     <div class="wrapper container">
 
-        <div class="media">
-            <a class="pr-3" href="profile.php">
+        <div class="media row">
+            <a class="pr-3 col-sm-2" href="profile.php">
                 <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
             </a>
-            <div class="media-body">
+            <div class="media-body col-sm-10">
                 <h1 class="mt-0">How to generate a random string of a fixed length in Go?</h1>
                 <p><a href="/pages/profile.php">pedro_dantas</a></p>
                 <p>I want a random string of characters only (uppercase or lowercase), no numbers, in Go. What is the fastest and simplest way to do this?</p>
@@ -57,7 +57,7 @@
                         <p>
                         <a href="profile.php" class="username">nmtc01</a>
                         <br>
-                        Here's a meta topic discussing basic questions. meta.stackoverflow.com/q/274645/395461 Personally, I think basic questions are ok if written well and are on-topic. Look at the answers below, they illustrate a bunch of things that would be useful for someone new to go. For loops, type casting, make(), etc.</p>
+                        Here's a meta topic discussing basic questions. Personally, I think basic questions are ok if written well and are on-topic. Look at the answers below, they illustrate a bunch of things that would be useful for someone new to go. For loops, type casting, make(), etc.</p>
                     </div>
                     <div class="comment">
                         <p>
