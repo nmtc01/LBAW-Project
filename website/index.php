@@ -15,7 +15,7 @@
     </header>
 
 
-    <div class="wrapper">
+    <div class="wrapper container">
         <form class="form-signin">
             <h2 class="form-signin-heading text-center display-3">Answerly</h2>
 

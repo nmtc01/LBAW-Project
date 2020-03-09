@@ -24,7 +24,7 @@
             <h1>Contacts</h1>
             <p>Antonio Pedro Reis Ribeiro Sousa Dantas, <span>up201703878@fe.up.pt</span><p>
             <p>Eduardo João Santana Macedo, <span>up201703658@fe.up.pt</span></p>
-            <p>Miguel Teixeira Cardoso, <span>up201706162@fe.up.pt</span></p>
+            <p>Nuno Miguel Teixeira Cardoso, <span>up201706162@fe.up.pt</span></p>
             <p>Roberto Dias Mourato, <span>up201705616@fe.up.pt</span></p>
         </article>
     </section>
