@@ -236,11 +236,11 @@ function draw_home_question($type, $img, $user, $question, $info) {
 <?php
 function draw_search_result($img, $question, $info) {
 ?>
-    <li class="media mt-3">
-        <a class="pr-3" href="..pages/profile.php">
+    <li class="media mt-3 container">
+        <a class="pr-3 col-sm-1 d-none d-sm-block" href="../pages/profile.php">
             <img src=<?="../resources/".$img?> alt="Generic placeholder image">
         </a>
-        <a class="search_result" href="question.php">
+        <a class="search_result col-sm-11" href="question.php">
             <div class="media-body">
                 <h2 class="mt-0"><?=$question?></h2>
                 <p><?=$info?></p>
@@ -255,11 +255,11 @@ function draw_search_result($img, $question, $info) {
 function draw_answer($img, $user, $answer, $score) {
 ?>
     <li class="media mt-3">
-        <a class="pr-3" href="../pages/profile.php">
+        <a class="pr-3 col-sm-2 d-none d-sm-block" href="../pages/profile.php">
             <img src=<?="../resources/".$img?> alt="Generic placeholder image">
             <p><?=$score?></p>
         </a>
-        <div class="media-body">
+        <div class="media-body col-sm-10">
             <h3 class="mt-0"><a href="../pages/profile.php"><?=$user?></a></h3>
             <p><?=$answer?></p>
             <div class=icons-answers>
