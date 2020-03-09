@@ -1,0 +1,90 @@
+.media{
+    margin-top: 40px;
+}
+
+
+.icons{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.icons-answers{
+    width: 100%;
+
+}
+
+.icon{
+    color: black;
+    margin-right: 100px;
+}
+
+.icon:hover{
+    color: #6545c9;
+}
+
+.icon-answers{
+    color: black;
+    margin-right: 10px;
+}
+
+.icon-answers:hover{
+    color: #6545c9;
+}
+
+.media .form-control{
+    border: 2px solid #e5e5e5;
+    border-radius: 10px;
+    border-color: #6545c9;
+}
+
+.purple{
+    height: 2px;
+    background-color: #6545c9;
+    border: none;
+}
+
+.wrapper .media .media-body .media-body .comment p {
+    border-top-style: solid;
+    border-top-width: .05rem;
+    padding-top: 1rem;
+    border-top-color: #b3afaf;
+}
+
+.wrapper .media .media-body .media-body .comment p .username {
+    color: black;
+    font-weight: bold;
+}
+
+.wrapper .media .media-body .media-body .comment p .username:hover {
+    color: #6545c9;
+}
+
+.wrapper .media .media-body h2 {
+    border-top-style: solid;
+    border-top-width: .1rem;
+    padding-top: 1rem;
+    border-top-color: #6545c9;
+    margin-top: 1rem;
+}
+
+.wrapper .media .media-body p a {
+    color: #6545c9;
+}
+
+.wrapper .media .media-body .media-body h3 a {
+    color: black;
+}
+
+.wrapper .media .media-body .media-body h3 a:hover {
+    color: #6545c9;
+}
+
+.wrapper .media .media-body .pr-3 p {
+    color: #6545c9;
+    text-align: center;
+    margin-top: .25rem;
+}
+
+.wrapper img {
+    margin-bottom: 0;
+}
