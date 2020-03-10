@@ -30,16 +30,6 @@ draw_main_document();
     }
     ?>
 
-    <div class="sidenav	d-none d-sm-block">
-        <div class="elements">
-            <a href="#">Sports</a>
-            <a href="#">Movies</a>
-            <a href="#">TV</a>
-            <a href="#">Philosophy</a>
-            <a href="#">Science</a>
-        </div>
-    </div>
-
     <?php
     draw_footer();
     ?>
