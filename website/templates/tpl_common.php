@@ -209,7 +209,7 @@ function draw_home_question($type, $img, $user, $question, $info) {
 ?>
     <div class="wrapper home_question container">
         <div class="row">
-            <div class="col-sm-1 text-center">
+            <div id="prof_info" class="col-sm-1 text-center my-auto">
                 <img src=<?="../resources/".$img?> class="row-10" alt="profile pic">
                 <p><a class="row-2" href="/pages/profile.php"><?=$user?></a></p>
             </div>
