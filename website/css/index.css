@@ -18,7 +18,7 @@ body {
     background-color: #fff;
     padding: 15px 40px 50px;
     border: 1px solid #e5e5e5;
-    border-radius: 10px;
+    border-radius: .25rem;
 }
 
 .form-signin input[type="text"],
@@ -71,7 +71,7 @@ body {
     background-color: white;
     padding: 2%;
     border: 2px solid #e5e5e5;
-    border-radius: 10px;
+    border-radius: .25rem;
     border-color: #6545c9;
     margin: auto;
     margin-top: 1rem;
@@ -104,7 +104,7 @@ div.popular {
     padding-bottom: 6rem;
     margin-top: 5rem;
     width: 75%;
-    border-radius: .5rem;
+    border-radius: .25rem;
 }
 
 div.popular h1#pop_questions {
@@ -113,8 +113,8 @@ div.popular h1#pop_questions {
     background-color: #6545c9;
     border: solid #eee;
     border-width: .1rem .1rem 0rem .1rem;
-    border-top-right-radius: .5rem;
-    border-top-left-radius: .5rem;
+    border-top-right-radius: .25rem;
+    border-top-left-radius: .25rem;
     color: white;
     margin-bottom: 2rem;
 }

@@ -32,7 +32,7 @@ function draw_footer() {
                     <!-- Grid column -->
                     <div class="col-md-3 mx-auto">
                         <!-- Links -->
-                        <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Labels</h3>
+                        <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Access</h3>
                         <ul class="list-unstyled">
                             <li>
                             <a href="../pages/profile.php">Access my profile</a>

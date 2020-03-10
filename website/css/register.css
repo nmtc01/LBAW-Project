@@ -12,7 +12,7 @@
 
 .register-left input {
     border: none;
-    border-radius: 1.5rem;
+    border-radius: .25rem;
     padding: 2%;
     width: 60%;
     background: #f8f9fa;
@@ -70,7 +70,7 @@
     float: right;
     margin-top: 10%;
     border: none;
-    border-radius: 1.5rem;
+    border-radius: .25rem;
     padding: 2%;
     background: #0062cc;
     color: #fff;
