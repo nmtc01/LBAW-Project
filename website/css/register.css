@@ -74,11 +74,15 @@
     border: none;
     border-radius: .25rem;
     padding: 2%;
-    background: #0062cc;
+    background: #6545c9;
     color: #fff;
     font-weight: 600;
     width: 50%;
     cursor: pointer;
+}
+
+.btnRegister:hover {
+    background: #352369;
 }
 
 .register-left [type="button"] {
