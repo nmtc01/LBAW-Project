@@ -18,6 +18,22 @@ function draw_card_form($type) {
                <?php
                draw_form($type);
                ?> 
+                <div class="col-md-6 ml-auto">
+                    <input type="submit" class="btnRegister" value=<?=$type?> />
+                    <div class="align-middle d-flex justify-content-end">
+                        <?php
+                            if ($type == "Register") {
+                        ?>
+                        <a href="../pages/login.php">Sign In</a>
+                        <?php
+                            } else {
+                        ?>
+                        <a class="d-flex justify-content-end" href="../pages/register.php">Create account</a>
+                        <?php
+                            }
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -30,7 +46,7 @@ function draw_form($type) {
 ?>
 <div class="row register-form">
     <?php
-    if ($type == "register") 
+    if ($type == "Register") 
         draw_form_register();
     draw_form_login();
     ?>
@@ -75,7 +91,7 @@ function draw_form_register() {
 <?php 
 function draw_form_login() {
 ?>
-<div class="col-md-6">
+<div class="col-md-6 ml-auto">
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Username *" value="" />
     </div>
@@ -88,7 +104,6 @@ function draw_form_login() {
     <div class="form-group" contentEditable="true">
         <textarea class="form-control" placeholder="Description *" value="" rows="5"></textarea>
     </div>
-    <input type="submit" class="btnRegister" value="Register" />
 </div>
 <?php
 }
