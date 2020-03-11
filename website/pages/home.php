@@ -14,19 +14,20 @@ draw_main_document();
         ?>
     </header>
 
-    <button class="input-button">
-        What is your question?
-    </button>
+    <div id="add_lg_button">
+        <button class="input-button col-sm-5 center-block">
+            What is your question?
+        </button>
+    </div>
 
     <?php
     $type = "auth";
     $img = "bob_iger.jpeg";
     $user = "nmtc01";
     $question = "In what order should I watch all the mcu?";
-    $info = "I'm about to start a marathon of marvel movies. I have never seen one and I would like to know what do you guuys think is the best order to see them. I heard that there are at least 20 ways to watch it.";
 
     for ($i = 0; $i < 10; $i++) {
-        draw_home_question($type, $img, $user, $question, $info);
+        draw_home_question($type, $img, $user, $question);
     }
     ?>
 

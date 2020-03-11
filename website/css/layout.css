@@ -28,14 +28,17 @@ form [type="submit"] {
     color: white;
 }
 
-.navbar-nav .nav-item{
-    background-color: white; 
-    
+.btn {
+    background-color: #6545c9;
+    color: white;
+    border-radius: .25rem;
+    border: 1px solid white;
 }
 
-.btn {
+.btn:hover {
+    background-color: white;
     color: #6545c9;
-    border-radius: .25rem;
+    border-color: #6545c9;
 }
 
 li.nav-item {
@@ -73,8 +76,4 @@ h3 {
     border-radius: 50%;
     padding: 0%;
     width: 100%;
-}
-
-#prof_info {
-    padding-right: 0;
 }

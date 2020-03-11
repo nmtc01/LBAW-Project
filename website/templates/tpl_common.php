@@ -117,52 +117,38 @@ function draw_nav_bar($nav_type) {
     }
 ?>
     <nav class="navbar navbar-expand-lg navbar-light navbar-default <?php if ($nav_type != "full_filters") {?> fixed-top <?php } ?>">
-        <div class="container">
+        <a href="../pages/home.php" class="navbar-brand">Answerly</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </li>
             <?php
-                if ($nav_type == "simple") {
+                if ($nav_type == "full_nav") {
             ?>
-            <a class="navbar-brand"></a>
-            <?php
-                } 
-                else {
-            ?>
-            <a href="../pages/home.php" class="navbar-brand">Answerly</a>
+                <li class="nav-item">
+                    <button class="btn my-2 my-sm-0" type="submit">Ask Something</button>
+                </li>
+                <li>
+                    <a class="nav-link" href="#" >
+                        <i class="fas fa-user fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#" >
+                        <i class="fas fa-bell fa-lg"></i>
+                    </a>
+                </li>
             <?php 
-                }
+            }
             ?>
-            <?php
-                if ($nav_type != "simple") {
-            ?>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <button class="btn my-2 my-sm-0" type="submit">Ask Something</button>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li>
-                        <a class="nav-link" href="#" >
-                            <i class="fas fa-user fa-lg"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="#" >
-                            <i class="fas fa-bell fa-lg"></i>
-                        </a>
-                    </li>
-                </ul>
-                <?php 
-                    }
-                ?>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn my-2 my-sm-0" type="submit" >Search</button>
-                </form>
-            </div>
+            </ul>
         </div>
     </nav>
     
@@ -205,17 +191,16 @@ function draw_nav_bar($nav_type) {
 ?>
 
 <?php
-function draw_home_question($type, $img, $user, $question, $info) {
+function draw_home_question($type, $img, $user, $question) {
 ?>
-    <div class="wrapper home_question container">
+    <div class="wrapper home_question container col-sm-5">
         <div class="row">
-            <div id="prof_info" class="col-sm-1 text-center my-auto">
+            <div id="prof_info" class="col-sm-2 text-center my-auto">
                 <img src=<?="../resources/".$img?> class="row-10" alt="profile pic">
                 <p><a class="row-2" href="/pages/profile.php"><?=$user?></a></p>
             </div>
-            <div class="col-sm-11">
+            <div class="col-sm-10">
                 <h1 class="mt-0"><a id="question-header" href="/pages/question.php"><?=$question?></a></h1>
-                <p><?=$info?></p>
             </div>
         </div>
         <?php
