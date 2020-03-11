@@ -44,7 +44,7 @@ function draw_footer() {
                             <a href="../pages/admin.php">Moderate</a>
                             </li>
                             <li>
-                            <a href="../pages/home.php">Get back home</a>
+                            <a href="../index.php">Get back home</a>
                             </li>
                         </ul>
                     </div>
@@ -117,7 +117,7 @@ function draw_nav_bar($nav_type) {
     }
 ?>
     <nav class="navbar navbar-expand-lg navbar-light navbar-default <?php if ($nav_type != "full_filters") {?> fixed-top <?php } ?>">
-        <a href="../pages/home.php" class="navbar-brand">Answerly</a>
+        <a href="../index.php" class="navbar-brand">Answerly</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -144,6 +144,12 @@ function draw_nav_bar($nav_type) {
                     <a class="nav-link" href="#" >
                         <i class="fas fa-bell fa-lg"></i>
                     </a>
+                </li>
+            <?php 
+            } else {
+            ?>
+                <li class="nav-item">
+                    <button class="btn my-2 my-sm-0" type="submit">Sign In</button>
                 </li>
             <?php 
             }

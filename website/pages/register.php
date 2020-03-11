@@ -4,7 +4,6 @@
     draw_main_document();
 ?>
 
-    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/register.css">
 </head>
 
@@ -18,7 +17,7 @@
     <div class="container register">
         <div class="row">
             <div class="col-md-3 register-left">
-                <h1><a href="home.php">Answerly</a></h1>
+                <h1><a href="../index.php">Answerly</a></h1>
                 <p>Hope you have a lot of questions ready to be answered!</p>
                 <button type="button" class="btn btn-outline-primary">Login</button>
             </div>

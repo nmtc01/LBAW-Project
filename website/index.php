@@ -1,49 +1,36 @@
 <?php
-    include_once "templates/tpl_common.php";
+include_once "templates/tpl_common.php";
 
-    draw_main_document();
+draw_main_document();
 ?>
 
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
-    <header>    
-        <?php 
-            draw_nav_bar("simple");
+    <header>
+        <?php
+        draw_nav_bar("full_nav");
         ?>
     </header>
 
-
-    <div class="wrapper container">
-        <form class="form-signin">
-            <h2 class="form-signin-heading text-center display-3">Answerly</h2>
-
-            <button id="api" class="btn  btn-lg btn-block">Sign in with Google</button>
-            <input type="text" class="form-control" name="username" placeholder="Email Address">
-            <input type="password" class="form-control" name="password" placeholder="Password">
-            <button type="button" class="btn  btn-lg btn-block">Login</button>
-            
-            <div id="register">
-                <p>Don't have an account? <a href="pages/register.php">Register</a></p>
-            </div>
-
-        </form>
-
+    <div id="add_lg_button">
+        <button class="input-button col-sm-5 center-block">
+            What is your question?
+        </button>
     </div>
-    <div class="popular">
-        <h1 id="pop_questions">Popular questions</h1>
-<?php
-    $type = "guest";
-    $img = "../resources/bob_iger.jpeg";
+
+    <?php
+    $type = "auth";
+    $img = "bob_iger.jpeg";
     $user = "nmtc01";
     $question = "In what order should I watch all the mcu?";
-    
-    for($i = 0; $i < 10; $i++){ 
+
+    for ($i = 0; $i < 10; $i++) {
         draw_home_question($type, $img, $user, $question);
     }
-?>
-    </div>
-<?php
+    ?>
+
+    <?php
     draw_footer();
-?>
+    ?>
