@@ -25,6 +25,14 @@ draw_main_document();
             3 => "#Astronomy",
             4 => "#Programming"
         );
+        $links_r = array(
+            0 => "../index.php",
+            1 => "../index.php",
+            2 => "../index.php",
+            3 => "../index.php",
+            4 => "../index.php"
+        );
+
         $type_l = "left";
         $title_l = "Following";
         $questions_l = array(
@@ -33,8 +41,15 @@ draw_main_document();
             2 => "Do you think that Ronaldo is going to play in the next world cup?",
             3 => "How can I learn C and C++?"
         );
-        draw_side_bar($type_r, $title_r, $labels_r);
-        draw_side_bar($type_l, $title_l, $questions_l);
+        $links_l = array(
+            0 => "../pages/question.php",
+            1 => "../pages/question.php",
+            2 => "../pages/question.php",
+            3 => "../pages/question.php",
+            4 => "../pages/question.php"
+        );
+        draw_side_bar($type_r, $title_r, $labels_r, $links_r);
+        draw_side_bar($type_l, $title_l, $questions_l, $links_l);
         ?>
     </div>
 

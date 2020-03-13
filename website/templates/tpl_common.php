@@ -197,14 +197,14 @@ function draw_nav_bar($nav_type) {
 ?>
 
 <?php
-function draw_side_bar($direction, $label, $info) {
+function draw_side_bar($direction, $label, $info, $refs) {
 ?>
 <div id="sidenav_<?=$direction?>" class="sidenav d-none d-md-block">
     <label><?=$label?></label>
     <?php
-    foreach($info as $link) {
+    for($i = 0; $i < count($info); $i++) {
     ?>
-    <a class="row" href="pages/home.php"><?=$link?></a>
+    <a class="row" href="<?=$refs[$i]?>"><?=$info[$i]?></a>
     <?php
     }
     ?>
