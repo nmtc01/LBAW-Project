@@ -59,7 +59,7 @@
 }
 
 .sidenav {
-    height: 18rem;
+    border: 2px solid #e5e5e5;
     width: 12rem;
     top: 75px;
     left: 14%;
@@ -67,6 +67,12 @@
     position: fixed;
     background: white;
     border-radius: .25rem; 
+    color: #6545c9;
+}
+
+.sidenav a {
+    color: black;
+    margin-left: 0;
 }
 
 .elements{

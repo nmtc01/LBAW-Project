@@ -197,6 +197,23 @@ function draw_nav_bar($nav_type) {
 ?>
 
 <?php
+function draw_side_bar($direction, $label, $info) {
+?>
+<div id="sidenav_.<?=$direction?>" class="sidenav d-none d-sm-block">
+    <label><?=$label?></label>
+    <?php
+    foreach($info as $link) {
+    ?>
+    <a class="row" href="pages/home.php"><?=$link?></a>
+    <?php
+    }
+    ?>
+</div>
+<?php
+}
+?>
+
+<?php
 function draw_home_question($type, $img, $user, $question) {
 ?>
     <div class="wrapper home_question container">
