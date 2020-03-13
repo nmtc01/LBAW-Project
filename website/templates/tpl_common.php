@@ -199,7 +199,7 @@ function draw_nav_bar($nav_type) {
 <?php
 function draw_side_bar($direction, $label, $info) {
 ?>
-<div id="sidenav_.<?=$direction?>" class="sidenav d-none d-sm-block">
+<div id="sidenav_<?=$direction?>" class="sidenav d-none d-md-block">
     <label><?=$label?></label>
     <?php
     foreach($info as $link) {
@@ -216,7 +216,7 @@ function draw_side_bar($direction, $label, $info) {
 <?php
 function draw_home_question($type, $img, $user, $question) {
 ?>
-    <div class="wrapper home_question container">
+    <div class="wrapper home_question container-fluid">
         <div class="row">
             <div id="prof_info" class="col-2 text-center my-auto">
                 <img src=<?="../resources/".$img?> class="row-10" alt="profile pic">
