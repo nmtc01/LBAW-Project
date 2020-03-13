@@ -1,5 +1,9 @@
+body { 
+    padding-top: 60px; 
+    background-image: linear-gradient(to right, #1e143d, #6545c9, #6545c9);
+}
+
 .register {
-    background-image: linear-gradient(to right, #1e143d, #6545c9, #7953eb);
     margin: 1% auto;
     padding: 3%;
     border-radius: .25rem;
