@@ -14,7 +14,7 @@ draw_main_document();
         ?>
     </header>
 
-    <div class="col-md-5">
+    <div>
         <?php
         $type_r = "right";
         $title_r = "Popular labels";

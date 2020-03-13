@@ -272,7 +272,7 @@ function draw_answer($img, $user, $answer, $score) {
     <li class="media mt-3">
         <a class="pr-3 col-sm-2 d-none d-sm-block" href="../pages/profile.php">
             <img src=<?="../resources/".$img?> alt="Generic placeholder image">
-            <p><?=$score?></p>
+            <p>Score: <?=$score?></p>
         </a>
         <div class="media-body col-sm-10">
             <h3 class="mt-0"><a href="../pages/profile.php"><?=$user?></a></h3>
