@@ -199,11 +199,11 @@ function draw_nav_bar($nav_type) {
 <?php
 function draw_home_question($type, $img, $user, $question) {
 ?>
-    <div class="wrapper home_question container col-sm-5">
+    <div class="wrapper home_question container">
         <div class="row">
             <div id="prof_info" class="col-2 text-center my-auto">
                 <img src=<?="../resources/".$img?> class="row-10" alt="profile pic">
-                <p><a class="row-2" href="/pages/profile.php"><?=$user?></a></p>
+                <p><a class="row-2 d-none d-sm-block" href="/pages/profile.php"><?=$user?></a></p>
             </div>
             <div class="col-10">
                 <h1 class="mt-0"><a id="question-header" href="/pages/question.php"><?=$question?></a></h1>
