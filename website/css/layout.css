@@ -79,6 +79,15 @@ h3 {
     width: 100%;
 }
 
+.wrapper {
+    margin: 0 auto;
+    margin-top: 15px;
+    background-color: #fff;
+    padding: 2%;
+    border: 2px solid #e5e5e5;
+    border-radius: .25rem;
+}
+
 .sidenav#sidenav_right {
     border: 2px solid #e5e5e5;
     width: 15%;

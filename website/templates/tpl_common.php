@@ -163,20 +163,24 @@ function draw_nav_bar($nav_type) {
 ?>
         <div class="filters">
             <form>
-                <h3>Filter:</h3>
                 <div id="filters-bar container row">
                     <div class="row">
-                        <div class="checkboxes col-sm-6">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                <label class="form-check-label" for="inlineCheckbox1">Answered</label>
+                        <h3 class="col-sm-1">Filter:</h3>
+                        <div class="col-sm-5">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Answered
+                                </label>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                <label class="form-check-label" for="inlineCheckbox2">+Positive Score</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                <label class="form-check-label" for="defaultCheck2">
+                                    Positive Score +
+                                </label>
                             </div>
                         </div>
-                        <div class="dates col-sm-6 row">
+                        <div class="dates col-sm-6 row my-auto">
                             <div class="col-sm-6">
                                 <label>Start</label>
                                 <input type="date" value="dd-mm-yyyy">
@@ -251,17 +255,17 @@ function draw_home_question($type, $img, $user, $question) {
 <?php
 function draw_search_result($img, $question, $info) {
 ?>
-    <li class="media mt-3 container">
-        <a class="pr-3 col-sm-1 d-none d-sm-block" href="../pages/profile.php">
+    <div class="wrapper home_question container-fluid d-flex">
+        <a class="d-none d-md-block" href="../pages/profile.php">
             <img src=<?="../resources/".$img?> alt="Generic placeholder image">
         </a>
-        <a class="search_result col-sm-11" href="question.php">
+        <a class="col-md-10" href="question.php">
             <div class="media-body">
                 <h2 class="mt-0"><?=$question?></h2>
                 <p><?=$info?></p>
             </div>
         </a>
-    </li>
+    </div>
 <?php
 }
 ?>

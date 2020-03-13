@@ -4,7 +4,6 @@
     draw_main_document();
 ?>
 
-    <link rel="stylesheet" href="../css/list_format.css">
     <link rel="stylesheet" href="../css/ask.css">
 </head>
 <body>

@@ -5,7 +5,6 @@
 ?>
 
     <link rel="stylesheet" href="../css/question.css">
-    <link rel="stylesheet" href="../css/list_format.css">
 </head>
 
 <body>
