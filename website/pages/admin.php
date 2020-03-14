@@ -1,198 +1,156 @@
 <?php
-    include_once "../templates/tpl_common.php";
+include_once "../templates/tpl_common.php";
 
-    draw_main_document();
+draw_main_document();
 ?>
 
     <link rel="stylesheet" href="../css/modmin.css">
 </head>
 
 <body>   
-    <header>
-        <?php 
-            draw_nav_bar("full", false);
-        ?>
-    </header>
+  <header>
+      <?php 
+        draw_nav_bar("full", false);
+      ?>
+  </header>
 
-    <h1><span class="badge badge-secondary">Reports</span></h1>
+  <div class="container moderate">
 
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a href="" data-target="#reports" data-toggle="tab" class="nav-link active">Reports</a>
+          </li>
+          <li class="nav-item">
+            <a href="" data-target="#reported-users" data-toggle="tab" class="nav-link">Reported Users</a>
+          </li>
+          <li class="nav-item">
+            <a href="" data-target="#promote" data-toggle="tab" class="nav-link">Promote</a>
+          </li>
+        </ul>
 
-<div class="wrapper">
-   <div class="box1"><table class="table">
-  <thead class="thead">
-    <tr>
-      
-      <th scope="col">Questions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      
-      <td>Question 1</td>
-    </tr>
-    <tr>
-      
-      <td>Question 2</td>
-    </tr>
-    <tr>
-      
-      <td>Question 3</td>
-    </tr>
-  </tbody>
-</table></div>
-   <div class="box2"><table class="table">
-  <thead class="thead">
-    <tr>
-      
-      <th scope="col">Answers</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      
-      <td>Answer 1</td>
-    </tr>
-    <tr>
-      
-      <td>Answer 2</td>
-    </tr>
-    <tr>
-      
-      <td>Answer 3</td>
-    </tr>
-  </tbody>
-</table></div>
-   <div class="box3">
-       
-<table class="table">
-  <thead class="thead">
-    <tr>
-      
-      <th scope="col">Comments</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      
-      <td>Comment 1</td>
-    </tr>
-    <tr>
-      
-      <td>Comment 2</td>
-    </tr>
-    <tr>
-      
-      <td>Comment 3</td>
-    </tr>
-  </tbody>
-</table>
-   </div>
-</div>
+        <div class="tab-content py-4">
+
+          <div class="tab-pane active" id="reports">
+
+            <div class="wrapper-2">
 
 
+              <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action active">
+                  Questions
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+              </div>
 
-    <h1><span class="badge badge-secondary">Reported Users</span></h1>
+              <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action active">
+                  Answers
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
 
+              </div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Username</th>
-      <th scope="col">Name</th>
-      <th scope="col">Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>johny1</td>
-      <td>John</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <td>mary123</td>
-      <td>Mary</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <td>redflag</td>
-      <td>Simon</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Suzz987</td>
-      <td>Susan</td>
-      <td>-35</td>
-    </tr>
-  </tbody>
-</table>
+              <div class="list-group overflow-auto">
+                <button class="list-group-item list-group-item-action active">
+                  Comments
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
 
-    <h1><span class="badge badge-secondary">Promote</span></h1>
-
-
-<div class="wrapper">
-   <div class="box1"><table class="table">
-    <thead class="thead">
-    <tr>
-      <th scope="col"><span>Users</span></th>
-    </tr>
-    <tr>
-      <th scope="col">Username</th>
-      <th scope="col">Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>joee</td>
-      <td>146</td>
-    </tr>
-    <tr>
-      <td>doe23</td>
-      <td>95</td>
-    </tr>
-    <tr>
-      <td>penguinxD</td>
-      <td>89</td>
-    </tr>
-    <tr>
-      <td>somethinggg</td>
-      <td>67</td>
-    </tr>
-  </tbody>
-</table></div>
-   <div class="box2">
-    <table class="table">
-    <thead class="thead">
-    <tr>
-      <th scope="col"><span>Moderators</span></th>
-    </tr>
-    <tr>
-      <th scope="col">Username</th>
-      <th scope="col">Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>johny1</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <td>mary123</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <td>redflag</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td>Suzz987</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+              </div>
 
 
-</div>
+            </div>
+
+          </div>
+
+          <div class="tab-pane" id="reported-users">
+
+            <div class="wrapper-2">
+
+              <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action active">
+                  username
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+              </div>
+
+            </div>
+          
+          </div>
+
+          <div class="tab-pane" id="promote">
+
+            <div class="wrapper-2">
+
+              <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action active">
+                  Users
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+              </div>
+
+              <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action active">
+                  Moderators
+                </button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+                <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+                <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+                <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+                <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+  </div>
+
+
+
 <?php
-    draw_footer();
+draw_footer();
 ?>

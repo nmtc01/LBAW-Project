@@ -1,53 +1,52 @@
 body {
-    background-image: url("../resources/wallpaper2.png");
+    /*background-image: url("../resources/wallpaper2.png");
+
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+    */
+    background-color: #eee;
 }
 
-.wrapper {
+.wrapper-2 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-left: 40px;
     margin-right: 40px;
 }
 
-th{
-    background-color:white;
-    border-top:solid;
-    border-color: white;
+.reports{
+    padding: 2%;
+    font-size: 1.6rem;
+    color: #6545c9;
+    font-weight: bold;
 }
 
-.container{
-    margin-left: 40px;
-    margin-right: 40px;
-
-}
-       
-h1  {
-    margin-left: 40px;
-    margin-right: 40px;
-    padding-top:3rem;
+.list-group{
+    grid-row: 2;
+    max-height: 500px;
+    padding: 2%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
-
-.badge-secondary {
-    color: #fff;
+.list-group .active{
     background-color: #6545c9;
 }
 
-tr:hover{
-   background-color: grey;
+.moderate{
+    margin: 0 auto;
+    margin-top: 15px;
+    background-color: #fff;
+    padding: 2%;
+    border: 2px solid #e5e5e5;
+    border-radius: .25rem;
 }
 
-span{
-    color: #0091E9;
-    font-size: x-large;
+.nav-link{
+    color: #6545c9;
 }
 
-.table{
-    width:90%;
-    margin: auto;
-    background: white;
-}
+
+
