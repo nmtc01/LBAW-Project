@@ -38,9 +38,6 @@ function draw_footer() {
                                 <a href="../pages/profile.php">Access my profile</a>
                                 </li>
                                 <li>
-                                <a href="../pages/ask.php">Add a question</a>
-                                </li>
-                                <li>
                                 <a href="../pages/admin.php">Moderate</a>
                                 </li>
                                 <li>
@@ -137,6 +134,7 @@ function draw_nav_bar($nav_type, $filters) {
     if ($filters) {
         draw_filters();
     } 
+    add_question_popup();
 } 
 ?>
 
@@ -163,7 +161,7 @@ function draw_simple_nav() {
 function draw_full_nav() {
 ?>
     <li class="nav-item">
-        <button class="btn my-2 my-sm-0" type="submit">Ask Something</button>
+        <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#ask_something" type="submit">Ask Something</button>
     </li>
     <li>
         <a class="nav-link" href="#" >
@@ -324,6 +322,40 @@ function draw_answer($img, $user, $answer, $score) {
             </div>
         </div>
     </li>
+<?php
+}
+?>
+
+<?php
+function add_question_popup(){
+?>
+    <div class="modal fade" id="ask_something" tabindex="-1" role="dialog" aria-labelledby="ask_something_title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Ask something</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Write your question here</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <a href="#" class="badge badge-dark badge-pill">+</a>
+                    <div id="form-buttons" class="form-group row">
+                        <input type="file" class="form-control-file col-sm-9" id="exampleFormControlFile1" accept="image/png, image/jpeg">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Add</button>
+            </div>
+            </div>
+        </div>
+    </div>
 <?php
 }
 ?>

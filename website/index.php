@@ -54,7 +54,7 @@ draw_main_document();
     </div>
 
     <div class="col-md-5 container-fluid">
-        <button id="add_btn" class="input-button">
+        <button id="add_btn" class="input-button" data-toggle="modal" data-target="#ask_something">
             What is your question?
         </button>
 
