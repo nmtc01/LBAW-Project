@@ -24,100 +24,126 @@ function draw_main_document() {
 <?php
 function draw_footer() {
 ?>
-        <footer class="page-footer font-small indigo">
-            <!-- Footer Links -->
-            <div class="container text-center text-md-left">
-            <!-- Grid row -->
-                <div class="row">
-                    <!-- Grid column -->
-                    <div class="col-md-3 mx-auto">
-                        <!-- Links -->
-                        <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Access</h3>
-                        <ul class="list-unstyled">
-                            <li>
-                            <a href="../pages/profile.php">Access my profile</a>
-                            </li>
-                            <li>
-                            <a href="../pages/ask.php">Add a question</a>
-                            </li>
-                            <li>
-                            <a href="../pages/admin.php">Moderate</a>
-                            </li>
-                            <li>
-                            <a href="../index.php">Get back home</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <div class="col-md-3 mx-auto">
-                    <!-- Links -->
-                        <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Labels</h3>
-                        <ul class="list-unstyled">
-                            <li>
-                            <a href="#!">#Sports</a>
-                            </li>
-                            <li>
-                            <a href="#!">#Astronomy</a>
-                            </li>
-                            <li>
-                            <a href="#!">#Web_development</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Grid column -->
-                    <!-- Grid column -->
-                    <div class="col-md-3 mx-auto">
-                        <!-- Links -->
-                        <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Labels</h3>
-                        <ul class="list-unstyled">
-                            <li>
-                            <a href="#!">Physics</a>
-                            </li>
-                            <li>
-                            <a href="#!">Anatomy</a>
-                            </li>
-                            <li>
-                            <a href="#!">Comics</a>
-                            </li>
-                        </ul>
-                    </div>
+            <footer class="page-footer font-small indigo">
+                <!-- Footer Links -->
+                <div class="container text-center text-md-left">
+                <!-- Grid row -->
+                    <div class="row">
+                        <!-- Grid column -->
+                        <div class="col-md-3 mx-auto">
+                            <!-- Links -->
+                            <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Access</h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                <a href="../pages/profile.php">Access my profile</a>
+                                </li>
+                                <li>
+                                <a href="../pages/ask.php">Add a question</a>
+                                </li>
+                                <li>
+                                <a href="../pages/admin.php">Moderate</a>
+                                </li>
+                                <li>
+                                <a href="../index.php">Get back home</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Grid column -->
                         <!-- Grid column -->
                         <div class="col-md-3 mx-auto">
                         <!-- Links -->
-                        <h3 class="font-weight-bold text-uppercase mt-3 mb-4">About</h3>
-                        <ul class="list-unstyled">
-                            <li>
-                            <a href="../pages/about.php">About us</a>
-                            </li>
-                        </ul>
+                            <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Labels</h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                <a href="#!">#Sports</a>
+                                </li>
+                                <li>
+                                <a href="#!">#Astronomy</a>
+                                </li>
+                                <li>
+                                <a href="#!">#Web_development</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Grid column -->
+                        <!-- Grid column -->
+                        <div class="col-md-3 mx-auto">
+                            <!-- Links -->
+                            <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Labels</h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                <a href="#!">Physics</a>
+                                </li>
+                                <li>
+                                <a href="#!">Anatomy</a>
+                                </li>
+                                <li>
+                                <a href="#!">Comics</a>
+                                </li>
+                            </ul>
+                        </div>
+                            <!-- Grid column -->
+                            <div class="col-md-3 mx-auto">
+                            <!-- Links -->
+                            <h3 class="font-weight-bold text-uppercase mt-3 mb-4">About</h3>
+                            <ul class="list-unstyled">
+                                <li>
+                                <a href="../pages/about.php">About us</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Grid column -->
                     </div>
-                    <!-- Grid column -->
+                <!-- Grid row -->
                 </div>
-            <!-- Grid row -->
-            </div>
-            <!-- Footer Links -->
-            <!-- Copyright -->
-            <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="../index.php"> Answerly</a>
-            </div>
-            <!-- Copyright -->
-        </footer>
-    </body>
-</html>
+                <!-- Footer Links -->
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="../index.php"> Answerly</a>
+                </div>
+                <!-- Copyright -->
+            </footer>
+        </body>
+    </html>
 <?php } 
 ?>
 
 <?php
-function draw_nav_bar($nav_type) {
-    if ($nav_type == "full_filters") {
-?>
+function draw_nav_bar($nav_type, $filters) {
+    if ($filters) {
+    ?>
     <div class="fixed-top">
-<?php 
+    <?php 
     }
+    ?>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-default <?php if (!$filters) {?> fixed-top <?php } ?>">
+            <?php
+                draw_simple_nav();
+                if ($nav_type == "full") {
+                    draw_full_nav();
+                } 
+                else {
+            ?>
+                    <li class="nav-item">
+                        <button class="btn my-2 my-sm-0" type="submit">Sign In</button>
+                    </li>
+                <?php 
+                }
+            ?>
+            </ul>
+        </div>
+    </nav>  
+<?php
+    if ($filters) {
+        draw_filters();
+    } 
+} 
 ?>
-    <nav class="navbar navbar-expand-lg navbar-light navbar-default <?php if ($nav_type != "full_filters") {?> fixed-top <?php } ?>">
-        <a href="../index.php" class="navbar-brand">Answerly</a>
+
+<?php
+function draw_simple_nav() {
+?>
+    <a href="../index.php" class="navbar-brand">Answerly</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -129,90 +155,97 @@ function draw_nav_bar($nav_type) {
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     </form>
                 </li>
-            <?php
-                if ($nav_type == "full_nav") {
-            ?>
-                <li class="nav-item">
-                    <button class="btn my-2 my-sm-0" type="submit">Ask Something</button>
-                </li>
-                <li>
-                    <a class="nav-link" href="#" >
-                        <i class="fas fa-user fa-lg"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#" >
-                        <i class="fas fa-bell fa-lg"></i>
-                    </a>
-                </li>
-            <?php 
-            } else {
-            ?>
-                <li class="nav-item">
-                    <button class="btn my-2 my-sm-0" type="submit">Sign In</button>
-                </li>
-            <?php 
-            }
-            ?>
-            </ul>
-        </div>
-    </nav>
-    
 <?php
-    if ($nav_type == "full_filters") {
+}
 ?>
-        <div class="filters">
-            <form>
-                <div id="filters-bar container row">
-                    <div class="row">
-                        <h3 class="col-sm-1">Filter:</h3>
-                        <div class="col-sm-5">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Answered
-                                </label>
+
+<?php
+function draw_full_nav() {
+?>
+    <li class="nav-item">
+        <button class="btn my-2 my-sm-0" type="submit">Ask Something</button>
+    </li>
+    <li>
+        <a class="nav-link" href="#" >
+            <i class="fas fa-user fa-lg"></i>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link" href="#" >
+            <i class="fas fa-bell fa-lg"></i>
+        </a>
+    </li>
+<?php
+}
+?>
+
+<?php
+function draw_filters() {
+?>
+        <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Filters
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body filters">
+                        <form>
+                            <div id="filters-bar container row">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Answered
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                            <label class="form-check-label" for="defaultCheck2">
+                                                Positive Score +
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="dates col-sm-6 row my-auto">
+                                        <div class="col-sm-6">
+                                            <label>Start</label>
+                                            <input type="date" value="dd-mm-yyyy">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>End</label>
+                                            <input type="date" value="dd-mm-yyyy">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                                <label class="form-check-label" for="defaultCheck2">
-                                    Positive Score +
-                                </label>
-                            </div>
-                        </div>
-                        <div class="dates col-sm-6 row my-auto">
-                            <div class="col-sm-6">
-                                <label>Start</label>
-                                <input type="date" value="dd-mm-yyyy">
-                            </div>
-                            <div class="col-sm-6">
-                                <label>End</label>
-                                <input type="date" value="dd-mm-yyyy">
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-<?php 
-    } 
-} 
-?>
+<?php    
+}
+?> 
 
 <?php
 function draw_side_bar($direction, $label, $info, $refs) {
 ?>
-<div id="sidenav_<?=$direction?>" class="sidenav d-none d-md-block">
-    <label><?=$label?></label>
-    <?php
-    for($i = 0; $i < count($info); $i++) {
-    ?>
-    <a class="row" href="<?=$refs[$i]?>"><?=$info[$i]?></a>
-    <?php
-    }
-    ?>
-</div>
+    <div id="sidenav_<?=$direction?>" class="sidenav d-none d-md-block">
+        <label><?=$label?></label>
+        <?php
+        for($i = 0; $i < count($info); $i++) {
+        ?>
+        <a class="row" href="<?=$refs[$i]?>"><?=$info[$i]?></a>
+        <?php
+        }
+        ?>
+    </div>
 <?php
 }
 ?>

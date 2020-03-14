@@ -2,6 +2,10 @@ body {
     padding-top: 130px; 
 }
 
+#headingOne {
+    background-color: #806bbe;
+}
+
 .filters {
     margin: 0 auto;
     background-color: #806bbe;
@@ -9,7 +13,6 @@ body {
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
     color: white;
-    max-height: 70px;
 }
 
 .filters:hover {
@@ -19,16 +22,6 @@ body {
 .filters input {
     cursor: pointer;
     width: 80%;
-}
-
-.filters form #filters-bar .dates label{
-    margin: 0rem .5rem 0rem 1rem
-}
-
-.filters form #filters-bar .dates input{
-    color: #806bbe;
-    border-radius: .25rem;
-    border-color: #806bbe;
 }
 
 .wrapper ul li.media {
@@ -70,22 +63,19 @@ nav .pagination .page-item #next{
     color: #6545c9;
 }
 
-#search_title {
-    background-color: #6545c9;
-    padding: 15px 15px 15px 15px;
-    border: 2px solid #e5e5e5;
-    border-radius: .25rem;
-    border-color: #6545c9;
-    margin: 15px auto 0;
-    text-align: left;
-    color: white;
-    width: 100%;
-}
-
 .sidenav#sidenav_right {
     top: 145px;
 }
 
 .sidenav#sidenav_left {
     top: 145px;
+}
+
+#search_title {
+    margin-top: 15px;
+}
+
+.dates {
+    margin-left: auto;
+    padding-top: 1rem;
 }

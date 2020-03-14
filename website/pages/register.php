@@ -11,7 +11,7 @@
 <body>
     <header>
         <?php 
-            draw_nav_bar("simple");
+            draw_nav_bar("simple", false);
         ?>
     </header>
 

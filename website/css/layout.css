@@ -40,6 +40,7 @@ form [type="submit"] {
     background-color: white;
     color: #6545c9;
     border-color: #6545c9;
+    text-decoration: none;
 }
 
 li.nav-item {
@@ -62,7 +63,7 @@ footer a:hover {
 }
 
 h1 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
 }
 
 h2 {

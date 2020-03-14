@@ -9,7 +9,7 @@
 <body>
     <header>
         <?php 
-            draw_nav_bar("full_nav");
+            draw_nav_bar("full", false);
         ?>
     </header>
     <div class="wrapper">

@@ -10,7 +10,7 @@
 <body>
     <header>
         <?php
-            draw_nav_bar("full_filters");
+            draw_nav_bar("full", true);
         ?>
     </header>
 

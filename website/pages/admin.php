@@ -10,7 +10,7 @@
 <body>   
     <header>
         <?php 
-            draw_nav_bar("full_bar");
+            draw_nav_bar("full", false);
         ?>
     </header>
 
