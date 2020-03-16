@@ -80,6 +80,9 @@
                         <a class="icon" href="#">
                             <i class="fas fa-reply fa-lg"> 6</i>
                         </a>
+                        <a class="icon" href="#">
+                            <i class="fas fa-arrow-right fa-lg"> follow</i>
+                        </a>
                     </div>
 
                     <div class="form-group">

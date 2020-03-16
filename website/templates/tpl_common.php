@@ -273,6 +273,9 @@ function draw_home_question($type, $img, $user, $question) {
             <a class="icon" href="#">
                 <i class="fas fa-reply fa-lg"> 6</i>
             </a>
+            <a class="icon" href="#">
+                <i class="fas fa-arrow-right fa-lg"> follow</i>
+            </a>
         </div>
         <?php
         }
@@ -317,6 +320,9 @@ function draw_answer($img, $user, $answer, $score) {
                 </a>
                 <a class="icon-answers" href="#">
                     <i class="fas fa-thumbs-down"> 4</i>
+                </a>
+                <a class="icon-answers" href="#">
+                    <i class="fas fa-comment"> 2</i>
                 </a>
             </div>
         </div>
