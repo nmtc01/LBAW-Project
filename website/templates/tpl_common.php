@@ -167,9 +167,9 @@ function draw_full_nav() {
         <?=dropdown_profile_menu();?>
         <a class="fas fa-user fa-lg dropdown-toggle" id="dropdownMenuProfileButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
     </li>
-    <li>
-        <a class="nav-link" href="#" >
-            <i class="fas fa-bell fa-lg"></i>
+    <li class="nav-link">
+        <?=dropdown_notifications_menu();?>
+        <a class="fas fa-bell fa-lg dropdown-toggle" id="dropdownMenuNotificationsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
         </a>
     </li>
 <?php
@@ -368,6 +368,39 @@ function dropdown_profile_menu(){
             <a class="dropdown-item" href="../index.php">Logout</a>
         </div>
     </div>
+<?php
+}
+?>
+
+<?php
+function dropdown_notifications_menu(){
+?>
+    <div class="dropdown">
+        <div id="notifications_menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuNotificationsButton">
+        <?php
+        $img = "bob_iger.jpeg";
+        $user = "pedro_dantas";
+        $question = "Will Erling Braut Haaland be a future winner of the Ballon d’Or?";
+        for($i = 0; $i < 5; $i++) {
+            draw_notification($img, $user, $question);
+        }
+        ?>
+        </div>
+    </div>
+<?php
+}
+?>
+
+<?php
+function draw_notification($img, $user, $question){
+?>
+    <a id="notification" class="dropdown-item wrapper home_question container" href="../pages/question.php">
+        <img class="col-2" src="../resources/<?=$img?>" alt="Generic placeholder image">
+        <div class="col-10">
+            <h4><span><?=$user?></span> answered</h4>
+            <p><?=$question?></p>
+        </div>
+    </a>
 <?php
 }
 ?>
