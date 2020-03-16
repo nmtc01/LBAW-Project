@@ -149,7 +149,7 @@ function draw_simple_nav() {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li>
-                    <form class="form-inline">
+                    <form class="form-inline" action="../pages/search.php">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     </form>
                 </li>
