@@ -165,7 +165,7 @@ function draw_full_nav() {
     </li>
     <li class="nav-link">
         <?=dropdown_profile_menu();?>
-        <i class="fas fa-user fa-lg dropdown-toggle" id="dropdownMenuProfileButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+        <a class="fas fa-user fa-lg dropdown-toggle" id="dropdownMenuProfileButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
     </li>
     <li>
         <a class="nav-link" href="#" >

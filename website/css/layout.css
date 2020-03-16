@@ -121,3 +121,7 @@ h3 {
 .sidenav#sidenav_left a {
     border-top: solid 1px #eee;
 }
+
+a {
+    cursor: pointer;
+}
