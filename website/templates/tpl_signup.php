@@ -44,13 +44,13 @@ function draw_card_form($type) {
 <?php 
 function draw_form($type) {
 ?>
-<div class="row register-form">
-    <?php
-    if ($type == "Register") 
-        draw_form_register();
-    draw_form_login();
-    ?>
-</div>
+    <div class="row register-form">
+        <?php
+        if ($type == "Register") 
+            draw_form_register();
+        draw_form_login();
+        ?>
+    </div>
 <?php
 }
 ?>
@@ -58,32 +58,32 @@ function draw_form($type) {
 <?php
 function draw_form_register() {
 ?>
-<div class="col-md-6">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="First Name *" value="" />
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Last Name *" value="" />
-    </div>
-    <div class="form-group">
-        <input type="email" class="form-control" placeholder="Your Email *" value="" />
-    </div>
-    <div class="form-group">
-        <input type="date" class="form-control" value="">
-    </div>
-    <div class="form-group">
-        <div class="maxl">
-            <label class="radio inline">
-                <input type="radio" name="gender" value="male" checked>
-                <span> Male </span>
-            </label>
-            <label class="radio inline">
-                <input type="radio" name="gender" value="female">
-                <span>Female </span>
-            </label>
+    <div class="col-md-6">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="First Name *" value="" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="Your Email *" value="" />
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" value="">
+        </div>
+        <div class="form-group">
+            <div class="maxl">
+                <label class="radio inline">
+                    <input type="radio" name="gender" value="male" checked>
+                    <span> Male </span>
+                </label>
+                <label class="radio inline">
+                    <input type="radio" name="gender" value="female">
+                    <span>Female </span>
+                </label>
+            </div>
         </div>
     </div>
-</div>
 <?php
 }
 ?>
@@ -91,20 +91,20 @@ function draw_form_register() {
 <?php 
 function draw_form_login() {
 ?>
-<div class="col-md-6 ml-auto">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Username *" value="" />
+    <div class="col-md-6 ml-auto">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username *" value="" />
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password *" value="" />
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+        </div>
+        <div class="form-group" contentEditable="true">
+            <textarea class="form-control" placeholder="Description *" value="" rows="5"></textarea>
+        </div>
     </div>
-    <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password *" value="" />
-    </div>
-    <div class="form-group">
-        <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-    </div>
-    <div class="form-group" contentEditable="true">
-        <textarea class="form-control" placeholder="Description *" value="" rows="5"></textarea>
-    </div>
-</div>
 <?php
 }
 ?>

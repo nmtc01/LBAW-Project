@@ -163,10 +163,9 @@ function draw_full_nav() {
     <li class="nav-item">
         <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#ask_something" type="submit">Ask Something</button>
     </li>
-    <li>
-        <a class="nav-link" href="#" >
-            <i class="fas fa-user fa-lg"></i>
-        </a>
+    <li class="nav-link">
+        <?=dropdown_profile_menu();?>
+        <i class="fas fa-user fa-lg dropdown-toggle" id="dropdownMenuProfileButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
     </li>
     <li>
         <a class="nav-link" href="#" >
@@ -354,6 +353,19 @@ function add_question_popup(){
                 <button type="button" class="btn btn-primary">Add</button>
             </div>
             </div>
+        </div>
+    </div>
+<?php
+}
+?>
+
+<?php
+function dropdown_profile_menu(){
+?>
+    <div class="dropdown">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuProfileButton">
+            <a class="dropdown-item" href="../pages/profile.php">Profile</a>
+            <a class="dropdown-item" href="../index.php">Logout</a>
         </div>
     </div>
 <?php
