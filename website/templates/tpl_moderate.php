@@ -1,24 +1,12 @@
 <?php
-function draw_reported_elements(){
+function draw_reported_elements($ids){
 ?>
     <div class="tab-content py-4">
         <?php
-            $ids = array(
-                0 => "reports",
-                1 => "reported-users",
-                2 => "promote"
-            );
             $titles1 = array(
                 0 => "Questions",
                 1 => "Answers",
                 2 => "Comments"
-            );
-            $titles2 = array(
-                0 => "Username"
-            );
-            $titles3 = array(
-                0 => "Users",
-                1 => "Moderators"
             );
             $reports1 = array(
                 0 => "Dapibus ac facilisis in",
@@ -27,6 +15,10 @@ function draw_reported_elements(){
                 3 => "Dapibus ac facilisis in",
                 4 => "Dapibus ac facilisis in"
             );
+            draw_reported_tab($ids[0], $titles1, $reports1, true);
+            $titles2 = array(
+                0 => "Username"
+            );
             $reports2 = array(
                 0 => "Dapibus ac facilisis in",
                 1 => "Dapibus ac facilisis in",
@@ -34,16 +26,21 @@ function draw_reported_elements(){
                 3 => "Dapibus ac facilisis in",
                 4 => "Dapibus ac facilisis in"
             );
-            $reports3 = array(
-                0 => "Dapibus ac facilisis in",
-                1 => "Dapibus ac facilisis in",
-                2 => "Dapibus ac facilisis in",
-                3 => "Dapibus ac facilisis in",
-                4 => "Dapibus ac facilisis in"
-            );
-            draw_reported_tab($ids[0], $titles1, $reports1, true);
             draw_reported_tab($ids[1], $titles2, $reports2, false);
-            draw_reported_tab($ids[2], $titles3, $reports3, false);
+            if(count($ids) == 3) {
+                $titles3 = array(
+                    0 => "Users",
+                    1 => "Moderators"
+                );
+                $reports3 = array(
+                    0 => "Dapibus ac facilisis in",
+                    1 => "Dapibus ac facilisis in",
+                    2 => "Dapibus ac facilisis in",
+                    3 => "Dapibus ac facilisis in",
+                    4 => "Dapibus ac facilisis in"
+                );
+                draw_reported_tab($ids[2], $titles3, $reports3, false);
+            }
         ?>
     </div>
 <?php
