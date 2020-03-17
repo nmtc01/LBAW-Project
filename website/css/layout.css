@@ -142,3 +142,7 @@ a {
 #notifications_menu {
     min-width: 25rem;
 }
+
+.fa-bug {
+    float: right;
+}

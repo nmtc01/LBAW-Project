@@ -364,6 +364,9 @@ function draw_answer($img, $user, $answer, $score) {
                 <a class="icon-answers" href="#">
                     <i class="fas fa-comment"> 2</i>
                 </a>
+                <a class="icon-answers" href="#">
+                    <i class="fas fa-bug"> Report</i>
+                </a>
             </div>
         </div>
     </li>
