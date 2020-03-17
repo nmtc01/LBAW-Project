@@ -1,5 +1,6 @@
 <?php
 include_once "../templates/tpl_common.php";
+include_once "../templates/tpl_moderate.php";
 
 draw_main_document();
 ?>
@@ -28,7 +29,11 @@ draw_main_document();
           </li>
         </ul>
 
-        <div class="tab-content py-4">
+        <?php
+          draw_reported_elements();
+        ?>
+
+        <!--<div class="tab-content py-4">
 
           <div class="tab-pane active" id="reports">
 
@@ -145,7 +150,7 @@ draw_main_document();
 
           </div>
 
-        </div>
+        </div>-->
 
   </div>
 
