@@ -37,7 +37,7 @@ draw_main_document();
         </ul>
 
         <?php
-          draw_reported_elements($targets);
+          draw_reported_tables($targets);
         ?>
   </div>
   
