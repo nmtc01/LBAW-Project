@@ -28,7 +28,7 @@ function draw_reported_tables($ids){
                     3 => array("Please include the name of the object variable in the exception message.", "edu12345")
                 )
             );
-            draw_reported_tab($ids[0], $titles1, $reports1, true);
+            draw_reported_tab(1, $ids[0], $titles1, $reports1, true);
             $titles2 = array(
                 0 => "Username"
             );
@@ -41,7 +41,7 @@ function draw_reported_tables($ids){
                     4 => array("up201706162", "this user was the origin of 10 reported elements")
                 )
             );
-            draw_reported_tab($ids[1], $titles2, $reports2, false);
+            draw_reported_tab(2, $ids[1], $titles2, $reports2, false);
             if(count($ids) == 3) {
                 $titles3 = array(
                     0 => "Users",
@@ -72,7 +72,7 @@ function draw_reported_tables($ids){
 ?>
 
 <?php
-function draw_reported_tab($id, $titles, $reports, $isActive) {
+function draw_reported_tab($nr, $id, $titles, $reports, $isActive) {
 ?>
     <div class="tab-pane <?php if($isActive){ ?> active<?php } ?>" id="<?=$id?>">
         <div class="wrapper-2">
@@ -87,9 +87,9 @@ function draw_reported_tab($id, $titles, $reports, $isActive) {
                 for($j = 0; $j < count($reports[$i]); $j++) {
                     $k = ($i+1) * count($reports[$i]) + $j; 
                 ?>
-                <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem<?=$k?>"><?=$reports[$i][$j][0]?></button>
+                <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem<?=$k.$nr?>"><?=$reports[$i][$j][0]?></button>
                 <?php
-                draw_reported_element($reports[$i][$j], $k);
+                draw_reported_element($reports[$i][$j], $k.$nr);
                 }
                 ?>
             </div>
