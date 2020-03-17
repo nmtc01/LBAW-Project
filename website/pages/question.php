@@ -67,18 +67,10 @@
                     <h2 class="mt-0">Comments</h2>
 
                     <div class="media-body">
-                        <div class="comment">
-                            <p>
-                            <a href="profile.php" class="username">nmtc01</a>
-                            <br>
-                            Here's a meta topic discussing basic questions. Personally, I think basic questions are ok if written well and are on-topic. Look at the answers below, they illustrate a bunch of things that would be useful for someone new to go. For loops, type casting, make(), etc.</p>
-                        </div>
-                        <div class="comment">
-                            <p>
-                            <a href="profile.php" class="username">edu1234</a>
-                            <br>
-                            "This question does not show any research effort" (first highly upvoted answer in your link) - That's what I was referring to. He shows no research effort. No effort at all (an attempt, or even stating that he looked online, which he obviously hasn't). Although it would be useful for someone new, this site is not focused on teaching new people. It's focused on answering specific programming problems/questions, not tutorials/guides. Although it could be used for the latter, that is not the focus, and thus this question should be closed. Instead, its spoonfed</p>
-                        </div>
+                        <?php
+                        draw_comment("nmtc01","Here's a meta topic discussing basic questions. Personally, I think basic questions are ok if written well and are on-topic. Look at the answers below, they illustrate a bunch of things that would be useful for someone new to go. For loops, type casting, make(), etc.");
+                        draw_comment("edu1234","This question does not show any research effort - That's what I was referring to. He shows no research effort. No effort at all (an attempt, or even stating that he looked online, which he obviously hasn't). Although it would be useful for someone new, this site is not focused on teaching new people. It's focused on answering specific programming problems/questions, not tutorials/guides. Although it could be used for the latter, that is not the focus, and thus this question should be closed. Instead, its spoonfed");
+                        ?>
                     </div>                
                     <h2 class="mt-0">Answers</h2>
                     

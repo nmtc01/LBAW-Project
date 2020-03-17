@@ -375,6 +375,23 @@ function draw_answer($img, $user, $answer, $score) {
 ?>
 
 <?php
+function draw_comment($user, $comment){
+?>
+    <div class="comment">
+        <p>
+            <a href="profile.php" class="username"><?=$user?></a>
+            <a class="icon-answers" href="#">
+                <i class="fas fa-bug"> Report</i>
+            </a>
+            <br>
+        <?=$comment?>
+        </p>
+    </div>
+<?php
+}
+?>
+
+<?php
 function add_question_popup(){
 ?>
     <div class="modal fade" id="ask_something" tabindex="-1" role="dialog" aria-labelledby="ask_something_title" aria-hidden="true">
