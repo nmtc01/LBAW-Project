@@ -63,7 +63,7 @@ function draw_reported_tables($ids){
                         4 => array("up201706162", "this user has a score of 10")
                     ),
                 );
-                draw_reported_tab($ids[2], $titles3, $reports3, false);
+                draw_reported_tab(3, $ids[2], $titles3, $reports3, false);
             }
         ?>
     </div>
@@ -89,7 +89,7 @@ function draw_reported_tab($nr, $id, $titles, $reports, $isActive) {
                 ?>
                 <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem<?=$k.$nr?>"><?=$reports[$i][$j][0]?></button>
                 <?php
-                draw_reported_element($reports[$i][$j], $k.$nr);
+                draw_reported_element($reports[$i][$j], $k, $nr);
                 }
                 ?>
             </div>
@@ -103,9 +103,9 @@ function draw_reported_tab($nr, $id, $titles, $reports, $isActive) {
 ?>
 
 <?php
-function draw_reported_element($info, $id) {
+function draw_reported_element($info, $id, $nr) {
 ?>
-    <div class="modal fade" id="reported_elem<?=$id?>" tabindex="-1" role="dialog" aria-labelledby="reported_title" aria-hidden="true">
+    <div class="modal fade" id="reported_elem<?=$id.$nr?>" tabindex="-1" role="dialog" aria-labelledby="reported_title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -126,7 +126,23 @@ function draw_reported_element($info, $id) {
                     ?>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Edit</button>
+                    <button type="button" class="btn btn-primary">
+                        <?php
+                        if($nr == 1) {
+                        ?>
+                        Edit
+                        <?php
+                        } else if ($nr == 2) {
+                        ?>
+                        View
+                        <?php
+                        } else {
+                        ?>
+                        Change status
+                        <?php
+                        }
+                        ?>
+                    </button>
                 </div>
             </div>
         </div>
