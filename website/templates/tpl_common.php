@@ -49,7 +49,7 @@ function draw_footer() {
                         <!-- Grid column -->
                         <div class="col-md-3 mx-auto">
                         <!-- Links -->
-                            <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Labels</h3>
+                            <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Most Popular</h3>
                             <ul class="list-unstyled">
                                 <li>
                                 <a href="#!">#Sports</a>
@@ -66,16 +66,16 @@ function draw_footer() {
                         <!-- Grid column -->
                         <div class="col-md-3 mx-auto">
                             <!-- Links -->
-                            <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Labels</h3>
+                            <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Most Popular</h3>
                             <ul class="list-unstyled">
                                 <li>
-                                <a href="#!">Physics</a>
+                                <a href="#!">#Physics</a>
                                 </li>
                                 <li>
-                                <a href="#!">Anatomy</a>
+                                <a href="#!">#Anatomy</a>
                                 </li>
                                 <li>
-                                <a href="#!">Comics</a>
+                                <a href="#!">#Comics</a>
                                 </li>
                             </ul>
                         </div>
@@ -292,17 +292,14 @@ function draw_home_question($type, $img, $user, $question) {
 ?>
     <div class="wrapper home_question container-fluid">
         <div class="row">
-            <div id="prof_info" class="col-2 text-center my-auto">
-                <img src=<?="../resources/".$img?> class="row-10" alt="profile pic">
+            <div id="prof_info" class="col-2 text-center">
+                <img src=<?="../resources/".$img?> class="row-10 img-circle" alt="profile pic">
                 <p><a class="row-2 d-none d-sm-block" href="/pages/profile.php"><?=$user?></a></p>
             </div>
             <div class="col-10">
                 <h1 class="mt-0"><a id="question-header" href="/pages/question.php"><?=$question?></a></h1>
             </div>
         </div>
-        <?php
-        if ($type != "guest") {
-        ?>
         <div class="icons">
             <a class="icon" href="#">
                 <i class="fas fa-thumbs-up fa-lg"> 35</i>
@@ -313,13 +310,16 @@ function draw_home_question($type, $img, $user, $question) {
             <a class="icon" href="#">
                 <i class="fas fa-reply fa-lg"> 6</i>
             </a>
+        <?php
+        if ($type != "guest") {
+        ?>
             <a class="icon" href="#">
                 <i class="fas fa-arrow-right fa-lg"> follow</i>
             </a>
-        </div>
         <?php
         }
         ?>
+        </div>
     </div>
 <?php
 }

@@ -27,12 +27,16 @@ draw_main_document();
 
         <?php
         $type = "auth";
-        $img = "bob_iger.jpeg";
-        $user = "nmtc01";
-        $question = "In what order should I watch all the mcu?";
+        $img = array("bob_iger.jpeg", "will-ferrel.jpg", "adam_sandler.jpg");
+        $user = array("nmtc01", "will99", "cr7fan");
+        $question = array("In what order should I watch all the mcu?",
+                          "Is it possible for Leicester City to defeat Aston Villa in the English Premier League?",
+                          "Do you think that Ronaldo is going to play in the next world cup?");
 
-        for ($i = 0; $i < 10; $i++) {
-            draw_home_question($type, $img, $user, $question);
+        for ($i = 0; $i < 2; $i++) {
+            draw_home_question($type, $img[0], $user[0], $question[0]);
+            draw_home_question($type, $img[1], $user[1], $question[1]);
+            draw_home_question($type, $img[2], $user[2], $question[2]);
         }
         ?>
     </div>
