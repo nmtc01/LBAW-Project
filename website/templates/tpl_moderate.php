@@ -34,11 +34,11 @@ function draw_reported_tables($ids){
             );
             $reports2 = array(
                 $users = array( 
-                    0 => array("pedro_dantas", "this user was the origin of 10 reported elements"),
-                    1 => array("nmtc01", "this user was the origin of 10 reported elements"),
-                    2 => array("edu1234", "this user was the origin of 10 reported elements"),
-                    3 => array("bob_mourato", "this user was the origin of 10 reported elements"),
-                    4 => array("up201706162", "this user was the origin of 10 reported elements")
+                    0 => array("pedro_dantas", "This user was the origin of 10 reported elements"),
+                    1 => array("nmtc01", "This user was the origin of 10 reported elements"),
+                    2 => array("edu1234", "This user was the origin of 10 reported elements"),
+                    3 => array("bob_mourato", "This user was the origin of 10 reported elements"),
+                    4 => array("up201706162", "This user was the origin of 10 reported elements")
                 )
             );
             draw_reported_tab(2, $ids[1], $titles2, $reports2, false);
@@ -49,18 +49,18 @@ function draw_reported_tables($ids){
                 );
                 $reports3 = array(
                     $users = array( 
-                        0 => array("taskforce", "this user has a score of 10"),
-                        1 => array("geek4geeks", "this user has a score of 10"),
-                        2 => array("ivo899", "this user has a score of 10"),
-                        3 => array("bob_iger", "this user has a score of 10"),
-                        4 => array("up201706162", "this user has a score of 10")
+                        0 => array("taskforce", "This user has a score of 10"),
+                        1 => array("geek4geeks", "This user has a score of 10"),
+                        2 => array("ivo899", "This user has a score of 10"),
+                        3 => array("bob_iger", "This user has a score of 10"),
+                        4 => array("up201706162", "This user has a score of 10")
                     ),
                     $moderators = array( 
-                        0 => array("taskforce", "this user has a score of 10"),
-                        1 => array("geek4geeks", "this user has a score of 10"),
-                        2 => array("ivo899", "this user has a score of 10"),
-                        3 => array("bob_iger", "this user has a score of 10"),
-                        4 => array("up201706162", "this user has a score of 10")
+                        0 => array("taskforce", "This user has a score of 10"),
+                        1 => array("geek4geeks", "This user has a score of 10"),
+                        2 => array("ivo899", "This user has a score of 10"),
+                        3 => array("bob_iger", "This user has a score of 10"),
+                        4 => array("up201706162", "This user has a score of 10")
                     ),
                 );
                 draw_reported_tab(3, $ids[2], $titles3, $reports3, false);
