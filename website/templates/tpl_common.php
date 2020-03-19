@@ -346,13 +346,17 @@ function draw_search_result($img, $question, $info) {
 <?php
 function draw_answer($img, $user, $answer, $score) {
 ?>
-    <li class="media mt-3">
-        <a class="pr-3 col-sm-2 d-none d-sm-block" href="../pages/profile.php">
-            <img src=<?="../resources/".$img?> alt="Generic placeholder image">
-            <p>Score: <?=$score?></p>
-        </a>
-        <div class="media-body col-sm-10">
-            <h3 class="mt-0"><a href="../pages/profile.php"><?=$user?></a></h3>
+    <li id="answer">
+        <div class="row">
+            <a class="col-sm-3 d-none d-sm-block text-center" href="../pages/profile.php">
+                <img src=<?="../resources/".$img?> alt="Generic placeholder image">
+            </a>
+            <div class="col-sm-9">
+                <span class="badge badge-success"><i class="fas fa-star"></i>Score <?=$score?></span>
+                <p id="user_ans"><a href="../pages/profile.php"><?=$user?></a></p>
+            </div>
+        </div>
+        <div class="ans-body">
             <p><?=$answer?></p>
             <div class=icons-answers>
                 <a class="icon-answers" href="#">

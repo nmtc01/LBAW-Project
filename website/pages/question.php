@@ -21,19 +21,19 @@
     </div>
 
     <div class="container-fluid">
-        <div class="wrapper col-md-5 container">
-            <div class="row-2 d-flex">
-                <div id="prof-img" class="col-3 text-center d-none d-sm-block">
-                    <a href="profile.php">
-                        <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
-                    </a>
-                    <p><a href="profile.php">pedro_dantas</a></p>
-                </div>
+        <div class="wrapper col-md-5">
+            <div class="row flex-row-reverse">
                 <div class="col-sm-9">
                     <h1>How to generate a random string of a fixed length in Go?</h1>
                 </div>
+                <div id="prof-img" class="col-sm-3 text-center">
+                    <a class="row-sm" href="profile.php">
+                        <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+                    </a>
+                    <p class="row-sm text-truncate"><a href="profile.php">pedro_dantas</a></p>
+                </div>
             </div>
-            <div class="row-10">
+            <div>
                 <p>I want a random string of characters only (uppercase or lowercase), no numbers, in Go. What is the fastest and simplest way to do this?</p>
 
                 <div class=icons>

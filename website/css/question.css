@@ -70,12 +70,6 @@
     color: #6545c9;
 }
 
-.wrapper .pr-3 p {
-    color: #6545c9;
-    text-align: center;
-    margin-top: .25rem;
-}
-
 .wrapper img {
     margin-bottom: 0;
 }
@@ -91,4 +85,23 @@
 
 a {
     color: #6545c9;
+}
+
+p#user_ans {
+    margin-bottom: 0;
+}
+
+p#user_ans a {
+    color: black;
+    font-weight: bold;
+}
+
+li#answer {
+    border-top: solid 1px #b3afaf;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+li#answer .ans-body p {
+    margin-top: .5rem;
 }
