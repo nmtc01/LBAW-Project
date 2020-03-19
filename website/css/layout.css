@@ -153,3 +153,21 @@ a {
 .fa-bug {
     float: right;
 }
+
+nav .pagination {
+    margin-top: 2rem;
+}
+
+nav .pagination .page-item .page-link{
+    color: #6545c9;
+}
+
+nav .pagination .page-item #previous{
+    background-color: #6545c9;
+    color: white;
+}
+
+nav .pagination .page-item #next{
+    background-color: #6545c9;
+    color: white;
+}
