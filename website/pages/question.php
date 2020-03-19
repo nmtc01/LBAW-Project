@@ -75,15 +75,15 @@
                 
                 <ul class="list-unstyled">
                     <?php
-                        $img = "bob_iger.jpeg";
-                        $user = "bob_mourato";
-                        $answer = "The question asks for the the fastest and simplest way. Let's address the fastest part too. We'll arrive at our final, fastest code in an iterative manner. Benchmarking each iteration can be found at the end of the answer.
-                        All the solutions and the benchmarking code can be found on the Go Playground. The code on the Playground is a test file, not an executable.";
-                        $score = 33;
+                        $img = array("will-ferrel.jpg", "robert-jr.jpg");
+                        $user = array("will99", "cr7fan");
+                        $answer = array("The question asks for the the fastest and simplest way. Let's address the fastest part too. We'll arrive at our final, fastest code in an iterative manner. Benchmarking each iteration can be found at the end of the answer.
+                        All the solutions and the benchmarking code can be found on the Go Playground. The code on the Playground is a test file, not an executable.",
+                        "I have the exact same problem, I don't know how to do it!");
+                        $score = array(33,-2);
 
-                        for($i = 0; $i < 3; $i++){
-                            draw_answer($img, $user, $answer, $score);
-                        }
+                        draw_answer($img[0], $user[0], $answer[0], $score[0]);
+                        draw_answer($img[1], $user[1], $answer[1], $score[1]);
                     ?>
                 </ul>
             </div>

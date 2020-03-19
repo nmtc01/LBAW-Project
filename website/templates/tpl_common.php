@@ -448,11 +448,12 @@ function dropdown_notifications_menu(){
     <div class="dropdown">
         <div id="notifications_menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuNotificationsButton">
         <?php
-        $img = "bob_iger.jpeg";
-        $user = "pedro_dantas";
-        $question = "Will Erling Braut Haaland be a future winner of the Ballon d’Or?";
-        for($i = 0; $i < 5; $i++) {
-            draw_notification($img, $user, $question);
+        $img = array("bob_iger.jpeg","robert-jr.jpg");
+        $user = array("pedro_dantas","cr7fan");
+        $question = array("Will Erling Braut Haaland be a future winner of the Ballon d’Or?","How can I learn C and C++?");
+        for($i = 0; $i < 2; $i++) {
+            draw_notification($img[0], $user[0], $question[0]);
+            draw_notification($img[1], $user[1], $question[1]);
         }
         ?>
         </div>

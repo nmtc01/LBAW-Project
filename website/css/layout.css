@@ -137,6 +137,11 @@ a {
     margin-right: auto;
 }
 
+#notification img {
+    border-radius: 0;
+    height: 100%;
+}
+
 #notification h4 span {
     color: #6545c9;
 }
