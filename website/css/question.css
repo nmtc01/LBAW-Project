@@ -81,11 +81,12 @@
 }
 
 #prof-img {
-    margin-right: 1rem;
+    margin: 0;
 }
 
-#prof-img p {
-    font-size: 0.9rem;
+#prof-img img {
+    width: 7vw;
+    height: 7vw;
 }
 
 a {

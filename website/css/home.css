@@ -72,3 +72,11 @@
     flex-wrap: wrap;
     align-items: center;
 }
+
+a {
+    color: #6545c9;
+}
+
+a:hover {
+    color: black;
+}
