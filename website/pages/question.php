@@ -24,14 +24,12 @@
         <div class="wrapper col-md-5">
             <div>
                 <div class="row-sm-2 d-flex">
+                    <h1 class="col-9">How to generate a random string of a fixed length in Go?</h1>
                     <div id="prof-img" class="col-3 text-center">
                         <a href="profile.php">
                             <img src="../resources/bob_iger.jpeg" alt="Generic placeholder image">
+                            <p>pedro_dantas</p>
                         </a>
-                    </div>
-                    <div>
-                        <h1>How to generate a random string of a fixed length in Go?</h1>
-                        <p><a href="/pages/profile.php">pedro_dantas</a></p>
                     </div>
                 </div>
                 <div class="row-sm-10">

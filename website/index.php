@@ -27,7 +27,7 @@ draw_main_document();
 
         <?php
         $type = "auth";
-        $img = array("bob_iger.jpeg", "will-ferrel.jpg", "adam_sandler.jpg");
+        $img = array("bob_iger.jpeg", "will-ferrel.jpg", "robert-jr.jpg");
         $user = array("nmtc01", "will99", "cr7fan");
         $question = array("In what order should I watch all the mcu?",
                           "Is it possible for Leicester City to defeat Aston Villa in the English Premier League?",

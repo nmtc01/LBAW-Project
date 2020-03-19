@@ -83,3 +83,11 @@
 #prof-img {
     margin-right: 1rem;
 }
+
+#prof-img p {
+    font-size: 0.9rem;
+}
+
+a {
+    color: #6545c9;
+}
