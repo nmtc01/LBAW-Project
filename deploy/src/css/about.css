@@ -1,15 +1,6 @@
-body {
-    background: #eee;
-    background-image: url("../resources/wallpaper2.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-}
-
 #about {
-    margin: 10% 15%;
-    background-color: #eee;
+    margin: 3% 15%;
+    background-color: white;
     padding: 5%;
     border-radius: .25rem;
 }

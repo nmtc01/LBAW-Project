@@ -4,14 +4,13 @@ include_once "../templates/tpl_common.php";
 draw_main_document();
 ?>
 
-<link rel="stylesheet" href="../css/index.css">
 <link rel="stylesheet" href="../css/profile.css">
 </head>
 
 <body>
     <header>
         <?php
-        draw_nav_bar("full_nav");
+        draw_nav_bar("full", false);
         ?>
     </header>
 
@@ -23,7 +22,10 @@ draw_main_document();
                         <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Messages</a>
+                        <a href="" data-target="#notifications" data-toggle="tab" class="nav-link">Notifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" data-target="#my-questions" data-toggle="tab" class="nav-link">My Questions</a>
                     </li>
                     <li class="nav-item">
                         <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
@@ -60,48 +62,10 @@ draw_main_document();
                                 <hr>
                                 <span class="badge badge-success"><i class="fas fa-star"></i> Score 9999</span>
                             </div>
-                            <div class="col-md-12">
-                                <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Question</th>
-                                                <th scope="col">Number of Answers</th>
-                                                <th scope="col">Score</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Como é que meto o anzol na linha?</td>
-                                                <td>8</td>
-                                                <td>300</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Está bom tempo para ir pescar?</td>
-                                                <td>17</td>
-                                                <td>146</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Estamos na época da sardinha?</td>
-                                                <td>3</td>
-                                                <td>421</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
                         </div>
                         <!--/row-->
                     </div>
-                    <div class="tab-pane" id="messages">
-                        <div class="alert alert-info alert-dismissable">
-                            <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Used to show important messages to the user.
-                        </div>
+                    <div class="tab-pane" id="notifications">
                         <table class="table table-hover table-striped">
                             <tbody>
                                 <tr>
@@ -131,6 +95,81 @@ draw_main_document();
                                 </tr>
                             </tbody>
                         </table>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                <a id="previous" class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                <a id="next" class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="tab-pane" id="my-questions">
+                        <div class="col-md-12">
+                            <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Recent Activity</h5>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Question</th>
+                                            <th scope="col">Answers</th>
+                                            <th scope="col">Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>How do I put the hook on the line?</td>
+                                            <td>8</td>
+                                            <td>300</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Is it a good time to go fishing?</td>
+                                            <td>17</td>
+                                            <td>146</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Is it sardine season?</td>
+                                            <td>3</td>
+                                            <td>421</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td>In what order should I watch all the mcu?</td>
+                                            <td>7</td>
+                                            <td>67</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">5</th>
+                                            <td>Is it possible for Leicester City to defeat Aston Villa in the English Premier League?</td>
+                                            <td>2</td>
+                                            <td>41</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                    <a id="previous" class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                    <a id="next" class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                     <div class="tab-pane" id="edit">
                         <form role="form">
