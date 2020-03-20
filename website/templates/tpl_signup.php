@@ -47,16 +47,19 @@ function draw_form($type) {
     <div class="row register-form">
         <?php
         if ($type == "Register") 
-            draw_form_register();
+            draw_form_register_left();
         draw_form_login();
+        if ($type == "Register")
+            draw_form_register_right();
         ?>
+        </div>
     </div>
 <?php
 }
 ?>
 
 <?php
-function draw_form_register() {
+function draw_form_register_left() {
 ?>
     <div class="col-md-6">
         <div class="form-group">
@@ -88,6 +91,19 @@ function draw_form_register() {
 }
 ?>
 
+<?php
+function draw_form_register_right() {
+?>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+    </div>
+    <div class="form-group" contentEditable="true">
+        <textarea class="form-control" placeholder="Description *" value="" rows="5"></textarea>
+    </div>
+<?php
+}
+?>
+
 <?php 
 function draw_form_login() {
 ?>
@@ -98,13 +114,6 @@ function draw_form_login() {
         <div class="form-group">
             <input type="password" class="form-control" placeholder="Password *" value="" />
         </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-        </div>
-        <div class="form-group" contentEditable="true">
-            <textarea class="form-control" placeholder="Description *" value="" rows="5"></textarea>
-        </div>
-    </div>
 <?php
 }
 ?>

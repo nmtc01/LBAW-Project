@@ -10,7 +10,7 @@ draw_main_document();
 <body>
     <header>
         <?php
-        draw_nav_bar("full", false);
+        draw_nav_bar("simple", false);
         ?>
     </header>
 

@@ -122,7 +122,7 @@ function draw_nav_bar($nav_type, $filters) {
                 else {
             ?>
                     <li class="nav-item">
-                        <button class="btn my-2 my-sm-0" type="submit">Sign In</button>
+                        <a class="btn btn-primary my-2 my-sm-0" href="../pages/login.php" role="button">Sign in</a>
                     </li>
                 <?php 
                 }
