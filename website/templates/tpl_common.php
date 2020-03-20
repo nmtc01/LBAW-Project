@@ -122,7 +122,7 @@ function draw_nav_bar($nav_type, $filters) {
                 else {
             ?>
                     <li class="nav-item">
-                        <button class="btn my-2 my-sm-0" type="submit">Sign In</button>
+                        <a class="btn btn-primary my-2 my-sm-0" href="../pages/login.php" role="button">Sign in</a>
                     </li>
                 <?php 
                 }
@@ -346,13 +346,17 @@ function draw_search_result($img, $question, $info) {
 <?php
 function draw_answer($img, $user, $answer, $score) {
 ?>
-    <li class="media mt-3">
-        <a class="pr-3 col-sm-2 d-none d-sm-block" href="../pages/profile.php">
-            <img src=<?="../resources/".$img?> alt="Generic placeholder image">
-            <p>Score: <?=$score?></p>
-        </a>
-        <div class="media-body col-sm-10">
-            <h3 class="mt-0"><a href="../pages/profile.php"><?=$user?></a></h3>
+    <li id="answer">
+        <div class="row">
+            <a class="col-sm-3 d-none d-sm-block text-center" href="../pages/profile.php">
+                <img src=<?="../resources/".$img?> alt="Generic placeholder image">
+            </a>
+            <div class="col-sm-9">
+                <span class="badge badge-success"><i class="fas fa-star"></i>Score <?=$score?></span>
+                <p id="user_ans"><a href="../pages/profile.php"><?=$user?></a></p>
+            </div>
+        </div>
+        <div class="ans-body">
             <p><?=$answer?></p>
             <div class=icons-answers>
                 <a class="icon-answers" href="#">
@@ -444,11 +448,12 @@ function dropdown_notifications_menu(){
     <div class="dropdown">
         <div id="notifications_menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuNotificationsButton">
         <?php
-        $img = "bob_iger.jpeg";
-        $user = "pedro_dantas";
-        $question = "Will Erling Braut Haaland be a future winner of the Ballon d’Or?";
-        for($i = 0; $i < 5; $i++) {
-            draw_notification($img, $user, $question);
+        $img = array("bob_iger.jpeg","robert-jr.jpg");
+        $user = array("pedro_dantas","cr7fan");
+        $question = array("Will Erling Braut Haaland be a future winner of the Ballon d’Or?","How can I learn C and C++?");
+        for($i = 0; $i < 2; $i++) {
+            draw_notification($img[0], $user[0], $question[0]);
+            draw_notification($img[1], $user[1], $question[1]);
         }
         ?>
         </div>
