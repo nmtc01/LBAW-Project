@@ -1,50 +1,46 @@
 <?php
-    include_once "templates/tpl_common.php";
+include_once "templates/tpl_common.php";
 
-    draw_main_document();
+draw_main_document();
 ?>
 
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
-    <header>    
-        <?php 
-            draw_nav_bar("simple");
+    <header>
+        <?php
+        draw_nav_bar("simple", false);
         ?>
     </header>
 
-
-    <div class="wrapper container">
-        <form class="form-signin">
-            <h2 class="form-signin-heading text-center display-3">Answerly</h2>
-
-            <button id="api" class="btn  btn-lg btn-block">Sign in with Google</button>
-            <input type="text" class="form-control" name="username" placeholder="Email Address">
-            <input type="password" class="form-control" name="password" placeholder="Password">
-            <button type="button" class="btn  btn-lg btn-block">Login</button>
-            
-            <div id="register">
-                <p>Don't have an account? <a href="pages/register.php">Register</a></p>
-            </div>
-
-        </form>
-
+    <div>
+        <?php
+            draw_side_pair();
+        ?>
     </div>
-    <div class="popular">
-        <h1 id="pop_questions">Popular questions</h1>
-<?php
-    $type = "guest";
-    $img = "../resources/bob_iger.jpeg";
-    $user = "nmtc01";
-    $question = "In what order should I watch all the mcu?";
-    $info = "I'm about to start a marathon of marvel movies. I have never seen one and I would like to know what do you guuys think is the best order to see them. I heard that there are at least 20 ways to watch it.";
 
-    for($i = 0; $i < 10; $i++){ 
-        draw_home_question($type, $img, $user, $question, $info);
-    }
-?>
+    <div class="col-md-5 container-fluid">
+        <button id="add_btn" class="input-button" data-toggle="modal" data-target="#ask_something">
+            What is your question?
+        </button>
+
+        <?php
+        $type = "auth";
+        $img = array("bob_iger.jpeg", "will-ferrel.jpg", "robert-jr.jpg");
+        $user = array("nmtc01", "will99", "cr7fan");
+        $question = array("In what order should I watch all the mcu?",
+                          "Is it possible for Leicester City to defeat Aston Villa in the English Premier League?",
+                          "Do you think that Ronaldo is going to play in the next world cup?");
+
+        for ($i = 0; $i < 2; $i++) {
+            draw_home_question($type, $img[0], $user[0], $question[0]);
+            draw_home_question($type, $img[1], $user[1], $question[1]);
+            draw_home_question($type, $img[2], $user[2], $question[2]);
+        }
+        ?>
     </div>
-<?php
+
+    <?php
     draw_footer();
-?>
+    ?>

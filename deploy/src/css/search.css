@@ -1,12 +1,15 @@
 body { 
-    padding-top: 200px; 
+    padding-top: 130px; 
+}
+
+#headingOne {
+    background-color: #806bbe;
 }
 
 .filters {
-    max-width: 75%;
     margin: 0 auto;
     background-color: #806bbe;
-    padding: 3% 20px 3% 20px;
+    padding: 1%;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
     color: white;
@@ -18,45 +21,43 @@ body {
 
 .filters input {
     cursor: pointer;
-}
-
-.filters form #filters-bar .dates label{
-    margin: 0rem .5rem 0rem 1rem
-}
-
-.filters form #filters-bar .dates input{
-    color: #806bbe;
-    border-radius: .25rem;
-    border-color: #806bbe;
+    width: 80%;
 }
 
 .wrapper ul li.media {
     margin-top: 1rem;
 }
 
-nav .pagination .page-item .page-link{
-    color: #6545c9;
+.wrapper {
+    background-color: white;
+    padding: 3% 3% 1%;
+    border: 2px solid #e5e5e5;
+    border-radius: .25rem;
+    margin: 1% auto;
 }
 
-nav .pagination .page-item #previous{
-    background-color: #6545c9;
-    color: white;
-}
-
-nav .pagination .page-item #next{
-    background-color: #6545c9;
-    color: white;
-}
-
-.wrapper .media .media-body .list-unstyled .search_result {
+.wrapper a {
     text-decoration: none;
     color: black;
 }
 
-.wrapper .media .media-body .list-unstyled .search_result:hover {
+.wrapper a:hover {
     color: #6545c9;
 }
 
-.wrapper {
-    padding: 2% 5% 5%;
+.sidenav#sidenav_right {
+    top: 145px;
+}
+
+.sidenav#sidenav_left {
+    top: 145px;
+}
+
+#search_title {
+    margin-top: 15px;
+}
+
+.dates {
+    margin-left: auto;
+    padding-top: 1rem;
 }

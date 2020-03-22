@@ -1,126 +1,42 @@
 <?php
-    include_once "../templates/tpl_common.php";
+include_once "../templates/tpl_common.php";
+include_once "../templates/tpl_moderate.php";
 
-    draw_main_document();
+draw_main_document();
 ?>
 
     <link rel="stylesheet" href="../css/modmin.css">
 </head>
 
-<body>
-    <header>    
+<body>   
+  <header>
+      <?php 
+        draw_nav_bar("full", false);
+      ?>
+  </header>
+
+  <div class="container moderate">
         <?php
-            draw_nav_bar("full_nav");
+        $targets = array(
+          0 => "reports",
+          1 => "reported-users"
+        );
         ?>
-    </header>
 
-    <h1><span class="badge badge-secondary">Reports</span></h1>
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a href="" data-target=<?="#".$targets[0]?> data-toggle="tab" class="nav-link active">Reports</a>
+          </li>
+          <li class="nav-item">
+            <a href="" data-target=<?="#".$targets[1]?> data-toggle="tab" class="nav-link">Reported Users</a>
+          </li>
+        </ul>
 
-  <div class="wrapper">
-    <div class="box1"><table class="table">
-  <thead class="thead">
-    <tr>
-      <th scope="col">Questions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Question 1</td>
-    </tr>
-    <tr>
-      <td>Question 2</td>
-    </tr>
-    <tr>
-      <td>Question 3</td>
-    </tr>
-  </tbody>
-</table></div>
-   <div class="box2"><table class="table">
-  <thead class="thead">
-    <tr>
-      
-      <th scope="col">Answers</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      
-      <td>Answer 1</td>
-    </tr>
-    <tr>
-      
-      <td>Answer 2</td>
-    </tr>
-    <tr>
-      
-      <td>Answer 3</td>
-    </tr>
-  </tbody>
-</table></div>
-   <div class="box3">
-       
-<table class="table">
-  <thead class="thead">
-    <tr>
-      
-      <th scope="col">Comments</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      
-      <td>Comment 1</td>
-    </tr>
-    <tr>
-      
-      <td>Comment 2</td>
-    </tr>
-    <tr>
-      
-      <td>Comment 3</td>
-    </tr>
-  </tbody>
-</table>
-   </div>
-</div>
+        <?php
+          draw_reported_tables($targets, false);
+        ?>
+  </div>
 
-
-
-    <h1><span class="badge badge-secondary">Reported Users</span></h1>
-
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Username</th>
-      <th scope="col">Name</th>
-      <th scope="col">Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>johny1</td>
-      <td>John</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <td>mary123</td>
-      <td>Mary</td>
-      <td>-35</td>
-    </tr>
-    <tr>
-      <td>redflag</td>
-      <td>Simon</td>
-      <td>75</td>
-    </tr>
-    <tr>
-      <td>Suzz987</td>
-      <td>Susan</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-
-<?php 
-    draw_footer();
+<?php
+draw_footer();
 ?>

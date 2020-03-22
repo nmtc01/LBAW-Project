@@ -1,5 +1,6 @@
 body { 
     padding-top: 60px; 
+    background-color: #eee;
 }
 
 header nav {
@@ -28,14 +29,18 @@ form [type="submit"] {
     color: white;
 }
 
-.navbar-nav .nav-item{
-    background-color: white; 
-    
+.btn {
+    background-color: #6545c9;
+    color: white;
+    border-radius: .25rem;
+    border: 1px solid white;
 }
 
-.btn {
+.btn:hover {
+    background-color: white;
     color: #6545c9;
-    border-radius: .25rem;
+    border-color: #6545c9;
+    text-decoration: none;
 }
 
 li.nav-item {
@@ -58,19 +63,111 @@ footer a:hover {
 }
 
 h1 {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 h3 {
     font-size: 1.2rem;
 }
+h4 {
+    font-size: 0.8rem;
+}
 
 .wrapper img {
+    border-radius: 50%;
+    width: 5vw;
+    height: 5vw;
+    object-fit: cover;
+    object-position: center;
+}
+
+.wrapper {
+    margin: 0 auto;
+    margin-top: 15px;
+    background-color: #fff;
+    padding: 2%;
+    border: 2px solid #e5e5e5;
     border-radius: .25rem;
-    margin-bottom: 1rem;
-    padding: 0%;
+}
+
+.sidenav#sidenav_right {
+    border: 2px solid #e5e5e5;
+    width: 15%;
+    top: 75px;
+    right: 14%;
+    padding: 2%;
+    position: fixed;
+    background: white;
+    border-radius: .25rem; 
+    color: #6545c9;
+}
+
+.sidenav#sidenav_left {
+    border: 2px solid #e5e5e5;
+    width: 18%;
+    top: 75px;
+    left: 10.5%;
+    padding: 2%;
+    position: fixed;
+    background: white;
+    border-radius: .25rem; 
+    color: #6545c9;
+}
+
+.sidenav a {
+    color: black;
+    margin-left: 0;
+}
+
+.sidenav#sidenav_left a {
+    border-top: solid 1px #eee;
+}
+
+a {
+    cursor: pointer;
+}
+
+#notification {
+    white-space: normal;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#notification img {
+    border-radius: 0;
+    height: 100%;
+}
+
+#notification h4 span {
+    color: #6545c9;
+}
+
+#notifications_menu {
+    min-width: 25rem;
+}
+
+.fa-bug {
+    float: right;
+}
+
+nav .pagination {
+    margin-top: 2rem;
+}
+
+nav .pagination .page-item .page-link{
+    color: #6545c9;
+}
+
+nav .pagination .page-item #previous{
+    background-color: #6545c9;
+    color: white;
+}
+
+nav .pagination .page-item #next{
+    background-color: #6545c9;
+    color: white;
 }

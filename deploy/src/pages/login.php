@@ -19,7 +19,7 @@
         <div class="row">
             <?php
                 draw_card_promo();
-                draw_card_form("Register");
+                draw_card_form("Login");
             ?>
         </div>
 

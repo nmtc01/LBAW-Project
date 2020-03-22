@@ -1,8 +1,3 @@
-.media{
-    margin-top: 40px;
-}
-
-
 .icons{
     margin-top: 20px;
     width: 100%;
@@ -15,7 +10,7 @@
 
 .icon{
     color: black;
-    margin-right: 100px;
+    margin-right: 10%;
 }
 
 .icon:hover{
@@ -31,9 +26,9 @@
     color: #6545c9;
 }
 
-.media .form-control{
+.form-control{
     border: 2px solid #e5e5e5;
-    border-radius: 10px;
+    border-radius: .25rem;
     border-color: #6545c9;
 }
 
@@ -43,23 +38,23 @@
     border: none;
 }
 
-.wrapper .media .media-body .media-body .comment p {
+.wrapper .media-body .comment p {
     border-top-style: solid;
     border-top-width: .05rem;
     padding-top: 1rem;
     border-top-color: #b3afaf;
 }
 
-.wrapper .media .media-body .media-body .comment p .username {
+.wrapper .media-body .comment p .username {
     color: black;
     font-weight: bold;
 }
 
-.wrapper .media .media-body .media-body .comment p .username:hover {
+.wrapper .media-body .comment p .username:hover {
     color: #6545c9;
 }
 
-.wrapper .media .media-body h2 {
+.wrapper .media-body h2 {
     border-top-style: solid;
     border-top-width: .1rem;
     padding-top: 1rem;
@@ -67,24 +62,46 @@
     margin-top: 1rem;
 }
 
-.wrapper .media .media-body p a {
-    color: #6545c9;
-}
-
-.wrapper .media .media-body .media-body h3 a {
+.wrapper .media-body h3 a {
     color: black;
 }
 
-.wrapper .media .media-body .media-body h3 a:hover {
+.wrapper .media-body h3 a:hover {
     color: #6545c9;
-}
-
-.wrapper .media .media-body .pr-3 p {
-    color: #6545c9;
-    text-align: center;
-    margin-top: .25rem;
 }
 
 .wrapper img {
     margin-bottom: 0;
+}
+
+#prof-img {
+    margin: 0;
+}
+
+#prof-img img {
+    width: 7vw;
+    height: 7vw;
+}
+
+a {
+    color: #6545c9;
+}
+
+p#user_ans {
+    margin-bottom: 0;
+}
+
+p#user_ans a {
+    color: black;
+    font-weight: bold;
+}
+
+li#answer {
+    border-top: solid 1px #b3afaf;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+li#answer .ans-body p {
+    margin-top: .5rem;
 }
