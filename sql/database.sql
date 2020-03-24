@@ -1,5 +1,5 @@
 -- Table: user
-DROP TABLE IF EXISTS "user";
+DROP TABLE IF EXISTS "user" CASCADE;
 CREATE TABLE "user" (
     user_id         SERIAL          PRIMARY KEY,
     first_name      TEXT            NOT NULL,
@@ -12,14 +12,14 @@ CREATE TABLE "user" (
 );
 
 -- Table: label
-DROP TABLE IF EXISTS label;
+DROP TABLE IF EXISTS label CASCADE;
 CREATE TABLE label (
     label_id        SERIAL          PRIMARY KEY,
     name            TEXT            NOT NULL          
 );
 
 -- Table: notification
-DROP TABLE IF EXISTS notification;
+DROP TABLE IF EXISTS notification CASCADE;
 CREATE TABLE notification (
     notification_id SERIAL          PRIMARY KEY,
     content         TEXT            NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE notification (
 );
 
 -- Table: user_management
-DROP TABLE IF EXISTS user_management;
+DROP TABLE IF EXISTS user_management CASCADE;
 CREATE TABLE user_management (
     management_id   SERIAL          PRIMARY KEY,
     state           TEXT            DEFAULT 'active' NOT NULL,
@@ -38,19 +38,19 @@ CREATE TABLE user_management (
 );
 
 -- Table: moderator
-DROP TABLE IF EXISTS moderator;
+DROP TABLE IF EXISTS moderator CASCADE;
 CREATE TABLE moderator (
     moderator_id     INTEGER         REFERENCES "user" (user_id) NOT NULL UNIQUE
 );
 
 -- Table: administrator
-DROP TABLE IF EXISTS administrator;
+DROP TABLE IF EXISTS administrator CASCADE;
 CREATE TABLE administrator (
     administrator_id INTEGER         REFERENCES "moderator" (moderator_id) NOT NULL
 );
 
 -- Table: question
-DROP TABLE IF EXISTS question;
+DROP TABLE IF EXISTS question CASCADE;
 CREATE TABLE question (
     question_id     SERIAL          PRIMARY KEY,
     user_id         INTEGER         REFERENCES "user" (user_id) NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE question (
 );
 
 -- Table: answer
-DROP TABLE IF EXISTS answer;
+DROP TABLE IF EXISTS answer CASCADE;
 CREATE TABLE answer (
     answer_id        SERIAL          PRIMARY KEY,
     user_id          INTEGER         REFERENCES "user" (user_id) NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE answer (
 );
 
 -- Table: comment
-DROP TABLE IF EXISTS comment;
+DROP TABLE IF EXISTS comment CASCADE;
 CREATE TABLE comment (
     comment_id       SERIAL          PRIMARY KEY,
     user_id          INTEGER         REFERENCES "user" (user_id) NOT NULL,
@@ -89,11 +89,11 @@ CREATE TABLE comment (
 );
 
 -- Table: vote
-DROP TABLE IF EXISTS vote;
+DROP TABLE IF EXISTS vote CASCADE;
 CREATE TABLE vote (
     vote_id          SERIAL          PRIMARY KEY,
-    up_vote          BOOLEAN         NOT NULL,
-    down_vote        BOOLEAN         NOT NULL,
+    "like"           BOOLEAN         NOT NULL,
+    dislike          BOOLEAN         NOT NULL,
     user_id          INTEGER         REFERENCES "user" (user_id) NOT NULL,
     question_id      INTEGER         REFERENCES "question" (question_id),
     answer_id        INTEGER         REFERENCES "answer" (answer_id),
@@ -104,7 +104,7 @@ CREATE TABLE vote (
 );
 
 -- Table: report
-DROP TABLE IF EXISTS report;
+DROP TABLE IF EXISTS report CASCADE;
 CREATE TABLE report (
     report_id        SERIAL          PRIMARY KEY,
     user_id          INTEGER         REFERENCES "user" (user_id),
@@ -120,7 +120,7 @@ CREATE TABLE report (
 );
 
 -- Table: report_status
-DROP TABLE IF EXISTS report_status;
+DROP TABLE IF EXISTS report_status CASCADE;
 CREATE TABLE report_status (
     status_id        SERIAL          PRIMARY KEY,
     report_id        INTEGER         REFERENCES "report" (report_id) NOT NULL,
@@ -130,23 +130,22 @@ CREATE TABLE report_status (
 );
 
 -- Table: marked_answer
-DROP TABLE IF EXISTS marked_answer;
+DROP TABLE IF EXISTS marked_answer CASCADE;
 CREATE TABLE marked_answer (
     question_id      INTEGER         REFERENCES "question" (question_id) NOT NULL,
     answer_id        INTEGER         REFERENCES "answer" (answer_id) NOT NULL
 );
 
 -- Table: following
-DROP TABLE IF EXISTS following;
+DROP TABLE IF EXISTS following CASCADE;
 CREATE TABLE following (
     user_id          INTEGER         REFERENCES "user" (user_id) NOT NULL,
     label_id         INTEGER         REFERENCES "label" (label_id) NOT NULL
 );
 
 -- Table: about
-DROP TABLE IF EXISTS about;
+DROP TABLE IF EXISTS about CASCADE;
 CREATE TABLE about (
     question_id      INTEGER         REFERENCES "question" (question_id) NOT NULL,
     label_id         INTEGER         REFERENCES "label" (label_id) NOT NULL
 );
-
