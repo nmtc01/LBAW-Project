@@ -170,13 +170,16 @@ CREATE TRIGGER vote_once
 
 
 --Trigger 7
-/*CREATE FUNCTION report_status() RETURNS TRIGGER AS
+CREATE FUNCTION report_status() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF NOT EXISTS (SELECT report_status.id, report.id 
                    FROM report_status, report 
                    WHERE report_status.id = report.id)
-    INSERT INTO report_status (report_id, )
+    INSERT INTO report_status
+        SELECT NEW.id, "unresolved", comment, responsible_user
+        FROM report_status JOIN user_management
+        WHERE user_management.status = 'moderator' 
     RETURN NEW;
 END
 $BODY$
@@ -185,4 +188,4 @@ LANGUAGE plpgsql;
 CREATE TRIGGER report_status
     AFTER INSERT ON report
     FOR EACH ROW
-    EXECUTE PROCEDURE report_status();*/
+    EXECUTE PROCEDURE report_status();

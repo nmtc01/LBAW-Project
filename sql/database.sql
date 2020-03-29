@@ -129,7 +129,7 @@ CREATE TABLE report_status (
     report_id        INTEGER         REFERENCES "report" (id) NOT NULL,
     state            TEXT            DEFAULT 'unresolved' NOT NULL,
     comment          TEXT,
-    responsible_user INTEGER         REFERENCES "user_management" (user_id) NOT NULL
+    responsible_user INTEGER         REFERENCES "user" (id) NOT NULL
 );
 
 -- Table: following
