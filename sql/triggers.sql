@@ -179,7 +179,7 @@ BEGIN
     INSERT INTO report_status
         SELECT NEW.id, "unresolved", comment, responsible_user
         FROM report_status JOIN user_management
-        WHERE user_management.status = 'moderator' 
+        WHERE user_management.status = 'moderator'; 
     RETURN NEW;
 END
 $BODY$
@@ -189,3 +189,24 @@ CREATE TRIGGER report_status
     AFTER INSERT ON report
     FOR EACH ROW
     EXECUTE PROCEDURE report_status();
+
+
+--Trigger 8
+CREATE FUNCTION marked_answer() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    UPDATE answer
+    SET marked_answer = FALSE
+    WHERE (SELECT * 
+           FROM answer JOIN question 
+           WHERE answer.question_id = question.id AND 
+                 answer.id != NEW.id)
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER marked_answer
+    AFTER UPDATE OF marked_answer ON answer
+    FOR EACH ROW
+    EXECUTE PROCEDURE marked_answer();
