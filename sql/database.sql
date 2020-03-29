@@ -126,10 +126,10 @@ CREATE TABLE report (
 -- Table: report_status
 CREATE TABLE report_status (
     id               SERIAL          PRIMARY KEY,
-    report_id        INTEGER         REFERENCES "report" (id) NOT NULL,
+    report_id        INTEGER         REFERENCES "report" (id) ON DELETE CASCADE NOT NULL,
     state            TEXT            DEFAULT 'unresolved' NOT NULL,
     comment          TEXT,
-    responsible_user INTEGER         REFERENCES "user_management" (user_id) NOT NULL
+    responsible_user INTEGER         REFERENCES "user" (id) ON DELETE CASCADE NOT NULL
 );
 
 -- Table: following
