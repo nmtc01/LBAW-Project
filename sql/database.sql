@@ -1,5 +1,25 @@
--- Table: user
+-----------------------------------------
+-- Drop old schmema
+-----------------------------------------
+
 DROP TABLE IF EXISTS "user" CASCADE;
+DROP TABLE IF EXISTS label CASCADE;
+DROP TABLE IF EXISTS notification CASCADE;
+DROP TABLE IF EXISTS user_management CASCADE;
+DROP TABLE IF EXISTS question CASCADE;
+DROP TABLE IF EXISTS answer CASCADE;
+DROP TABLE IF EXISTS comment CASCADE;
+DROP TABLE IF EXISTS vote CASCADE;
+DROP TABLE IF EXISTS report CASCADE;
+DROP TABLE IF EXISTS report_status CASCADE;
+DROP TABLE IF EXISTS following CASCADE;
+DROP TABLE IF EXISTS about CASCADE;
+
+-----------------------------------------
+-- Tables
+-----------------------------------------
+
+-- Table: user
 CREATE TABLE "user" (
     id              SERIAL          PRIMARY KEY,
     first_name      TEXT            NOT NULL,
@@ -12,14 +32,12 @@ CREATE TABLE "user" (
 );
 
 -- Table: label
-DROP TABLE IF EXISTS label CASCADE;
 CREATE TABLE label (
     id              SERIAL          PRIMARY KEY,
     name            TEXT            NOT NULL          
 );
 
 -- Table: notification
-DROP TABLE IF EXISTS notification CASCADE;
 CREATE TABLE notification (
     id              SERIAL          PRIMARY KEY,
     content         TEXT            NOT NULL,
@@ -29,7 +47,6 @@ CREATE TABLE notification (
 );
 
 -- Table: user_management
-DROP TABLE IF EXISTS user_management CASCADE;
 CREATE TABLE user_management (
     id              SERIAL          PRIMARY KEY,
     status          TEXT            DEFAULT 'user' NOT NULL,
@@ -37,7 +54,6 @@ CREATE TABLE user_management (
 );
 
 -- Table: question
-DROP TABLE IF EXISTS question CASCADE;
 CREATE TABLE question (
     id              SERIAL          PRIMARY KEY,
     user_id         INTEGER         REFERENCES "user" (id) NOT NULL,
@@ -49,7 +65,6 @@ CREATE TABLE question (
 );
 
 -- Table: answer
-DROP TABLE IF EXISTS answer CASCADE;
 CREATE TABLE answer (
     id               SERIAL          PRIMARY KEY,
     user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
@@ -62,7 +77,6 @@ CREATE TABLE answer (
 );
 
 -- Table: comment
-DROP TABLE IF EXISTS comment CASCADE;
 CREATE TABLE comment (
     id               SERIAL          PRIMARY KEY,
     user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
@@ -77,7 +91,6 @@ CREATE TABLE comment (
 );
 
 -- Table: vote
-DROP TABLE IF EXISTS vote CASCADE;
 CREATE TABLE vote (
     id               SERIAL          PRIMARY KEY,
     "vote"           BOOLEAN         NOT NULL,
@@ -91,7 +104,6 @@ CREATE TABLE vote (
 );
 
 -- Table: report
-DROP TABLE IF EXISTS report CASCADE;
 CREATE TABLE report (
     id               SERIAL          PRIMARY KEY,
     user_id          INTEGER         REFERENCES "user" (id),
@@ -106,7 +118,6 @@ CREATE TABLE report (
 );
 
 -- Table: report_status
-DROP TABLE IF EXISTS report_status CASCADE;
 CREATE TABLE report_status (
     id               SERIAL          PRIMARY KEY,
     report_id        INTEGER         REFERENCES "report" (id) NOT NULL,
@@ -116,15 +127,25 @@ CREATE TABLE report_status (
 );
 
 -- Table: following
-DROP TABLE IF EXISTS following CASCADE;
 CREATE TABLE following (
     user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
     label_id         INTEGER         REFERENCES "label" (id) NOT NULL
 );
 
 -- Table: about
-DROP TABLE IF EXISTS about CASCADE;
 CREATE TABLE about (
     question_id      INTEGER         REFERENCES "question" (id) NOT NULL,
     label_id         INTEGER         REFERENCES "label" (id) NOT NULL
 );
+
+-----------------------------------------
+-- INDEXES
+-----------------------------------------
+
+-----------------------------------------
+-- TRIGGERS and UDFs
+-----------------------------------------
+
+-----------------------------------------
+-- end
+-----------------------------------------
