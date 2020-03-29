@@ -54,7 +54,7 @@ $BODY$
 LANGUAGE plpgsql;
  
 CREATE TRIGGER update_scores
-    AFTER INSERT ON vote
+    AFTER INSERT OR UPDATE ON vote
     FOR EACH ROW
     EXECUTE PROCEDURE update_score_question()
     EXECUTE PROCEDURE update_score_answer();
@@ -86,7 +86,7 @@ $BODY$
 LANGUAGE plpgsql;
  
 CREATE TRIGGER vote_own
-    BEFORE INSERT ON vote
+    BEFORE INSERT OR UPDATE ON vote
     FOR EACH ROW
     EXECUTE PROCEDURE vote_own_answer()
     EXECUTE PROCEDURE vote_own_question();
@@ -106,7 +106,7 @@ $BODY$
 LANGUAGE plpgsql;
  
 CREATE TRIGGER answer_date
-    BEFORE INSERT ON answer
+    BEFORE INSERT OR UPDATE ON answer
     FOR EACH ROW
     EXECUTE PROCEDURE answer_date();
 
@@ -125,7 +125,7 @@ $BODY$
 LANGUAGE plpgsql;
  
 CREATE TRIGGER comment_date_answer
-    BEFORE INSERT ON comment
+    BEFORE INSERT OR UPDATE ON comment
     FOR EACH ROW
     EXECUTE PROCEDURE comment_date_answer();
 
@@ -144,6 +144,45 @@ $BODY$
 LANGUAGE plpgsql;
  
 CREATE TRIGGER comment_date_question
-    BEFORE INSERT ON comment
+    BEFORE INSERT OR UPDATE ON comment
     FOR EACH ROW
     EXECUTE PROCEDURE comment_date_question();
+
+
+--Trigger 6
+CREATE FUNCTION vote_once() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT * FROM vote 
+               WHERE ((NEW.user_id = OLD.user_id AND NEW.question_id = OLD.question_id) OR
+                      (NEW.user_id = OLD.user_id AND NEW.answer_id = OLD.answer_id)) THEN
+        RAISE EXCEPTION 'An element can only be voted once by the same user';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER vote_once
+    BEFORE INSERT ON vote
+    FOR EACH ROW
+    EXECUTE PROCEDURE vote_once();
+
+
+--Trigger 7
+/*CREATE FUNCTION report_status() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF NOT EXISTS (SELECT report_status.id, report.id 
+                   FROM report_status, report 
+                   WHERE report_status.id = report.id)
+    INSERT INTO report_status (report_id, )
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER report_status
+    AFTER INSERT ON report
+    FOR EACH ROW
+    EXECUTE PROCEDURE report_status();*/
