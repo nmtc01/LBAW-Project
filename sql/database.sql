@@ -33,7 +33,7 @@ DROP TABLE IF EXISTS user_management CASCADE;
 CREATE TABLE user_management (
     id              SERIAL          PRIMARY KEY,
     status          TEXT            DEFAULT 'user' NOT NULL,
-    user_id         INTEGER         REFERENCES "user" (id) NOT NULL
+    user_id         INTEGER         REFERENCES "user" (id) NOT NULL UNIQUE
 );
 
 -- Table: question
@@ -45,8 +45,7 @@ CREATE TABLE question (
     description     TEXT            NOT NULL,
     nr_likes        INTEGER         DEFAULT 0 NOT NULL,
     nr_dislikes     INTEGER         DEFAULT 0 NOT NULL,
-    question_date   DATE            DEFAULT 'Now' NOT NULL,
-    marked_answer   INTEGER         REFERENCES "answer" (id) DEFAULT 'null'           
+    question_date   DATE            DEFAULT 'Now' NOT NULL        
 );
 
 -- Table: answer
@@ -58,7 +57,8 @@ CREATE TABLE answer (
     answer_date      DATE            DEFAULT 'Now' NOT NULL,
     content          TEXT            NOT NULL,
     nr_likes         INTEGER         DEFAULT 0 NOT NULL,
-    nr_dislikes      INTEGER         DEFAULT 0 NOT NULL
+    nr_dislikes      INTEGER         DEFAULT 0 NOT NULL,
+    marked_answer    BOOLEAN         DEFAULT FALSE NOT NULL   
 );
 
 -- Table: comment
@@ -99,10 +99,9 @@ CREATE TABLE report (
     answer_id        INTEGER         REFERENCES "answer" (id),   
     comment_id       INTEGER         REFERENCES "comment" (id),
     CHECK(
-        (user_id IS NOT NULL AND question_id IS NULL AND answer_id IS NULL AND comment_id IS NULL) OR
-        (user_id IS NULL AND question_id IS NOT NULL AND answer_id IS NULL AND comment_id IS NULL) OR
-        (user_id IS NULL AND question_id IS NULL AND answer_id IS NOT NULL AND comment_id IS NULL) OR
-        (user_id IS NULL AND question_id IS NULL AND answer_id IS NULL AND comment_id IS NOT NULL)
+        (question_id IS NOT NULL AND answer_id IS NULL AND comment_id IS NULL) OR
+        (question_id IS NULL AND answer_id IS NOT NULL AND comment_id IS NULL) OR
+        (question_id IS NULL AND answer_id IS NULL AND comment_id IS NOT NULL)
     )
 );
 
@@ -113,11 +112,7 @@ CREATE TABLE report_status (
     report_id        INTEGER         REFERENCES "report" (id) NOT NULL,
     state            TEXT            DEFAULT 'unresolved' NOT NULL,
     comment          TEXT,
-    responsible_user INTEGER         REFERENCES "user_management" (user_id) NOT NULL,
-    CHECK(
-        (responsible_user.status = 'moderator') OR
-        (responsible_user.status = 'administrator')
-    )
+    responsible_user INTEGER         REFERENCES "user_management" (user_id) NOT NULL
 );
 
 -- Table: following
