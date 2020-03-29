@@ -6,16 +6,20 @@ BEGIN
         INSERT INTO question
             SELECT id, user_id, title, description, nr_likes, nr_dislikes+1, question_date 
             FROM question JOIN vote
-            WHERE vote.question_id = question.id 
+            WHERE vote.question_id = question.id; 
         INSERT INTO "user"
             SELECT id, first_name, last_name, email, bio, username, password, score-1 
             FROM "user" JOIN vote
-            WHERE vote.user_id = "user".id
+            WHERE vote.user_id = "user".id;
     ELSE IF EXISTS (SELECT "vote",question_id FROM vote WHERE "vote" = TRUE AND question_id = question.id) THEN
         INSERT INTO question
             SELECT id, user_id, title, description, nr_likes+1, nr_dislikes, question_date 
             FROM question JOIN vote
-            WHERE vote.question_id = question.id
+            WHERE vote.question_id = question.id;
+        INSERT INTO "user"
+            SELECT id, first_name, last_name, email, bio, username, password, score+1 
+            FROM "user" JOIN vote
+            WHERE vote.user_id = "user".id;
     END IF;
     RETURN NEW;
 END
@@ -29,12 +33,20 @@ BEGIN
         INSERT INTO answer
             SELECT id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes+1, marked_answer
             FROM answer JOIN vote
-            WHERE vote.answer_id = answer.id 
+            WHERE vote.answer_id = answer.id; 
+        INSERT INTO "user"
+            SELECT id, first_name, last_name, email, bio, username, password, score-1 
+            FROM "user" JOIN vote
+            WHERE vote.user_id = "user".id;
     ELSE IF EXISTS (SELECT "vote",answer_id FROM vote WHERE "vote" = TRUE AND answer_id = answer.id) THEN
         INSERT INTO answer
             SELECT id, user_id, question_id, answer_date, content, nr_likes+1, nr_dislikes, marked_answer
             FROM answer JOIN vote
-            WHERE vote.answer_id = answer.id
+            WHERE vote.answer_id = answer.id;
+        INSERT INTO "user"
+            SELECT id, first_name, last_name, email, bio, username, password, score+1 
+            FROM "user" JOIN vote
+            WHERE vote.user_id = "user".id;
     END IF;
     RETURN NEW;
 END
@@ -78,3 +90,60 @@ CREATE TRIGGER vote_own
     FOR EACH ROW
     EXECUTE PROCEDURE vote_own_answer()
     EXECUTE PROCEDURE vote_own_question();
+
+
+--Trigger 3
+CREATE FUNCTION answer_date() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT answer_date, question_date FROM answer JOIN question 
+               WHERE NEW.question_id = question.id AND answer_date < question_date) THEN
+        RAISE EXCEPTION 'The date of an answer cannot be earlier than the date of its question';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER answer_date
+    BEFORE INSERT ON answer
+    FOR EACH ROW
+    EXECUTE PROCEDURE answer_date();
+
+
+--Trigger 4
+CREATE FUNCTION comment_date_answer() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT answer_date, comment_date FROM answer JOIN comment 
+               WHERE NEW.answer_id = answer.id AND comment_date < answer_date) THEN
+        RAISE EXCEPTION 'The date of a comment cannot be earlier than the date of its answer';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER comment_date_answer
+    BEFORE INSERT ON comment
+    FOR EACH ROW
+    EXECUTE PROCEDURE comment_date_answer();
+
+
+--Trigger 5
+CREATE FUNCTION comment_date_question() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT question_date, comment_date FROM question JOIN comment 
+               WHERE NEW.question_id = question.id AND comment_date < question_date) THEN
+        RAISE EXCEPTION 'The date of a comment cannot be earlier than the date of its question';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER comment_date_question
+    BEFORE INSERT ON comment
+    FOR EACH ROW
+    EXECUTE PROCEDURE comment_date_question();
