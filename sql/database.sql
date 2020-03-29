@@ -61,7 +61,10 @@ CREATE TABLE question (
     description     TEXT            NOT NULL,
     nr_likes        INTEGER         DEFAULT 0 NOT NULL,
     nr_dislikes     INTEGER         DEFAULT 0 NOT NULL,
-    question_date   DATE            DEFAULT 'Now' NOT NULL        
+    question_date   DATE            DEFAULT 'Now' NOT NULL,
+    CHECK (
+        nr_likes >= 0 AND nr_dislikes >= 0
+    )         
 );
 
 -- Table: answer
@@ -73,7 +76,10 @@ CREATE TABLE answer (
     content          TEXT            NOT NULL,
     nr_likes         INTEGER         DEFAULT 0 NOT NULL,
     nr_dislikes      INTEGER         DEFAULT 0 NOT NULL,
-    marked_answer    BOOLEAN         DEFAULT FALSE NOT NULL   
+    marked_answer    BOOLEAN         DEFAULT FALSE NOT NULL,
+    CHECK (
+        nr_likes >= 0 AND nr_dislikes >= 0
+    )    
 );
 
 -- Table: comment
