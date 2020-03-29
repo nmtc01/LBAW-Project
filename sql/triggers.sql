@@ -7,6 +7,10 @@ BEGIN
             SELECT id, user_id, title, description, nr_likes, nr_dislikes+1, question_date 
             FROM question JOIN vote
             WHERE vote.question_id = question.id 
+        INSERT INTO "user"
+            SELECT id, user_id, title, description, nr_likes, nr_dislikes+1, question_date 
+            FROM "user" JOIN vote
+            WHERE vote.user_id = "user".id
     ELSE IF EXISTS (SELECT "vote",question_id FROM vote WHERE "vote" = TRUE AND question_id = question.id) THEN
         INSERT INTO question
             SELECT id, user_id, title, description, nr_likes+1, nr_dislikes, question_date 
