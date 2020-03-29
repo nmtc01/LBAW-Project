@@ -8,7 +8,7 @@ BEGIN
             FROM question JOIN vote
             WHERE vote.question_id = question.id 
         INSERT INTO "user"
-            SELECT id, user_id, title, description, nr_likes, nr_dislikes+1, question_date 
+            SELECT id, first_name, last_name, email, bio, username, password, score-1 
             FROM "user" JOIN vote
             WHERE vote.user_id = "user".id
     ELSE IF EXISTS (SELECT "vote",question_id FROM vote WHERE "vote" = TRUE AND question_id = question.id) THEN
