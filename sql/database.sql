@@ -150,18 +150,18 @@ CREATE TABLE about (
 
 CREATE INDEX question_score ON question USING btree(nr_likes);
 CREATE INDEX question_date ON question USING btree(question_date);
-CREATE INDEX answer_score ON answer USING btree(quesiton_id, nr_likes);
+CREATE INDEX answer_score ON answer USING btree(question_id, nr_likes);
 CREATE INDEX answer_date ON answer USING btree(question_id, answer_date);
-CREATE INDEX comment_date ON comment USING btree(quesiton_id, comment_date);
+CREATE INDEX comment_date ON comment USING btree(question_id, comment_date);
 CREATE INDEX label_popularity ON following USING btree(label_id);
 CREATE INDEX question_user ON question USING btree(user_id);
 CREATE INDEX answer_user ON answer USING btree(user_id);
 CREATE INDEX notification_user_date ON notification USING btree(user_id, date);
-CREATE INDEX user_username ON user USING hash(username);
+CREATE INDEX user_username ON "user" USING hash(username);
 CREATE INDEX report_user ON report USING btree(user_id);
-CREATE INDEX user_score ON user USING btree(score);
+CREATE INDEX user_score ON "user" USING btree(score);
 
-CREATE INDEX label_name ON user USING gin(name);
+CREATE INDEX label_name ON label USING gin(to_tsvector('english', name));
 CREATE INDEX question_title ON question USING gist(to_tsvector('english', title));
 
 -----------------------------------------
