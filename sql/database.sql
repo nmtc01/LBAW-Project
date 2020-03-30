@@ -401,5 +401,30 @@ CREATE TRIGGER marked_answer
     EXECUTE PROCEDURE marked_answer();
 
 -----------------------------------------
+-- TRANSACTIONS
+-----------------------------------------
+--Trigger 01
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
+    INSERT INTO "user" (first_name, last_name, email, bio, username, password)
+        VALUES ('antonio', 'aparicio', 'toutolo@cenas.com', 'nao tenho mts amigos', 'tonicio', 'sha256woendo+2ph«09328');
+
+    INSERT INTO user_management (user_id)
+        VALUES (currval('user_id_seq'));
+
+COMMIT;
+
+--Trigger 02
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
+    INSERT INTO report (user_id, question_id, answer_id, comment_id)
+        VALUES (1, 2, NULL, NULL);
+
+    INSERT INTO report_status (report_id, comment, responsible_user)
+        VALUES (currval('report_id_seq'), 'tou tolo', 2);
+
+COMMIT;
+
+-----------------------------------------
 -- end
 -----------------------------------------
