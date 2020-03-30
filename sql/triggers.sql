@@ -128,8 +128,9 @@ CREATE TRIGGER answer_date
 CREATE FUNCTION comment_date_answer() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    IF EXISTS (SELECT answer_date, comment_date FROM answer, comment 
-               WHERE NEW.answer_id = answer.id AND comment_date < answer_date) THEN
+    IF EXISTS (SELECT answer.answer_date 
+			   FROM answer 
+               WHERE NEW.answer_id = answer.id AND NEW.comment_date < answer.answer_date) THEN
         RAISE EXCEPTION 'The date of a comment cannot be earlier than the date of its answer';
     END IF;
     RETURN NEW;
@@ -147,8 +148,9 @@ CREATE TRIGGER comment_date_answer
 CREATE FUNCTION comment_date_question() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    IF EXISTS (SELECT question_date, comment_date FROM question, comment 
-               WHERE NEW.question_id = question.id AND comment_date < question_date) THEN
+    IF EXISTS (SELECT question.question_date 
+			   FROM question 
+               WHERE NEW.question_id = question.id AND NEW.comment_date < question.question_date) THEN
         RAISE EXCEPTION 'The date of a comment cannot be earlier than the date of its question';
     END IF;
     RETURN NEW;
@@ -167,8 +169,8 @@ CREATE FUNCTION vote_once() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT * FROM vote 
-               WHERE ((NEW.user_id = OLD.user_id AND NEW.question_id = OLD.question_id) OR
-                      (NEW.user_id = OLD.user_id AND NEW.answer_id = OLD.answer_id))) THEN
+               WHERE ((NEW.user_id = vote.user_id AND NEW.question_id = vote.question_id) OR
+                      (NEW.user_id = vote.user_id AND NEW.answer_id = vote.answer_id))) THEN
         RAISE EXCEPTION 'An element can only be voted once by the same user';
     END IF;
     RETURN NEW;
@@ -190,7 +192,7 @@ BEGIN
                    FROM report_status, report 
                    WHERE report_status.id = report.id) THEN
     INSERT INTO report_status
-        SELECT NEW.id, "unresolved", comment, responsible_user
+        SELECT NEW.id, 'unresolved', comment, responsible_user
         FROM report_status, user_management
         WHERE (user_management.status = 'moderator' OR user_management.status = 'administrator'); 
     RETURN NEW;
@@ -209,9 +211,12 @@ CREATE TRIGGER report_status
 CREATE FUNCTION marked_answer() RETURNS TRIGGER AS
 $BODY$
 BEGIN
+	IF EXISTS (SELECT marked_answer FROM answer WHERE answer.id = NEW.id AND NEW.marked_answer = TRUE) THEN
     UPDATE answer
     SET marked_answer = FALSE
-    WHERE answer.question_id = question.id AND answer.id != NEW.id;
+    WHERE (answer.question_id = NEW.question_id AND answer.id != NEW.id);
+	END IF;
+	RETURN NEW;
 END
 $BODY$
 LANGUAGE plpgsql;
@@ -220,3 +225,60 @@ CREATE TRIGGER marked_answer
     AFTER UPDATE OF marked_answer ON answer
     FOR EACH ROW
     EXECUTE PROCEDURE marked_answer();
+
+
+--Verify triggers
+--Trigger 6
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
+INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
+	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
+INSERT INTO answer(id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer)
+	values (1, 1, 1, '2020-03-30', 'Start watching videos', 0, 0, false);
+INSERT INTO comment(user_id, answer_id, comment_date, content)
+    values (1, 1, '2020-03-29', 'cenas e tal');
+
+--Trigger 7
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
+INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
+	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
+INSERT INTO comment(user_id, question_id, comment_date, content)
+    values (1, 1, '2020-03-29', 'cenas e tal');
+
+--Trigger 8
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
+INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
+	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
+INSERT INTO answer(id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer)
+	values (1, 1, 1, '2020-03-30', 'Start watching videos', 0, 0, false);
+INSERT INTO vote("vote", user_id, answer_id)
+    values (true, 1, 1);
+INSERT INTO vote("vote", user_id, answer_id)
+    values (true, 1, 1);
+
+--Trigger 9
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
+INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
+	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
+INSERT INTO report(id, user_id, question_id)
+    values (1, 1, 1);
+
+--Trigger 10
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
+INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
+	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
+INSERT INTO answer(id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer)
+	values (1, 1, 1, '2020-03-30', 'Start watching videos', 0, 0, false);
+INSERT INTO answer(id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer)
+	values (2, 1, 1, '2020-03-30', 'Go to the school.', 0, 0, true);
+INSERT INTO answer(id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer)
+	values (3, 1, 1, '2020-03-30', 'Bah.', 0, 0, true);
+
+UPDATE answer 
+SET marked_answer = true
+WHERE id = 3;
+	
