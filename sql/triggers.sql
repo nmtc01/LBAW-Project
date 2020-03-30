@@ -37,23 +37,21 @@ CREATE FUNCTION update_score_answer() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = FALSE) THEN
-        INSERT INTO answer
-            SELECT id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes+1, marked_answer
-            FROM answer
-            WHERE NEW.answer_id = id; 
-        INSERT INTO "user"
-            SELECT id, first_name, last_name, email, bio, username, password, score-1 
-            FROM "user"
-            WHERE NEW.user_id = id;
+		UPDATE answer
+		SET nr_dislikes = nr_dislikes+1
+		WHERE NEW.answer_id = id;
+		UPDATE "user"
+		SET score = score-1
+		FROM question
+		WHERE NEW.user_id = "user".id AND NEW.question_id = question.id AND question.user_id = "user".id;
     ELSE IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = TRUE) THEN
-        INSERT INTO answer
-            SELECT id, user_id, question_id, answer_date, content, nr_likes+1, nr_dislikes, marked_answer
-            FROM answer
-            WHERE NEW.answer_id = id;
-        INSERT INTO "user"
-            SELECT id, first_name, last_name, email, bio, username, password, score+1 
-            FROM "user"
-            WHERE NEW.user_id = id;
+        UPDATE answer
+		SET nr_likes = nr_likes+1
+		WHERE NEW.answer_id = id;
+		UPDATE "user"
+		SET score = score+1
+		FROM question
+		WHERE NEW.user_id = "user".id AND NEW.question_id = question.id AND question.user_id = "user".id;
     END IF;
 	END IF;
     RETURN NEW;
@@ -243,7 +241,7 @@ INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, sc
 INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
 	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
 INSERT INTO answer(id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer)
-	values (1, 1, 1, '2020-03-29', 'Start watching videos', 0, 0, false);
+	values (1, 1, 1, '2020-03-30', 'Start watching videos', 0, 0, false);
 INSERT INTO vote("vote", user_id, answer_id)
     values (true, 2, 1);
 INSERT INTO vote("vote", user_id, answer_id)
