@@ -36,26 +36,26 @@ CREATE TRIGGER update_score_question
 CREATE FUNCTION update_score_answer() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    IF EXISTS (SELECT "vote",answer_id FROM vote WHERE "vote" = FALSE AND answer_id = answer.id) THEN
+    IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = FALSE) THEN
         INSERT INTO answer
             SELECT id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes+1, marked_answer
-            FROM answer, vote
-            WHERE vote.answer_id = answer.id; 
+            FROM answer
+            WHERE NEW.answer_id = id; 
         INSERT INTO "user"
             SELECT id, first_name, last_name, email, bio, username, password, score-1 
-            FROM "user", vote
-            WHERE vote.user_id = "user".id;
-    ELSE IF EXISTS (SELECT "vote",answer_id FROM vote WHERE "vote" = TRUE AND answer_id = answer.id) THEN
+            FROM "user"
+            WHERE NEW.user_id = id;
+    ELSE IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = TRUE) THEN
         INSERT INTO answer
             SELECT id, user_id, question_id, answer_date, content, nr_likes+1, nr_dislikes, marked_answer
-            FROM answer, vote
-            WHERE vote.answer_id = answer.id;
+            FROM answer
+            WHERE NEW.answer_id = id;
         INSERT INTO "user"
             SELECT id, first_name, last_name, email, bio, username, password, score+1 
-            FROM "user", vote
-            WHERE vote.user_id = "user".id;
-	END IF;
+            FROM "user"
+            WHERE NEW.user_id = id;
     END IF;
+	END IF;
     RETURN NEW;
 END
 $BODY$
@@ -71,15 +71,16 @@ CREATE TRIGGER update_score_answer
 CREATE FUNCTION vote_own_question() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    IF EXISTS (SELECT * FROM vote JOIN question 
-               WHERE NEW.user_id = question.user_id) THEN
+    IF EXISTS (SELECT question.user_id
+			   FROM question
+               WHERE NEW.user_id = question.user_id AND NEW.question_id = question.id) THEN
         RAISE EXCEPTION 'A user cannot vote on his own question';
     END IF;
     RETURN NEW;
 END
 $BODY$
 LANGUAGE plpgsql;
-
+ 
 CREATE TRIGGER vote_own_question
     BEFORE INSERT OR UPDATE ON vote
     FOR EACH ROW
@@ -90,9 +91,10 @@ CREATE TRIGGER vote_own_question
 CREATE FUNCTION vote_own_answer() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    IF EXISTS (SELECT * FROM vote, answer 
-               WHERE NEW.user_id = answer.user_id) THEN
-        RAISE EXCEPTION 'A user cannot vote on his own question';
+    IF EXISTS (SELECT answer.user_id
+			   FROM answer
+               WHERE NEW.user_id = answer.user_id AND NEW.answer_id = answer.id) THEN
+        RAISE EXCEPTION 'A user cannot vote on his own answer';
     END IF;
     RETURN NEW;
 END
@@ -109,8 +111,9 @@ CREATE TRIGGER vote_own_answer
 CREATE FUNCTION answer_date() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    IF EXISTS (SELECT answer_date, question_date FROM answer, question 
-               WHERE NEW.question_id = question.id AND answer_date < question_date) THEN
+    IF EXISTS (SELECT question.question_date 
+			   FROM question 
+               WHERE NEW.question_id = question.id AND NEW.answer_date < question.question_date) THEN
         RAISE EXCEPTION 'The date of an answer cannot be earlier than the date of its question';
     END IF;
     RETURN NEW;
@@ -228,6 +231,52 @@ CREATE TRIGGER marked_answer
 
 
 --Verify triggers
+--Trigger 2
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (2, 'Manel', 'Sousa', 'manel@gmail.com', 'Gosto de desporto', 'manel01', 'wtuietuytytydgfg', 0);
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (3, 'Nuno', 'Cardoso', 'nc@gmail.com', 'Gosto de futebol', 'nc01', 'wtudasgietuytyty', 0);
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (4, 'Pedro', 'Dantas', 'pdantas@gmail.com', 'Gosto de cantar', 'pdantas01', 'ehgdfhhgf', 0);
+INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
+	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
+INSERT INTO answer(id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer)
+	values (1, 1, 1, '2020-03-29', 'Start watching videos', 0, 0, false);
+INSERT INTO vote("vote", user_id, answer_id)
+    values (true, 2, 1);
+INSERT INTO vote("vote", user_id, answer_id)
+    values (false, 3, 1);
+INSERT INTO vote("vote", user_id, answer_id)
+    values (true, 4, 1);
+
+--Trigger 3
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
+INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
+	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
+INSERT INTO vote("vote", user_id, question_id)
+    values (true, 1, 1);
+
+--Trigger 4
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
+INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
+	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
+INSERT INTO answer(id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer)
+	values (1, 1, 1, '2020-03-29', 'Start watching videos', 0, 0, false);
+INSERT INTO vote("vote", user_id, answer_id)
+    values (true, 1, 1);
+
+--Trigger 5
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
+INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
+	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
+INSERT INTO answer(id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer)
+	values (1, 1, 1, '2020-03-29', 'Start watching videos', 0, 0, false);
+
 --Trigger 6
 INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
 	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
