@@ -93,13 +93,7 @@ CREATE TABLE notification (
     content         TEXT            NOT NULL,
     date            DATE            DEFAULT 'Now' NOT NULL,
     viewed          BOOLEAN         DEFAULT FALSE NOT NULL,
-    user_id         INTEGER         REFERENCES "user" (id) NOT NULL,
-    comment_id      INTEGER         REFERENCES "comment" (id),
-    answer_id       INTEGER         REFERENCES "answer" (id),
-    CHECK (
-        (comment_id IS NOT NULL AND answer_id IS NULL) OR
-        (comment_id IS NULL AND answer_id IS NOT NULL)
-    )
+    user_id         INTEGER         REFERENCES "user" (id) NOT NULL
 );
 
 -- Table: vote
