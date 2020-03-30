@@ -93,13 +93,7 @@ CREATE TABLE notification (
     content         TEXT            NOT NULL,
     date            DATE            DEFAULT 'Now' NOT NULL,
     viewed          BOOLEAN         DEFAULT FALSE NOT NULL,
-    user_id         INTEGER         REFERENCES "user" (id) NOT NULL,
-    comment_id      INTEGER         REFERENCES "comment" (id),
-    answer_id       INTEGER         REFERENCES "answer" (id),
-    CHECK (
-        (comment_id IS NOT NULL AND answer_id IS NULL) OR
-        (comment_id IS NULL AND answer_id IS NOT NULL)
-    )
+    user_id         INTEGER         REFERENCES "user" (id) NOT NULL
 );
 
 -- Table: vote
@@ -156,18 +150,18 @@ CREATE TABLE about (
 
 CREATE INDEX question_score ON question USING btree(nr_likes);
 CREATE INDEX question_date ON question USING btree(question_date);
-CREATE INDEX answer_score ON answer USING btree(quesiton_id, nr_likes);
+CREATE INDEX answer_score ON answer USING btree(question_id, nr_likes);
 CREATE INDEX answer_date ON answer USING btree(question_id, answer_date);
-CREATE INDEX comment_date ON comment USING btree(quesiton_id, comment_date);
+CREATE INDEX comment_date ON comment USING btree(question_id, comment_date);
 CREATE INDEX label_popularity ON following USING btree(label_id);
 CREATE INDEX question_user ON question USING btree(user_id);
 CREATE INDEX answer_user ON answer USING btree(user_id);
 CREATE INDEX notification_user_date ON notification USING btree(user_id, date);
-CREATE INDEX user_username ON user USING hash(username);
+CREATE INDEX user_username ON "user" USING hash(username);
 CREATE INDEX report_user ON report USING btree(user_id);
-CREATE INDEX user_score ON user USING btree(score);
+CREATE INDEX user_score ON "user" USING btree(score);
 
-CREATE INDEX label_name ON user USING gin(name);
+CREATE INDEX label_name ON label USING gin(to_tsvector('english', name));
 CREATE INDEX question_title ON question USING gist(to_tsvector('english', title));
 
 -----------------------------------------
@@ -399,6 +393,31 @@ CREATE TRIGGER marked_answer
     AFTER UPDATE OF marked_answer ON answer
     FOR EACH ROW
     EXECUTE PROCEDURE marked_answer();
+
+-----------------------------------------
+-- TRANSACTIONS
+-----------------------------------------
+--Trigger 01
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
+    INSERT INTO "user" (first_name, last_name, email, bio, username, password)
+        VALUES ('antonio', 'aparicio', 'toutolo@cenas.com', 'nao tenho mts amigos', 'tonicio', 'sha256woendo+2ph«09328');
+
+    INSERT INTO user_management (user_id)
+        VALUES (currval('user_id_seq'));
+
+COMMIT;
+
+--Trigger 02
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ
+    INSERT INTO report (user_id, question_id, answer_id, comment_id)
+        VALUES (1, 2, NULL, NULL);
+
+    INSERT INTO report_status (report_id, comment, responsible_user)
+        VALUES (currval('report_id_seq'), 'tou tolo', 2);
+
+COMMIT;
 
 -----------------------------------------
 -- end
