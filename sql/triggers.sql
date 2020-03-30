@@ -2,30 +2,29 @@
 CREATE FUNCTION update_score_question() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    IF EXISTS (SELECT "vote",question_id FROM vote WHERE "vote" = FALSE AND question_id = question.id) THEN
-        INSERT INTO question
-            SELECT id, user_id, title, description, nr_likes, nr_dislikes+1, question_date 
-            FROM question JOIN vote
-            WHERE vote.question_id = question.id; 
-        INSERT INTO "user"
-            SELECT id, first_name, last_name, email, bio, username, password, score-1 
-            FROM "user" JOIN vote
-            WHERE vote.user_id = "user".id;
-    ELSE IF EXISTS (SELECT "vote",question_id FROM vote WHERE "vote" = TRUE AND question_id = question.id) THEN
-        INSERT INTO question
-            SELECT id, user_id, title, description, nr_likes+1, nr_dislikes, question_date 
-            FROM question JOIN vote
-            WHERE vote.question_id = question.id;
-        INSERT INTO "user"
-            SELECT id, first_name, last_name, email, bio, username, password, score+1 
-            FROM "user" JOIN vote
-            WHERE vote.user_id = "user".id;
+    IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = FALSE) THEN
+		UPDATE question
+		SET nr_dislikes = nr_dislikes+1
+		WHERE NEW.question_id = id;
+		UPDATE "user"
+		SET score = score-1
+		FROM question
+		WHERE NEW.question_id = question.id AND question.user_id = "user".id;
+    ELSE IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = TRUE) THEN
+        UPDATE question
+		SET nr_likes = nr_likes+1
+		WHERE NEW.question_id = id;
+		UPDATE "user"
+		SET score = score+1
+		FROM question
+		WHERE NEW.question_id = question.id AND question.user_id = "user".id;
     END IF;
+	END IF;
     RETURN NEW;
 END
 $BODY$
 LANGUAGE plpgsql;
-
+ 
 CREATE TRIGGER update_score_question
     AFTER INSERT OR UPDATE ON vote
     FOR EACH ROW
@@ -42,16 +41,16 @@ BEGIN
 		WHERE NEW.answer_id = id;
 		UPDATE "user"
 		SET score = score-1
-		FROM question
-		WHERE NEW.user_id = "user".id AND NEW.question_id = question.id AND question.user_id = "user".id;
+		FROM answer
+		WHERE NEW.answer_id = answer.id AND answer.user_id = "user".id;
     ELSE IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = TRUE) THEN
         UPDATE answer
 		SET nr_likes = nr_likes+1
 		WHERE NEW.answer_id = id;
 		UPDATE "user"
 		SET score = score+1
-		FROM question
-		WHERE NEW.user_id = "user".id AND NEW.question_id = question.id AND question.user_id = "user".id;
+		FROM answer
+		WHERE NEW.answer_id = answer.id AND answer.user_id = "user".id;
     END IF;
 	END IF;
     RETURN NEW;
@@ -229,6 +228,24 @@ CREATE TRIGGER marked_answer
 
 
 --Verify triggers
+--Trigger 1
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (2, 'Manel', 'Sousa', 'manel@gmail.com', 'Gosto de desporto', 'manel01', 'wtuietuytytydgfg', 0);
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (3, 'Nuno', 'Cardoso', 'nc@gmail.com', 'Gosto de futebol', 'nc01', 'wtudasgietuytyty', 0);
+INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
+	values (4, 'Pedro', 'Dantas', 'pdantas@gmail.com', 'Gosto de cantar', 'pdantas01', 'ehgdfhhgf', 0);
+INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
+	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
+INSERT INTO vote("vote", user_id, question_id)
+    values (false, 2, 1);
+INSERT INTO vote("vote", user_id, question_id)
+    values (false, 3, 1);
+INSERT INTO vote("vote", user_id, question_id)
+    values (false, 4, 1);
+
 --Trigger 2
 INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
 	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
