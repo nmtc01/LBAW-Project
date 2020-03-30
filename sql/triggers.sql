@@ -185,26 +185,25 @@ CREATE TRIGGER vote_once
 
 
 --Trigger 9
-CREATE FUNCTION report_status() RETURNS TRIGGER AS
+CREATE FUNCTION report_status_responsible() RETURNS TRIGGER AS
 $BODY$
 BEGIN
-    IF NOT EXISTS (SELECT report_status.id, report.id 
-                   FROM report_status, report 
-                   WHERE report_status.id = report.id) THEN
-    INSERT INTO report_status
-        SELECT NEW.id, 'unresolved', comment, responsible_user
-        FROM report_status, user_management
-        WHERE (user_management.status = 'moderator' OR user_management.status = 'administrator'); 
-    RETURN NEW;
+    IF NOT EXISTS (SELECT user_management.user_id 
+				   FROM user_management
+				   WHERE ((user_management.status = 'moderator' OR user_management.status = 'administrator')
+						  AND
+						  (user_management.user_id = NEW.responsible_user))) THEN
+			RAISE EXCEPTION 'A report can only be handled by an administrator or moderator';
 	END IF;
+	RETURN NEW;
 END
 $BODY$
 LANGUAGE plpgsql;
  
-CREATE TRIGGER report_status
-    AFTER INSERT ON report
+CREATE TRIGGER report_status_responsible
+    BEFORE INSERT OR UPDATE ON report_status
     FOR EACH ROW
-    EXECUTE PROCEDURE report_status();
+    EXECUTE PROCEDURE report_status_responsible();
 
 
 --Trigger 10
@@ -325,10 +324,14 @@ INSERT INTO vote("vote", user_id, answer_id)
 --Trigger 9
 INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
 	values (1, 'Maria', 'Silva', 'msilva@gmail.com', 'Gosto de ciência', 'msilva01', 'etrfetfdregretdrd', 0);
+INSERT INTO user_management(id, status, user_id)
+    values (1, 'user', 1);
 INSERT INTO question(id, user_id, title, description, nr_likes, nr_dislikes, question_date)
 	values (1, 1, 'How can I learn C++?', 'I really want to learn C++.', 0, 0, '2020-03-30');
 INSERT INTO report(id, user_id, question_id)
     values (1, 1, 1);
+INSERT INTO report_status(report_id, responsible_user)
+    values (1, 1);
 
 --Trigger 10
 INSERT INTO "user"(id, first_name, last_name, email, bio, username, password, score) 
