@@ -37,21 +37,6 @@ CREATE TABLE label (
     name            TEXT            NOT NULL          
 );
 
--- Table: notification
-CREATE TABLE notification (
-    id              SERIAL          PRIMARY KEY,
-    content         TEXT            NOT NULL,
-    date            DATE            DEFAULT 'Now' NOT NULL,
-    viewed          BOOLEAN         DEFAULT FALSE NOT NULL,
-    user_id         INTEGER         REFERENCES "user" (id) NOT NULL,
-    comment_id      INTEGER         REFERENCES "comment" (id),
-    answer_id       INTEGER         REFERENCES "answer" (id),
-    CHECK (
-        (comment_id IS NOT NULL AND answer_id IS NULL) OR
-        (comment_id IS NULL AND answer_id IS NOT NULL)
-    )
-);
-
 -- Table: user_management
 CREATE TABLE user_management (
     id              SERIAL          PRIMARY KEY,
@@ -99,6 +84,21 @@ CREATE TABLE comment (
     CHECK (
         (question_id IS NOT NULL AND answer_id IS NULL) OR
         (question_id IS NULL AND answer_id IS NOT NULL)
+    )
+);
+
+-- Table: notification
+CREATE TABLE notification (
+    id              SERIAL          PRIMARY KEY,
+    content         TEXT            NOT NULL,
+    date            DATE            DEFAULT 'Now' NOT NULL,
+    viewed          BOOLEAN         DEFAULT FALSE NOT NULL,
+    user_id         INTEGER         REFERENCES "user" (id) NOT NULL,
+    comment_id      INTEGER         REFERENCES "comment" (id),
+    answer_id       INTEGER         REFERENCES "answer" (id),
+    CHECK (
+        (comment_id IS NOT NULL AND answer_id IS NULL) OR
+        (comment_id IS NULL AND answer_id IS NOT NULL)
     )
 );
 
@@ -153,6 +153,22 @@ CREATE TABLE about (
 -----------------------------------------
 -- INDEXES
 -----------------------------------------
+
+CREATE INDEX question_score ON question USING btree(nr_likes);
+CREATE INDEX question_date ON question USING btree(question_date);
+CREATE INDEX answer_score ON answer USING btree(quesiton_id, nr_likes);
+CREATE INDEX answer_date ON answer USING btree(question_id, answer_date);
+CREATE INDEX comment_date ON comment USING btree(quesiton_id, comment_date);
+CREATE INDEX label_popularity ON following USING btree(label_id);
+CREATE INDEX question_user ON question USING btree(user_id);
+CREATE INDEX answer_user ON answer USING btree(user_id);
+CREATE INDEX notification_user_date ON notification USING btree(user_id, date);
+CREATE INDEX user_username ON user USING hash(username);
+CREATE INDEX report_user ON report USING btree(user_id);
+CREATE INDEX user_score ON user USING btree(score);
+
+CREATE INDEX label_name ON user USING gin(name);
+CREATE INDEX question_title ON question USING gist(to_tsvector('english', title));
 
 -----------------------------------------
 -- TRIGGERS and UDFs
