@@ -174,7 +174,7 @@ CREATE INDEX question_date ON question USING btree(question_date);
 CREATE INDEX answer_score ON answer USING btree(question_id, nr_likes);
 CREATE INDEX answer_date ON answer USING btree(question_id, answer_date);
 CREATE INDEX comment_date ON comment USING btree(question_id, comment_date);
-CREATE INDEX label_popularity ON following USING btree(label_id);
+CREATE INDEX label_popularity ON label_following USING btree(label_id);
 CREATE INDEX question_user ON question USING btree(user_id);
 CREATE INDEX answer_user ON answer USING btree(user_id);
 CREATE INDEX notification_user_date ON notification USING btree(user_id, date);
