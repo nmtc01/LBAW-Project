@@ -12,8 +12,9 @@ DROP TABLE IF EXISTS comment CASCADE;
 DROP TABLE IF EXISTS vote CASCADE;
 DROP TABLE IF EXISTS report CASCADE;
 DROP TABLE IF EXISTS report_status CASCADE;
-DROP TABLE IF EXISTS following CASCADE;
-DROP TABLE IF EXISTS about CASCADE;
+DROP TABLE IF EXISTS question_following CASCADE;
+DROP TABLE IF EXISTS label_following CASCADE;
+DROP TABLE IF EXISTS question_label CASCADE;
 
 -----------------------------------------
 -- Tables
@@ -37,11 +38,24 @@ CREATE TABLE label (
     name            TEXT            NOT NULL          
 );
 
+-- Table: notification
+CREATE TABLE notification (
+    id              SERIAL          PRIMARY KEY,
+    content         TEXT            NOT NULL,
+    date            DATE            DEFAULT 'Now' NOT NULL,
+    viewed          BOOLEAN         DEFAULT FALSE NOT NULL,
+    user_id         INTEGER         REFERENCES "user" (id) NOT NULL
+);
+
 -- Table: user_management
 CREATE TABLE user_management (
-    id              SERIAL          PRIMARY KEY,
-    status          TEXT            DEFAULT 'user' NOT NULL,
-    user_id         INTEGER         REFERENCES "user" (id) NOT NULL UNIQUE
+    id                  SERIAL          PRIMARY KEY,
+    status              TEXT            DEFAULT 'user' NOT NULL,
+    date_last_changed   DATE            DEFAULT 'Now' NOT NULL,
+    user_id             INTEGER         REFERENCES "user" (id) NOT NULL UNIQUE,
+    CHECK (
+        status = 'user' OR status = 'moderator' OR status = 'administrator' OR status = 'banned'
+    )
 );
 
 -- Table: question
@@ -79,21 +93,12 @@ CREATE TABLE comment (
     user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
     question_id      INTEGER         REFERENCES "question" (id),
     answer_id        INTEGER         REFERENCES "answer" (id),
-    comment_date     DATE            DEFAULT 'Now' NOT NULL,
     content          TEXT            NOT NULL,
+    comment_date     DATE            DEFAULT 'Now' NOT NULL,
     CHECK (
         (question_id IS NOT NULL AND answer_id IS NULL) OR
         (question_id IS NULL AND answer_id IS NOT NULL)
     )
-);
-
--- Table: notification
-CREATE TABLE notification (
-    id              SERIAL          PRIMARY KEY,
-    content         TEXT            NOT NULL,
-    date            DATE            DEFAULT 'Now' NOT NULL,
-    viewed          BOOLEAN         DEFAULT FALSE NOT NULL,
-    user_id         INTEGER         REFERENCES "user" (id) NOT NULL
 );
 
 -- Table: vote
@@ -112,14 +117,18 @@ CREATE TABLE vote (
 -- Table: report
 CREATE TABLE report (
     id               SERIAL          PRIMARY KEY,
+    reporter_id      INTEGER         REFERENCES "user" (id) NOT NULL,
     user_id          INTEGER         REFERENCES "user" (id),
     question_id      INTEGER         REFERENCES "question" (id),
     answer_id        INTEGER         REFERENCES "answer" (id),   
     comment_id       INTEGER         REFERENCES "comment" (id),
+    report_date      DATE            DEFAULT 'Now' NOT NULL,
+    description      TEXT            NOT NULL,
     CHECK(
-        (question_id IS NOT NULL AND answer_id IS NULL AND comment_id IS NULL) OR
-        (question_id IS NULL AND answer_id IS NOT NULL AND comment_id IS NULL) OR
-        (question_id IS NULL AND answer_id IS NULL AND comment_id IS NOT NULL)
+        (user_id IS NOT NULL AND question_id IS NULL AND answer_id IS NULL AND comment_id IS NULL) OR
+        (user_id IS NULL AND question_id IS NOT NULL AND answer_id IS NULL AND comment_id IS NULL) OR
+        (user_id IS NULL AND question_id IS NULL AND answer_id IS NOT NULL AND comment_id IS NULL) OR
+        (user_id IS NULL AND question_id IS NULL AND answer_id IS NULL AND comment_id IS NOT NULL)
     )
 );
 
@@ -129,19 +138,31 @@ CREATE TABLE report_status (
     report_id        INTEGER         REFERENCES "report" (id) ON DELETE CASCADE NOT NULL,
     state            TEXT            DEFAULT 'unresolved' NOT NULL,
     comment          TEXT,
-    responsible_user INTEGER         REFERENCES "user" (id) ON DELETE CASCADE NOT NULL
+    responsible_user INTEGER         REFERENCES "user" (id) ON DELETE CASCADE NOT NULL,
+    CHECK (
+        state = 'unresolved' OR state = 'reviewing' OR state = 'resolved'
+    )
 );
 
--- Table: following
-CREATE TABLE following (
+-- Table: question_following
+CREATE TABLE question_following (
     user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
-    label_id         INTEGER         REFERENCES "label" (id) NOT NULL
+    question_id      INTEGER         REFERENCES "question" (id) NOT NULL,
+    PRIMARY KEY (user_id, question_id)
 );
 
--- Table: about
-CREATE TABLE about (
+-- Table: label_following
+CREATE TABLE label_following (
+    user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
+    label_id         INTEGER         REFERENCES "label" (id) NOT NULL,
+    PRIMARY KEY (user_id, label_id)
+);
+
+-- Table: question_label
+CREATE TABLE question_label (
     question_id      INTEGER         REFERENCES "question" (id) NOT NULL,
-    label_id         INTEGER         REFERENCES "label" (id) NOT NULL
+    label_id         INTEGER         REFERENCES "label" (id) NOT NULL,
+    PRIMARY KEY (question_id, label_id)
 );
 
 -----------------------------------------
