@@ -427,6 +427,12 @@ insert into 'comment' (id, user_id, question_id, answer_id, comment_date, conten
 	values (6, 43, 13, NULL, '2019-06-03', 'Good point, and its not just the order. You might have trouble with grammatical agreements between your fixed text and what youre substituting in. E.g. male/female/neutral, plural/singular.');
 insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
 	values (7, 47, NULL, 16, '2020-02-03', 'Oh, thank you, thank you for pointing out that horror which so aggravates me “Can I get a latte?”. NO, you bloody can’t climb over the damn counter and serve yourself.');
+insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
+	values (8, 9, 23, NULL, '2020-03-28', 'Salt and acid are powerful flavour enhancers. You don’t taste the salt nor the acid until you over do it. Salt is very delicate when dealing with reducing liquids or sauces, but that gets written up as “timing”. Salt can kill bitter too.');
+insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
+	values (9, 1, NULL, 26, '2019-05-11', 'It’s like the design team found a Macbook Pro and decided to mess it’s best features up and add them onto the Surface.');
+insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
+	values (19, 30, NULL, 2, '2020-08-02', 'Thank you for such a good question. I was thinking on the same thing.');
 
 --vote
 
@@ -464,42 +470,42 @@ insert into 'question_following' (user_id, question_id) values (26, 27);
 insert into 'question_following' (user_id, question_id) values (27, 28);
 insert into 'question_following' (user_id, question_id) values (28, 29);
 insert into 'question_following' (user_id, question_id) values (29, 30);
-insert into 'question_following' (user_id, question_id) values (30, 31);
-insert into 'question_following' (user_id, question_id) values (31, 32);
-insert into 'question_following' (user_id, question_id) values (33, 34);
-insert into 'question_following' (user_id, question_id) values (34, 35);
-insert into 'question_following' (user_id, question_id) values (35, 36);
-insert into 'question_following' (user_id, question_id) values (36, 37);
-insert into 'question_following' (user_id, question_id) values (37, 38);
-insert into 'question_following' (user_id, question_id) values (38, 39);
-insert into 'question_following' (user_id, question_id) values (39, 40);
-insert into 'question_following' (user_id, question_id) values (40, 41);
-insert into 'question_following' (user_id, question_id) values (41, 42);
-insert into 'question_following' (user_id, question_id) values (42, 43);
-insert into 'question_following' (user_id, question_id) values (43, 44);
-insert into 'question_following' (user_id, question_id) values (44, 45);
-insert into 'question_following' (user_id, question_id) values (45, 46);
-insert into 'question_following' (user_id, question_id) values (46, 47);
-insert into 'question_following' (user_id, question_id) values (47, 48);
-insert into 'question_following' (user_id, question_id) values (48, 49);
-insert into 'question_following' (user_id, question_id) values (49, 50);
-insert into 'question_following' (user_id, question_id) values (50, 51);
-insert into 'question_following' (user_id, question_id) values (51, 52);
-insert into 'question_following' (user_id, question_id) values (52, 53);
-insert into 'question_following' (user_id, question_id) values (53, 54);
-insert into 'question_following' (user_id, question_id) values (54, 55);
-insert into 'question_following' (user_id, question_id) values (55, 56);
-insert into 'question_following' (user_id, question_id) values (56, 57);
-insert into 'question_following' (user_id, question_id) values (57, 58);
-insert into 'question_following' (user_id, question_id) values (58, 59);
-insert into 'question_following' (user_id, question_id) values (59, 60);
+insert into 'question_following' (user_id, question_id) values (30, 21);
+insert into 'question_following' (user_id, question_id) values (31, 22);
+insert into 'question_following' (user_id, question_id) values (33, 24);
+insert into 'question_following' (user_id, question_id) values (34, 25);
+insert into 'question_following' (user_id, question_id) values (35, 26);
+insert into 'question_following' (user_id, question_id) values (36, 27);
+insert into 'question_following' (user_id, question_id) values (37, 28);
+insert into 'question_following' (user_id, question_id) values (38, 29);
+insert into 'question_following' (user_id, question_id) values (39, 30);
+insert into 'question_following' (user_id, question_id) values (40, 21);
+insert into 'question_following' (user_id, question_id) values (41, 22);
+insert into 'question_following' (user_id, question_id) values (42, 23);
+insert into 'question_following' (user_id, question_id) values (43, 24);
+insert into 'question_following' (user_id, question_id) values (44, 25);
+insert into 'question_following' (user_id, question_id) values (45, 26);
+insert into 'question_following' (user_id, question_id) values (46, 27);
+insert into 'question_following' (user_id, question_id) values (47, 28);
+insert into 'question_following' (user_id, question_id) values (48, 29);
+insert into 'question_following' (user_id, question_id) values (49, 30);
+insert into 'question_following' (user_id, question_id) values (50, 11);
+insert into 'question_following' (user_id, question_id) values (51, 12);
+insert into 'question_following' (user_id, question_id) values (52, 13);
+insert into 'question_following' (user_id, question_id) values (53, 14);
+insert into 'question_following' (user_id, question_id) values (54, 15);
+insert into 'question_following' (user_id, question_id) values (55, 16);
+insert into 'question_following' (user_id, question_id) values (56, 17);
+insert into 'question_following' (user_id, question_id) values (57, 18);
+insert into 'question_following' (user_id, question_id) values (58, 19);
+insert into 'question_following' (user_id, question_id) values (59, 20);
 insert into 'question_following' (user_id, question_id) values (60, 1);
 insert into 'question_following' (user_id, question_id) values (20, 1);
 insert into 'question_following' (user_id, question_id) values (22, 3);
 insert into 'question_following' (user_id, question_id) values (6, 7);
 insert into 'question_following' (user_id, question_id) values (7, 20);
-insert into 'question_following' (user_id, question_id) values (8, 53);
-insert into 'question_following' (user_id, question_id) values (9, 10);
+insert into 'question_following' (user_id, question_id) values (8, 23);
+insert into 'question_following' (user_id, question_id) values (9, 11);
 
 --label_following
 insert into 'label_following' (user_id, label_id) values (1, 3);
