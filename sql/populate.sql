@@ -1,137 +1,137 @@
 --user
 --password for user 2: mega_pass
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (1, 'Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 10);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (2, 'Pedro', 'Dantas', 'pedrodantas@hotmail.com', 'UP student', 'pedrodantas', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482', 30);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (3, 'Eduardo', 'Macedo', 'edumacedo@gmail.com', 'UP student', 'edu1234', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d', 25);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (4, 'Roberto', 'Mourato', 'robmoura@hotmail.com', 'UP student', 'bob56moura', '75748e28843cab0cc7ca4ba8dcdc11552ea7bb3b652a3cbd26c53dec861408bc', -10);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (5, 'Lurdes', 'Cardoso', 'lurdes01@hotmail.com', 'babysitter', 'lurdes01', 'e8253a1cf0d0d37032c0665de988369972f1b8502025aae5c71c187c7ea19a43', 67);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (6, 'Paula', 'Tavares', 'paultavares@hotmail.com', 'hairdresser', 'paula64', '39427764c90328dc57389a2adb9202ae18cb3c38f27f5e7d3a19e5d23d7bbe4f', 64);	
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (7, 'Paulo', 'Cardoso', 'pcardoso@gmail.com', 'caixa', 'pcardoso', '359b5c9cef644b8cf40dd4c4b046bb69602efe18f2ffb75350d3d15dcff275c0', 65);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (8, 'Juliana', 'Pinto', 'jupinto@gmail.com', 'beautician', 'juju', 'b04a508509a4b3cd0aa7a5a5824c3bce43e8512572cbc35506a255f6a56da2c5', 77);	
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (10, 'Clarinda', 'Teixeira', 'cteixeira@gmail.com', 'secretary', 'lindas', 'f15c4ab57663235d2212e96c280feae3e73ece417252d82c8784b34bad60cac', 77);	
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (11, 'Teresa', 'Teixeira', 'teresateixeira@gmail.com', 'seamstress', 'costureirinha', '327e51644afc5c688575ae43f30293513b6ed0dc6015ac12bf43f83628f739ea', 79);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (12, 'Susana', 'Silva', 'ssilva@gmail.com', 'translator', 'silva77', 'd7aceb7abf5cf0b582ed8d10f324bb35495611edf04a8d30d699e21ffa6a64ff', 65);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (13, 'Margarida', 'Pereira', 'mpereira@gmail.com', 'doctor', 'per77', 'b427c3dec9045990213ccc3dbffbdf189e75c7ce18e1a86ed7c4fe9a2db5d627', 66);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (14, 'Elisa', 'Neves', 'eneves@gmail.com', 'receptionist', 'neves02', '724bc1231a18dc91fb24605bcd7c542cdf176d7d26958416c08aca24b37b2eb5', 20);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (15, 'Ana', 'Aires', 'aaires@gmail.com', 'psychiatrist', 'aires01', '33b1d188f33b0b088783aec571d122c38b060bb550c114f642191aa089c217db', 25);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (16, 'Arlete', 'Araujo', 'arlete@gmail.com', 'urologist', 'araujo34', 'e98a98f373df403810bd4e569273e55351adede3f82461dbbc266affeddece1a', 24);	
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (17, 'Aurora', 'Pinto', 'apinto@gmail.com', 'florist', 'flo55', '7cf60a4b93054d6ed588dddfc392903c18ed03161d70a9f161a62ad37bac9806', 61);	
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (18, 'Albino', 'Costa', 'alcosta@gmail.com', 'chmist', 'ch10', '4e73b8eacfd31c5e8b51eb897694758b59d8d562ed684ee18783873ebe96775f', 55);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (19, 'Aberto', 'Ferreira', 'ferreira01@gmail.com', 'librarian', 'afer5', '106dde628c0da1d7d96851ca4110e68d31513bec50a905597a74feafe4510df3', 60);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (20, 'António', 'Carvalho', 'antcarvalho@gmail.com', 'barber', 'bar01', '8287464bb9bba50593d53d95ced168b43db7db958d1263544a6d6e310b2f193c', 50);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (21, 'Cândido', 'Faria', 'cfaria@gmail.com', 'carpenter', 'carp5', '365e72262bed1b6afb91ff1c7107b12bd7206d1f7a8c0c70217c57af54fdf506', 50);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (22, 'Cosme', 'Dias', 'cdias@gmail.com', 'adminstrator', 'adm11', '9911486dbd7cbe092287bb63e1ed44fee854d215eff4979b9b9ea837890c21e1', 60);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (23, 'Delfim', 'Mendes', 'dmendes@gmail.com', 'bricklayer', 'bri02', 'f28f28bbe8e16e9c6541f5e9c018d2060aaf5d0557202b916a0954b6922b6f16', 51);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (24, 'Carlos', 'Freitas', 'freitas01@gmail.com', 'biomedical', 'frei70', 'a03d4e5546dea2b8a82c13e06542f6d454040c84a5d5caa5f106ebe1b00de1ac', 22);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (25, 'Domingos', 'Figueiredo', 'figueiredo1@gmail.com', 'mechanical', 'fig11', '6f490a2fe7dbe7cfcf08b48446db534791813b952b28f7c7051770a7fe80052f', 51);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (26, 'David', 'Faria', 'davfaria@gmail.com', 'magician', 'magic', '3be7a505483c0050243c5cbad4700da13925aa4137a55e9e33efd8bc4d05850f', 45);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (27, 'Emanuel', 'Fonseca', 'fonsec11@gmail.com', 'musician', 'fonseca22', 'd6518aa213ea4939fde8bd047ca8fb775cac36bf95d26f28cf2c77f2ebf5bf86', 40);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (28, 'Eduardo', 'Santos', 'edsantos@gmail.com', 'oncologist', 'edu70', '4a53d7664413d4e5eefff5ad99e59ac1657b1cbdd6f1acbeea2a5f683b766c68', 60);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (29, 'Carlos', 'Cruz', 'cruz@gmail.com', 'fisheman', 'cruz24', '2faecef2c88d125f3ba7dcac070b493f99d701ff43070c298cfa20a9f1459fd5', 55);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (30, 'Teodora', 'Vieira', 'vieira@gmail.com', 'cattle breeder', 'vieira01', 'e4a80fee9a4d8f87b0a5a408103ad723e2f83db981cdb10ef8c64a50fd70d508', 69);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (31, 'Silvia', 'Rodrigues', 'silrodrigues@gmail.com', 'librarian', 'sil14', 'f820f43abb76bc0ff9a3a1b5ddbea160efa28921723b601caf746533be992957', 55);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (32, 'Pedro', 'Dantas', 'dantas@hotmail.com', 'UP student', 'dantas', 'ed5ae5a93a86c36e004d985cd801b3390dc91e4dda5c6d59b421c9f356f4b6b3', 30);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (33, 'Eduardo', 'Macedo', 'macedo@gmail.com', 'UP student', 'edu1', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d', 25);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (34, 'Roberto', 'Mourato', 'bmoura@hotmail.com', 'UP student', '56moura', '75748e28843cab0cc7ca4ba8dcdc11552ea7bb3b652a3cbd26c53dec861408bc', -10);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (35, 'Ana', 'Aires', 'aires@gmail.com', 'psychiatrist', 'res01', '33b1d188f33b0b088783aec571d122c38b060bb550c114f642191aa089c217db', 25);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (36, 'Arlete', 'Araujo', 'lete@gmail.com', 'urologist', 'araujo', 'e98a98f373df403810bd4e569273e55351adede3f82461dbbc266affeddece1a', 24);	
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (37, 'Aurora', 'Pinto', 'pinto@gmail.com', 'florist', 'flo', '7cf60a4b93054d6ed588dddfc392903c18ed03161d70a9f161a62ad37bac9806', 61);		
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (38, 'Arlete', 'Araujo', 'arlete1@gmail.com', 'urologist', 'ar34', 'e98a98f373df403810bd4e569273e55351adede3f82461dbbc266affeddece1a', 24);	
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (39, 'Aurora', 'Pinto', 'aurora@gmail.com', 'florist', 'flo2', '7cf60a4b93054d6ed588dddfc392903c18ed03161d70a9f161a62ad37bac9806', 61);		
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (40, 'Paula', 'Tavares', 'paul@hotmail.com', 'hairdresser', 'paula', '39427764c90328dc57389a2adb9202ae18cb3c38f27f5e7d3a19e5d23d7bbe4f', 64);	
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (41, 'Paulo', 'Cardoso', 'paulo@gmail.com', 'caixa', 'cardoso', '359b5c9cef644b8cf40dd4c4b046bb69602efe18f2ffb75350d3d15dcff275c0', 65);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (42, 'Juliana', 'Pinto', 'juliana@gmail.com', 'beautician', 'pinto', 'b04a508509a4b3cd0aa7a5a5824c3bce43e8512572cbc35506a255f6a56da2c5', 77);	
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (43, 'Emanuel', 'Fonseca', 'fonseca@gmail.com', 'musician', 'f22', 'd6518aa213ea4939fde8bd047ca8fb775cac36bf95d26f28cf2c77f2ebf5bf86', 40);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (44, 'Eduardo', 'Santos', 'eduardo@gmail.com', 'oncologist', 'edu', '4a53d7664413d4e5eefff5ad99e59ac1657b1cbdd6f1acbeea2a5f683b766c68', 60);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (45, 'Maria João', 'Gonçalves', 'joao@gmail.com', 'jeweler', 'joao1', '6354f4d43066bed4fe6ad569ee99bf27c759c1e90b91ee5aef80b9267e09c91e', 65);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (46, 'Rui', 'Brás', 'ruibras@gmail.com', 'lawer', 'lawer', '00efdad92afe16836c0a2fccd7c4ac73e65f678691a98d031f74cc7032f00b3f', 55);
-	insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (47, 'Leonor', 'Pinto', 'leonorpinto@gmail.com', 'dentist', 'leonor', '7a06c3703cc09df6281b90b8011a154f4e73a918bfe4305cfbd71385cb60b163', 55);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (48, 'Luís', 'Ferreira', 'ferreira@gmail.com', 'magician', 'mag', 'f8685538bda2d6dc0d6d013011da6c986f1646c66f1b7a09035fc199d77999fb', 55);	
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (49, 'Rui', 'Brás', 'bras67@gmail.com', 'lawer', 'rui01', '00efdad92afe16836c0a2fccd7c4ac73e65f678691a98d031f74cc7032f00b3f', 55);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (50, 'Carlos', 'Cruz', '20cruz@gmail.com', 'fisheman', 'cruz', '2faecef2c88d125f3ba7dcac070b493f99d701ff43070c298cfa20a9f1459fd5', 55);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (51, 'Teodora', 'Vieira', 'teodora@gmail.com', 'cattle breeder', 'tvieira', 'e4a80fee9a4d8f87b0a5a408103ad723e2f83db981cdb10ef8c64a50fd70d508', 69);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (52, 'Silvia', 'Rodrigues', 'silvia@gmail.com', 'librarian', 'silr', 'f820f43abb76bc0ff9a3a1b5ddbea160efa28921723b601caf746533be992957', 55);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (53, 'amilcar', 'Dantas', 'dantas2@hotmail.com', 'make-up artist', 'artist', 'ed5ae5a93a86c36e004d985cd801b3390dc91e4dda5c6d59b421c9f356f4b6b3', 30);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (54, 'Laurinda', 'Marques', 'marques@gmail.com', 'gynaecologist', 'gy20', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d', 25);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (55, 'Albino', 'Costa', 'costa@gmail.com', 'chmist', 'costa10', '4e73b8eacfd31c5e8b51eb897694758b59d8d562ed684ee18783873ebe96775f', 55);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (56, 'Raul', 'Ferreira', 'raul01@gmail.com', 'librarian', 'ra20', '106dde628c0da1d7d96851ca4110e68d31513bec50a905597a74feafe4510df3', 60);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (57, 'António', 'Carvalho', 'carvalho@gmail.com', 'barber', 'carv01', '8287464bb9bba50593d53d95ced168b43db7db958d1263544a6d6e310b2f193c', 50);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (58, 'Cândido', 'Faria', 'faria@gmail.com', 'carpenter', 'faria20', '365e72262bed1b6afb91ff1c7107b12bd7206d1f7a8c0c70217c57af54fdf506', 50);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (59, 'Cosme', 'Dias', 'dias@gmail.com', 'adminstrator', 'cosm01', '9911486dbd7cbe092287bb63e1ed44fee854d215eff4979b9b9ea837890c21e1', 60);
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (60, 'Juliana', 'Pinto', 'pinto4@gmail.com', 'beautician', 'juli', 'b04a508509a4b3cd0aa7a5a5824c3bce43e8512572cbc35506a255f6a56da2c5', 77);	
-insert into "user" (id, first_name, last_name, email, bio, username, password, score)
-	values (61, 'Emanuel', 'Fonseca', 'efonseca@gmail.com', 'musician', 'efonseca', 'd6518aa213ea4939fde8bd047ca8fb775cac36bf95d26f28cf2c77f2ebf5bf86', 40);
-insert into 'user' (id, first_name, last_name, email, bio, username, password, score) 
-	values (62, 'Francisco', 'Noval', 'xicotruques@gmail.com', 'Handball coach, 20y', 'truques5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482', 12);
-insert into 'user' (id, first_name, last_name, email, bio, username, password, score) 
-	values (63, 'Gonçalo', 'Nogueira', 'salinhonogueira@gmail.com', 'Try a little harder to be a little better', 'salinho5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482', 70);
-insert into 'user' (id, first_name, last_name, email, bio, username, password, score) 
-	values (64, 'Joao', 'Torgal', 'joaotorgal@gmail.com', '21y, bl4z3 it', 'torgal5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482', 23);
-insert into 'user' (id, first_name, last_name, email, bio, username, password, score) 
-	values (65, 'Luis', 'Fernandes', 'luisfernandes@gmail.com', 'Engineering student, NEEGIUM', 'luisfernandes5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482', 120);
-insert into 'user' (id, first_name, last_name, email, bio, username, password, score) 
-	values (66, 'Raquel', 'Fonseca', 'carlafonseca@gmail.com', '21y, FEUP, Portugal', 'raquelfonseca5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482', 65);
-insert into 'user' (id, first_name, last_name, email, bio, username, password, score) 
-	values (67, 'Vitor', 'Goncalves', 'vitorturrinheira@gmail.com', '20y, FEUP, Pardelhas', 'vitorturrinheira6', 'ed5ae5a93a86c36e004d985cd801b3390dc91e4dda5c6d59b421c9f356f4b6b3', 42);
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (1, 'Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (2, 'Pedro', 'Dantas', 'pedrodantas@hotmail.com', 'UP student', 'pedrodantas', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (3, 'Eduardo', 'Macedo', 'edumacedo@gmail.com', 'UP student', 'edu1234', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (4, 'Roberto', 'Mourato', 'robmoura@hotmail.com', 'UP student', 'bob56moura', '75748e28843cab0cc7ca4ba8dcdc11552ea7bb3b652a3cbd26c53dec861408bc',);
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (5, 'Lurdes', 'Cardoso', 'lurdes01@hotmail.com', 'babysitter', 'lurdes01', 'e8253a1cf0d0d37032c0665de988369972f1b8502025aae5c71c187c7ea19a43');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (6, 'Paula', 'Tavares', 'paultavares@hotmail.com', 'hairdresser', 'paula64', '39427764c90328dc57389a2adb9202ae18cb3c38f27f5e7d3a19e5d23d7bbe4f');	
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (7, 'Paulo', 'Cardoso', 'pcardoso@gmail.com', 'caixa', 'pcardoso', '359b5c9cef644b8cf40dd4c4b046bb69602efe18f2ffb75350d3d15dcff275c0');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (8, 'Juliana', 'Pinto', 'jupinto@gmail.com', 'beautician', 'juju', 'b04a508509a4b3cd0aa7a5a5824c3bce43e8512572cbc35506a255f6a56da2c5');	
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (10, 'Clarinda', 'Teixeira', 'cteixeira@gmail.com', 'secretary', 'lindas', 'f15c4ab57663235d2212e96c280feae3e73ece417252d82c8784b34bad60cac');	
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (11, 'Teresa', 'Teixeira', 'teresateixeira@gmail.com', 'seamstress', 'costureirinha', '327e51644afc5c688575ae43f30293513b6ed0dc6015ac12bf43f83628f739ea');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (12, 'Susana', 'Silva', 'ssilva@gmail.com', 'translator', 'silva77', 'd7aceb7abf5cf0b582ed8d10f324bb35495611edf04a8d30d699e21ffa6a64ff');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (13, 'Margarida', 'Pereira', 'mpereira@gmail.com', 'doctor', 'per77', 'b427c3dec9045990213ccc3dbffbdf189e75c7ce18e1a86ed7c4fe9a2db5d627');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (14, 'Elisa', 'Neves', 'eneves@gmail.com', 'receptionist', 'neves02', '724bc1231a18dc91fb24605bcd7c542cdf176d7d26958416c08aca24b37b2eb5');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (15, 'Ana', 'Aires', 'aaires@gmail.com', 'psychiatrist', 'aires01', '33b1d188f33b0b088783aec571d122c38b060bb550c114f642191aa089c217db');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (16, 'Arlete', 'Araujo', 'arlete@gmail.com', 'urologist', 'araujo34', 'e98a98f373df403810bd4e569273e55351adede3f82461dbbc266affeddece1a');	
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (17, 'Aurora', 'Pinto', 'apinto@gmail.com', 'florist', 'flo55', '7cf60a4b93054d6ed588dddfc392903c18ed03161d70a9f161a62ad37bac9806');	
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (18, 'Albino', 'Costa', 'alcosta@gmail.com', 'chmist', 'ch10', '4e73b8eacfd31c5e8b51eb897694758b59d8d562ed684ee18783873ebe96775f');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (19, 'Aberto', 'Ferreira', 'ferreira01@gmail.com', 'librarian', 'afer5', '106dde628c0da1d7d96851ca4110e68d31513bec50a905597a74feafe4510df3');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (20, 'António', 'Carvalho', 'antcarvalho@gmail.com', 'barber', 'bar01', '8287464bb9bba50593d53d95ced168b43db7db958d1263544a6d6e310b2f193c');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (21, 'Cândido', 'Faria', 'cfaria@gmail.com', 'carpenter', 'carp5', '365e72262bed1b6afb91ff1c7107b12bd7206d1f7a8c0c70217c57af54fdf506');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (22, 'Cosme', 'Dias', 'cdias@gmail.com', 'adminstrator', 'adm11', '9911486dbd7cbe092287bb63e1ed44fee854d215eff4979b9b9ea837890c21e1');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (23, 'Delfim', 'Mendes', 'dmendes@gmail.com', 'bricklayer', 'bri02', 'f28f28bbe8e16e9c6541f5e9c018d2060aaf5d0557202b916a0954b6922b6f16');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (24, 'Carlos', 'Freitas', 'freitas01@gmail.com', 'biomedical', 'frei70', 'a03d4e5546dea2b8a82c13e06542f6d454040c84a5d5caa5f106ebe1b00de1ac');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (25, 'Domingos', 'Figueiredo', 'figueiredo1@gmail.com', 'mechanical', 'fig11', '6f490a2fe7dbe7cfcf08b48446db534791813b952b28f7c7051770a7fe80052f');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (26, 'David', 'Faria', 'davfaria@gmail.com', 'magician', 'magic', '3be7a505483c0050243c5cbad4700da13925aa4137a55e9e33efd8bc4d05850f');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (27, 'Emanuel', 'Fonseca', 'fonsec11@gmail.com', 'musician', 'fonseca22', 'd6518aa213ea4939fde8bd047ca8fb775cac36bf95d26f28cf2c77f2ebf5bf86');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (28, 'Eduardo', 'Santos', 'edsantos@gmail.com', 'oncologist', 'edu70', '4a53d7664413d4e5eefff5ad99e59ac1657b1cbdd6f1acbeea2a5f683b766c68');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (29, 'Carlos', 'Cruz', 'cruz@gmail.com', 'fisheman', 'cruz24', '2faecef2c88d125f3ba7dcac070b493f99d701ff43070c298cfa20a9f1459fd5');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (30, 'Teodora', 'Vieira', 'vieira@gmail.com', 'cattle breeder', 'vieira01', 'e4a80fee9a4d8f87b0a5a408103ad723e2f83db981cdb10ef8c64a50fd70d508');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (31, 'Silvia', 'Rodrigues', 'silrodrigues@gmail.com', 'librarian', 'sil14', 'f820f43abb76bc0ff9a3a1b5ddbea160efa28921723b601caf746533be992957');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (32, 'Pedro', 'Dantas', 'dantas@hotmail.com', 'UP student', 'dantas', 'ed5ae5a93a86c36e004d985cd801b3390dc91e4dda5c6d59b421c9f356f4b6b3');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (33, 'Eduardo', 'Macedo', 'macedo@gmail.com', 'UP student', 'edu1', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (34, 'Roberto', 'Mourato', 'bmoura@hotmail.com', 'UP student', '56moura', '75748e28843cab0cc7ca4ba8dcdc11552ea7bb3b652a3cbd26c53dec861408bc',);
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (35, 'Ana', 'Aires', 'aires@gmail.com', 'psychiatrist', 'res01', '33b1d188f33b0b088783aec571d122c38b060bb550c114f642191aa089c217db');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (36, 'Arlete', 'Araujo', 'lete@gmail.com', 'urologist', 'araujo', 'e98a98f373df403810bd4e569273e55351adede3f82461dbbc266affeddece1a');	
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (37, 'Aurora', 'Pinto', 'pinto@gmail.com', 'florist', 'flo', '7cf60a4b93054d6ed588dddfc392903c18ed03161d70a9f161a62ad37bac9806');		
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (38, 'Arlete', 'Araujo', 'arlete1@gmail.com', 'urologist', 'ar34', 'e98a98f373df403810bd4e569273e55351adede3f82461dbbc266affeddece1a');	
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (39, 'Aurora', 'Pinto', 'aurora@gmail.com', 'florist', 'flo2', '7cf60a4b93054d6ed588dddfc392903c18ed03161d70a9f161a62ad37bac9806');		
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (40, 'Paula', 'Tavares', 'paul@hotmail.com', 'hairdresser', 'paula', '39427764c90328dc57389a2adb9202ae18cb3c38f27f5e7d3a19e5d23d7bbe4f');	
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (41, 'Paulo', 'Cardoso', 'paulo@gmail.com', 'caixa', 'cardoso', '359b5c9cef644b8cf40dd4c4b046bb69602efe18f2ffb75350d3d15dcff275c0');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (42, 'Juliana', 'Pinto', 'juliana@gmail.com', 'beautician', 'pinto', 'b04a508509a4b3cd0aa7a5a5824c3bce43e8512572cbc35506a255f6a56da2c5');	
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (43, 'Emanuel', 'Fonseca', 'fonseca@gmail.com', 'musician', 'f22', 'd6518aa213ea4939fde8bd047ca8fb775cac36bf95d26f28cf2c77f2ebf5bf86');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (44, 'Eduardo', 'Santos', 'eduardo@gmail.com', 'oncologist', 'edu', '4a53d7664413d4e5eefff5ad99e59ac1657b1cbdd6f1acbeea2a5f683b766c68');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (45, 'Maria João', 'Gonçalves', 'joao@gmail.com', 'jeweler', 'joao1', '6354f4d43066bed4fe6ad569ee99bf27c759c1e90b91ee5aef80b9267e09c91e');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (46, 'Rui', 'Brás', 'ruibras@gmail.com', 'lawer', 'lawer', '00efdad92afe16836c0a2fccd7c4ac73e65f678691a98d031f74cc7032f00b3f');
+	insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (47, 'Leonor', 'Pinto', 'leonorpinto@gmail.com', 'dentist', 'leonor', '7a06c3703cc09df6281b90b8011a154f4e73a918bfe4305cfbd71385cb60b163');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (48, 'Luís', 'Ferreira', 'ferreira@gmail.com', 'magician', 'mag', 'f8685538bda2d6dc0d6d013011da6c986f1646c66f1b7a09035fc199d77999fb');	
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (49, 'Rui', 'Brás', 'bras67@gmail.com', 'lawer', 'rui01', '00efdad92afe16836c0a2fccd7c4ac73e65f678691a98d031f74cc7032f00b3f');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (50, 'Carlos', 'Cruz', '20cruz@gmail.com', 'fisheman', 'cruz', '2faecef2c88d125f3ba7dcac070b493f99d701ff43070c298cfa20a9f1459fd5');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (51, 'Teodora', 'Vieira', 'teodora@gmail.com', 'cattle breeder', 'tvieira', 'e4a80fee9a4d8f87b0a5a408103ad723e2f83db981cdb10ef8c64a50fd70d508');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (52, 'Silvia', 'Rodrigues', 'silvia@gmail.com', 'librarian', 'silr', 'f820f43abb76bc0ff9a3a1b5ddbea160efa28921723b601caf746533be992957');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (53, 'amilcar', 'Dantas', 'dantas2@hotmail.com', 'make-up artist', 'artist', 'ed5ae5a93a86c36e004d985cd801b3390dc91e4dda5c6d59b421c9f356f4b6b3');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (54, 'Laurinda', 'Marques', 'marques@gmail.com', 'gynaecologist', 'gy20', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (55, 'Albino', 'Costa', 'costa@gmail.com', 'chmist', 'costa10', '4e73b8eacfd31c5e8b51eb897694758b59d8d562ed684ee18783873ebe96775f');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (56, 'Raul', 'Ferreira', 'raul01@gmail.com', 'librarian', 'ra20', '106dde628c0da1d7d96851ca4110e68d31513bec50a905597a74feafe4510df3');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (57, 'António', 'Carvalho', 'carvalho@gmail.com', 'barber', 'carv01', '8287464bb9bba50593d53d95ced168b43db7db958d1263544a6d6e310b2f193c');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (58, 'Cândido', 'Faria', 'faria@gmail.com', 'carpenter', 'faria20', '365e72262bed1b6afb91ff1c7107b12bd7206d1f7a8c0c70217c57af54fdf506');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (59, 'Cosme', 'Dias', 'dias@gmail.com', 'adminstrator', 'cosm01', '9911486dbd7cbe092287bb63e1ed44fee854d215eff4979b9b9ea837890c21e1');
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (60, 'Juliana', 'Pinto', 'pinto4@gmail.com', 'beautician', 'juli', 'b04a508509a4b3cd0aa7a5a5824c3bce43e8512572cbc35506a255f6a56da2c5');	
+insert into "user" (id, first_name, last_name, email, bio, username, password)
+	values (61, 'Emanuel', 'Fonseca', 'efonseca@gmail.com', 'musician', 'efonseca', 'd6518aa213ea4939fde8bd047ca8fb775cac36bf95d26f28cf2c77f2ebf5bf86');
+insert into 'user' (id, first_name, last_name, email, bio, username, password) 
+	values (62, 'Francisco', 'Noval', 'xicotruques@gmail.com', 'Handball coach, 20y', 'truques5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482');
+insert into 'user' (id, first_name, last_name, email, bio, username, password) 
+	values (63, 'Gonçalo', 'Nogueira', 'salinhonogueira@gmail.com', 'Try a little harder to be a little better', 'salinho5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482');
+insert into 'user' (id, first_name, last_name, email, bio, username, password) 
+	values (64, 'Joao', 'Torgal', 'joaotorgal@gmail.com', '21y, bl4z3 it', 'torgal5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482');
+insert into 'user' (id, first_name, last_name, email, bio, username, password) 
+	values (65, 'Luis', 'Fernandes', 'luisfernandes@gmail.com', 'Engineering student, NEEGIUM', 'luisfernandes5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482',);
+insert into 'user' (id, first_name, last_name, email, bio, username, password) 
+	values (66, 'Raquel', 'Fonseca', 'carlafonseca@gmail.com', '21y, FEUP, Portugal', 'raquelfonseca5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482');
+insert into 'user' (id, first_name, last_name, email, bio, username, password) 
+	values (67, 'Vitor', 'Goncalves', 'vitorturrinheira@gmail.com', '20y, FEUP, Pardelhas', 'vitorturrinheira6', 'ed5ae5a93a86c36e004d985cd801b3390dc91e4dda5c6d59b421c9f356f4b6b3');
 
 --label	
 insert into 'label' (id, name) values (1, 'environment');
@@ -430,15 +430,31 @@ insert into 'comment' (id, user_id, question_id, answer_id, comment_date, conten
 insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
 	values (8, 9, 23, NULL, '2020-03-28', 'Salt and acid are powerful flavour enhancers. You don’t taste the salt nor the acid until you over do it. Salt is very delicate when dealing with reducing liquids or sauces, but that gets written up as “timing”. Salt can kill bitter too.');
 insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
-	values (9, 1, NULL, 26, '2019-05-11', 'It’s like the design team found a Macbook Pro and decided to mess it’s best features up and add them onto the Surface.');
+	values (9, 1, NULL, 26, '2020-03-11', 'It’s like the design team found a Macbook Pro and decided to mess it’s best features up and add them onto the Surface.');
 insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
-	values (19, 30, NULL, 2, '2020-08-02', 'Thank you for such a good question. I was thinking on the same thing.');
+	values (10, 30, NULL, 2, '2019-08-02', 'Thank you for such a good question. I was thinking on the same thing.');
 
 --vote
 
 --report
+insert into 'report' (id, reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
+	values (1, 5, 10, NULL, NULL, NULL, '2020-04-10', 'This user did not respect the privacy policy of the site');
+insert into 'report' (id, reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
+	values (2, 20, NULL, 3, NULL, NULL, '2020-04-10', 'This question is disrespectful');
+insert into 'report' (id, reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
+	values (3, 21, NULL, NULL, 9, NULL, '2020-01-12', 'This answer is racist');
+insert into 'report' (id, reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
+	values (4, 22, NULL, NULL, NULL, 9, '2020-03-11', 'This comment is totally unhelpful');
 
 --report_status
+insert into 'report_status' (id, report_id, state, comment, responsible_user)
+	values (1, 1, 'unresolved', 'Waiting for review', 1);
+insert into 'report_status' (id, report_id, state, comment, responsible_user)
+	values (2, 2, 'unresolved', 'Waiting for review', 2);
+insert into 'report_status' (id, report_id, state, comment, responsible_user)
+	values (3, 3, 'reviewing', 'Working on it', 5);
+insert into 'report_status' (id, report_id, state, comment, responsible_user)
+	values (4, 4, 'resolved', 'Finished review, fixed problem', 6);
 
 --question_following
 insert into 'question_following' (user_id, question_id) values (1, 2);
