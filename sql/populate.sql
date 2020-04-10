@@ -332,9 +332,9 @@ insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, 
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (21, 25, 'New York architecture', 'Why are New York brownstones elevated so high above the street?', 20, 2, '2019-03-15');
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (22, 42, 'Photography', 'What is an interesting photo of Lady Gaga in concert?', 7, 1, '2018-01-10');		
+	values (22, 42, 'Photography and Lady Gaga', 'What is an interesting photo of Lady Gaga in concert?', 7, 1, '2018-01-10');		
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (23, 26, 'Cooking', 'Why professional chefs always seem to use an excessive amount of butter and oil? Surely there is a healthier way to make food that tastes excellent.', 10, 2, '2019-03-15');
+	values (23, 26, 'Professionals Cooking', 'Why professional chefs always seem to use an excessive amount of butter and oil? Surely there is a healthier way to make food that tastes excellent.', 10, 2, '2019-03-15');
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (24, 43, 'Queen and Freddie Mercury', 'How did Freddie Mercury manage to sound so powerful and stable in all parts of his vocal range?', 7, 1, '2018-01-10');			
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
@@ -413,6 +413,20 @@ insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, 
 	values (30, 39, 30, '2019-12-03', 'I dont remember right now.', 2, 30, FALSE);
 
 --comment
+insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
+	values (1, 3, 1, NULL, '2019-12-07', 'I believe it would also be interesting if people commented on the worse method actors as well.');
+insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
+	values (2, 4, 10, NULL, '2020-03-21', 'You should not compare the health strength of two countries during these hard times! Dislike!');
+insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
+	values (3, 1, NULL, 32, '2020-03-27', 'I agree! Awesome dialogue, great choice of actors and awesome camera shots. The perfect drama for sure.');
+insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
+	values (4, 6, 9, NULL, '2020-03-28', 'Well, that is a rather wird question, but in a good way though.');
+insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
+	values (5, 9, NULL, 2, '2020-03-28', 'Impecable! What a good answer. Like!');
+insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
+	values (6, 43, 13, NULL, '2019-06-03', 'Good point, and its not just the order. You might have trouble with grammatical agreements between your fixed text and what youre substituting in. E.g. male/female/neutral, plural/singular.');
+insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
+	values (7, 47, NULL, 16, '2020-02-03', 'Oh, thank you, thank you for pointing out that horror which so aggravates me “Can I get a latte?”. NO, you bloody can’t climb over the damn counter and serve yourself.');
 
 --vote
 
@@ -704,6 +718,8 @@ insert into 'label_following' (user_id, label_id) values (67, 43);
 insert into 'label_following' (user_id, label_id) values (67, 44);
 
 --question_label
+insert into 'question_label' (question_id, label_id) values (18, 34);
+insert into 'question_label' (question_id, label_id) values (18, 19);
 
 	
 	
