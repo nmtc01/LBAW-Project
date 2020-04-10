@@ -829,7 +829,7 @@ insert into 'question_label' (question_id, label_id)
    values (11, 42);
 insert into 'question_label' (question_id, label_id) 
    values (12, 26)
-nsert into 'question_label' (question_id, label_id) 
+insert into 'question_label' (question_id, label_id) 
    values (13, 4);
 insert into 'question_label' (question_id, label_id) 
    values (14, 49);
