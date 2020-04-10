@@ -305,112 +305,112 @@ insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, 
 	values (7, 5, 'Running a program from within java code', 'What is the simplest way to call a program from with a piece of Java code? (The program I want to run is aiSee and it can be run from command line or from Windows GUI; and I am on Vista but the code will also be run on Linux systems).', 7, 5, '2020-11-04');
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (8, 8, 'What is the best TV series and why?', 'I would like to really get into a tv show, but I only want to watch the best of the best.', 10, 5, '2020-03-20');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (9, 10, 'What country’s flag is the most controversial?', 'This may seem odd, but I would like to hear the internets opinion.', 10, 2, '2019-10-19');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (10, 9, 'Who is handling the coronavirus outbreak better, the United States or Canada?', 'Im a proud American and Ill be damned if Canada is handeling it better >:(', 10, 2, '2020-03-03');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (11, 40, 'Paging a collection with LINQ', 'How do you page through a collection in LINQ given that you have a startIndex and a count?', 10, 2, '2019-06-03');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (12, 45, 'Microsoft office 2007 file type, mime types and identifying characters', 'Where can I find a list of all of the MIME types and the identifying characters for Microsoft Office 2007 files?', 10, 2, '2019-06-12');	
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (13, 46, 'Internationalization in your projects', 'How have you implemented Internationalization (i18n) in actual projects you have worked on?', 5, 2, '2019-06-03');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (14, 47, 'English (language)', 'In the UK, what is the correct way to order food, coffee, etc."can have a latte" or " I" have a latte?', 5, 2, '2020-01-12');		
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (15, 50, 'How do restaurants cook pasta so fast?', 'Can please someone explain me how can restaurants cook all types of food so quickly?', 10, 2, '2019-07-15');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (16, 60, 'British Royalty', 'Who is allowed to call the Bristish Queen by her first name?', 10, 2, '2019-04-12');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (17, 42, 'Why do many Italian pizzas have such large crusts even though it is not healthy and has no taste?', 'I could really use an explanation about this fact.', 5, 2, '2019-06-10');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (18, 30, 'Express How You Feel', 'Why is Italy still getting thousands of coronavirus cases per day if they are locked down for weeks?', 5, 3, '2020-03-12');		
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (19, 20, 'Covid-19 in Italy', 'Why is the coronavirus so bad in Italy?', 7, 2, '2019-03-15');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (20, 41, 'Studying in Japan', 'What schools accepted/rejected you (April 2020)?', 6, 5, '2019-09-10');	
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (21, 25, 'New York architecture', 'Why are New York brownstones elevated so high above the street?', 10, 2, '2019-03-15');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (22, 42, 'Photography and Lady Gaga', 'What is an interesting photo of Lady Gaga in concert?', 7, 1, '2018-01-10');		
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (23, 26, 'Professionals Cooking', 'Why professional chefs always seem to use an excessive amount of butter and oil? Surely there is a healthier way to make food that tastes excellent.', 10, 2, '2019-03-15');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (24, 43, 'Queen and Freddie Mercury', 'How did Freddie Mercury manage to sound so powerful and stable in all parts of his vocal range?', 7, 1, '2018-01-10');			
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (25, 44, 'What is the oldest age a K-pop idol ever debuted?', 'I really want to know this.', 11, 3, '2019-12-15');
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (26, 45, 'Difference between Windows laptops e MacBooks?', 'Why cannot Windows laptops have a similar build quality to MacBooks?', 7, 1, '2019-05-11');			
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (27, 46, 'History', 'What was the most clichéd moment in history?', 10, 1, '2018-11-10');	
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (28, 47, 'Tell me your opinion', 'What is a historical fact that would sadden most people if they found out?', 7, 5, '2019-12-12');	
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (29, 49, 'History', 'Who are some historical figures wrongly portrayed in popular culture?', 8, 6, '2019-09-01');		
-insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (30, 59, 'Popular cliches in movies', 'What is a movie cliche you never get tired of seeing?', 11, 4, '2019-08-01');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (9, 10, 'What country’s flag is the most controversial?', 'This may seem odd, but I would like to hear the internets opinion.',  '2019-10-19');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (10, 9, 'Who is handling the coronavirus outbreak better, the United States or Canada?', 'Im a proud American and Ill be damned if Canada is handeling it better >:(',  '2020-03-03');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (11, 40, 'Paging a collection with LINQ', 'How do you page through a collection in LINQ given that you have a startIndex and a count?',  '2019-06-03');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (12, 45, 'Microsoft office 2007 file type, mime types and identifying characters', 'Where can I find a list of all of the MIME types and the identifying characters for Microsoft Office 2007 files?',  '2019-06-12');	
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (13, 46, 'Internationalization in your projects', 'How have you implemented Internationalization (i18n) in actual projects you have worked on?', '2019-06-03');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (14, 47, 'English (language)', 'In the UK, what is the correct way to order food, coffee, etc."can have a latte" or " I" have a latte?', '2020-01-12');		
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (15, 50, 'How do restaurants cook pasta so fast?', 'Can please someone explain me how can restaurants cook all types of food so quickly?',  '2019-07-15');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (16, 60, 'British Royalty', 'Who is allowed to call the Bristish Queen by her first name?', '2019-04-12');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (17, 42, 'Why do many Italian pizzas have such large crusts even though it is not healthy and has no taste?', 'I could really use an explanation about this fact.', '2019-06-10');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (18, 30, 'Express How You Feel', 'Why is Italy still getting thousands of coronavirus cases per day if they are locked down for weeks?', '2020-03-12');		
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (19, 20, 'Covid-19 in Italy', 'Why is the coronavirus so bad in Italy?', '2019-03-15');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (20, 41, 'Studying in Japan', 'What schools accepted/rejected you (April 2020)?', '2019-09-10');	
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (21, 25, 'New York architecture', 'Why are New York brownstones elevated so high above the street?', '2019-03-15');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (22, 42, 'Photography and Lady Gaga', 'What is an interesting photo of Lady Gaga in concert?', '2018-01-10');		
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (23, 26, 'Professionals Cooking', 'Why professional chefs always seem to use an excessive amount of butter and oil? Surely there is a healthier way to make food that tastes excellent.',  '2019-03-15');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (24, 43, 'Queen and Freddie Mercury', 'How did Freddie Mercury manage to sound so powerful and stable in all parts of his vocal range?', '2018-01-10');			
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (25, 44, 'What is the oldest age a K-pop idol ever debuted?', 'I really want to know this.',  '2019-12-15');
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (26, 45, 'Difference between Windows laptops e MacBooks?', 'Why cannot Windows laptops have a similar build quality to MacBooks?', '2019-05-11');			
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (27, 46, 'History', 'What was the most clichéd moment in history?', '2018-11-10');	
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (28, 47, 'Tell me your opinion', 'What is a historical fact that would sadden most people if they found out?', '2019-12-12');	
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (29, 49, 'History', 'Who are some historical figures wrongly portrayed in popular culture?', '2019-09-01');		
+insert into 'question' (id, user_id, title, description, question_date) 
+	values (30, 59, 'Popular cliches in movies', 'What is a movie cliche you never get tired of seeing?', '2019-08-01');
 	
 --answer
 insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
 	values (1, 1, 1, '2019-12-13', 'Undoubtedly the worst form of over-the-top method acting is the kind that a) makes you look like an ass, and b) was for a terrible film. We’ve already shared some of the stories of Jared Leto’s Joker-prep for Suicide Squad, in which the actor famously tormented his co-workers for the sake of a half-written and pandering story. But there’s so much more.', 3, 2, FALSE);
 insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
 	values (2, 3, 2, '2019-12-01', 'An intelligent person knows so much that it knows nothing, leaves you hanging upside down, mouthing knowledge as your heart falls out of your mouth - Anne. But, a wise man knows when to use his intelligence. He knows when to be silent.', 7, 4, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (3, 4, 3, '2020-01-12', 'There are lots of jerks in music. People like Gene Simmons and Morrissey are well-known jerks.', 10, 0, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (4, 2, 4, '2019-05-01', 'I’m glad you realize there is a difference, because many people don’t. When you do something daily, let’s say, then you do it every day. Every. Day. Two words. Two separate words. “Every day” means, refers to, and includes all days, just like “every cantaloupe” means, refers to, and includes all cantaloupes. You get the idea. When something is commonplace, ordinary, mundane, routine, average, run-of-the-mill, plain, or typical, then it can be accurately described as everyday. One word. One. “Everyday” is an adjective, a descriptor.', 100, 4, TRUE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (5, 5, 5, '2020-02-05', 'There never was a breach. BOTH two sides of the SAME coin. Science asks "how", religion asks "why".', 4, 1, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (6, 6, 6, '2019-10-01', 'First of all, Apple AirPods are not hype, they are the real deal with near unparalleled Bluetooth pairing and connectivity, excellent sound, good fit and reasonable cost. AirPods 2 are quite sufficient and nearly as good all around as the Pro version. You can spend MORE for better sound, not necessarily better Bluetooth. The only drawback to iPhone/AirPods connection is that Apple only offers 1 Bluetooth codec, and not AptX or AptX HD. Knockoffs of nearly anything are not as satisfying, or as quality as the Original! There are other earbuds out there, but you will risk the one element that is essential: Bluetooth connectivity, and pairing, regardless of upgrades.', 54, 13, TRUE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (7, 7, 7, '2020-11-05', 'Take a look at Process and Runtime classes. Keep in mind that what you are trying to accomplish is probably not platform independent.', 4, 1, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (8, 9, 8, '2020-03-26', 'BREAKING BAD! This is the best TV show on earth. It builds up slowly but methodically to expand over several seasons. I was amazed by the storytelling. Every piece slowly falls into place to create a grand finale that has been mastered to blow your mind away.', 3, 1, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (9, 8, 9, '2019-11-06', 'Japans rising sun flag. The Rising Sun Flag is the military flag of Japan. It was used as the ensign of the Imperial Japanese Navy and the war flag of the Imperial Japanese Army until the end of World War II. It is also presently the ensign of the Japan Maritime Self-Defense Force and the war flag of the Japan Ground Self-Defense Force. It is also waved during the Japanese New Year and in sporting events. The design is similar to the flag of Japan in that it has a red circle close to the middle signifying the sun, the difference being the addition of extra sun rays (16 for the ensign) exemplifying the name of Japan as “The Land of the Rising Sun”. The flag was used in overseas actions from the Meiji period to World War II. When Japan was defeated in August 1945, the flag was banned by Allied Occupation authorities. However, with the re-establishment of a Self-Defense Force, the flag was re-adopted in 1954. The flag with 16 rays is today the ensign of the Maritime Self-Defense Force while the Ground Self-Defense Force uses an 8 ray version. This flag is often considered offensive in countries which were victims of Japanese aggression, particularly China and Korea, where it is considered as a symbol of Japanese imperialism.', 55, 12, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (10, 10, 10, '2020-03-30', 'it would depend upon your definition of better, is it better to have a low figure because you have not tested people at the appropriate time or have a higher figure because you have accurately tested many more people who may have the infection so naturally you have a more accurate understanding of the scale of the issue? perhaps you consider it better to look at the number of confirmed cases that subsequently died as a result of the infection either directly or indirectly? Canada has done the tests and can track those patients being treated for serious reaction to the infection. The USA has not done the testing to the same level as Canada so their results are patchy at best. Canada has a health service that everyone can access without fear of bankruptcy, lifelong debit or needing to sell there homes, so more people are willing to find out whether they are infected, in the USA due to their healthcare system many poorer people try not to go to the Doctor as they cannot afford it, so their deaths could well be misclassified as there is no test data or possibly post mortem to accurately identify the cause of death. In either case I would say that Canada is beating the USA hands down.', 21, 3, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (11, 11, 11, '2019-06-04', 'A few months back I wrote a blog post about Fluent Interfaces and LINQ which used an Extension Method on IQueryable<T> and another class to provide the following natural way of paginating a LINQ collection.', 10, 3, TRUE);	
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (12, 20, 11, '2019-06-05', 'It is very simple with the Skip and Take extension methods.', 2, 5, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (13, 22, 12, '2019-06-14', 'Office 2007 MIME Types for IIS', 2, 10, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (14, 22, 13, '2019-06-03', 'Character Sets: Unicode is great, but you cant get away with ignoring other character sets. The default character set on Windows XP (English) is Cp1252. On the web, you dont know what a browser will send you (though hopefully your container will handle most of this). And dont be surprised when there are bugs in whatever implementation you are using. Character sets can have interesting interactions with filenames when they move to between machines.', 10, 10, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (15, 23, 13, '2019-06-04', 'Having a PHP and MySQL Application that works well with German and French, but now needs to support Russian and Chinese. I think I move this over to .net, as PHP Unicode support is - in my opinion - not really good. Sure, juggling around with utf8_de/encode or the mbstring-functions is fun. Almost as fun as having Freddy Krüger visit you at night...', 10, 10, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (16, 31, 14, '2020-02-03', 'The former is a little more polite, although “could I have a latte, please?” would be better.', 10, 10, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (17, 48, 15, '2020-02-03', 'I’m not proud to know this. And I would not recommend it to my worse enemy. We boiled the pasta in the morning, drained it and conserved the pasta in buckets filled with iced water. Every time a spaghetti was ordered, one of us grabbed a portion, poured a ladle of sauce and a handful of cheap cheese on top. Microwave for 3 minutes.', 0, 0, TRUE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (18, 1, 16, '2019-06-12', 'It is well known that President Nelson Mandela always called Her Majesty by her first name, Elizabeth. When he was corrected, he would look puzzled and say “But she calls me Nelson!”', 2, 0, TRUE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (19, 43, 17, '2019-06-14', 'Let’s think about this a little bit… The crust isn’t healthy? Magically, the amount of crust that sits beneath the cheese and sauce is okay, but when not covered in toppings, suddenly the crust becomes detrimental to your health?', 10, 3, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (20, 2, 19, '2019-06-14', 'Italians may have drawn the shortest straw. There are solid reasons to understand why the coronavirus pandemia is taking a huge toll on them, though.', 2, 0, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (21, 2, 21, '2019-04-01', 'Knowledgeable on all aspects of the residential and commercial real estate industry in New York City and a real estate consultant with 20 years of experience in residential and commercial real estate management and leasing.', 7, 1, TRUE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (22, 13, 22, '2018-01-10', 'Especially if you haven’t been to one of her shows, you might find this very interesting.', 2, 3, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (23, 65, 23, '2019-03-15', 'Oh, it gets worse. A friend of mine is married to a chef at a highly regarded hotel in Manchester. When she asked her husband why his food tasted better than hers from the same recipes, he said, ‘show me a pinch of salt.’ So she showed him the amount of salt she could hold between forefinger and thumb. ‘Right,’ said Chris, ‘That’s why. This is a pinch.’ And he dug his thumb and first three fingers into the salt and grabbed.', 2, 0, TRUE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (24, 41, 24, '2019-06-14', 'Wish he was around to tell us all about it. So do scientists who study the human voice. Several studies have been done to try to determine what made his voice so extraordinary and how he was able to have not just the power and control but the exceptional vibrato and the “gravel” or “growl” that he added to his otherwise smooth voice.', 5, 3, TRUE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (25, 63, 26, '2019-12-15', 'I recently got a new job and due to software requirements, my work computer was forced to be a Windows machine (instead of a Mac running Bootcamp). I have been a Mac user since 2007, so I scoured reviews for the latest and greatest Windows hardware, with Microsoft’s own Surface Book 2 coming out on top as the premier hardware. I was excited by the idea this could really rival Apple hardware, coming in at a comparable price tag of about $2500.', 10, 5, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (26, 44, 28, '2019-12-31', 'That is a really good question. I hope someone asks.', 2, 3, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (27, 34, 29, '2019-12-03', 'That is a really good question. I hope someone asks.', 2, 3, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (28, 31, 30, '2019-12-03', 'Bar silence- The protagonist walks into a bar and all of the patrons stop talking and look at him or her. Even better when they all do it at once like they have been preparing for such an occasion.', 2, 0, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (29, 34, 30, '2019-08-03', 'That is a really good question. I hope someone asks.', 2, 3, FALSE);
-insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
-	values (30, 39, 30, '2019-12-03', 'I dont remember right now.', 2, 3, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (3, 4, 3, '2020-01-12', 'There are lots of jerks in music. People like Gene Simmons and Morrissey are well-known jerks.', 1FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (4, 2, 4, '2019-05-01', 'I’m glad you realize there is a difference, because many people don’t. When you do something daily, let’s say, then you do it every day. Every. Day. Two words. Two separate words. “Every day” means, refers to, and includes all days, just like “every cantaloupe” means, refers to, and includes all cantaloupes. You get the idea. When something is commonplace, ordinary, mundane, routine, average, run-of-the-mill, plain, or typical, then it can be accurately described as everyday. One word. One. “Everyday” is an adjective, a descriptor.', 1 TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (5, 5, 5, '2020-02-05', 'There never was a breach. BOTH two sides of the SAME coin. Science asks "how", religion asks "why".', FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (6, 6, 6, '2019-10-01', 'First of all, Apple AirPods are not hype, they are the real deal with near unparalleled Bluetooth pairing and connectivity, excellent sound, good fit and reasonable cost. AirPods 2 are quite sufficient and nearly as good all around as the Pro version. You can spend MORE for better sound, not necessarily better Bluetooth. The only drawback to iPhone/AirPods connection is that Apple only offers 1 Bluetooth codec, and not AptX or AptX HD. Knockoffs of nearly anything are not as satisfying, or as quality as the Original! There are other earbuds out there, but you will risk the one element that is essential: Bluetooth connectivity, and pairing, regardless of upgrades.', 5 TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (7, 7, 7, '2020-11-05', 'Take a look at Process and Runtime classes. Keep in mind that what you are trying to accomplish is probably not platform independent.', FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (8, 9, 8, '2020-03-26', 'BREAKING BAD! This is the best TV show on earth. It builds up slowly but methodically to expand over several seasons. I was amazed by the storytelling. Every piece slowly falls into place to create a grand finale that has been mastered to blow your mind away.', FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (9, 8, 9, '2019-11-06', 'Japans rising sun flag. The Rising Sun Flag is the military flag of Japan. It was used as the ensign of the Imperial Japanese Navy and the war flag of the Imperial Japanese Army until the end of World War II. It is also presently the ensign of the Japan Maritime Self-Defense Force and the war flag of the Japan Ground Self-Defense Force. It is also waved during the Japanese New Year and in sporting events. The design is similar to the flag of Japan in that it has a red circle close to the middle signifying the sun, the difference being the addition of extra sun rays (16 for the ensign) exemplifying the name of Japan as “The Land of the Rising Sun”. The flag was used in overseas actions from the Meiji period to World War II. When Japan was defeated in August 1945, the flag was banned by Allied Occupation authorities. However, with the re-establishment of a Self-Defense Force, the flag was re-adopted in 1954. The flag with 16 rays is today the ensign of the Maritime Self-Defense Force while the Ground Self-Defense Force uses an 8 ray version. This flag is often considered offensive in countries which were victims of Japanese aggression, particularly China and Korea, where it is considered as a symbol of Japanese imperialism.', 55FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (10, 10, 10, '2020-03-30', 'it would depend upon your definition of better, is it better to have a low figure because you have not tested people at the appropriate time or have a higher figure because you have accurately tested many more people who may have the infection so naturally you have a more accurate understanding of the scale of the issue? perhaps you consider it better to look at the number of confirmed cases that subsequently died as a result of the infection either directly or indirectly? Canada has done the tests and can track those patients being treated for serious reaction to the infection. The USA has not done the testing to the same level as Canada so their results are patchy at best. Canada has a health service that everyone can access without fear of bankruptcy, lifelong debit or needing to sell there homes, so more people are willing to find out whether they are infected, in the USA due to their healthcare system many poorer people try not to go to the Doctor as they cannot afford it, so their deaths could well be misclassified as there is no test data or possibly post mortem to accurately identify the cause of death. In either case I would say that Canada is beating the USA hands down.', 2FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (11, 11, 11, '2019-06-04', 'A few months back I wrote a blog post about Fluent Interfaces and LINQ which used an Extension Method on IQueryable<T> and another class to provide the following natural way of paginating a LINQ collection.',  TRUE);	
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (12, 20, 11, '2019-06-05', 'It is very simple with the Skip and Take extension methods.', FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (13, 22, 12, '2019-06-14', 'Office 2007 MIME Types for IIS', 2FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (14, 22, 13, '2019-06-03', 'Character Sets: Unicode is great, but you cant get away with ignoring other character sets. The default character set on Windows XP (English) is Cp1252. On the web, you dont know what a browser will send you (though hopefully your container will handle most of this). And dont be surprised when there are bugs in whatever implementation you are using. Character sets can have interesting interactions with filenames when they move to between machines.', 10FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (15, 23, 13, '2019-06-04', 'Having a PHP and MySQL Application that works well with German and French, but now needs to support Russian and Chinese. I think I move this over to .net, as PHP Unicode support is - in my opinion - not really good. Sure, juggling around with utf8_de/encode or the mbstring-functions is fun. Almost as fun as having Freddy Krüger visit you at night...', 10FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (16, 31, 14, '2020-02-03', 'The former is a little more polite, although “could I have a latte, please?” would be better.', 10FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (17, 48, 15, '2020-02-03', 'I’m not proud to know this. And I would not recommend it to my worse enemy. We boiled the pasta in the morning, drained it and conserved the pasta in buckets filled with iced water. Every time a spaghetti was ordered, one of us grabbed a portion, poured a ladle of sauce and a handful of cheap cheese on top. Microwave for 3 minutes.', TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (18, 1, 16, '2019-06-12', 'It is well known that President Nelson Mandela always called Her Majesty by her first name, Elizabeth. When he was corrected, he would look puzzled and say “But she calls me Nelson!”', TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (19, 43, 17, '2019-06-14', 'Let’s think about this a little bit… The crust isn’t healthy? Magically, the amount of crust that sits beneath the cheese and sauce is okay, but when not covered in toppings, suddenly the crust becomes detrimental to your health?', 1FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (20, 2, 19, '2019-06-14', 'Italians may have drawn the shortest straw. There are solid reasons to understand why the coronavirus pandemia is taking a huge toll on them, though.', FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (21, 2, 21, '2019-04-01', 'Knowledgeable on all aspects of the residential and commercial real estate industry in New York City and a real estate consultant with 20 years of experience in residential and commercial real estate management and leasing.', TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (22, 13, 22, '2018-01-10', 'Especially if you haven’t been to one of her shows, you might find this very interesting.', FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (23, 65, 23, '2019-03-15', 'Oh, it gets worse. A friend of mine is married to a chef at a highly regarded hotel in Manchester. When she asked her husband why his food tasted better than hers from the same recipes, he said, ‘show me a pinch of salt.’ So she showed him the amount of salt she could hold between forefinger and thumb. ‘Right,’ said Chris, ‘That’s why. This is a pinch.’ And he dug his thumb and first three fingers into the salt and grabbed.', TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (24, 41, 24, '2019-06-14', 'Wish he was around to tell us all about it. So do scientists who study the human voice. Several studies have been done to try to determine what made his voice so extraordinary and how he was able to have not just the power and control but the exceptional vibrato and the “gravel” or “growl” that he added to his otherwise smooth voice.', TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (25, 63, 26, '2019-12-15', 'I recently got a new job and due to software requirements, my work computer was forced to be a Windows machine (instead of a Mac running Bootcamp). I have been a Mac user since 2007, so I scoured reviews for the latest and greatest Windows hardware, with Microsoft’s own Surface Book 2 coming out on top as the premier hardware. I was excited by the idea this could really rival Apple hardware, coming in at a comparable price tag of about $2500.', 1FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (26, 44, 28, '2019-12-31', 'That is a really good question. I hope someone asks.', FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (27, 34, 29, '2019-12-03', 'That is a really good question. I hope someone asks.', FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (28, 31, 30, '2019-12-03', 'Bar silence- The protagonist walks into a bar and all of the patrons stop talking and look at him or her. Even better when they all do it at once like they have been preparing for such an occasion.', FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (29, 34, 30, '2019-08-03', 'That is a really good question. I hope someone asks.', FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, marked_answer) 
+	values (30, 39, 30, '2019-12-03', 'I dont remember right now.', FALSE);
 
 --comment
 insert into 'comment' (id, user_id, question_id, answer_id, comment_date, content) 
@@ -500,6 +500,64 @@ insert into 'vote' (id, "vote", user_id, question_id) values (58, FALSE, 20, 4);
 insert into 'vote' (id, "vote", user_id, question_id) values (59, FALSE, 21, 4);
 insert into 'vote' (id, "vote", user_id, question_id) values (60, FALSE, 22, 4);
 --question 5
+insert into 'vote' (id, "vote", user_id, question_id) values (61, TRUE, 1, 5);
+insert into 'vote' (id, "vote", user_id, question_id) values (62, TRUE, 2, 5);
+insert into 'vote' (id, "vote", user_id, question_id) values (63, FALSE, 3, 5);
+insert into 'vote' (id, "vote", user_id, question_id) values (64, FALSE, 4, 5);
+insert into 'vote' (id, "vote", user_id, question_id) values (65, FALSE, 5, 5);
+--question 6
+insert into 'vote' (id, "vote", user_id, question_id) values (66, TRUE, 1, 6);
+insert into 'vote' (id, "vote", user_id, question_id) values (67, TRUE, 2, 6);
+insert into 'vote' (id, "vote", user_id, question_id) values (68, TRUE, 3, 6);
+insert into 'vote' (id, "vote", user_id, question_id) values (69, FALSE, 4, 6);
+insert into 'vote' (id, "vote", user_id, question_id) values (70, FALSE, 5, 6);
+--question 7
+insert into 'vote' (id, "vote", user_id, question_id) values (71, TRUE, 1, 7);
+insert into 'vote' (id, "vote", user_id, question_id) values (72, TRUE, 2, 7);
+insert into 'vote' (id, "vote", user_id, question_id) values (73, TRUE, 3, 7);
+insert into 'vote' (id, "vote", user_id, question_id) values (74, TRUE, 4, 7);
+insert into 'vote' (id, "vote", user_id, question_id) values (75, TRUE, 6, 7);
+insert into 'vote' (id, "vote", user_id, question_id) values (76, TRUE, 7, 7);
+insert into 'vote' (id, "vote", user_id, question_id) values (77, TRUE, 8, 7);
+insert into 'vote' (id, "vote", user_id, question_id) values (78, FALSE, 9, 7);
+insert into 'vote' (id, "vote", user_id, question_id) values (79, FALSE, 10, 7);
+insert into 'vote' (id, "vote", user_id, question_id) values (80, FALSE, 11, 7);
+insert into 'vote' (id, "vote", user_id, question_id) values (81, FALSE, 12, 7);
+insert into 'vote' (id, "vote", user_id, question_id) values (82, FALSE, 13, 7);
+--question 8
+insert into 'vote' (id, "vote", user_id, question_id) values (83, TRUE, 1, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (84, TRUE, 2, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (85, TRUE, 3, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (86, TRUE, 4, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (87, TRUE, 5, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (88, TRUE, 6, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (89, TRUE, 7, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (90, TRUE, 9, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (91, TRUE, 10, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (92, TRUE, 11, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (93, FALSE, 12, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (94, FALSE, 13, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (95, FALSE, 14, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (96, FALSE, 15, 8);
+insert into 'vote' (id, "vote", user_id, question_id) values (97, FALSE, 16, 8);
+--answer 1
+insert into 'vote' (id, "vote", user_id, answer_id) values (98, TRUE, 2, 1);
+insert into 'vote' (id, "vote", user_id, answer_id) values (99, TRUE, 3, 1);
+insert into 'vote' (id, "vote", user_id, answer_id) values (100, TRUE, 4, 1);
+insert into 'vote' (id, "vote", user_id, answer_id) values (101, FALSE, 5, 1);
+insert into 'vote' (id, "vote", user_id, answer_id) values (102, FALSE, 6, 1);
+--answer 2
+insert into 'vote' (id, "vote", user_id, answer_id) values (103, TRUE, 1, 2);
+insert into 'vote' (id, "vote", user_id, answer_id) values (104, TRUE, 2, 2);
+insert into 'vote' (id, "vote", user_id, answer_id) values (105, TRUE, 4, 2);
+insert into 'vote' (id, "vote", user_id, answer_id) values (106, TRUE, 5, 2);
+insert into 'vote' (id, "vote", user_id, answer_id) values (107, TRUE, 6, 2);
+insert into 'vote' (id, "vote", user_id, answer_id) values (108, TRUE, 7, 2);
+insert into 'vote' (id, "vote", user_id, answer_id) values (109, TRUE, 8, 2);
+insert into 'vote' (id, "vote", user_id, answer_id) values (110, FALSE, 9, 2);
+insert into 'vote' (id, "vote", user_id, answer_id) values (111, FALSE, 10, 2);
+insert into 'vote' (id, "vote", user_id, answer_id) values (112, FALSE, 11, 2);
+insert into 'vote' (id, "vote", user_id, answer_id) values (113, FALSE, 12, 2);
 
 --report
 insert into 'report' (id, reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
