@@ -185,6 +185,26 @@ insert into 'label' (id, name) values (48, 'pop');
 insert into 'label' (id, name) values (49, 'english');
 
 --notification
+insert into 'notification' (id, content, date, viewed, user_id) values (1, 'A user has answered a question of yours', '2019-12-1', FALSE, 20);
+insert into 'notification' (id, content, date, viewed, user_id) values (2, 'A user has answered a question of yours', '2019-12-2', FALSE, 19);
+insert into 'notification' (id, content, date, viewed, user_id) values (3, 'A user has answered a question you follow', '2019-12-3', FALSE, 18);
+insert into 'notification' (id, content, date, viewed, user_id) values (4, 'A user has answered a question you follow', '2019-12-4', FALSE, 17);
+insert into 'notification' (id, content, date, viewed, user_id) values (5, 'A user has answered a question of yours', '2019-12-5', TRUE, 16);
+insert into 'notification' (id, content, date, viewed, user_id) values (6, 'A user has answered a question you follow', '2019-12-6', TRUE, 15);
+insert into 'notification' (id, content, date, viewed, user_id) values (7, 'A user has answered a question you follow', '2019-12-7', FALSE, 14);
+insert into 'notification' (id, content, date, viewed, user_id) values (8, 'A user has answered a question you follow', '2019-12-8', TRUE, 13);
+insert into 'notification' (id, content, date, viewed, user_id) values (9, 'A user has answered a question of yours', '2019-12-9', TRUE, 12);
+insert into 'notification' (id, content, date, viewed, user_id) values (10, 'A user has answered a question of yours', '2019-12-10', FALSE, 11);
+insert into 'notification' (id, content, date, viewed, user_id) values (11, 'A user has answered a question of yours', '2019-12-11', TRUE, 10);
+insert into 'notification' (id, content, date, viewed, user_id) values (12, 'A user has answered a question of yours', '2019-12-12', TRUE, 9);
+insert into 'notification' (id, content, date, viewed, user_id) values (13, 'A user has answered a question you follow', '2019-12-13', FALSE, 8);
+insert into 'notification' (id, content, date, viewed, user_id) values (14, 'A user has answered a question you follow', '2019-12-1', TRUE, 7);
+insert into 'notification' (id, content, date, viewed, user_id) values (15, 'A user has answered a question of yours', '2019-12-1', TRUE, 6);
+insert into 'notification' (id, content, date, viewed, user_id) values (16, 'A user has answered a question of yours', '2019-12-1', FALSE, 5);
+insert into 'notification' (id, content, date, viewed, user_id) values (17, 'A user has answered a question you follow', '2019-12-1', TRUE, 4);
+insert into 'notification' (id, content, date, viewed, user_id) values (18, 'A user has answered a question of yours', '2019-12-1', TRUE, 3);
+insert into 'notification' (id, content, date, viewed, user_id) values (19, 'A user has answered a question you follow', '2019-12-1', FALSE, 2);
+insert into 'notification' (id, content, date, viewed, user_id) values (20, 'A user has answered a question you follow', '2019-12-1', TRUE, 1);
 
 --user_management
 insert into 'user_management' (id, status, date_last_changed, user_id) values (1, 'administrator', '2020-03-01', 1);
@@ -294,41 +314,41 @@ insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, 
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (12, 45, 'Microsoft office 2007 file type, mime types and identifying characters', 'Where can I find a list of all of the MIME types and the identifying characters for Microsoft Office 2007 files?', 20, 2, '2019-06-12');	
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (13, 46, 'Internationalization in your projects', 'How do you page through a collection in LINQ given that you have a startIndex and a count?', 25, 2, '2019-06-03');
+	values (13, 46, 'Internationalization in your projects', 'How have you implemented Internationalization (i18n) in actual projects you have worked on?', 25, 2, '2019-06-03');
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (14, 47, 'English (language)', 'In the UK, what is the correct way to order food, coffee, etc."can have a latte" or " I" have a latte?', 15, 2, '2020-01-12');		
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (15, 50, 'Latit Mahapatra big foodie with a heart for cooking', 'How do restaurants cook pasta so fast?', 20, 2, '2019-07-15');
+	values (15, 50, 'How do restaurants cook pasta so fast?', 'Can please someone explain me how can restaurants cook all types of food so quickly?', 20, 2, '2019-07-15');
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (16, 60, 'Tony Seifart lives in table view westen cape south Africa', 'Philip who is allowed to call the Bristish Queen by her first name?', 10, 2, '2019-04-12');
+	values (16, 60, 'British Royalty', 'Who is allowed to call the Bristish Queen by her first name?', 10, 2, '2019-04-12');
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (17, 42, 'Gianluca Liorni studied at Newcastle College (1993)', 'Why do many Italian pizzas have such large crusts even though it not healthy and has no taste?', 25, 2, '2019-06-10');
+	values (17, 42, 'Why do many Italian pizzas have such large crusts even though it is not healthy and has no taste?', 'I could really use an explanation about this fact.', 25, 2, '2019-06-10');
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (18, 30, 'Express How You Feel', 'Why is Italy still getting thousands of coronavirus cases per day if they are locked down for weeks?', 15, 3, '2020-03-12');		
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (19, 20, 'Antonello Frau, PhD Chemistry & Materials Science and Engineering, University of Houston (2009)', 'Why is the coronavirus so bad in Italy?', 7, 2, '2019-03-15');
+	values (19, 20, 'Covid-19 in Italy', 'Why is the coronavirus so bad in Italy?', 7, 2, '2019-03-15');
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (20, 41, 'Sophia M. Baker, Student in Japan', 'What schools accepted/rejected you (April 2020)?', 16, 5, '2019-09-10');	
+	values (20, 41, 'Studying in Japan', 'What schools accepted/rejected you (April 2020)?', 16, 5, '2019-09-10');	
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (21, 25, 'Bruce Feldman, Managing Agent for NYC properties.', 'Why are New York brownstones elevated so high above the street?', 20, 2, '2019-03-15');
+	values (21, 25, 'New York architecture', 'Why are New York brownstones elevated so high above the street?', 20, 2, '2019-03-15');
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (22, 42, 'Photography', 'What is an interesting photo of Lady Gaga in concert?', 7, 1, '2018-01-10');		
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (23, 26, 'Cooking', 'Why professional chefs always seem to use an excessive amount of butter and oil? Surely there is a healthier way to make food that tastes excellent.', 10, 2, '2019-03-15');
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (24, 43, 'Robin Meadows', 'How did Freddie Mercury manage to sound so powerful and stable in all parts of his vocal range?', 7, 1, '2018-01-10');			
+	values (24, 43, 'Queen and Freddie Mercury', 'How did Freddie Mercury manage to sound so powerful and stable in all parts of his vocal range?', 7, 1, '2018-01-10');			
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (25, 44, 'Moxie Carson, Lovelyz fan, occasional writer', 'What is the oldest age a K-pop idol ever debuted?', 11, 3, '2019-12-15');
+	values (25, 44, 'What is the oldest age a K-pop idol ever debuted?', 'I really want to know this.', 11, 3, '2019-12-15');
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (26, 45, 'English (language)', 'Why cannot Windows laptops have a similar build quality to MacBooks?', 7, 1, '2019-05-11');			
+	values (26, 45, 'Difference between Windows laptops e MacBooks?', 'Why cannot Windows laptops have a similar build quality to MacBooks?', 7, 1, '2019-05-11');			
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (27, 46, 'History', 'What was the most clichéd moment in history?', 10, 1, '2018-11-10');	
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (28, 47, 'Express How You Feel', 'What is a historical fact that would sadden most people if they found out?', 17, 5, '2019-12-12');	
+	values (28, 47, 'Tell me your opinion', 'What is a historical fact that would sadden most people if they found out?', 17, 5, '2019-12-12');	
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (29, 49, 'History', 'Who are some historical figures wrongly portrayed in popular culture?', 18, 6, '2019-09-01');		
 insert into 'question' (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (30, 59, 'Popular', 'What is a movie cliche you never get tired of seeing?', 11, 4, '2019-08-01');
+	values (30, 59, 'Popular cliches in movies', 'What is a movie cliche you never get tired of seeing?', 11, 4, '2019-08-01');
 	
 --answer
 insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
@@ -353,6 +373,44 @@ insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, 
 	values (10, 10, 10, '2020-03-30', 'it would depend upon your definition of better, is it better to have a low figure because you have not tested people at the appropriate time or have a higher figure because you have accurately tested many more people who may have the infection so naturally you have a more accurate understanding of the scale of the issue? perhaps you consider it better to look at the number of confirmed cases that subsequently died as a result of the infection either directly or indirectly? Canada has done the tests and can track those patients being treated for serious reaction to the infection. The USA has not done the testing to the same level as Canada so their results are patchy at best. Canada has a health service that everyone can access without fear of bankruptcy, lifelong debit or needing to sell there homes, so more people are willing to find out whether they are infected, in the USA due to their healthcare system many poorer people try not to go to the Doctor as they cannot afford it, so their deaths could well be misclassified as there is no test data or possibly post mortem to accurately identify the cause of death. In either case I would say that Canada is beating the USA hands down.', 21, 3, FALSE);
 insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
 	values (11, 11, 11, '2019-06-04', 'A few months back I wrote a blog post about Fluent Interfaces and LINQ which used an Extension Method on IQueryable<T> and another class to provide the following natural way of paginating a LINQ collection.', 21, 3, TRUE);	
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (12, 20, 11, '2019-06-05', 'It is very simple with the Skip and Take extension methods.', 2, 5, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (13, 22, 12, '2019-06-14', 'Office 2007 MIME Types for IIS', 2, 10, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (14, 22, 13, '2019-06-03', 'Character Sets: Unicode is great, but you cant get away with ignoring other character sets. The default character set on Windows XP (English) is Cp1252. On the web, you dont know what a browser will send you (though hopefully your container will handle most of this). And dont be surprised when there are bugs in whatever implementation you are using. Character sets can have interesting interactions with filenames when they move to between machines.', 20, 10, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (15, 23, 13, '2019-06-04', 'Having a PHP and MySQL Application that works well with German and French, but now needs to support Russian and Chinese. I think I move this over to .net, as PHP Unicode support is - in my opinion - not really good. Sure, juggling around with utf8_de/encode or the mbstring-functions is fun. Almost as fun as having Freddy Krüger visit you at night...', 10, 10, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (16, 31, 14, '2020-02-03', 'The former is a little more polite, although “could I have a latte, please?” would be better.', 10, 10, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (17, 48, 15, '2020-02-03', 'I’m not proud to know this. And I would not recommend it to my worse enemy. We boiled the pasta in the morning, drained it and conserved the pasta in buckets filled with iced water. Every time a spaghetti was ordered, one of us grabbed a portion, poured a ladle of sauce and a handful of cheap cheese on top. Microwave for 3 minutes.', 0, 0, TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (18, 1, 16, '2019-06-12', 'It is well known that President Nelson Mandela always called Her Majesty by her first name, Elizabeth. When he was corrected, he would look puzzled and say “But she calls me Nelson!”', 22, 0, TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (19, 43, 17, '2019-06-14', 'Let’s think about this a little bit… The crust isn’t healthy? Magically, the amount of crust that sits beneath the cheese and sauce is okay, but when not covered in toppings, suddenly the crust becomes detrimental to your health?', 22, 3, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (20, 2, 19, '2019-06-14', 'Italians may have drawn the shortest straw. There are solid reasons to understand why the coronavirus pandemia is taking a huge toll on them, though.', 2, 0, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (21, 2, 21, '2019-04-01', 'Knowledgeable on all aspects of the residential and commercial real estate industry in New York City and a real estate consultant with 20 years of experience in residential and commercial real estate management and leasing.', 7, 1, TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (22, 13, 22, '2018-01-10', 'Especially if you haven’t been to one of her shows, you might find this very interesting.', 2, 30, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (23, 65, 23, '2019-03-15', 'Oh, it gets worse. A friend of mine is married to a chef at a highly regarded hotel in Manchester. When she asked her husband why his food tasted better than hers from the same recipes, he said, ‘show me a pinch of salt.’ So she showed him the amount of salt she could hold between forefinger and thumb. ‘Right,’ said Chris, ‘That’s why. This is a pinch.’ And he dug his thumb and first three fingers into the salt and grabbed.', 20, 10, TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (24, 41, 24, '2019-06-14', 'Wish he was around to tell us all about it. So do scientists who study the human voice. Several studies have been done to try to determine what made his voice so extraordinary and how he was able to have not just the power and control but the exceptional vibrato and the “gravel” or “growl” that he added to his otherwise smooth voice.', 15, 3, TRUE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (25, 63, 26, '2019-12-15', 'I recently got a new job and due to software requirements, my work computer was forced to be a Windows machine (instead of a Mac running Bootcamp). I have been a Mac user since 2007, so I scoured reviews for the latest and greatest Windows hardware, with Microsoft’s own Surface Book 2 coming out on top as the premier hardware. I was excited by the idea this could really rival Apple hardware, coming in at a comparable price tag of about $2500.', 30, 10, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (26, 44, 28, '2019-12-31', 'That is a really good question. I hope someone asks.', 2, 30, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (27, 34, 29, '2019-12-03', 'That is a really good question. I hope someone asks.', 2, 30, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (28, 31, 30, '2019-12-03', 'Bar silence- The protagonist walks into a bar and all of the patrons stop talking and look at him or her. Even better when they all do it at once like they have been preparing for such an occasion.', 25, 0, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (29, 34, 30, '2019-08-03', 'That is a really good question. I hope someone asks.', 2, 30, FALSE);
+insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
+	values (30, 39, 30, '2019-12-03', 'I dont remember right now.', 2, 30, FALSE);
 
 --comment
 
@@ -363,7 +421,71 @@ insert into 'answer' (id, user_id, question_id, answer_date, content, nr_likes, 
 --report_status
 
 --question_following
-insert into 'question_following' (user_id, question_id) values (2, 3);
+insert into 'question_following' (user_id, question_id) values (1, 2);
+insert into 'question_following' (user_id, question_id) values (2, 1);
+insert into 'question_following' (user_id, question_id) values (3, 4);
+insert into 'question_following' (user_id, question_id) values (4, 3);
+insert into 'question_following' (user_id, question_id) values (5, 6);
+insert into 'question_following' (user_id, question_id) values (6, 5);
+insert into 'question_following' (user_id, question_id) values (7, 8);
+insert into 'question_following' (user_id, question_id) values (8, 7);
+insert into 'question_following' (user_id, question_id) values (9, 10);
+insert into 'question_following' (user_id, question_id) values (10, 9);
+insert into 'question_following' (user_id, question_id) values (11, 12);
+insert into 'question_following' (user_id, question_id) values (12, 13);
+insert into 'question_following' (user_id, question_id) values (13, 14);
+insert into 'question_following' (user_id, question_id) values (14, 15);
+insert into 'question_following' (user_id, question_id) values (15, 16);
+insert into 'question_following' (user_id, question_id) values (16, 17);
+insert into 'question_following' (user_id, question_id) values (17, 18);
+insert into 'question_following' (user_id, question_id) values (18, 19);
+insert into 'question_following' (user_id, question_id) values (19, 20);
+insert into 'question_following' (user_id, question_id) values (20, 21);
+insert into 'question_following' (user_id, question_id) values (21, 22);
+insert into 'question_following' (user_id, question_id) values (22, 23);
+insert into 'question_following' (user_id, question_id) values (23, 24);
+insert into 'question_following' (user_id, question_id) values (24, 25);
+insert into 'question_following' (user_id, question_id) values (25, 26);
+insert into 'question_following' (user_id, question_id) values (26, 27);
+insert into 'question_following' (user_id, question_id) values (27, 28);
+insert into 'question_following' (user_id, question_id) values (28, 29);
+insert into 'question_following' (user_id, question_id) values (29, 30);
+insert into 'question_following' (user_id, question_id) values (30, 31);
+insert into 'question_following' (user_id, question_id) values (31, 32);
+insert into 'question_following' (user_id, question_id) values (33, 34);
+insert into 'question_following' (user_id, question_id) values (34, 35);
+insert into 'question_following' (user_id, question_id) values (35, 36);
+insert into 'question_following' (user_id, question_id) values (36, 37);
+insert into 'question_following' (user_id, question_id) values (37, 38);
+insert into 'question_following' (user_id, question_id) values (38, 39);
+insert into 'question_following' (user_id, question_id) values (39, 40);
+insert into 'question_following' (user_id, question_id) values (40, 41);
+insert into 'question_following' (user_id, question_id) values (41, 42);
+insert into 'question_following' (user_id, question_id) values (42, 43);
+insert into 'question_following' (user_id, question_id) values (43, 44);
+insert into 'question_following' (user_id, question_id) values (44, 45);
+insert into 'question_following' (user_id, question_id) values (45, 46);
+insert into 'question_following' (user_id, question_id) values (46, 47);
+insert into 'question_following' (user_id, question_id) values (47, 48);
+insert into 'question_following' (user_id, question_id) values (48, 49);
+insert into 'question_following' (user_id, question_id) values (49, 50);
+insert into 'question_following' (user_id, question_id) values (50, 51);
+insert into 'question_following' (user_id, question_id) values (51, 52);
+insert into 'question_following' (user_id, question_id) values (52, 53);
+insert into 'question_following' (user_id, question_id) values (53, 54);
+insert into 'question_following' (user_id, question_id) values (54, 55);
+insert into 'question_following' (user_id, question_id) values (55, 56);
+insert into 'question_following' (user_id, question_id) values (56, 57);
+insert into 'question_following' (user_id, question_id) values (57, 58);
+insert into 'question_following' (user_id, question_id) values (58, 59);
+insert into 'question_following' (user_id, question_id) values (59, 60);
+insert into 'question_following' (user_id, question_id) values (60, 1);
+insert into 'question_following' (user_id, question_id) values (20, 1);
+insert into 'question_following' (user_id, question_id) values (22, 3);
+insert into 'question_following' (user_id, question_id) values (6, 7);
+insert into 'question_following' (user_id, question_id) values (7, 20);
+insert into 'question_following' (user_id, question_id) values (8, 53);
+insert into 'question_following' (user_id, question_id) values (9, 10);
 
 --label_following
 insert into 'label_following' (user_id, label_id) values (1, 3);
@@ -582,6 +704,7 @@ insert into 'label_following' (user_id, label_id) values (67, 43);
 insert into 'label_following' (user_id, label_id) values (67, 44);
 
 --question_label
+
 	
 	
 	
