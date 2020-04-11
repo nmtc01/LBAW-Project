@@ -1,5 +1,5 @@
 --Trigger 1
-CREATE FUNCTION update_score_question() RETURNS TRIGGER AS
+CREATE OR REPLACE FUNCTION update_score_question() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = FALSE) THEN
@@ -32,7 +32,7 @@ CREATE TRIGGER update_score_question
 
 
 --Trigger 2
-CREATE FUNCTION update_score_answer() RETURNS TRIGGER AS
+CREATE OR REPLACE FUNCTION update_score_answer() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = FALSE) THEN
@@ -65,7 +65,7 @@ CREATE TRIGGER update_score_answer
 
 
 --Trigger 3
-CREATE FUNCTION vote_own_question() RETURNS TRIGGER AS
+CREATE OR REPLACE FUNCTION vote_own_question() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT question.user_id
@@ -85,7 +85,7 @@ CREATE TRIGGER vote_own_question
 
 
 --Trigger 4
-CREATE FUNCTION vote_own_answer() RETURNS TRIGGER AS
+CREATE OR REPLACE FUNCTION vote_own_answer() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT answer.user_id
@@ -105,7 +105,7 @@ CREATE TRIGGER vote_own_answer
 
 
 --Trigger 5
-CREATE FUNCTION answer_date() RETURNS TRIGGER AS
+CREATE OR REPLACE FUNCTION answer_date() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT question.question_date 
@@ -125,7 +125,7 @@ CREATE TRIGGER answer_date
 
 
 --Trigger 6
-CREATE FUNCTION comment_date_answer() RETURNS TRIGGER AS
+CREATE OR REPLACE FUNCTION comment_date_answer() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT answer.answer_date 
@@ -145,7 +145,7 @@ CREATE TRIGGER comment_date_answer
 
 
 --Trigger 7
-CREATE FUNCTION comment_date_question() RETURNS TRIGGER AS
+CREATE OR REPLACE FUNCTION comment_date_question() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT question.question_date 
@@ -165,7 +165,7 @@ CREATE TRIGGER comment_date_question
 
 
 --Trigger 8
-CREATE FUNCTION vote_once() RETURNS TRIGGER AS
+CREATE OR REPLACE FUNCTION vote_once() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF EXISTS (SELECT * FROM vote 
@@ -185,7 +185,7 @@ CREATE TRIGGER vote_once
 
 
 --Trigger 9
-CREATE FUNCTION report_status_responsible() RETURNS TRIGGER AS
+CREATE OR REPLACE FUNCTION report_status_responsible() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF NOT EXISTS (SELECT user_management.user_id 
@@ -207,7 +207,7 @@ CREATE TRIGGER report_status_responsible
 
 
 --Trigger 10
-CREATE FUNCTION marked_answer() RETURNS TRIGGER AS
+CREATE OR REPLACE FUNCTION marked_answer() RETURNS TRIGGER AS
 $BODY$
 BEGIN
 	IF EXISTS (SELECT marked_answer FROM answer WHERE answer.id = NEW.id AND NEW.marked_answer = TRUE) THEN
