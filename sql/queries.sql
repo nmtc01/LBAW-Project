@@ -152,6 +152,13 @@ on question.id = question_following.question_id
 where question_following.user_id = $id
 limit 5;
 
+--SELECT25
+SELECT u.username, count(*) as reports 
+FROM report 
+JOIN "user" u ON u.id = report.user_id
+GROUP BY u.id
+ORDER BY reports desc;
+
 
 --INSERT01
 INSERT INTO questions (user_id, title, description)
