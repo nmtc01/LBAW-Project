@@ -1,119 +1,128 @@
---SELECT01 
-SELECT * FROM question
-ORDER BY question.nr_likes desc
-LIMIT 30;
 
---SELECT02    
+--SELECT01
+SELECT question.title, question.description, "user".username, question.nr_likes, question.nr_dislikes, question.question_date
+FROM question JOIN "user" ON question.user_id = "user".id
+ORDER BY question.nr_likes desc
+LIMIT 30
+OFFSET $offset;
+
+--SELECT02
 SELECT * FROM question
 ORDER BY question.question_date desc
-LIMIT 30;
+LIMIT 30
+OFFSET $offset;
 
 --SELECT03
-SELECT * FROM question
-ORDER BY answer.nr_likes desc
-LIMIT 30;
+SELECT * FROM answer
+ORDER BY nr_likes desc
+LIMIT 30
+OFFSET $offset;
 
 --SELECT04
-SELECT * FROM question
-ORDER BY answer.answer_date desc
-LIMIT 30;
+SELECT * FROM answer
+ORDER BY answer_date desc
+LIMIT 30
+OFFSET $offset
 
---SELECT05                                    |
-SELECT * FROM question
+--SELECT05
+SELECT * FROM comment
 ORDER BY comment.comment_date desc
-LIMIT 30;
-
+LIMIT 30
+OFFSET $offset
 
 --SELECT06
-SELECT *
-FROM label join about ON label.id = about.label_id
-JOIN question ON question.id = about.question_id
-GROUP BY label.id
-LIMIT 5;
+SELECT "label".name, count(*) as nr
+FROM "label" join question_label ON "label".id = question_label.label_id
+JOIN question ON question.id = question_label.question_id
+group by "label".id
+order by nr desc
+limit 5;
 
---SELECT07                              |
-SELECT label.name
-FROM label join about ON label.id = about.label_id
-JOIN question ON question.id = about.question_id
-WHERE label.name = $label_name
-ORDER BY question.nr_likes desc
-LIMIT 20;
+--SELECT07
+SELECT question.* , label.name
+FROM label join question_label ON label.id = question_label.label_id
+JOIN question ON question.id = question_label.question_id
+where label.name = $label
+order by question.nr_likes desc
+LIMIT 30
+OFFSET = $offset; 
 
 --SELECT08
-SELECT label.name
-FROM label join about ON label.id = about.label_id
-JOIN question ON question.id = about.question_id
-WHERE label.name = $label_name
-ORDER BY question.question_date desc
-LIMIT 20;
+SELECT question.*
+FROM label join question_label ON label.id = question_label.label_id
+JOIN question ON question.id = question_label.question_id
+where label.name = $label
+order by question.answer_date desc
+LIMIT 20;  
 
 --SELECT09
-SELECT * 
-FROM "user" u join question ON u.id = question.user_id
-JOIN answer ON u.id = answer.user_id
-WHERE u.id = $id;
-
+SELECT question.title, (question.nr_likes - question.nr_dislikes) as score
+from question
+where question.user_id = 2;
 
 --SELECT10
-SELECT * 
+SELECT notification.* 
 FROM "user" u join notification ON u.id = notification.user_id
-WHERE u.id = $id
-ORDER BY notification.date desc;
+WHERE u.id = 4
+ORDER BY notification.date desc
+LIMIT 5
+OFFSET $offset;
 
 
 --SELECT11
-SELECT name, bio, first_name, last_name, score
+SELECT first_name, last_name, bio, score
 FROM "user" u 
-WHERE u.id = $id
+WHERE u.id = 4
 
---SELECT12   
-SELECT name
+--SELECT12
+SELECT id, title
 FROM label 
 WHERE name LIKE '%$string%'
 ORDER BY notification.date desc;
 
---SELECT13     
-SELECT name
+--SELECT13
+SELECT id, title, 
 FROM question 
-WHERE description LIKE '%$string%' --probablywrong
+WHERE description LIKE '%$string%' 
 ORDER BY notification.date desc;
 
 --SELECT14
-SELECT state, comment, responsible_user
-FROM report 
+SELECT report.*, u.username
+FROM report join "user" u on u.id = report.reporter_id
 WHERE answer_id IS NULL
-AND comment_id IS NULL;
+AND comment_id IS NULL
+and user_id is NULL;
 
---SELECT15  
-SELECT state, comment, responsible_user
-FROM report 
+--SELECT15
+SELECT report.*, u.username
+FROM report join "user" u on u.id = report.reporter_id
 WHERE question_id IS NULL
-AND comment_id IS NULL;
+AND comment_id IS NULL
+and user_id is NULL;
 
---SELECT16 
-SELECT state, comment, responsible_user
-FROM report 
-WHERE question_id IS NULL
-AND answer_id IS NULL;
+--SELECT16
+SELECT report.*, u.username
+FROM report join "user" u on u.id = report.reporter_id
+WHERE answer_id IS NULL
+AND question_id IS NULL
+and user_id is NULL;
 
---SELECT17  
-SELECT *
-FROM report 
-WHERE user_id IS NOT NULL
-GROUP BY user_id;  -- Ver ordem
+--SELECT17
+SELECT report.*, u.username
+FROM report join "user" u on u.id = report.reporter_id
+WHERE user_id is NOT NULL;
 
 --SELECT18
 SELECT *
 FROM "user" u join user_management on u.id = user_management.user_id
-where user_management.status == '
-normal'
+where user_management.status = 'user'
 ORDER BY score desc
 LIMIT 30;
 
---SELECT19   
+--SELECT19
 SELECT *
 FROM "user" u join user_management on u.id = user_management.user_id
-where user_management.status == 'moderator'
+where user_management.status = 'moderator'
 ORDER BY score desc
 LIMIT 30;
 
@@ -129,6 +138,20 @@ FROM comment WHERE id = $id;
 --SELECT22
 SELECT score
 FROM "user" u WHERE u.id = $id;
+
+
+--SELECT23
+SELECT count(*) as nº
+FROM answer
+WHERE question_id = $id;
+
+--SELECT24
+select question.*
+from question join question_following 
+on question.id = question_following.question_id
+where question_following.user_id = $id
+limit 5;
+
 
 --INSERT01
 INSERT INTO questions (user_id, title, description)
@@ -170,4 +193,3 @@ UPDATE answer
 UPDATE comment
  SET content = $content
  VALUES id = $id;
-```
