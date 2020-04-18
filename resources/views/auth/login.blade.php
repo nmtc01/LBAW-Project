@@ -1,5 +1,4 @@
 @extends('layouts.app')
-{{-- @extends('layouts.form_card', ['type' => 'Login' ])--}}
 
 @section('content')
 
@@ -18,6 +17,7 @@
            <div class="row register-form">
 
                 <div class="col-md-6 ml-auto">
+                    
                             
                     {{-- code Laravel --}}
                     <form method="POST" action="{{ route('login') }}">
@@ -48,14 +48,12 @@
                         </div>
 
                         <input type="submit" id="login_button" class="btnRegister" value="Login">
+                        
                     
                         <div class="align-middle d-flex justify-content-end">
                             
                             <a class="button button-outline" href="{{ route('register') }}">Create account</a>
                         </div>
-
-                        
-
                         
 
                     </form>

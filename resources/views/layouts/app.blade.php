@@ -62,6 +62,11 @@
                   <li class="nav-item">
                     <a class="btn btn-primary my-2 my-sm-0" href="" role="button">Sign in</a>
                   </li>
+                  <li>
+                  @if (Auth::check())
+                  <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{ Auth::user()->name }}</span>
+                  @endif
+                  </li>
               </ul>
             </div>
 

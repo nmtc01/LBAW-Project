@@ -186,6 +186,20 @@ input.btnRegister#login_button {
     cursor: pointer;
 }
 
+input.btnRegister#register_button {
+    float: right;
+    margin-bottom: 10%;
+    margin-left: 3%;
+    border: none;
+    border-radius: .25rem;
+    padding: 2%;
+    background: #6545c9;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+
 input.btnRegister#login_button:hover {
     background: #352369;
 }
