@@ -25,9 +25,8 @@
         crossorigin="anonymous">
 
     <!-- our css -->
-    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
     <link href="{{ asset('css/register.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
 
     <script type="text/javascript">
         // Fix for Firefox autofocus CSS bug
@@ -45,29 +44,7 @@
         <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{ Auth::user()->name }}</span>
         @endif
         --}}
-        <!--
-        <div class="fixed-top">
-          <nav class="navbar navbar-expand-lg navbar-light navbar-default">
-            <a href="../index.php" class="navbar-brand">Answerly</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                <li>
-                  <form class="form-inline" action="../pages/search.php">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                  </form>
-                </li>
-                <li class="nav-item">
-                  <a class="btn btn-primary my-2 my-sm-0" href="../pages/login.php" role="button">Sign in</a>
-                </li>
-              </ul>
-            </div>
-          </nav> 
-        </div> 
-      -->
+
         <nav class="navbar navbar-expand-lg navbar-light navbar-default fixed-top">
           
           <a href="" class="navbar-brand">Answerly</a>

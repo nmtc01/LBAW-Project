@@ -8,7 +8,7 @@ function draw_card_promo() {
 <?php
 }
 ?>
-
+ 
 <?php 
 function draw_card_form($type) {
 ?>
