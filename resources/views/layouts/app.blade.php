@@ -32,9 +32,9 @@
     </script>
 
     <!-- our css -->
-    <link href="{{ asset('css/register.css') }}" rel="stylesheet">
-    {{--<link rel="stylesheet" href="css/home.css">--}}
-    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
+    @section('css_script')
+      <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
+      @show
   </head>
   <body>
     <main>
@@ -75,7 +75,7 @@
         
       </header>
       <section id="content">
-        @yield('signup')
+        @yield('content')
       </section>
     </main>
   </body>

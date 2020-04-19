@@ -1,7 +1,3 @@
-@extends('layouts.app')
-
-@section('home')
-
 <div class="col-md-5 container-fluid">
     <button id="add_btn" class="input-button" data-toggle="modal" data-target="#ask_something">
         What is your question?
@@ -39,4 +35,3 @@
         </div>
     </div>
 </div>
-@endsection

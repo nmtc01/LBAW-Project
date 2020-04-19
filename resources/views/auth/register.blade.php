@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('signup')
 
 <div class="container register">
   <div class="row">
