@@ -60,11 +60,12 @@
                           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                       </form>
                   </li>
+                  @if (!Auth::check())
                   <li class="nav-item">
                     <a class="btn btn-primary my-2 my-sm-0" href="{{ url('/login') }}" role="button">Sign in</a>
                   </li>
                   <li>
-                  @if (Auth::check())
+                  @else
                   <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{ Auth::user()->name }}</span>
                   @endif
                   </li>

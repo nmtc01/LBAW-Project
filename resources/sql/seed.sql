@@ -1,5 +1,5 @@
 --DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS "user" CASCADE;
 
 --CREATE TABLE users (
  -- id SERIAL PRIMARY KEY,
@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS users CASCADE;
  -- password VARCHAR NOT NULL,
 --  remember_token VARCHAR
 --);
+        /*'name', 'email', 'password',*/
 
 
 --INSERT INTO users VALUES (
@@ -17,7 +18,7 @@ DROP TABLE IF EXISTS users CASCADE;
 --  '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W'
 --); -- Password is 1234. Generated using Hash::make('1234')
 
-CREATE TABLE users (
+CREATE TABLE "user" (
     id              SERIAL          PRIMARY KEY,
     first_name      TEXT            NOT NULL,
     last_name       TEXT            NOT NULL,
@@ -29,7 +30,7 @@ CREATE TABLE users (
 );
 
 --password for user 2: mega_pass
-insert into users (id, first_name, last_name, email, bio, username, password)
+insert into "user" (id, first_name, last_name, email, bio, username, password)
 	values (1, 'Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
-insert into users (id, first_name, last_name, email, bio, username, password)
+insert into "user" (id, first_name, last_name, email, bio, username, password)
 	values (2, 'Pedro', 'Dantas', 'pedrodantas@hotmail.com', 'UP student', 'pedrodantas', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
