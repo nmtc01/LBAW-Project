@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS "user" CASCADE;
 --); -- Password is 1234. Generated using Hash::make('1234')
 
 CREATE TABLE "user" (
-    id              SERIAL          PRIMARY KEY,
+    id              SERIAL          AUTOINCREMENT PRIMARY KEY,
     first_name      TEXT            NOT NULL,
     last_name       TEXT            NOT NULL,
     email           TEXT            NOT NULL UNIQUE,

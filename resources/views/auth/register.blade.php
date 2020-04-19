@@ -111,7 +111,12 @@
                     </div>
 
                     <div class="form-group">
-                      <textarea class="form-control" placeholder="Description *" value="" rows="5"></textarea>
+                      <textarea class="form-control" placeholder="Description" name="bio" value="" rows="5"></textarea>
+                      @if ($errors->has('bio'))
+                        <span class="error">
+                            {{ $errors->first('bio') }}
+                        </span>
+                      @endif
                     </div>
 
                     
