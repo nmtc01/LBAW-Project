@@ -29,7 +29,7 @@ CREATE TABLE "user" (
     score           INTEGER         NOT NULL DEFAULT 0              
 );
 
---password for user 2: mega_pass
+-- password for user 2: mega_pass 
 insert into "user" (id, first_name, last_name, email, bio, username, password)
 	values (1, 'Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
 insert into "user" (id, first_name, last_name, email, bio, username, password)
