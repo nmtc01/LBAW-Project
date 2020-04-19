@@ -165,6 +165,317 @@ CREATE TABLE question_label (
     PRIMARY KEY (question_id, label_id)
 );
 
+-----------------------------------------
+-- INDEXES
+-----------------------------------------
+
+CREATE INDEX question_score ON question USING btree(nr_likes);
+CREATE INDEX question_date ON question USING btree(question_date);
+CREATE INDEX answer_score ON answer USING btree(question_id, nr_likes);
+CREATE INDEX answer_date ON answer USING btree(question_id, answer_date);
+CREATE INDEX comment_date ON comment USING btree(question_id, comment_date);
+CREATE INDEX label_popularity ON label_following USING btree(label_id);
+CREATE INDEX question_user ON question USING btree(user_id);
+CREATE INDEX answer_user ON answer USING btree(user_id);
+CREATE INDEX notification_user_date ON notification USING btree(user_id, date);
+CREATE INDEX user_username ON "user" USING hash(username);
+CREATE INDEX report_user ON report USING btree(user_id);
+CREATE INDEX user_score ON "user" USING btree(score);
+
+CREATE INDEX label_name ON label USING gin(to_tsvector('english', name));
+CREATE INDEX question_title ON question USING gist(to_tsvector('english', title));
+
+-----------------------------------------
+-- TRIGGERS and UDFs
+-----------------------------------------
+--Trigger 1
+CREATE OR REPLACE FUNCTION update_score_question() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = FALSE) THEN
+		UPDATE question
+		SET nr_dislikes = nr_dislikes+1
+		WHERE NEW.question_id = id;
+		UPDATE "user"
+		SET score = score-1
+		FROM question
+		WHERE NEW.question_id = question.id AND question.user_id = "user".id;
+    ELSE IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = TRUE) THEN
+        UPDATE question
+		SET nr_likes = nr_likes+1
+		WHERE NEW.question_id = id;
+		UPDATE "user"
+		SET score = score+1
+		FROM question
+		WHERE NEW.question_id = question.id AND question.user_id = "user".id;
+    END IF;
+	END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER update_score_question
+    AFTER INSERT OR UPDATE ON vote
+    FOR EACH ROW
+    EXECUTE PROCEDURE update_score_question();
+
+
+--Trigger 2
+CREATE OR REPLACE FUNCTION update_score_answer() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = FALSE) THEN
+		UPDATE answer
+		SET nr_dislikes = nr_dislikes+1
+		WHERE NEW.answer_id = id;
+		UPDATE "user"
+		SET score = score-1
+		FROM answer
+		WHERE NEW.answer_id = answer.id AND answer.user_id = "user".id;
+    ELSE IF EXISTS (SELECT vote.id FROM vote WHERE NEW."vote" = TRUE) THEN
+        UPDATE answer
+		SET nr_likes = nr_likes+1
+		WHERE NEW.answer_id = id;
+		UPDATE "user"
+		SET score = score+1
+		FROM answer
+		WHERE NEW.answer_id = answer.id AND answer.user_id = "user".id;
+    END IF;
+	END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER update_score_answer
+    AFTER INSERT OR UPDATE ON vote
+    FOR EACH ROW
+    EXECUTE PROCEDURE update_score_answer();
+
+
+--Trigger 3
+CREATE OR REPLACE FUNCTION vote_own_question() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT question.user_id
+			   FROM question
+               WHERE NEW.user_id = question.user_id AND NEW.question_id = question.id) THEN
+        RAISE EXCEPTION 'A user cannot vote on his own question';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER vote_own_question
+    BEFORE INSERT OR UPDATE ON vote
+    FOR EACH ROW
+    EXECUTE PROCEDURE vote_own_question();
+
+
+--Trigger 4
+CREATE OR REPLACE FUNCTION vote_own_answer() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT answer.user_id
+			   FROM answer
+               WHERE NEW.user_id = answer.user_id AND NEW.answer_id = answer.id) THEN
+        RAISE EXCEPTION 'A user cannot vote on his own answer';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER vote_own_answer
+    BEFORE INSERT OR UPDATE ON vote
+    FOR EACH ROW
+    EXECUTE PROCEDURE vote_own_answer();
+
+
+--Trigger 5
+CREATE OR REPLACE FUNCTION answer_date() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT question.question_date 
+			   FROM question 
+               WHERE NEW.question_id = question.id AND NEW.answer_date < question.question_date) THEN
+        RAISE EXCEPTION 'The date of an answer cannot be earlier than the date of its question';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER answer_date
+    BEFORE INSERT OR UPDATE ON answer
+    FOR EACH ROW
+    EXECUTE PROCEDURE answer_date();
+
+
+--Trigger 6
+CREATE OR REPLACE FUNCTION comment_date_answer() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT answer.answer_date 
+			   FROM answer 
+               WHERE NEW.answer_id = answer.id AND NEW.comment_date < answer.answer_date) THEN
+        RAISE EXCEPTION 'The date of a comment cannot be earlier than the date of its answer';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER comment_date_answer
+    BEFORE INSERT OR UPDATE ON comment
+    FOR EACH ROW
+    EXECUTE PROCEDURE comment_date_answer();
+
+
+--Trigger 7
+CREATE OR REPLACE FUNCTION comment_date_question() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT question.question_date 
+			   FROM question 
+               WHERE NEW.question_id = question.id AND NEW.comment_date < question.question_date) THEN
+        RAISE EXCEPTION 'The date of a comment cannot be earlier than the date of its question';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER comment_date_question
+    BEFORE INSERT OR UPDATE ON comment
+    FOR EACH ROW
+    EXECUTE PROCEDURE comment_date_question();
+
+
+--Trigger 8
+CREATE OR REPLACE FUNCTION vote_once() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT * FROM vote 
+               WHERE ((NEW.user_id = vote.user_id AND NEW.question_id = vote.question_id) OR
+                      (NEW.user_id = vote.user_id AND NEW.answer_id = vote.answer_id))) THEN
+        RAISE EXCEPTION 'An element can only be voted once by the same user';
+    END IF;
+    RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER vote_once
+    BEFORE INSERT ON vote
+    FOR EACH ROW
+    EXECUTE PROCEDURE vote_once();
+
+
+--Trigger 9
+CREATE OR REPLACE FUNCTION report_status_responsible() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF NOT EXISTS (SELECT user_management.user_id 
+				   FROM user_management
+				   WHERE ((user_management.status = 'moderator' OR user_management.status = 'administrator')
+						  AND
+						  (user_management.user_id = NEW.responsible_user))) THEN
+			RAISE EXCEPTION 'A report can only be handled by an administrator or moderator';
+	END IF;
+	RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER report_status_responsible
+    BEFORE INSERT OR UPDATE ON report_status
+    FOR EACH ROW
+    EXECUTE PROCEDURE report_status_responsible();
+
+
+--Trigger 10
+CREATE OR REPLACE FUNCTION marked_answer() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+	IF EXISTS (SELECT marked_answer FROM answer WHERE answer.id = NEW.id AND NEW.marked_answer = TRUE) THEN
+    UPDATE answer
+    SET marked_answer = FALSE
+    WHERE (answer.question_id = NEW.question_id AND answer.id != NEW.id);
+	END IF;
+	RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER marked_answer
+    AFTER UPDATE OF marked_answer ON answer
+    FOR EACH ROW
+    EXECUTE PROCEDURE marked_answer();
+
+-----------------------------------------
+-- TRANSACTIONS FUNCTIONS
+-----------------------------------------
+--Transaction 1
+CREATE OR REPLACE FUNCTION add_user_management(first_name TEXT, last_name TEXT, email TEXT, bio TEXT, username TEXT, password TEXT) RETURNS void AS $$
+BEGIN
+	INSERT INTO "user" (first_name, last_name, email, bio, username, password) 
+		VALUES (first_name, last_name, email, bio, username, password);
+	INSERT INTO user_management (user_id)
+		VALUES (currval('user_id_seq'));
+END;
+$$ LANGUAGE plpgsql;
+
+--Transaction 2
+CREATE OR REPLACE FUNCTION add_report_status(reporter_id INT, user_id INT, description TEXT, responsible_user INT) RETURNS void AS $$
+BEGIN
+	INSERT INTO report (reporter_id, user_id, description)
+		VALUES (reporter_id, user_id, description);
+
+	INSERT INTO report_status (report_id, responsible_user)
+		VALUES (currval('report_id_seq'), responsible_user);
+END;
+$$ LANGUAGE plpgsql;
+
+--Transaction 3
+CREATE OR REPLACE FUNCTION answered_question_notif(answer_user_id INT, question_user_id INT, question_id INT, answer_content TEXT) RETURNS void AS $$
+BEGIN
+	INSERT INTO answer (user_id, question_id, content)
+		VALUES (answer_user_id, question_id, answer_content);
+
+	INSERT INTO notification (content, user_id)
+		VALUES (CONCAT((SELECT username AS responsible FROM "user" WHERE id = answer_user_id), ' answered your question!'), question_user_id);
+END;
+$$ LANGUAGE plpgsql;
+
+--Transaction 4
+CREATE OR REPLACE FUNCTION commented_question_notif(comment_user_id INT, question_user_id INT, question_id INT, comment_content TEXT) RETURNS void AS $$
+BEGIN
+	INSERT INTO comment (user_id, question_id, content)
+		VALUES (comment_user_id, question_user_id, comment_content);
+
+	INSERT INTO notification (content, user_id)
+		VALUES (CONCAT((SELECT username AS responsible FROM "user" WHERE id=comment_user_id), ' commented your question!'), question_user_id);
+END;
+$$ LANGUAGE plpgsql;
+
+--Transaction 5
+CREATE OR REPLACE FUNCTION commented_answer_notif(comment_user_id INT, answer_user_id INT, answer_id INT, comment_content TEXT) RETURNS void AS $$
+BEGIN
+	INSERT INTO comment (user_id, answer_id, content)
+		VALUES (comment_user_id, answer_user_id, comment_content);
+
+	INSERT INTO notification (content, user_id)
+		VALUES (CONCAT((SELECT username AS responsible FROM "user" WHERE id=comment_user_id), ' commented your answer!'), answer_user_id);
+END;
+$$ LANGUAGE plpgsql;
+
+-----------------------------------------
+-- end
+-----------------------------------------
+
 
 
 --user

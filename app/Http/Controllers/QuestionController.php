@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
+
 use App\Question;
 
-class CardController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Shows the Question for a given id.
@@ -20,7 +21,7 @@ class CardController extends Controller
     {
       $question = Question::find($id);
 
-      $this->authorize('show', $question);
+      //$this->authorize('show', $question);
 
       return view('pages.question', ['question' => $question]);
     }
@@ -33,7 +34,7 @@ class CardController extends Controller
     public function list()
     {
 
-      $this->authorize('list', Question::class);
+      //$this->authorize('list', Question::class);
 
       $questions = Question::all();
 
