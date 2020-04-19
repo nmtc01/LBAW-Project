@@ -27,7 +27,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/cards';
+    /*
+    protected $redirectTo = '/cards';*/
 
     /**
      * Create a new controller instance.
@@ -45,6 +46,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -53,6 +55,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
+    
 
     /**
      * Create a new user instance after a valid registration.
@@ -68,4 +71,6 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    
+    
 }

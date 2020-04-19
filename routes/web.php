@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@home');
+
 // Cards
 Route::get('cards', 'CardController@list');
 Route::get('cards/{id}', 'CardController@show');

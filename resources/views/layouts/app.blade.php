@@ -61,7 +61,7 @@
                       </form>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-primary my-2 my-sm-0" href="" role="button">Sign in</a>
+                    <a class="btn btn-primary my-2 my-sm-0" href="{{ url('/login') }}" role="button">Sign in</a>
                   </li>
                   <li>
                   @if (Auth::check())

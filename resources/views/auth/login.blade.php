@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
-@section('signup')
+{{--@section('signup')--}}
+@section('css_script')
+    @parent
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+@endsection
+
 
 <div class="container register">
     <div class="row">
@@ -47,7 +52,6 @@
                                 </div>
 
                                 <input type="submit" id="login_button" class="btnRegister" value="Login">
-                                
                             
                                 <div class="align-middle d-flex justify-content-end">
                                     
@@ -99,4 +103,4 @@
 --}}
     </div>
 </div>
-@endsection
+{{--@endsection--}}

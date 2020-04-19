@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
-@section('signup')
+{{--@section('signup')--}}
+
+@section('css_script')
+    @parent
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+@endsection
+
 
 <div class="container register">
   <div class="row">
@@ -196,4 +202,4 @@
     <a class="button button-outline" href="{{ route('login') }}">Login</a>
 </form>
 --}}
-@endsection
+{{--@endsection--}}
