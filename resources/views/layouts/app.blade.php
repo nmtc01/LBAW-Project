@@ -24,16 +24,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
         crossorigin="anonymous">
 
-    <!-- our css -->
-    <link href="{{ asset('css/register.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
-
     <script type="text/javascript">
         // Fix for Firefox autofocus CSS bug
         // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
     </script>
     <script type="text/javascript" src={{ asset('js/app.js') }} defer> 
     </script>
+
+    <!-- our css -->
+    <link href="{{ asset('css/register.css') }}" rel="stylesheet">
+    {{--<link rel="stylesheet" href="css/home.css">--}}
+    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
   </head>
   <body>
     <main>
@@ -74,7 +75,7 @@
         
       </header>
       <section id="content">
-        @yield('content')
+        @yield('signup')
       </section>
     </main>
   </body>
