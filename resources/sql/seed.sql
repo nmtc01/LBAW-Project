@@ -169,7 +169,7 @@ CREATE TABLE question_label (
 
 --user
 -- password for user 2: mega_pass 
-/*insert into "user" (id, first_name, last_name, email, bio, username, password)
+insert into "user" (id, first_name, last_name, email, bio, username, password)
 	values (1, 'Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
 insert into "user" (id, first_name, last_name, email, bio, username, password)
 	values (2, 'Pedro', 'Dantas', 'pedrodantas@hotmail.com', 'UP student', 'pedrodantas', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');

@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', 'HomeController@home');
-
 // Cards
 Route::get('cards', 'CardController@list');
 Route::get('cards/{id}', 'CardController@show');
@@ -31,4 +29,5 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
+Route::get('/', 'HomeController@home');
 Route::get('/', 'HomeController@show')->name('home');
