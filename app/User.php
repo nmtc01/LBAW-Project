@@ -32,14 +32,33 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    // ---------------------- what this user has ----------------------
+
     /**
-     * The cards this user owns.
-     */
-    /*
-     public function cards() {
-      return $this->hasMany('App\Card');
-    }
+    * 
+    * The questions this user has
     */
+    public function questions() {
+        return $this->hasMany('App\Question');
+    }
+
+    /**
+    * 
+    * The answers this user has
+    */
+    public function answers() {
+        return $this->hasMany('App\Answer');
+    }
+
+    /**
+    * 
+    * The comments this user has
+    */
+    public function comments() {
+        return $this->hasMany('App\Comment');
+    }
+
+
 
 
 }
