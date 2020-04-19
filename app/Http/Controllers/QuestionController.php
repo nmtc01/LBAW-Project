@@ -37,7 +37,9 @@ class CardController extends Controller
 
       $questions = Question::all();
 
-      return view('pages.questions', ['questions' => $questions]);
+      return view('pages.home', ['questions' => $questions]);
+      //return $questions;
+
     }
 
 
