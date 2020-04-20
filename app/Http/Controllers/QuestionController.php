@@ -11,6 +11,13 @@ use App\Question;
 
 class QuestionController extends Controller
 {
+
+    public function __construct(){
+      $this->userController = new UserController();
+      $this->commentController = new CommentController();
+      $this->answerController = new AnswerController();
+    }
+
     /**
      * Shows the Question for a given id.
      *
@@ -33,13 +40,8 @@ class QuestionController extends Controller
      */
     public function list()
     {
-
-      //$this->authorize('list', Question::class);
-
-      //$questions = Question::all()->sortByDesc("nr_likes")->sortByDesc("question_date");
       $questions = DB::select(DB::raw("select * from question order by question_date desc, (nr_likes - nr_dislikes) desc"));
 
-      //return view('pages.home', ['questions' => $questions]);
       return $questions;
 
     }
@@ -53,8 +55,20 @@ class QuestionController extends Controller
     public function open($id)
     {
       $question = Question::find($id);
-      return view('pages.question')->with('question', json_decode($question, true));
+      $user = $this->userController->getUsername($question->user_id);
+      $comments = $this->commentController->list($question->id);
+      $answers = $this->answerController->list($question->id);
+      $userComments = [];
+      $userAnswers = [];
+
+      foreach ($comments as $comment){
+        $userComments[$comment->id]=$this->userController->getUsername($comment->user_id);
+      }
+
+      foreach ($answers as $answer){
+        $userAnswers[$answer->id]=$this->userController->getUsername($answer->user_id);
+      }
+
+      return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers]);
     }
-
-
 }
