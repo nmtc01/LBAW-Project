@@ -39,13 +39,7 @@
   <body>
     <main>
       <header>
-        {{-- 
-        <h1><a href="{{ url('/cards') }}">Thingy!</a></h1>
-        @if (Auth::check())
-        <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{ Auth::user()->name }}</span>
-        @endif
-        --}}
-
+        
         <nav class="navbar navbar-expand-lg navbar-light navbar-default fixed-top">
           
         <a href="{{ url('/')}}" class="navbar-brand">Answerly</a>
@@ -64,20 +58,125 @@
                   <li class="nav-item">
                     <a class="btn btn-primary my-2 my-sm-0" href="{{ url('/login') }}" role="button">Sign in</a>
                   </li>
-                  <li>
                   @else
-                  <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{ Auth::user()->name }}</span>
-                  @endif
+                  <li>
+                    <li class="nav-item">
+                        <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#ask_something" type="submit">Ask Something</button>
+                    </li>
+                    <li class="nav-link">
+                        <div class="dropdown">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuProfileButton">
+                                <a class="dropdown-item" href="../pages/profile.php">Profile</a>
+                                <a class="dropdown-item" href="{{ url('/logout') }}">Logout</a><span>{{ Auth::user()->name }}</span>
+                            </div>
+                        </div>
+                        <a class="fas fa-user fa-lg dropdown-toggle" id="dropdownMenuProfileButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    </li>
+                    <li class="nav-link">
+                        <div class="dropdown">
+                            <div id="notifications_menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuNotificationsButton">
+                            <?php
+                            /*$img = array("bob_iger.jpeg","robert-jr.jpg");
+                            $user = array("pedro_dantas","cr7fan");
+                            $question = array("Will Erling Braut Haaland be a future winner of the Ballon d’Or?","How can I learn C and C++?");
+                            for($i = 0; $i < 2; $i++) {
+                                draw_notification($img[0], $user[0], $question[0]);
+                                draw_notification($img[1], $user[1], $question[1]);
+                            }*/
+                            ?>
+                            </div>
+                        </div>
+                        <a class="fas fa-bell fa-lg dropdown-toggle" id="dropdownMenuNotificationsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                        </a>
+                    </li>
                   </li>
+                  @endif
               </ul>
             </div>
 
         </nav>  
         
       </header>
+
       <section id="content">
         @yield('content')
       </section>
     </main>
+    <footer class="page-footer font-small indigo">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+        <!-- Grid row -->
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+                    <!-- Links -->
+                    <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Access</h3>
+                    <ul class="list-unstyled">
+                        <li>
+                        <a href="../pages/profile.php">Access my profile</a>
+                        </li>
+                        <li>
+                        <a href="../pages/admin.php">Moderate</a>
+                        </li>
+                        <li>
+                        <a href="../index.php">Get back home</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+                <!-- Links -->
+                    <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Most Popular</h3>
+                    <ul class="list-unstyled">
+                        <li>
+                        <a href="#!">#Sports</a>
+                        </li>
+                        <li>
+                        <a href="#!">#Astronomy</a>
+                        </li>
+                        <li>
+                        <a href="#!">#Web_development</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-3 mx-auto">
+                    <!-- Links -->
+                    <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Most Popular</h3>
+                    <ul class="list-unstyled">
+                        <li>
+                        <a href="#!">#Physics</a>
+                        </li>
+                        <li>
+                        <a href="#!">#Anatomy</a>
+                        </li>
+                        <li>
+                        <a href="#!">#Comics</a>
+                        </li>
+                    </ul>
+                </div>
+                    <!-- Grid column -->
+                    <div class="col-md-3 mx-auto">
+                    <!-- Links -->
+                    <h3 class="font-weight-bold text-uppercase mt-3 mb-4">About</h3>
+                    <ul class="list-unstyled">
+                        <li>
+                        <a href="../pages/about.php">About us</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+            </div>
+        <!-- Grid row -->
+        </div>
+        <!-- Footer Links -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="../index.php"> Answerly</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
   </body>
 </html>
