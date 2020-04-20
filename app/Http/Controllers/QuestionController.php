@@ -23,7 +23,6 @@ class QuestionController extends Controller
 
       //$this->authorize('show', $question);
 
-      //return view('pages.question', ['question' => $question]);
       return $question;
     }
 
@@ -43,6 +42,18 @@ class QuestionController extends Controller
       //return view('pages.home', ['questions' => $questions]);
       return $questions;
 
+    }
+
+    /**
+     * Opens the Question Page for a given Question id.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function open($id)
+    {
+      $question = Question::find($id);
+      return view('pages.question')->with('question', json_decode($question, true));
     }
 
 

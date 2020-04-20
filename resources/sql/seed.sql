@@ -520,7 +520,7 @@ insert into question (id, user_id, title, description, nr_likes, nr_dislikes, qu
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (7, 5, 'Running a program from within java code', 'What is the simplest way to call a program from with a piece of Java code? (The program I want to run is aiSee and it can be run from command line or from Windows GUI; and I am on Vista but the code will also be run on Linux systems).', 7, 5, '2020-11-04');
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (8, 8, 'What is the best TV series and why?', 'I would like to really get into a tv show, but I only want to watch the best of the best.', 10, 5, '2020-03-20');
+	values (8, 8, 'What is the best TV series and why?', 'I would like to really get into a tv show, but I only want to watch the best of the best.', 10, 5, '2020-11-04');
 insert into question (id, user_id, title, description, question_date) 
 	values (9, 10, 'What country’s flag is the most controversial?', 'This may seem odd, but I would like to hear the internets opinion.',  '2019-10-19');
 insert into question (id, user_id, title, description, question_date) 
@@ -546,7 +546,7 @@ insert into answer (id, user_id, question_id, answer_date, content, marked_answe
 insert into answer (id, user_id, question_id, answer_date, content, marked_answer) 
 	values (7, 7, 7, '2020-11-05', 'Take a look at Process and Runtime classes. Keep in mind that what you are trying to accomplish is probably not platform independent.', FALSE);
 insert into answer (id, user_id, question_id, answer_date, content, marked_answer) 
-	values (8, 9, 8, '2020-03-26', 'BREAKING BAD! This is the best TV show on earth. It builds up slowly but methodically to expand over several seasons. I was amazed by the storytelling. Every piece slowly falls into place to create a grand finale that has been mastered to blow your mind away.', FALSE);
+	values (8, 9, 8, '2020-11-05', 'BREAKING BAD! This is the best TV show on earth. It builds up slowly but methodically to expand over several seasons. I was amazed by the storytelling. Every piece slowly falls into place to create a grand finale that has been mastered to blow your mind away.', FALSE);
 
 --comments
 insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
@@ -554,7 +554,7 @@ insert into comment (id, user_id, question_id, answer_id, comment_date, content)
 insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
 	values (2, 4, 10, NULL, '2020-03-21', 'You should not compare the health strength of two countries during these hard times! Dislike!');
 insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
-	values (3, 1, NULL, 8, '2020-03-27', 'I agree! Awesome dialogue, great choice of actors and awesome camera shots. The perfect drama for sure.');
+	values (3, 1, NULL, 8, '2020-12-27', 'I agree! Awesome dialogue, great choice of actors and awesome camera shots. The perfect drama for sure.');
 insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
 	values (4, 6, 9, NULL, '2020-03-28', 'Well, that is a rather wird question, but in a good way though.');
 insert into comment (id, user_id, question_id, answer_id, comment_date, content) 

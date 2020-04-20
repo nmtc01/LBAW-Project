@@ -112,12 +112,14 @@
                     <!-- Links -->
                     <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Access</h3>
                     <ul class="list-unstyled">
+                        @if (Auth::check())
                         <li>
                         <a href="../pages/profile.php">Access my profile</a>
                         </li>
                         <li>
                         <a href="../pages/admin.php">Moderate</a>
                         </li>
+                        @endif
                         <li>
                         <a href="{{ asset('/') }}">Get back home</a>
                         </li>

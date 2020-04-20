@@ -80,3 +80,9 @@ a {
 a:hover {
     color: black;
 }
+
+p#question_date {
+    color: grey;
+    font-size: 0.8rem;
+    float: right;
+}
