@@ -1,9 +1,9 @@
 --user
---password for user 2: mega_pass
+--password for user 2: 1234
 insert into "user" (id, first_name, last_name, email, bio, username, password)
 	values (1, 'Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8');
 insert into "user" (id, first_name, last_name, email, bio, username, password)
-	values (2, 'Pedro', 'Dantas', 'pedrodantas@hotmail.com', 'UP student', 'pedrodantas', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482');
+	values (2, 'Pedro', 'Dantas', 'pedrodantas@hotmail.com', 'UP student', 'pedrodantas', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
 insert into "user" (id, first_name, last_name, email, bio, username, password)
 	values (3, 'Eduardo', 'Macedo', 'edumacedo@gmail.com', 'UP student', 'edu1234', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d');
 insert into "user" (id, first_name, last_name, email, bio, username, password)
@@ -283,7 +283,7 @@ insert into question (id, user_id, title, description, nr_likes, nr_dislikes, qu
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (2, 2, 'Are intelligent and wise people the same?', 'What is the difference between an intelligent person and a wise person?', 10, 5, '2019-11-24');
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (3, 1, 'Who are the biggest jerks in music?', 'Can you name some musicians that are particularly obnoxious? Who are the biggest douchebags in the music world?', 10, 5, '2020-01-2');
+	values (3, 1, 'Who are the biggest jerks in music?', 'Can you name some musicians that are particularly obnoxious? Who are the biggest douchebags in the music world?', 10, 5, '2020-01-02');
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (4, 3, 'Is there a difference between every day and everyday?', 'This an english language question that has always tormented me. I never know which of the two should I use, or if there is any difference at all.', 10, 11, '2019-04-18');
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
@@ -291,7 +291,7 @@ insert into question (id, user_id, title, description, nr_likes, nr_dislikes, qu
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (6, 7, 'Can someone explain to me the AirPod hype?', 'Why are Apples AirPods so hyped up when fake Airpods work just the same?', 3, 2, '2019-09-30');
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (7, 5, 'Running a program from within java code', 'What is the simplest way to call a program from with a piece of Java code? (The program I want to run is aiSee and it can be run from command line or from Windows GUI; and I am on Vista but the code will also be run on Linux systems).', 7, 5, '2020-11-04');
+	values (7, 5, 'Running a program from within java code', 'What is the simplest way to call a program from with a piece of Java code? (The program I want to run is aiSee and it can be run from command line or from Windows GUI; and I am on Vista but the code will also be run on Linux systems).', 7, 5, '2020-04-20');
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (8, 8, 'What is the best TV series and why?', 'I would like to really get into a tv show, but I only want to watch the best of the best.', 10, 5, '2020-03-20');
 insert into question (id, user_id, title, description, question_date) 
