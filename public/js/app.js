@@ -177,6 +177,35 @@ function createItem(item) {
   return new_item;
 }
 
+function answerAddedHandler() {
+  if (this.status != 200) window.location = '/question/{id}';
+  let answer = JSON.parse(this.responseText);
+
+  // Create the new card
+  let new_answer = createAnswer(answer);
+
+  // Reset the new card input
+  let form = document.querySelector('div.form-group');
+  form.querySelector('textarea[type=text]').value="";
+
+  // Insert the new card
+  let article = form.parentElement;
+  let section = article.parentElement;
+  section.insertBefore(new_answer, article);
+
+  // Focus on adding an item to the new card
+  new_answer.querySelector('[type=text]').focus();
+}
+
+function sendCreateAnswerRequest(event) {
+  let name = this.querySelector('textarea[content=content]').value;
+
+  if (name != '')
+    sendAjaxRequest('put', '/api/cards/', {content: content});
+
+  event.preventDefault();
+}
+
 function createAnswer(answer) {
   let new_answer = document.createElement('article');
   new_answer.classList.add('answer');

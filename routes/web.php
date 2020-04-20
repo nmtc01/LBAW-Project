@@ -31,8 +31,9 @@ Route::post('register', 'Auth\RegisterController@register');
 //Route::get('/', 'QuestionController@list');
 Route::get('/', 'HomeController@show');
 
-// Questions
+// Questions and anwers
 Route::get('question/{id}', 'QuestionController@open');
+Route::put('api/answer', 'AnswerController@create');
 
 // Static pages
 Route::get('/about', 'StaticController@about');

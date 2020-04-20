@@ -19,4 +19,21 @@ class AnswerController extends Controller
 
         return $answers;
     }
+
+    /**
+     * Creates a new answer.
+     *
+     * @return Answer The answer created.
+     */
+    public function create(Request $request)
+    {
+      $answer = new Answer();
+
+      $answer->content = $request->input('content');
+      $answer->user_id = Auth::user()->id;
+      $answer->save();
+
+      return $answer;
+    }
+
 }
