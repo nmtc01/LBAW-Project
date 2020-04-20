@@ -23,7 +23,8 @@ class QuestionController extends Controller
 
       //$this->authorize('show', $question);
 
-      return view('pages.question', ['question' => $question]);
+      //return view('pages.question', ['question' => $question]);
+      return $question;
     }
 
     /**
@@ -38,8 +39,8 @@ class QuestionController extends Controller
 
       $questions = Question::all();
 
-      return view('pages.home', ['questions' => $questions]);
-      //return $questions;
+      //return view('pages.home', ['questions' => $questions]);
+      return $questions;
 
     }
 
