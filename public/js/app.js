@@ -95,7 +95,7 @@ function answerDeletedHandler() {
 function sendDeleteAnswerRequest() {
   let id = this.closest('li#answer').getAttribute('data-id');
 
-  sendAjaxRequest('delete', '/api/answer/' + id, answerDeletedHandler);
+  sendAjaxRequest('delete', '/api/answer/' + id, null, answerDeletedHandler);
 }
 
 function answerAddedHandler() {
