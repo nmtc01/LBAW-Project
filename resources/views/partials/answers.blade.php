@@ -2,7 +2,7 @@
             
 <ul class="list-unstyled" id="answers-list">
     @foreach($answers as $answer)
-    <li id="answer">
+    <li id="answer" data-id = "{{$answer->id}}">
         <div class="row">
             <a class="col-sm-3 d-none d-sm-block text-center" href="../pages/profile.php">
                 <img src="{{ asset('img/unknown.png') }}" alt="Generic placeholder image">
@@ -27,6 +27,11 @@
                 <a class="icon-answers" href="#">
                     <i class="fas fa-bug"> Report</i>
                 </a>
+                @if (Auth::check() && Auth::user()->id == $answer->user_id)
+                <a class="icon-answers" id="delete">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+                @endif
             </div>
         </div>
     </li>
