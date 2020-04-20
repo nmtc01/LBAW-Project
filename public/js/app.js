@@ -1,23 +1,4 @@
 function addEventListeners() {
-    /*let itemCheckers = document.querySelectorAll('article.card li.item input[type=checkbox]');
-    [].forEach.call(itemCheckers, function(checker) {
-        checker.addEventListener('change', sendItemUpdateRequest);
-    });
-
-    let itemCreators = document.querySelectorAll('article.card form.new_item');
-    [].forEach.call(itemCreators, function(creator) {
-        creator.addEventListener('submit', sendCreateItemRequest);
-    });
-
-    let itemDeleters = document.querySelectorAll('article.card li a.delete');
-    [].forEach.call(itemDeleters, function(deleter) {
-        deleter.addEventListener('click', sendDeleteItemRequest);
-    });
-
-    let cardDeleters = document.querySelectorAll('article.card header a.delete');
-    [].forEach.call(cardDeleters, function(deleter) {
-        deleter.addEventListener('click', sendDeleteCardRequest);
-    });*/
 
     let answerDeleters = document.querySelectorAll('#delete');
     [].forEach.call(answerDeleters, function(deleter) {
@@ -43,47 +24,6 @@ function sendAjaxRequest(method, url, data, handler) {
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.addEventListener('load', handler);
     request.send(encodeForAjax(data));
-}
-
-function sendItemUpdateRequest() {
-    let item = this.closest('li.item');
-    let id = item.getAttribute('data-id');
-    let checked = item.querySelector('input[type=checkbox]').checked;
-
-    sendAjaxRequest('post', '/api/item/' + id, { done: checked }, itemUpdatedHandler);
-}
-
-function sendDeleteItemRequest() {
-    let id = this.closest('li.item').getAttribute('data-id');
-
-    sendAjaxRequest('delete', '/api/item/' + id, null, itemDeletedHandler);
-}
-
-function sendDeleteCardRequest(event) {
-    let id = this.closest('article').getAttribute('data-id');
-
-    sendAjaxRequest('delete', '/api/cards/' + id, null, cardDeletedHandler);
-}
-
-function itemUpdatedHandler() {
-    let item = JSON.parse(this.responseText);
-    let element = document.querySelector('li.item[data-id="' + item.id + '"]');
-    let input = element.querySelector('input[type=checkbox]');
-    element.checked = item.done == "true";
-}
-
-function itemDeletedHandler() {
-    if (this.status != 200) window.location = '/';
-    let item = JSON.parse(this.responseText);
-    let element = document.querySelector('li.item[data-id="' + item.id + '"]');
-    element.remove();
-}
-
-function cardDeletedHandler() {
-    if (this.status != 200) window.location = '/';
-    let card = JSON.parse(this.responseText);
-    let article = document.querySelector('article.card[data-id="' + card.id + '"]');
-    article.remove();
 }
 
 function answerDeletedHandler() {
