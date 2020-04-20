@@ -27,10 +27,17 @@ class AnswerController extends Controller
      */
     public function create(Request $request)
     {
+
       $answer = new Answer();
+
+
 
       $answer->content = $request->input('content');
       $answer->user_id = Auth::user()->id;
+
+      //test
+      //$answer->question_id = 8;
+
       $answer->save();
 
       return $answer;

@@ -33,7 +33,7 @@ Route::get('/', 'HomeController@show');
 
 // Questions and anwers
 Route::get('question/{id}', 'QuestionController@open');
-Route::put('api/answer', 'AnswerController@create');
+Route::put('/api/answer', 'AnswerController@create');
 
 // Static pages
 Route::get('/about', 'StaticController@about');
