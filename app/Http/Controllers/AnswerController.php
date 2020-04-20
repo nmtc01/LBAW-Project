@@ -37,9 +37,15 @@ class AnswerController extends Controller
       $answer->user_id = Auth::user()->id;
       $answer->question_id = $request->input('question_index');
 
+      $username = Auth::user()->username;
+      $user_score = Auth::user()->score;
+
       $answer->save();
 
-      return $answer;
+      $info = [$answer->content, $username, $user_score];
+
+      //return $answer;
+      return $info;
     }
 
 }

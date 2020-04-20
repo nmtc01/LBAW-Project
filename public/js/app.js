@@ -183,26 +183,24 @@ function createItem(item) {
 
 function answerAddedHandler() {
     
-    let answer = JSON.parse(this.responseText);
-
-    //if (this.status != 200) window.location = '/question/'+ answer.question_id;
+    //let answer = JSON.parse(this.responseText);
+    let info = JSON.parse(this.responseText);
     
-    // Create the new card
-    let new_answer = createAnswer(answer);
+    // Create the new Answer
+    let new_answer = createAnswer(info);
 
-    // Reset the new card input
-    //let form = document.querySelector('div.form-group .btn.my-2.my-sm-0');
-    //form.querySelector('input[type=text]').value = "";
+    // Reset the new answer input
     document.getElementById("exampleFormControlTextarea1").value = "";
+    
+    let section = document.getElementById("answers-list");
+    
+    let list = document.getElementById("answers-list");
 
-    /*
-        // Insert the new card
-        let article = form.parentElement;
-        let section = article.parentElement;
-        section.insertBefore(new_answer, article);
+    section.insertBefore(new_answer, list.childNodes[0]);
 
-        // Focus on adding an item to the new card
-        new_answer.querySelector('[type=text]').focus();*/
+    // Focus on adding an item to the new card
+    new_answer.focus();
+
 }
 
 function sendCreateAnswerRequest(event) {
@@ -217,25 +215,44 @@ function sendCreateAnswerRequest(event) {
 
 }
 
-function createAnswer(answer) {
-    
-    let new_answer = document.createElement('article');
-    new_answer.classList.add('answer');
-    new_answer.setAttribute('data-id', answer.id);
-    new_answer.innerHTML = `
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1"></label>
-        <form class="new_answer">
-          <input type="text" class="form-control" id="exampleFormControlTextarea1" name="answer" placeholder="Do you know the answer to this question?">
-        <form class="new_answer">
-        <button class="btn my-2 my-sm-0" type="submit">Answer</button>
-    </div>`;
+function createAnswer(info) {
 
-    let creator = new_answer.querySelector('div.form-group .btn.my-2.my-sm-0');
-    creator.addEventListener('submit', sendCreateAnswerRequest);
+    //let path = "/img/unknown.png";
+    
+    let new_answer = document.createElement('answer');
+    new_answer.classList.add('answer');
+    new_answer.setAttribute('data-id', 0);
+    new_answer.innerHTML = `<li id="answer">
+                                <div class="row">
+                                    <a class="col-sm-3 d-none d-sm-block text-center" href="../pages/profile.php">
+                                        <img src="/img/unknown.png" alt="Generic placeholder image">
+                                    </a>
+                                    <div class="col-sm-9">
+                                        <span class="badge badge-success"><i class="fas fa-star"></i>Score ${info[2]}</span>
+                                        <p id="user_ans"><a href="../pages/profile.php"> ${info[1]} </a></p>
+                                    </div>
+                                </div>
+                                <div class="ans-body">
+                                    <p>${info[0]}</p>
+                                    <div class=icons-answers>
+                                        <a class="icon-answers" href="#">
+                                            <i class="fas fa-thumbs-up"> 0 </i>
+                                        </a>
+                                        <a class="icon-answers" href="#">
+                                            <i class="fas fa-thumbs-down"> 0 </i>
+                                        </a>
+                                        <a class="icon-answers" href="#">
+                                            <i class="fas fa-comment">0</i>
+                                        </a>
+                                        <a class="icon-answers" href="#">
+                                            <i class="fas fa-bug"> Report</i>
+                                        </a>
+                                    </div>
+                                </div>
+                                </li>`;
 
     return new_answer;
-    
+
 }
 
 addEventListeners();

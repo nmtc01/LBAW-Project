@@ -1,6 +1,6 @@
 <h2 class="mt-0">Answers</h2>
             
-<ul class="list-unstyled">
+<ul class="list-unstyled" id="answers-list">
     @foreach($answers as $answer)
     <li id="answer">
         <div class="row">
