@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+use App\Answer;
 
 class AnswerController extends Controller
 {
@@ -30,13 +33,9 @@ class AnswerController extends Controller
 
       $answer = new Answer();
 
-
-
       $answer->content = $request->input('content');
       $answer->user_id = Auth::user()->id;
-
-      //test
-      //$answer->question_id = 8;
+      $answer->question_id = $request->input('question_index');
 
       $answer->save();
 

@@ -33,6 +33,7 @@ function encodeForAjax(data) {
     return Object.keys(data).map(function(k) {
         return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
     }).join('&');
+    
 }
 
 function sendAjaxRequest(method, url, data, handler) {
@@ -181,15 +182,18 @@ function createItem(item) {
 }
 
 function answerAddedHandler() {
-    if (this.status != 200) window.location = '/question/8';
+    
     let answer = JSON.parse(this.responseText);
-    answer.json().then(data => console.log(data));
+
+    //if (this.status != 200) window.location = '/question/'+ answer.question_id;
+    
     // Create the new card
     let new_answer = createAnswer(answer);
 
     // Reset the new card input
-    let form = document.querySelector('div.form-group .btn.my-2.my-sm-0');
-    form.querySelector('input[type=text]').value = "";
+    //let form = document.querySelector('div.form-group .btn.my-2.my-sm-0');
+    //form.querySelector('input[type=text]').value = "";
+    document.getElementById("exampleFormControlTextarea1").value = "";
 
     /*
         // Insert the new card
@@ -204,15 +208,17 @@ function answerAddedHandler() {
 function sendCreateAnswerRequest(event) {
 
     let content = document.getElementById("exampleFormControlTextarea1").value;
+    let question_index = this.closest('.container-fluid#question-div').getAttribute('data-id'); 
 
     if (content != '')
-        sendAjaxRequest('put', '/api/answer', { content: content }, answerAddedHandler);
+        sendAjaxRequest('put', '/api/answer', { content: content, question_index: question_index }, answerAddedHandler);
 
     event.preventDefault();
 
 }
 
 function createAnswer(answer) {
+    
     let new_answer = document.createElement('article');
     new_answer.classList.add('answer');
     new_answer.setAttribute('data-id', answer.id);
@@ -229,6 +235,7 @@ function createAnswer(answer) {
     creator.addEventListener('submit', sendCreateAnswerRequest);
 
     return new_answer;
+    
 }
 
 addEventListeners();
