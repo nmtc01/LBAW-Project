@@ -33,3 +33,6 @@ Route::post('register', 'Auth\RegisterController@register');
 //Route::get('/', 'HomeController@show')->name('home');
 Route::get('/', 'QuestionController@list');
 
+// Static pages
+Route::get('/about', 'StaticController@about');
+

@@ -1,0 +1,19 @@
+.profile {
+    margin-top: 3%;
+    padding: 3%;
+    border-radius: .25rem;
+    background: #f8f9fa;
+}
+
+.file {
+    position: relative;
+    overflow: hidden;
+}
+
+.file input {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}

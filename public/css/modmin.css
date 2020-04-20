@@ -1,0 +1,41 @@
+.wrapper-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.reports{
+    padding: 2%;
+    font-size: 1.6rem;
+    color: #6545c9;
+    font-weight: bold;
+}
+
+.list-group{
+    grid-row: 2;
+    max-height: 500px;
+    padding: 2%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.list-group .active{
+    background-color: #6545c9;
+}
+
+.moderate{
+    margin: 0 auto;
+    margin-top: 3%;
+    background-color: #fff;
+    padding: 2%;
+    border: 2px solid #e5e5e5;
+    border-radius: .25rem;
+}
+
+.nav-link{
+    color: #6545c9;
+}
+
+
+

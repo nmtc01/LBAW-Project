@@ -42,7 +42,7 @@
         
         <nav class="navbar navbar-expand-lg navbar-light navbar-default fixed-top">
           
-          <a href="" class="navbar-brand">Answerly</a>
+        <a href="{{ asset('/') }}" class="navbar-brand">Answerly</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -119,7 +119,7 @@
                         <a href="../pages/admin.php">Moderate</a>
                         </li>
                         <li>
-                        <a href="../index.php">Get back home</a>
+                        <a href="{{ asset('/') }}">Get back home</a>
                         </li>
                     </ul>
                 </div>
@@ -163,7 +163,7 @@
                     <h3 class="font-weight-bold text-uppercase mt-3 mb-4">About</h3>
                     <ul class="list-unstyled">
                         <li>
-                        <a href="../pages/about.php">About us</a>
+                        <a href="{{ asset('about') }}">About us</a>
                         </li>
                     </ul>
                 </div>
@@ -174,7 +174,7 @@
         <!-- Footer Links -->
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="../index.php"> Answerly</a>
+        <a href="{{ asset('/') }}"> Answerly</a>
         </div>
         <!-- Copyright -->
     </footer>
