@@ -102,14 +102,12 @@ function answerAddedHandler() {
     
     let answer = JSON.parse(this.responseText);
 
-    if (this.status != 200) window.location = '/question/'+ answer.question_id;
+    //if (this.status != 200) window.location = '/question/'+ answer.question_id;
     
     // Create the new answer
     let new_answer = createAnswer(answer);
-
-    // Reset the new card answer
-    let form = document.querySelector('div.form-group .btn.my-2.my-sm-0');
-    form.querySelector('input[type=text]').value = "";
+    
+    document.getElementById("exampleFormControlTextarea1").value = "";
 }
 
 function sendCreateAnswerRequest(event) {
@@ -125,6 +123,7 @@ function sendCreateAnswerRequest(event) {
 }
 
 function createAnswer(answer) {
+    
     let new_answer = document.createElement('article');
     new_answer.classList.add('answer');
     new_answer.setAttribute('data-id', answer.id);
@@ -141,6 +140,7 @@ function createAnswer(answer) {
     creator.addEventListener('submit', sendCreateAnswerRequest);
 
     return new_answer;
+    
 }
 
 addEventListeners();

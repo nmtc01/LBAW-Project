@@ -14,7 +14,8 @@
                 <label for="exampleFormControlTextarea1"></label>
                 <!--<textarea class="form-control" placeholder="Do you know the answer to this question?"id="exampleFormControlTextarea1" rows="4"></textarea>-->
                 <form class="new_answer">
-                    <input type="text" class="form-control" id="exampleFormControlTextarea1" name="answer" placeholder="Do you know the answer to this question?">
+                    <!--<input type="text" class="form-control" id="exampleFormControlTextarea1" name="answer" placeholder="Do you know the answer to this question?">-->
+                    <textarea class="form-control" placeholder="Do you know the answer to this question?"id="exampleFormControlTextarea1" rows="4"></textarea>
                 </form>
                 <button class="btn my-2 my-sm-0" type="submit">Answer</button>
             </div>
