@@ -10,7 +10,7 @@
             <div class="row">
                 <div id="prof_info" class="col-2 text-center">
                     <img src="{{asset('/img/unknown.png')}}">
-                    <p><a class="row-2 d-none d-sm-block" href="/pages/profile.php">{{ $question->user_id }}</a></p>
+                    <p><a class="row-2 d-none d-sm-block" href="/pages/profile.php">{{$users[$question->id]->username}}</a></p>
                 </div>
                 <div class="col-10">
                     <h1><a id="question-header" href="/pages/question.php">{{ $question->title }}</a></h1>
