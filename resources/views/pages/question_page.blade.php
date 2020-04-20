@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-<div class="container-fluid">
+<div id="question-div" class="container-fluid" data-id = "{{$question->id}}">
     <div class="wrapper col-md-5">
         @include('partials.question')
         <div>

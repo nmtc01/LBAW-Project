@@ -518,9 +518,9 @@ insert into question (id, user_id, title, description, nr_likes, nr_dislikes, qu
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
 	values (6, 7, 'Can someone explain to me the AirPod hype?', 'Why are Apples AirPods so hyped up when fake Airpods work just the same?', 3, 2, '2019-09-30');
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (7, 5, 'Running a program from within java code', 'What is the simplest way to call a program from with a piece of Java code? (The program I want to run is aiSee and it can be run from command line or from Windows GUI; and I am on Vista but the code will also be run on Linux systems).', 7, 5, '2020-11-04');
+	values (7, 5, 'Running a program from within java code', 'What is the simplest way to call a program from with a piece of Java code? (The program I want to run is aiSee and it can be run from command line or from Windows GUI; and I am on Vista but the code will also be run on Linux systems).', 7, 5, '2020-01-04');
 insert into question (id, user_id, title, description, nr_likes, nr_dislikes, question_date) 
-	values (8, 8, 'What is the best TV series and why?', 'I would like to really get into a tv show, but I only want to watch the best of the best.', 10, 5, '2020-11-04');
+	values (8, 8, 'What is the best TV series and why?', 'I would like to really get into a tv show, but I only want to watch the best of the best.', 10, 5, '2020-03-04');
 insert into question (id, user_id, title, description, question_date) 
 	values (9, 10, 'What country’s flag is the most controversial?', 'This may seem odd, but I would like to hear the internets opinion.',  '2019-10-19');
 insert into question (id, user_id, title, description, question_date) 
