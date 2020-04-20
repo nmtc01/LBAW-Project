@@ -37,7 +37,8 @@ class QuestionController extends Controller
 
       //$this->authorize('list', Question::class);
 
-      $questions = Question::all()->sortByDesc("nr_likes")->sortByDesc("question_date");
+      //$questions = Question::all()->sortByDesc("nr_likes")->sortByDesc("question_date");
+      $questions = DB::select(DB::raw("select * from question order by question_date desc, (nr_likes - nr_dislikes) desc"));
 
       //return view('pages.home', ['questions' => $questions]);
       return $questions;
