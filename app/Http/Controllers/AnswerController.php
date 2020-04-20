@@ -42,4 +42,15 @@ class AnswerController extends Controller
       return $answer;
     }
 
+    public function delete(Request $request, $id)
+    {
+      $answer = Answer::find($id);
+
+      $this->authorize('delete', $answer);
+      $answer->delete();
+
+      return $answer;
+    }
+
+
 }
