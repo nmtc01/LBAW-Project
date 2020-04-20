@@ -177,4 +177,21 @@ function createItem(item) {
   return new_item;
 }
 
+function createAnswer(answer) {
+  let new_answer = document.createElement('article');
+  new_answer.classList.add('answer');
+  new_answer.setAttribute('data-id', answer.id);
+  new_answer.innerHTML = `
+  <div class="form-group">
+      <label for="exampleFormControlTextarea1"></label>
+      <textarea class="form-control" placeholder="Do you know the answer to this question?"id="exampleFormControlTextarea1" rows="4"></textarea>
+      <button class="btn my-2 my-sm-0" type="submit">Answer</button>
+  </div>`;
+
+  let creator = new_answer.querySelector('div.form-group');
+  creator.addEventListener('submit', sendCreateAnswerRequest);
+
+  return new_answer;
+}
+
 addEventListeners();
