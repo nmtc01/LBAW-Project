@@ -136,146 +136,146 @@ insert into "user" (first_name, last_name, email, bio, username, password)
 	values ('Vitor', 'Goncalves', 'vitorturrinheira@gmail.com', '20y, FEUP, Pardelhas', 'vitorturrinheira6', 'ed5ae5a93a86c36e004d985cd801b3390dc91e4dda5c6d59b421c9f356f4b6b3');
 
 --label	
-insert into label (id, name) values (1, 'environment');
-insert into label (id, name) values (2, 'accounting');
-insert into label (id, name) values (3, 'economics');
-insert into label (id, name) values (4, 'companies');
-insert into label (id, name) values (5, 'psychology');
-insert into label (id, name) values (6, 'engineering');
-insert into label (id, name) values (7, 'energy');
-insert into label (id, name) values (8, 'agriculture');	
-insert into label (id, name) values (9, 'education');
-insert into label (id, name) values (10, 'sustainable');
-insert into label (id, name) values (11, 'development');
-insert into label (id, name) values (12, 'society');
-insert into label (id, name) values (13, 'architecture');
-insert into label (id, name) values (14, 'ecology');	
-insert into label (id, name) values (15, 'culture');
-insert into label (id, name) values (16, 'science');	
-insert into label (id, name) values (17, 'consumerism');
-insert into label (id, name) values (18, 'recycling');	
-insert into label (id, name) values (19, 'virus');	
-insert into label (id, name) values (20, 'sports');
-insert into label (id, name) values (21, 'philosophy');
-insert into label (id, name) values (22, 'music');
-insert into label (id, name) values (23, 'science');
-insert into label (id, name) values (24, 'cinema');
-insert into label (id, name) values (25, 'photography');
-insert into label (id, name) values (26, 'computers');
-insert into label (id, name) values (27, 'programming');
-insert into label (id, name) values (28, 'tv');
-insert into label (id, name) values (29, 'gaming');
-insert into label (id, name) values (30, 'macOS');
-insert into label (id, name) values (31, 'windows');
-insert into label (id, name) values (32, 'linux');
-insert into label (id, name) values (33, 'geography');
-insert into label (id, name) values (34, 'coronavirus');
-insert into label (id, name) values (35, 'jazz');
-insert into label (id, name) values (36, 'politics');
-insert into label (id, name) values (37, 'football');
-insert into label (id, name) values (38, 'cr7');
-insert into label (id, name) values (39, 'health');
-insert into label (id, name) values (40, 'technology');
-insert into label (id, name) values (41, 'psychology');
-insert into label (id, name) values (42, 'java');
-insert into label (id, name) values (43, 'c++');
-insert into label (id, name) values (44, 'python');
-insert into label (id, name) values (45, 'hockey');
-insert into label (id, name) values (46, 'basketball');
-insert into label (id, name) values (47, 'rock');
-insert into label (id, name) values (48, 'pop');
-insert into label (id, name) values (49, 'english');
+insert into label (name) values ('environment');
+insert into label (name) values ('accounting');
+insert into label (name) values ('economics');
+insert into label (name) values ('companies');
+insert into label (name) values ('psychology');
+insert into label (name) values ('engineering');
+insert into label (name) values ('energy');
+insert into label (name) values ('agriculture');	
+insert into label (name) values ('education');
+insert into label (name) values ('sustainable');
+insert into label (name) values ('development');
+insert into label (name) values ('society');
+insert into label (name) values ('architecture');
+insert into label (name) values ('ecology');	
+insert into label (name) values ('culture');
+insert into label (name) values ('science');	
+insert into label (name) values ('consumerism');
+insert into label (name) values ('recycling');	
+insert into label (name) values ('virus');	
+insert into label (name) values ('sports');
+insert into label (name) values ('philosophy');
+insert into label (name) values ('music');
+insert into label (name) values ('science');
+insert into label (name) values ('cinema');
+insert into label (name) values ('photography');
+insert into label (name) values ('computers');
+insert into label (name) values ('programming');
+insert into label (name) values ('tv');
+insert into label (name) values ('gaming');
+insert into label (name) values ('macOS');
+insert into label (name) values ('windows');
+insert into label (name) values ('linux');
+insert into label (name) values ('geography');
+insert into label (name) values ('coronavirus');
+insert into label (name) values ('jazz');
+insert into label (name) values ('politics');
+insert into label (name) values ('football');
+insert into label (name) values ('cr7');
+insert into label (name) values ('health');
+insert into label (name) values ('technology');
+insert into label (name) values ('psychology');
+insert into label (name) values ('java');
+insert into label (name) values ('c++');
+insert into label (name) values ('python');
+insert into label (name) values ('hockey');
+insert into label (name) values ('basketball');
+insert into label (name) values ('rock');
+insert into label (name) values ('pop');
+insert into label (name) values ('english');
 
 --notification
-insert into notification (id, content, date, viewed, user_id) values (1, 'A user has answered a question of yours', '2019-12-1', FALSE, 20);
-insert into notification (id, content, date, viewed, user_id) values (2, 'A user has answered a question of yours', '2019-12-2', FALSE, 19);
-insert into notification (id, content, date, viewed, user_id) values (3, 'A user has answered a question you follow', '2019-12-3', FALSE, 18);
-insert into notification (id, content, date, viewed, user_id) values (4, 'A user has answered a question you follow', '2019-12-4', FALSE, 17);
-insert into notification (id, content, date, viewed, user_id) values (5, 'A user has answered a question of yours', '2019-12-5', TRUE, 16);
-insert into notification (id, content, date, viewed, user_id) values (6, 'A user has answered a question you follow', '2019-12-6', TRUE, 15);
-insert into notification (id, content, date, viewed, user_id) values (7, 'A user has answered a question you follow', '2019-12-7', FALSE, 14);
-insert into notification (id, content, date, viewed, user_id) values (8, 'A user has answered a question you follow', '2019-12-8', TRUE, 13);
-insert into notification (id, content, date, viewed, user_id) values (9, 'A user has answered a question of yours', '2019-12-9', TRUE, 12);
-insert into notification (id, content, date, viewed, user_id) values (10, 'A user has answered a question of yours', '2019-12-10', FALSE, 11);
-insert into notification (id, content, date, viewed, user_id) values (11, 'A user has answered a question of yours', '2019-12-11', TRUE, 10);
-insert into notification (id, content, date, viewed, user_id) values (12, 'A user has answered a question of yours', '2019-12-12', TRUE, 9);
-insert into notification (id, content, date, viewed, user_id) values (13, 'A user has answered a question you follow', '2019-12-13', FALSE, 8);
-insert into notification (id, content, date, viewed, user_id) values (14, 'A user has answered a question you follow', '2019-12-1', TRUE, 7);
-insert into notification (id, content, date, viewed, user_id) values (15, 'A user has answered a question of yours', '2019-12-1', TRUE, 6);
-insert into notification (id, content, date, viewed, user_id) values (16, 'A user has answered a question of yours', '2019-12-1', FALSE, 5);
-insert into notification (id, content, date, viewed, user_id) values (17, 'A user has answered a question you follow', '2019-12-1', TRUE, 4);
-insert into notification (id, content, date, viewed, user_id) values (18, 'A user has answered a question of yours', '2019-12-1', TRUE, 3);
-insert into notification (id, content, date, viewed, user_id) values (19, 'A user has answered a question you follow', '2019-12-1', FALSE, 2);
-insert into notification (id, content, date, viewed, user_id) values (20, 'A user has answered a question you follow', '2019-12-1', TRUE, 1);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 20);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-2', FALSE, 19);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-3', FALSE, 18);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-4', FALSE, 17);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-5', TRUE, 16);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-6', TRUE, 15);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-7', FALSE, 14);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-8', TRUE, 13);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-9', TRUE, 12);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-10', FALSE, 11);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-11', TRUE, 10);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-12', TRUE, 9);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-13', FALSE, 8);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 7);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 6);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 5);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 4);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 3);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', FALSE, 2);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 1);
 
 --user_management
-insert into user_management (id, status, date_last_changed, user_id) values (1, 'administrator', '2020-03-01', 1);
-insert into user_management (id, status, date_last_changed, user_id) values (2, 'administrator', '2020-03-01', 2);
-insert into user_management (id, status, date_last_changed, user_id) values (3, 'administrator', '2020-03-01', 3);
-insert into user_management (id, status, date_last_changed, user_id) values (4, 'administrator', '2020-03-01', 4);
-insert into user_management (id, status, date_last_changed, user_id) values (5, 'moderator', '2019-04-10', 5);
-insert into user_management (id, status, date_last_changed, user_id) values (6, 'moderator', '2019-04-10', 6);
-insert into user_management (id, status, date_last_changed, user_id) values (7, 'moderator', '2019-04-10', 7);
-insert into user_management (id, status, date_last_changed, user_id) values (8, 'moderator', '2019-04-10', 8);
-insert into user_management (id, status, date_last_changed, user_id) values (9, 'moderator', '2019-04-10', 9);
-insert into user_management (id, status, date_last_changed, user_id) values (10, 'moderator', '2019-04-10', 10);
-insert into user_management (id, status, date_last_changed, user_id) values (11, 'user', '2019-04-10', 11);
-insert into user_management (id, status, date_last_changed, user_id) values (12, 'user', '2019-04-10', 12);
-insert into user_management (id, status, date_last_changed, user_id) values (13, 'user', '2019-04-10', 13);
-insert into user_management (id, status, date_last_changed, user_id) values (14, 'user', '2019-04-10', 14);
-insert into user_management (id, status, date_last_changed, user_id) values (15, 'user', '2019-04-10', 15);
-insert into user_management (id, status, date_last_changed, user_id) values (16, 'user', '2019-04-10', 16);
-insert into user_management (id, status, date_last_changed, user_id) values (17, 'user', '2019-04-10', 17);
-insert into user_management (id, status, date_last_changed, user_id) values (18, 'user', '2019-04-10', 18);
-insert into user_management (id, status, date_last_changed, user_id) values (19, 'user', '2019-03-10', 19);
-insert into user_management (id, status, date_last_changed, user_id) values (20, 'user', '2019-04-10', 20);
-insert into user_management (id, status, date_last_changed, user_id) values (21, 'user', '2019-04-10', 21);
-insert into user_management (id, status, date_last_changed, user_id) values (22, 'user', '2019-04-10', 22);
-insert into user_management (id, status, date_last_changed, user_id) values (23, 'user', '2019-04-10', 23);
-insert into user_management (id, status, date_last_changed, user_id) values (24, 'user', '2019-04-10', 24);
-insert into user_management (id, status, date_last_changed, user_id) values (25, 'user', '2019-04-10', 25);
-insert into user_management (id, status, date_last_changed, user_id) values (26, 'user', '2018-04-10', 26);
-insert into user_management (id, status, date_last_changed, user_id) values (27, 'user', '2019-04-10', 27);
-insert into user_management (id, status, date_last_changed, user_id) values (28, 'user', '2019-04-10', 28);
-insert into user_management (id, status, date_last_changed, user_id) values (29, 'user', '2019-04-10', 29);
-insert into user_management (id, status, date_last_changed, user_id) values (30, 'user', '2019-04-10', 30);
-insert into user_management (id, status, date_last_changed, user_id) values (31, 'user', '2019-04-10', 31);
-insert into user_management (id, status, date_last_changed, user_id) values (32, 'user', '2019-02-10', 32);
-insert into user_management (id, status, date_last_changed, user_id) values (33, 'user', '2019-04-10', 33);
-insert into user_management (id, status, date_last_changed, user_id) values (34, 'user', '2019-04-10', 34);
-insert into user_management (id, status, date_last_changed, user_id) values (35, 'user', '2017-04-10', 35);
-insert into user_management (id, status, date_last_changed, user_id) values (36, 'user', '2019-02-14', 36);
-insert into user_management (id, status, date_last_changed, user_id) values (37, 'user', '2019-04-10', 37);
-insert into user_management (id, status, date_last_changed, user_id) values (38, 'user', '2019-04-10', 38);
-insert into user_management (id, status, date_last_changed, user_id) values (39, 'user', '2019-04-01', 39);
-insert into user_management (id, status, date_last_changed, user_id) values (40, 'user', '2019-04-10', 40);
-insert into user_management (id, status, date_last_changed, user_id) values (41, 'user', '2019-04-10', 41);
-insert into user_management (id, status, date_last_changed, user_id) values (42, 'user', '2019-04-10', 42);
-insert into user_management (id, status, date_last_changed, user_id) values (43, 'user', '2019-04-10', 43);
-insert into user_management (id, status, date_last_changed, user_id) values (44, 'user', '2019-04-10', 44);
-insert into user_management (id, status, date_last_changed, user_id) values (45, 'user', '2019-04-10', 45);
-insert into user_management (id, status, date_last_changed, user_id) values (46, 'user', '2019-04-10', 46);
-insert into user_management (id, status, date_last_changed, user_id) values (47, 'user', '2019-04-10', 47);
-insert into user_management (id, status, date_last_changed, user_id) values (48, 'user', '2019-02-09', 48);
-insert into user_management (id, status, date_last_changed, user_id) values (49, 'user', '2019-04-10', 49);
-insert into user_management (id, status, date_last_changed, user_id) values (50, 'user', '2019-04-10', 50);
-insert into user_management (id, status, date_last_changed, user_id) values (51, 'user', '2019-04-10', 51);
-insert into user_management (id, status, date_last_changed, user_id) values (52, 'user', '2019-04-10', 52);
-insert into user_management (id, status, date_last_changed, user_id) values (53, 'user', '2019-04-10', 53);
-insert into user_management (id, status, date_last_changed, user_id) values (54, 'user', '2019-04-10', 54);
-insert into user_management (id, status, date_last_changed, user_id) values (55, 'user', '2019-04-10', 55);
-insert into user_management (id, status, date_last_changed, user_id) values (56, 'user', '2019-04-10', 56);
-insert into user_management (id, status, date_last_changed, user_id) values (57, 'user', '2019-04-10', 57);
-insert into user_management (id, status, date_last_changed, user_id) values (58, 'user', '2019-04-10', 58);
-insert into user_management (id, status, date_last_changed, user_id) values (59, 'user', '2019-04-10', 59);
-insert into user_management (id, status, date_last_changed, user_id) values (60, 'user', '2019-04-10', 60);
-insert into user_management (id, status, date_last_changed, user_id) values (61, 'user', '2019-04-10', 61);
-insert into user_management (id, status, date_last_changed, user_id) values (62, 'user', '2019-02-01', 62);
-insert into user_management (id, status, date_last_changed, user_id) values (63, 'user', '2019-04-10', 63);
-insert into user_management (id, status, date_last_changed, user_id) values (64, 'user', '2019-04-10', 64);
-insert into user_management (id, status, date_last_changed, user_id) values (65, 'user', '2019-04-10', 65);
-insert into user_management (id, status, date_last_changed, user_id) values (66, 'user', '2019-04-10', 66);
-insert into user_management (id, status, date_last_changed, user_id) values (67, 'user', '2019-04-10', 67);
+insert into user_management (status, date_last_changed, user_id) values ('administrator', '2020-03-01', 1);
+insert into user_management (status, date_last_changed, user_id) values ('administrator', '2020-03-01', 2);
+insert into user_management (status, date_last_changed, user_id) values ('administrator', '2020-03-01', 3);
+insert into user_management (status, date_last_changed, user_id) values ('administrator', '2020-03-01', 4);
+insert into user_management (status, date_last_changed, user_id) values ('moderator', '2019-04-10', 5);
+insert into user_management (status, date_last_changed, user_id) values ('moderator', '2019-04-10', 6);
+insert into user_management (status, date_last_changed, user_id) values ('moderator', '2019-04-10', 7);
+insert into user_management (status, date_last_changed, user_id) values ('moderator', '2019-04-10', 8);
+insert into user_management (status, date_last_changed, user_id) values ('moderator', '2019-04-10', 9);
+insert into user_management (status, date_last_changed, user_id) values ('moderator', '2019-04-10', 10);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 11);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 12);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 13);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 14);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 15);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 16);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 17);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 18);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-03-10', 19);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 20);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 21);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 22);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 23);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 24);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 25);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2018-04-10', 26);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 27);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 28);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 29);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 30);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 31);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-02-10', 32);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 33);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 34);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2017-04-10', 35);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-02-14', 36);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 37);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 38);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-01', 39);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 40);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 41);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 42);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 43);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 44);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 45);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 46);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 47);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-02-09', 48);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 49);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 50);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 51);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 52);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 53);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 54);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 55);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 56);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 57);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 58);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 59);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 60);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 61);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-02-01', 62);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 63);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 64);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 65);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 66);
+insert into user_management (status, date_last_changed, user_id) values ('user', '2019-04-10', 67);
 
 --question
 insert into question (user_id, title, description, nr_likes, nr_dislikes, question_date) 
@@ -402,171 +402,171 @@ insert into answer (user_id, question_id, answer_date, content, marked_answer)
 	values (39, 30, '2019-12-03', 'I dont remember right now.', FALSE);
 
 --comment
-insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
-	values (1, 3, 1, NULL, '2019-12-07', 'I believe it would also be interesting if people commented on the worse method actors as well.');
-insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
-	values (2, 4, 10, NULL, '2020-03-21', 'You should not compare the health strength of two countries during these hard times! Dislike!');
-insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
-	values (3, 1, NULL, 28, '2020-03-27', 'I agree! Awesome dialogue, great choice of actors and awesome camera shots. The perfect drama for sure.');
-insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
-	values (4, 6, 9, NULL, '2020-03-28', 'Well, that is a rather wird question, but in a good way though.');
-insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
-	values (5, 9, NULL, 2, '2020-03-28', 'Impecable! What a good answer. Like!');
-insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
-	values (6, 43, 13, NULL, '2019-06-03', 'Good point, and its not just the order. You might have trouble with grammatical agreements between your fixed text and what youre substituting in. E.g. male/female/neutral, plural/singular.');
-insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
-	values (7, 47, NULL, 16, '2020-02-03', 'Oh, thank you, thank you for pointing out that horror which so aggravates me “Can I get a latte?”. NO, you bloody can’t climb over the damn counter and serve yourself.');
-insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
-	values (8, 9, 23, NULL, '2020-03-28', 'Salt and acid are powerful flavour enhancers. You don’t taste the salt nor the acid until you over do it. Salt is very delicate when dealing with reducing liquids or sauces, but that gets written up as “timing”. Salt can kill bitter too.');
-insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
-	values (9, 1, NULL, 26, '2020-03-11', 'It’s like the design team found a Macbook Pro and decided to mess it’s best features up and add them onto the Surface.');
-insert into comment (id, user_id, question_id, answer_id, comment_date, content) 
-	values (10, 30, NULL, 2, '2020-04-02', 'Thank you for such a good question. I was thinking on the same thing.');
+insert into comment (user_id, question_id, answer_id, comment_date, content) 
+	values (3, 1, NULL, '2019-12-07', 'I believe it would also be interesting if people commented on the worse method actors as well.');
+insert into comment (user_id, question_id, answer_id, comment_date, content) 
+	values (4, 10, NULL, '2020-03-21', 'You should not compare the health strength of two countries during these hard times! Dislike!');
+insert into comment (user_id, question_id, answer_id, comment_date, content) 
+	values (1, NULL, 28, '2020-03-27', 'I agree! Awesome dialogue, great choice of actors and awesome camera shots. The perfect drama for sure.');
+insert into comment (user_id, question_id, answer_id, comment_date, content) 
+	values (6, 9, NULL, '2020-03-28', 'Well, that is a rather wird question, but in a good way though.');
+insert into comment (user_id, question_id, answer_id, comment_date, content) 
+	values (9, NULL, 2, '2020-03-28', 'Impecable! What a good answer. Like!');
+insert into comment (user_id, question_id, answer_id, comment_date, content) 
+	values (43, 13, NULL, '2019-06-03', 'Good point, and its not just the order. You might have trouble with grammatical agreements between your fixed text and what youre substituting in. E.g. male/female/neutral, plural/singular.');
+insert into comment (user_id, question_id, answer_id, comment_date, content) 
+	values (47, NULL, 16, '2020-02-03', 'Oh, thank you, thank you for pointing out that horror which so aggravates me “Can I get a latte?”. NO, you bloody can’t climb over the damn counter and serve yourself.');
+insert into comment (user_id, question_id, answer_id, comment_date, content) 
+	values (9, 23, NULL, '2020-03-28', 'Salt and acid are powerful flavour enhancers. You don’t taste the salt nor the acid until you over do it. Salt is very delicate when dealing with reducing liquids or sauces, but that gets written up as “timing”. Salt can kill bitter too.');
+insert into comment (user_id, question_id, answer_id, comment_date, content) 
+	values (1, NULL, 26, '2020-03-11', 'It’s like the design team found a Macbook Pro and decided to mess it’s best features up and add them onto the Surface.');
+insert into comment (user_id, question_id, answer_id, comment_date, content) 
+	values (30, NULL, 2, '2020-04-02', 'Thank you for such a good question. I was thinking on the same thing.');
 
 --vote
 --question 1
-insert into vote (id, "vote", user_id, question_id) values (1, TRUE, 1, 1);
-insert into vote (id, "vote", user_id, question_id) values (2, TRUE, 2, 1);
-insert into vote (id, "vote", user_id, question_id) values (3, TRUE, 3, 1);
-insert into vote (id, "vote", user_id, question_id) values (4, TRUE, 5, 1);
-insert into vote (id, "vote", user_id, question_id) values (5, TRUE, 6, 1);
-insert into vote (id, "vote", user_id, question_id) values (6, TRUE, 7, 1);
-insert into vote (id, "vote", user_id, question_id) values (7, TRUE, 8, 1);
-insert into vote (id, "vote", user_id, question_id) values (8, FALSE, 9, 1);
-insert into vote (id, "vote", user_id, question_id) values (9, FALSE, 10, 1);
+insert into vote ("vote", user_id, question_id) values (TRUE, 1, 1);
+insert into vote ("vote", user_id, question_id) values (TRUE, 2, 1);
+insert into vote ("vote", user_id, question_id) values (TRUE, 3, 1);
+insert into vote ("vote", user_id, question_id) values (TRUE, 5, 1);
+insert into vote ("vote", user_id, question_id) values (TRUE, 6, 1);
+insert into vote ("vote", user_id, question_id) values (TRUE, 7, 1);
+insert into vote ("vote", user_id, question_id) values (TRUE, 8, 1);
+insert into vote ("vote", user_id, question_id) values (FALSE, 9, 1);
+insert into vote ("vote", user_id, question_id) values (FALSE, 10, 1);
 --question 2
-insert into vote (id, "vote", user_id, question_id) values (10, TRUE, 1, 2);
-insert into vote (id, "vote", user_id, question_id) values (11, TRUE, 3, 2);
-insert into vote (id, "vote", user_id, question_id) values (12, TRUE, 4, 2);
-insert into vote (id, "vote", user_id, question_id) values (13, TRUE, 5, 2);
-insert into vote (id, "vote", user_id, question_id) values (14, TRUE, 6, 2);
-insert into vote (id, "vote", user_id, question_id) values (15, TRUE, 7, 2);
-insert into vote (id, "vote", user_id, question_id) values (16, TRUE, 8, 2);
-insert into vote (id, "vote", user_id, question_id) values (17, TRUE, 9, 2);
-insert into vote (id, "vote", user_id, question_id) values (18, TRUE, 10, 2);
-insert into vote (id, "vote", user_id, question_id) values (19, TRUE, 11, 2);
-insert into vote (id, "vote", user_id, question_id) values (20, FALSE, 12, 2);
-insert into vote (id, "vote", user_id, question_id) values (21, FALSE, 13, 2);
-insert into vote (id, "vote", user_id, question_id) values (22, FALSE, 14, 2);
-insert into vote (id, "vote", user_id, question_id) values (23, FALSE, 15, 2);
-insert into vote (id, "vote", user_id, question_id) values (24, FALSE, 16, 2);
+insert into vote ("vote", user_id, question_id) values (TRUE, 1, 2);
+insert into vote ("vote", user_id, question_id) values (TRUE, 3, 2);
+insert into vote ("vote", user_id, question_id) values (TRUE, 4, 2);
+insert into vote ("vote", user_id, question_id) values (TRUE, 5, 2);
+insert into vote ("vote", user_id, question_id) values (TRUE, 6, 2);
+insert into vote ("vote", user_id, question_id) values (TRUE, 7, 2);
+insert into vote ("vote", user_id, question_id) values (TRUE, 8, 2);
+insert into vote ("vote", user_id, question_id) values (TRUE, 9, 2);
+insert into vote ("vote", user_id, question_id) values (TRUE, 10, 2);
+insert into vote ("vote", user_id, question_id) values (TRUE, 11, 2);
+insert into vote ("vote", user_id, question_id) values (FALSE, 12, 2);
+insert into vote ("vote", user_id, question_id) values (FALSE, 13, 2);
+insert into vote ("vote", user_id, question_id) values (FALSE, 14, 2);
+insert into vote ("vote", user_id, question_id) values (FALSE, 15, 2);
+insert into vote ("vote", user_id, question_id) values (FALSE, 16, 2);
 --question 3
-insert into vote (id, "vote", user_id, question_id) values (25, TRUE, 2, 3);
-insert into vote (id, "vote", user_id, question_id) values (26, TRUE, 3, 3);
-insert into vote (id, "vote", user_id, question_id) values (27, TRUE, 4, 3);
-insert into vote (id, "vote", user_id, question_id) values (28, TRUE, 5, 3);
-insert into vote (id, "vote", user_id, question_id) values (29, TRUE, 6, 3);
-insert into vote (id, "vote", user_id, question_id) values (30, TRUE, 7, 3);
-insert into vote (id, "vote", user_id, question_id) values (31, TRUE, 8, 3);
-insert into vote (id, "vote", user_id, question_id) values (32, TRUE, 9, 3);
-insert into vote (id, "vote", user_id, question_id) values (33, TRUE, 10, 3);
-insert into vote (id, "vote", user_id, question_id) values (34, TRUE, 11, 3);
-insert into vote (id, "vote", user_id, question_id) values (35, FALSE, 12, 3);
-insert into vote (id, "vote", user_id, question_id) values (36, FALSE, 13, 3);
-insert into vote (id, "vote", user_id, question_id) values (37, FALSE, 14, 3);
-insert into vote (id, "vote", user_id, question_id) values (38, FALSE, 15, 3);
-insert into vote (id, "vote", user_id, question_id) values (39, FALSE, 16, 3);
+insert into vote ("vote", user_id, question_id) values (TRUE, 2, 3);
+insert into vote ("vote", user_id, question_id) values (TRUE, 3, 3);
+insert into vote ("vote", user_id, question_id) values (TRUE, 4, 3);
+insert into vote ("vote", user_id, question_id) values (TRUE, 5, 3);
+insert into vote ("vote", user_id, question_id) values (TRUE, 6, 3);
+insert into vote ("vote", user_id, question_id) values (TRUE, 7, 3);
+insert into vote ("vote", user_id, question_id) values (TRUE, 8, 3);
+insert into vote ("vote", user_id, question_id) values (TRUE, 9, 3);
+insert into vote ("vote", user_id, question_id) values (TRUE, 10, 3);
+insert into vote ("vote", user_id, question_id) values (TRUE, 11, 3);
+insert into vote ("vote", user_id, question_id) values (FALSE, 12, 3);
+insert into vote ("vote", user_id, question_id) values (FALSE, 13, 3);
+insert into vote ("vote", user_id, question_id) values (FALSE, 14, 3);
+insert into vote ("vote", user_id, question_id) values (FALSE, 15, 3);
+insert into vote ("vote", user_id, question_id) values (FALSE, 16, 3);
 --question 4
-insert into vote (id, "vote", user_id, question_id) values (40, TRUE, 1, 4);
-insert into vote (id, "vote", user_id, question_id) values (41, TRUE, 2, 4);
-insert into vote (id, "vote", user_id, question_id) values (42, TRUE, 4, 4);
-insert into vote (id, "vote", user_id, question_id) values (43, TRUE, 5, 4);
-insert into vote (id, "vote", user_id, question_id) values (44, TRUE, 6, 4);
-insert into vote (id, "vote", user_id, question_id) values (45, TRUE, 7, 4);
-insert into vote (id, "vote", user_id, question_id) values (46, TRUE, 8, 4);
-insert into vote (id, "vote", user_id, question_id) values (47, TRUE, 9, 4);
-insert into vote (id, "vote", user_id, question_id) values (48, TRUE, 10, 4);
-insert into vote (id, "vote", user_id, question_id) values (49, TRUE, 11, 4);
-insert into vote (id, "vote", user_id, question_id) values (50, FALSE, 12, 4);
-insert into vote (id, "vote", user_id, question_id) values (51, FALSE, 13, 4);
-insert into vote (id, "vote", user_id, question_id) values (52, FALSE, 14, 4);
-insert into vote (id, "vote", user_id, question_id) values (53, FALSE, 15, 4);
-insert into vote (id, "vote", user_id, question_id) values (54, FALSE, 16, 4);
-insert into vote (id, "vote", user_id, question_id) values (55, FALSE, 17, 4);
-insert into vote (id, "vote", user_id, question_id) values (56, FALSE, 18, 4);
-insert into vote (id, "vote", user_id, question_id) values (57, FALSE, 19, 4);
-insert into vote (id, "vote", user_id, question_id) values (58, FALSE, 20, 4);
-insert into vote (id, "vote", user_id, question_id) values (59, FALSE, 21, 4);
-insert into vote (id, "vote", user_id, question_id) values (60, FALSE, 22, 4);
+insert into vote ("vote", user_id, question_id) values (TRUE, 1, 4);
+insert into vote ("vote", user_id, question_id) values (TRUE, 2, 4);
+insert into vote ("vote", user_id, question_id) values (TRUE, 4, 4);
+insert into vote ("vote", user_id, question_id) values (TRUE, 5, 4);
+insert into vote ("vote", user_id, question_id) values (TRUE, 6, 4);
+insert into vote ("vote", user_id, question_id) values (TRUE, 7, 4);
+insert into vote ("vote", user_id, question_id) values (TRUE, 8, 4);
+insert into vote ("vote", user_id, question_id) values (TRUE, 9, 4);
+insert into vote ("vote", user_id, question_id) values (TRUE, 10, 4);
+insert into vote ("vote", user_id, question_id) values (TRUE, 11, 4);
+insert into vote ("vote", user_id, question_id) values (FALSE, 12, 4);
+insert into vote ("vote", user_id, question_id) values (FALSE, 13, 4);
+insert into vote ("vote", user_id, question_id) values (FALSE, 14, 4);
+insert into vote ("vote", user_id, question_id) values (FALSE, 15, 4);
+insert into vote ("vote", user_id, question_id) values (FALSE, 16, 4);
+insert into vote ("vote", user_id, question_id) values (FALSE, 17, 4);
+insert into vote ("vote", user_id, question_id) values (FALSE, 18, 4);
+insert into vote ("vote", user_id, question_id) values (FALSE, 19, 4);
+insert into vote ("vote", user_id, question_id) values (FALSE, 20, 4);
+insert into vote ("vote", user_id, question_id) values (FALSE, 21, 4);
+insert into vote ("vote", user_id, question_id) values (FALSE, 22, 4);
 --question 5
-insert into vote (id, "vote", user_id, question_id) values (61, TRUE, 1, 5);
-insert into vote (id, "vote", user_id, question_id) values (62, TRUE, 2, 5);
-insert into vote (id, "vote", user_id, question_id) values (63, FALSE, 3, 5);
-insert into vote (id, "vote", user_id, question_id) values (64, FALSE, 4, 5);
-insert into vote (id, "vote", user_id, question_id) values (65, FALSE, 5, 5);
+insert into vote ("vote", user_id, question_id) values (TRUE, 1, 5);
+insert into vote ("vote", user_id, question_id) values (TRUE, 2, 5);
+insert into vote ("vote", user_id, question_id) values (FALSE, 3, 5);
+insert into vote ("vote", user_id, question_id) values (FALSE, 4, 5);
+insert into vote ("vote", user_id, question_id) values (FALSE, 5, 5);
 --question 6
-insert into vote (id, "vote", user_id, question_id) values (66, TRUE, 1, 6);
-insert into vote (id, "vote", user_id, question_id) values (67, TRUE, 2, 6);
-insert into vote (id, "vote", user_id, question_id) values (68, TRUE, 3, 6);
-insert into vote (id, "vote", user_id, question_id) values (69, FALSE, 4, 6);
-insert into vote (id, "vote", user_id, question_id) values (70, FALSE, 5, 6);
+insert into vote ("vote", user_id, question_id) values (TRUE, 1, 6);
+insert into vote ("vote", user_id, question_id) values (TRUE, 2, 6);
+insert into vote ("vote", user_id, question_id) values (TRUE, 3, 6);
+insert into vote ("vote", user_id, question_id) values (FALSE, 4, 6);
+insert into vote ("vote", user_id, question_id) values (FALSE, 5, 6);
 --question 7
-insert into vote (id, "vote", user_id, question_id) values (71, TRUE, 1, 7);
-insert into vote (id, "vote", user_id, question_id) values (72, TRUE, 2, 7);
-insert into vote (id, "vote", user_id, question_id) values (73, TRUE, 3, 7);
-insert into vote (id, "vote", user_id, question_id) values (74, TRUE, 4, 7);
-insert into vote (id, "vote", user_id, question_id) values (75, TRUE, 6, 7);
-insert into vote (id, "vote", user_id, question_id) values (76, TRUE, 7, 7);
-insert into vote (id, "vote", user_id, question_id) values (77, TRUE, 8, 7);
-insert into vote (id, "vote", user_id, question_id) values (78, FALSE, 9, 7);
-insert into vote (id, "vote", user_id, question_id) values (79, FALSE, 10, 7);
-insert into vote (id, "vote", user_id, question_id) values (80, FALSE, 11, 7);
-insert into vote (id, "vote", user_id, question_id) values (81, FALSE, 12, 7);
-insert into vote (id, "vote", user_id, question_id) values (82, FALSE, 13, 7);
+insert into vote ("vote", user_id, question_id) values (TRUE, 1, 7);
+insert into vote ("vote", user_id, question_id) values (TRUE, 2, 7);
+insert into vote ("vote", user_id, question_id) values (TRUE, 3, 7);
+insert into vote ("vote", user_id, question_id) values (TRUE, 4, 7);
+insert into vote ("vote", user_id, question_id) values (TRUE, 6, 7);
+insert into vote ("vote", user_id, question_id) values (TRUE, 7, 7);
+insert into vote ("vote", user_id, question_id) values (TRUE, 8, 7);
+insert into vote ("vote", user_id, question_id) values (FALSE, 9, 7);
+insert into vote ("vote", user_id, question_id) values (FALSE, 10, 7);
+insert into vote ("vote", user_id, question_id) values (FALSE, 11, 7);
+insert into vote ("vote", user_id, question_id) values (FALSE, 12, 7);
+insert into vote ("vote", user_id, question_id) values (FALSE, 13, 7);
 --question 8
-insert into vote (id, "vote", user_id, question_id) values (83, TRUE, 1, 8);
-insert into vote (id, "vote", user_id, question_id) values (84, TRUE, 2, 8);
-insert into vote (id, "vote", user_id, question_id) values (85, TRUE, 3, 8);
-insert into vote (id, "vote", user_id, question_id) values (86, TRUE, 4, 8);
-insert into vote (id, "vote", user_id, question_id) values (87, TRUE, 5, 8);
-insert into vote (id, "vote", user_id, question_id) values (88, TRUE, 6, 8);
-insert into vote (id, "vote", user_id, question_id) values (89, TRUE, 7, 8);
-insert into vote (id, "vote", user_id, question_id) values (90, TRUE, 9, 8);
-insert into vote (id, "vote", user_id, question_id) values (91, TRUE, 10, 8);
-insert into vote (id, "vote", user_id, question_id) values (92, TRUE, 11, 8);
-insert into vote (id, "vote", user_id, question_id) values (93, FALSE, 12, 8);
-insert into vote (id, "vote", user_id, question_id) values (94, FALSE, 13, 8);
-insert into vote (id, "vote", user_id, question_id) values (95, FALSE, 14, 8);
-insert into vote (id, "vote", user_id, question_id) values (96, FALSE, 15, 8);
-insert into vote (id, "vote", user_id, question_id) values (97, FALSE, 16, 8);
+insert into vote ("vote", user_id, question_id) values (TRUE, 1, 8);
+insert into vote ("vote", user_id, question_id) values (TRUE, 2, 8);
+insert into vote ("vote", user_id, question_id) values (TRUE, 3, 8);
+insert into vote ("vote", user_id, question_id) values (TRUE, 4, 8);
+insert into vote ("vote", user_id, question_id) values (TRUE, 5, 8);
+insert into vote ("vote", user_id, question_id) values (TRUE, 6, 8);
+insert into vote ("vote", user_id, question_id) values (TRUE, 7, 8);
+insert into vote ("vote", user_id, question_id) values (TRUE, 9, 8);
+insert into vote ("vote", user_id, question_id) values (TRUE, 10, 8);
+insert into vote ("vote", user_id, question_id) values (TRUE, 11, 8);
+insert into vote ("vote", user_id, question_id) values (FALSE, 12, 8);
+insert into vote ("vote", user_id, question_id) values (FALSE, 13, 8);
+insert into vote ("vote", user_id, question_id) values (FALSE, 14, 8);
+insert into vote ("vote", user_id, question_id) values (FALSE, 15, 8);
+insert into vote ("vote", user_id, question_id) values (FALSE, 16, 8);
 --answer 1
-insert into vote (id, "vote", user_id, answer_id) values (98, TRUE, 2, 1);
-insert into vote (id, "vote", user_id, answer_id) values (99, TRUE, 3, 1);
-insert into vote (id, "vote", user_id, answer_id) values (100, TRUE, 4, 1);
-insert into vote (id, "vote", user_id, answer_id) values (101, FALSE, 5, 1);
-insert into vote (id, "vote", user_id, answer_id) values (102, FALSE, 6, 1);
+insert into vote ("vote", user_id, answer_id) values (TRUE, 2, 1);
+insert into vote ("vote", user_id, answer_id) values (TRUE, 3, 1);
+insert into vote ("vote", user_id, answer_id) values (TRUE, 4, 1);
+insert into vote ("vote", user_id, answer_id) values (FALSE, 5, 1);
+insert into vote ("vote", user_id, answer_id) values (FALSE, 6, 1);
 --answer 2
-insert into vote (id, "vote", user_id, answer_id) values (103, TRUE, 1, 2);
-insert into vote (id, "vote", user_id, answer_id) values (104, TRUE, 2, 2);
-insert into vote (id, "vote", user_id, answer_id) values (105, TRUE, 4, 2);
-insert into vote (id, "vote", user_id, answer_id) values (106, TRUE, 5, 2);
-insert into vote (id, "vote", user_id, answer_id) values (107, TRUE, 6, 2);
-insert into vote (id, "vote", user_id, answer_id) values (108, TRUE, 7, 2);
-insert into vote (id, "vote", user_id, answer_id) values (109, TRUE, 8, 2);
-insert into vote (id, "vote", user_id, answer_id) values (110, FALSE, 9, 2);
-insert into vote (id, "vote", user_id, answer_id) values (111, FALSE, 10, 2);
-insert into vote (id, "vote", user_id, answer_id) values (112, FALSE, 11, 2);
-insert into vote (id, "vote", user_id, answer_id) values (113, FALSE, 12, 2);
+insert into vote ("vote", user_id, answer_id) values (TRUE, 1, 2);
+insert into vote ("vote", user_id, answer_id) values (TRUE, 2, 2);
+insert into vote ("vote", user_id, answer_id) values (TRUE, 4, 2);
+insert into vote ("vote", user_id, answer_id) values (TRUE, 5, 2);
+insert into vote ("vote", user_id, answer_id) values (TRUE, 6, 2);
+insert into vote ("vote", user_id, answer_id) values (TRUE, 7, 2);
+insert into vote ("vote", user_id, answer_id) values (TRUE, 8, 2);
+insert into vote ("vote", user_id, answer_id) values (FALSE, 9, 2);
+insert into vote ("vote", user_id, answer_id) values (FALSE, 10, 2);
+insert into vote ("vote", user_id, answer_id) values (FALSE, 11, 2);
+insert into vote ("vote", user_id, answer_id) values (FALSE, 12, 2);
 
 --report
-insert into report (id, reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
-	values (1, 5, 10, NULL, NULL, NULL, '2020-04-10', 'This user did not respect the privacy policy of the site');
-insert into report (id, reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
-	values (2, 20, NULL, 3, NULL, NULL, '2020-04-10', 'This question is disrespectful');
-insert into report (id, reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
-	values (3, 21, NULL, NULL, 9, NULL, '2020-01-12', 'This answer is racist');
-insert into report (id, reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
-	values (4, 22, NULL, NULL, NULL, 9, '2020-03-11', 'This comment is totally unhelpful');
+insert into report (reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
+	values (5, 10, NULL, NULL, NULL, '2020-04-10', 'This user did not respect the privacy policy of the site');
+insert into report (reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
+	values (20, NULL, 3, NULL, NULL, '2020-04-10', 'This question is disrespectful');
+insert into report (reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
+	values (21, NULL, NULL, 9, NULL, '2020-01-12', 'This answer is racist');
+insert into report (reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
+	values (22, NULL, NULL, NULL, 9, '2020-03-11', 'This comment is totally unhelpful');
 
 --report_status
-insert into report_status (id, report_id, state, comment, responsible_user)
-	values (1, 1, 'unresolved', 'Waiting for review', 1);
-insert into report_status (id, report_id, state, comment, responsible_user)
-	values (2, 2, 'unresolved', 'Waiting for review', 2);
-insert into report_status (id, report_id, state, comment, responsible_user)
-	values (3, 3, 'reviewing', 'Working on it', 5);
-insert into report_status (id, report_id, state, comment, responsible_user)
-	values (4, 4, 'resolved', 'Finished review, fixed problem', 6);
+insert into report_status (report_id, state, comment, responsible_user)
+	values (1, 'unresolved', 'Waiting for review', 1);
+insert into report_status (report_id, state, comment, responsible_user)
+	values (2, 'unresolved', 'Waiting for review', 2);
+insert into report_status (report_id, state, comment, responsible_user)
+	values (3, 'reviewing', 'Working on it', 5);
+insert into report_status (report_id, state, comment, responsible_user)
+	values (4, 'resolved', 'Finished review, fixed problem', 6);
 
 --question_following
 insert into question_following (user_id, question_id) values (1, 2);
