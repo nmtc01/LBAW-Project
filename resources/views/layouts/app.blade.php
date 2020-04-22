@@ -108,7 +108,11 @@
                         <form>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Write your question here</label>
-                                <textarea class="form-control" id="formControlTextareaQuestion" rows="3"></textarea>
+                                <textarea class="form-control" id="formControlTextareaQuestion" rows="1"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Write more details here</label>
+                                <textarea class="form-control" id="formControlTextareaDescription" rows="3"></textarea>
                             </div>
                             <a href="#" class="badge badge-dark badge-pill">+</a>
                             <div id="form-buttons" class="form-group row">
@@ -117,7 +121,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button id="add_question_btn" type="submit" class="btn btn-primary">Add</button>
+                        <button id="add_question_btn" type="submit" class="btn btn-primary" data-dismiss="modal">Add</button>
                     </div>
                 </div>
             </div>

@@ -85,7 +85,7 @@ function answerAddedHandler() {
 function sendCreateQuestionRequest(event) {
 
     let title = document.getElementById("formControlTextareaQuestion").value; 
-    //let description =; TODO add description
+    let description = document.getElementById("formControlTextareaDescription").value;
 
     if (title != '' && description !='')
         sendAjaxRequest('put', '/api/question', { title: title, description: description }, questionAddedHandler);
@@ -106,10 +106,40 @@ function sendCreateAnswerRequest(event) {
 
 }
 
-function createAnswer(info) {
+function createQuestion(info) {
+    let new_question = document.createElement('question');
+    new_question.classList.add('question');
+    new_question.setAttribute('data-id', 0);
+    new_question.innerHTML = `<div class="wrapper home_question container-fluid">
+                                <div class="row">
+                                    <div id="prof_info" class="col-2 text-center">
+                                        <img src="/img/unknown.png">
+                                        <p><a class="row-2 d-none d-sm-block" href="/pages/profile.php">${info[2]}</a></p>
+                                    </div>
+                                    <div class="col-10">
+                                        <h1><a id="question-header" href="{{ asset('question/'.$question->id) }}">${info[0]}</a></h1>
+                                    </div>
+                                </div>
 
-    //let path = "/img/unknown.png";
-    
+                                <div class="icons">
+                                    <a class="icon" href="#">
+                                    <i class="fas fa-thumbs-up fa-lg">0</i>
+                                    </a>
+                                    <a class="icon" href="#">
+                                        <i class="fas fa-thumbs-down fa-lg">0</i>
+                                    </a>
+                                    <a class="icon" href="#">
+                                        <i class="fas fa-reply fa-lg"> 10 </i>
+                                    </a>
+                                    <p class="icon" id=question_date>${info[3]}</p>
+                                </div>
+                            </div>`;
+
+    return new_question;
+
+}
+
+function createAnswer(info) {
     let new_answer = document.createElement('answer');
     new_answer.classList.add('answer');
     new_answer.setAttribute('data-id', 0);
@@ -143,7 +173,6 @@ function createAnswer(info) {
                                 </li>`;
 
     return new_answer;
-
 }
 
 addEventListeners();

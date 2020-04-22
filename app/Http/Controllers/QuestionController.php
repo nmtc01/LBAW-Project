@@ -79,19 +79,16 @@ class QuestionController extends Controller
      */
     public function create(Request $request)
     {
-
       $question = new Question();
 
       $question->user_id = Auth::user()->id;
       $question->title = $request->input('title');
       $question->description = $request->input('description');
-
       $username = Auth::user()->username;
-      $user_score = Auth::user()->score;
 
       $question->save();
 
-      $info = [$question->content, $username, $user_score];
+      $info = [$question->title, $question->description, $username, $question->date];
 
       return $info;
     }

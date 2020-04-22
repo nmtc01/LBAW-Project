@@ -44,7 +44,6 @@ class AnswerController extends Controller
 
       $info = [$answer->content, $username, $user_score];
 
-      //return $answer;
       return $info;
     }
 
@@ -52,7 +51,7 @@ class AnswerController extends Controller
     {
       $answer = Answer::find($id);
 
-      $this->authorize('delete', $answer);
+      //$this->authorize('delete', $answer);
       $answer->delete();
 
       return $answer;
