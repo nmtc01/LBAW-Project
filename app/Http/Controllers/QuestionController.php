@@ -87,8 +87,8 @@ class QuestionController extends Controller
       $username = Auth::user()->username;
 
       $question->save();
-
-      $info = [$question->title, $question->description, $username, $question->date];
+      
+      $info = [$question->title, $question->description, $username, $question->question_date];
 
       return $info;
     }
