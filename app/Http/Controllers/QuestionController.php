@@ -71,4 +71,28 @@ class QuestionController extends Controller
 
       return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers]);
     }
+
+    /**
+     * Creates a new question.
+     *
+     * @return Question The question created.
+     */
+    public function create(Request $request)
+    {
+
+      $question = new Question();
+
+      $question->user_id = Auth::user()->id;
+      $question->title = $request->input('title');
+      $question->description = $request->input('description');
+
+      $username = Auth::user()->username;
+      $user_score = Auth::user()->score;
+
+      $question->save();
+
+      $info = [$question->content, $username, $user_score];
+
+      return $info;
+    }
 }

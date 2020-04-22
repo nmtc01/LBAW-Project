@@ -1,4 +1,7 @@
 function addEventListeners() {
+    let questionCreator = document.querySelector('#add_question_btn');
+    if (questionCreator != null)
+        questionCreator.addEventListener('click', sendCreateQuestionRequest);
 
     let answerDeleters = document.querySelectorAll('#delete');
     [].forEach.call(answerDeleters, function(deleter) {
@@ -38,6 +41,25 @@ function sendDeleteAnswerRequest() {
   sendAjaxRequest('delete', '/api/answer/' + id, null, answerDeletedHandler);
 }
 
+function questionAddedHandler() {
+    
+    //let question = JSON.parse(this.responseText);
+    let info = JSON.parse(this.responseText);
+    
+    // Create the new Question
+    let new_question = createQuestion(info);
+    
+    let section = document.getElementById("questions-list");
+    
+    let list = document.getElementById("questions-list");
+
+    section.insertBefore(new_question, list.childNodes[0]);
+
+    // Focus on adding an item to the new question
+    new_question.focus();
+
+}
+
 function answerAddedHandler() {
     
     //let answer = JSON.parse(this.responseText);
@@ -55,8 +77,20 @@ function answerAddedHandler() {
 
     section.insertBefore(new_answer, list.childNodes[0]);
 
-    // Focus on adding an item to the new card
+    // Focus on adding an item to the new answer
     new_answer.focus();
+
+}
+
+function sendCreateQuestionRequest(event) {
+
+    let title = document.getElementById("formControlTextareaQuestion").value; 
+    //let description =; TODO add description
+
+    if (title != '' && description !='')
+        sendAjaxRequest('put', '/api/question', { title: title, description: description }, questionAddedHandler);
+
+    event.preventDefault();
 
 }
 
