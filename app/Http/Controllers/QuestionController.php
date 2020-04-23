@@ -19,6 +19,31 @@ class QuestionController extends Controller
     }
 
     /**
+     * Creates a new question.
+     *
+     * @return Question The question created.
+     */
+    public function create(Request $request)
+    {
+      //$this->authorize('show', $question);
+
+      $question = new Question();
+
+      $question->user_id = Auth::user()->id;
+      $question->title = $request->input('title');
+      $question->description = $request->input('description');
+      $username = Auth::user()->username;
+
+      $date = date('Y-m-d');
+
+      $question->save();
+      
+      $info = [$question->title, $question->description, $username, $date, $question->id];
+
+      return $info;
+    }
+
+    /**
      * Shows the Question for a given id.
      *
      * @param  int  $id
@@ -70,26 +95,5 @@ class QuestionController extends Controller
       }
 
       return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers]);
-    }
-
-    /**
-     * Creates a new question.
-     *
-     * @return Question The question created.
-     */
-    public function create(Request $request)
-    {
-      $question = new Question();
-
-      $question->user_id = Auth::user()->id;
-      $question->title = $request->input('title');
-      $question->description = $request->input('description');
-      $username = Auth::user()->username;
-
-      $question->save();
-      
-      $info = [$question->title, $question->description, $username, $question->question_date];
-
-      return $info;
     }
 }

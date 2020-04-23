@@ -43,8 +43,11 @@ function sendDeleteAnswerRequest() {
 
 function questionAddedHandler() {
     
-    //let question = JSON.parse(this.responseText);
     let info = JSON.parse(this.responseText);
+
+    // Reset the new answer input
+    document.getElementById("formControlTextareaQuestion").value = "";
+    document.getElementById("formControlTextareaDescription").value = "";
     
     // Create the new Question
     let new_question = createQuestion(info);
@@ -53,7 +56,7 @@ function questionAddedHandler() {
     
     let list = document.getElementById("questions-list");
 
-    section.insertBefore(new_question, list.childNodes[0]);
+    section.before(new_question, list.childNodes[0]);
 
     // Focus on adding an item to the new question
     new_question.focus();
@@ -117,7 +120,7 @@ function createQuestion(info) {
                                         <p><a class="row-2 d-none d-sm-block" href="/pages/profile.php">${info[2]}</a></p>
                                     </div>
                                     <div class="col-10">
-                                        <h1><a id="question-header" href="{{ asset('question/'.$question->id) }}">${info[0]}</a></h1>
+                                        <h1><a id="question-header" href="question/${info[4]}">${info[0]}</a></h1>
                                     </div>
                                 </div>
 

@@ -24,9 +24,11 @@ Route::post('register', 'Auth\RegisterController@register');
 //Route::get('/', 'QuestionController@list');
 Route::get('/', 'HomeController@show');
 
-// Questions and anwers
+// Questions
 Route::get('question/{id}', 'QuestionController@open');
 Route::put('/api/question', 'QuestionController@create');
+
+// Answers
 Route::put('/api/answer', 'AnswerController@create');
 Route::delete('/api/answer/{id}', 'AnswerController@delete');
 
