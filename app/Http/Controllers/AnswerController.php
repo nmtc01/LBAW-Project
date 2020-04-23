@@ -51,7 +51,7 @@ class AnswerController extends Controller
     {
       $answer = Answer::find($id);
 
-      //$this->authorize('delete', $answer);
+      $this->authorize('delete', $answer);
       $answer->delete();
 
       return $answer;
