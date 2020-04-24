@@ -80,7 +80,7 @@ function answerAddedHandler() {
 
     section.insertBefore(new_answer, list.childNodes[0]);
 
-    // Focus on adding an item to the new answer
+    // Focus on adding a new answer
     new_answer.focus();
 
 }
