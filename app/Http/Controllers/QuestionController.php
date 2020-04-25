@@ -25,9 +25,9 @@ class QuestionController extends Controller
      */
     public function create(Request $request)
     {
-      //$this->authorize('show', $question);
-
       $question = new Question();
+
+      $this->authorize('create', $question);
 
       $question->user_id = Auth::user()->id;
       $question->title = $request->input('title');
@@ -95,5 +95,15 @@ class QuestionController extends Controller
       }
 
       return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers]);
+    }
+
+    public function delete(Request $request, $id)
+    {
+      $question = Question::find($id);
+
+      $this->authorize('delete', $question);
+      $question->delete();
+
+      return $question;
     }
 }

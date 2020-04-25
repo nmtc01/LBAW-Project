@@ -28,7 +28,7 @@
                     <i class="fas fa-bug"> Report</i>
                 </a>
                 @if (Auth::check() && Auth::user()->id == $answer->user_id)
-                <a class="icon-answers" id="delete">
+                <a class="icon-answers" id="delete_answer">
                     <i class="fas fa-trash-alt"></i>
                 </a>
                 @endif

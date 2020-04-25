@@ -3,9 +3,14 @@ function addEventListeners() {
     if (questionCreator != null)
         questionCreator.addEventListener('click', sendCreateQuestionRequest);
 
-    let answerDeleters = document.querySelectorAll('#delete');
+    let answerDeleters = document.querySelectorAll('#delete_answer');
     [].forEach.call(answerDeleters, function(deleter) {
         deleter.addEventListener('click', sendDeleteAnswerRequest);
+    });
+
+    let questionDeleters = document.querySelectorAll('#delete_question');
+    [].forEach.call(questionDeleters, function(deleter) {
+        deleter.addEventListener('click', sendDeleteQuestionRequest);
     });
 
     let answerCreator = document.querySelector('div.form-group .btn.my-2.my-sm-0');
@@ -35,9 +40,21 @@ function answerDeletedHandler() {
   li.remove();
 }
 
+function questionDeletedHandler() {
+    if (this.status != 200) window.location = '/';
+    let question = JSON.parse(this.responseText);
+    let div = document.querySelector('div#question-div[data-id="' + question.id + '"]');
+    div.remove();
+  }
+
 function sendDeleteAnswerRequest() {
     let id = this.closest('li#answer').getAttribute('data-id');
     sendAjaxRequest('delete', '/api/answer/' + id, null, answerDeletedHandler);
+}
+
+function sendDeleteQuestionRequest() {
+    let id = this.closest('div#question-div').getAttribute('data-id');
+    sendAjaxRequest('delete', '/api/question/' + id, null);//, questionDeletedHandler);
 }
 
 function questionAddedHandler() {
@@ -171,7 +188,7 @@ function createAnswer(info) {
                                         <a class="icon-answers" href="#">
                                             <i class="fas fa-bug"> Report</i>
                                         </a>
-                                        <a class="icon-answers" id="delete">
+                                        <a class="icon-answers" id="delete_answer">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                     </div>

@@ -14,7 +14,7 @@ class AnswerPolicy
 
     public function delete(User $user, Answer $answer)
     {
-      // Only a answer owner can delete it
+      // Only an answer owner can delete it
       return $user->id == $answer->user_id;
     }
 
