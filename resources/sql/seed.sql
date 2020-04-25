@@ -76,7 +76,7 @@ CREATE TABLE question (
 CREATE TABLE answer (
     id               SERIAL          PRIMARY KEY,
     user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
-    question_id      INTEGER         REFERENCES "question" (id) NOT NULL,
+    question_id      INTEGER         REFERENCES "question" (id) ON DELETE CASCADE NOT NULL,
     answer_date      DATE            DEFAULT 'Now' NOT NULL,
     content          TEXT            NOT NULL,
     nr_likes         INTEGER         DEFAULT 0 NOT NULL,
@@ -91,8 +91,8 @@ CREATE TABLE answer (
 CREATE TABLE comment (
     id               SERIAL          PRIMARY KEY,
     user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
-    question_id      INTEGER         REFERENCES "question" (id),
-    answer_id        INTEGER         REFERENCES "answer" (id),
+    question_id      INTEGER         REFERENCES "question" (id) ON DELETE CASCADE,
+    answer_id        INTEGER         REFERENCES "answer" (id) ON DELETE CASCADE,
     content          TEXT            NOT NULL,
     comment_date     DATE            DEFAULT 'Now' NOT NULL,
     CHECK (
@@ -106,8 +106,8 @@ CREATE TABLE vote (
     id               SERIAL          PRIMARY KEY,
     "vote"           BOOLEAN         NOT NULL,
     user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
-    question_id      INTEGER         REFERENCES "question" (id),
-    answer_id        INTEGER         REFERENCES "answer" (id),
+    question_id      INTEGER         REFERENCES "question" (id) ON DELETE CASCADE,
+    answer_id        INTEGER         REFERENCES "answer" (id) ON DELETE CASCADE,
     CHECK (
         (question_id IS NOT NULL AND answer_id IS NULL) OR
         (question_id IS NULL AND answer_id IS NOT NULL)
@@ -119,9 +119,9 @@ CREATE TABLE report (
     id               SERIAL          PRIMARY KEY,
     reporter_id      INTEGER         REFERENCES "user" (id) NOT NULL,
     user_id          INTEGER         REFERENCES "user" (id),
-    question_id      INTEGER         REFERENCES "question" (id),
-    answer_id        INTEGER         REFERENCES "answer" (id),   
-    comment_id       INTEGER         REFERENCES "comment" (id),
+    question_id      INTEGER         REFERENCES "question" (id) ON DELETE CASCADE,
+    answer_id        INTEGER         REFERENCES "answer" (id) ON DELETE CASCADE,   
+    comment_id       INTEGER         REFERENCES "comment" (id) ON DELETE CASCADE,
     report_date      DATE            DEFAULT 'Now' NOT NULL,
     description      TEXT            NOT NULL,
     CHECK(
@@ -147,7 +147,7 @@ CREATE TABLE report_status (
 -- Table: question_following
 CREATE TABLE question_following (
     user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
-    question_id      INTEGER         REFERENCES "question" (id) NOT NULL,
+    question_id      INTEGER         REFERENCES "question" (id) ON DELETE CASCADE NOT NULL,
     PRIMARY KEY (user_id, question_id)
 );
 
@@ -160,7 +160,7 @@ CREATE TABLE label_following (
 
 -- Table: question_label
 CREATE TABLE question_label (
-    question_id      INTEGER         REFERENCES "question" (id) NOT NULL,
+    question_id      INTEGER         REFERENCES "question" (id) ON DELETE CASCADE NOT NULL,
     label_id         INTEGER         REFERENCES "label" (id) NOT NULL,
     PRIMARY KEY (question_id, label_id)
 );

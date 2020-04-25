@@ -80,6 +80,7 @@ class QuestionController extends Controller
     public function open($id)
     {
       $question = Question::find($id);
+
       $user = $this->userController->getUsername($question->user_id);
       $comments = $this->commentController->list($question->id);
       $answers = $this->answerController->list($question->id);

@@ -12,7 +12,7 @@ class QuestionPolicy
 {
     use HandlesAuthorization;
 
-    public function delete(User $user, Answer $question)
+    public function delete(User $user, Question $question)
     {
       // Only an question owner can delete it
       return $user->id == $question->user_id;

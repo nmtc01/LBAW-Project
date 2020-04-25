@@ -41,11 +41,11 @@ function answerDeletedHandler() {
 }
 
 function questionDeletedHandler() {
-    if (this.status != 200) window.location = '/';
+    if (this.status == 200) window.location = '/';
     let question = JSON.parse(this.responseText);
     let div = document.querySelector('div#question-div[data-id="' + question.id + '"]');
     div.remove();
-  }
+}
 
 function sendDeleteAnswerRequest() {
     let id = this.closest('li#answer').getAttribute('data-id');
@@ -54,7 +54,7 @@ function sendDeleteAnswerRequest() {
 
 function sendDeleteQuestionRequest() {
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('delete', '/api/question/' + id, null);//, questionDeletedHandler);
+    sendAjaxRequest('delete', '/api/question/' + id, null, questionDeletedHandler);
 }
 
 function questionAddedHandler() {
