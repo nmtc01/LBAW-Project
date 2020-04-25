@@ -18,6 +18,12 @@ class AnswerPolicy
       return $user->id == $answer->user_id;
     }
 
+    public function create(User $user)
+    {
+      // Any Authenticated user can reply to a question
+      return Auth::check();
+    }
+
     /*public function show(User $user, Card $card)
     {
       // Only a card owner can see it

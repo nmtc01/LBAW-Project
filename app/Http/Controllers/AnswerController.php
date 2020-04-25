@@ -34,6 +34,8 @@ class AnswerController extends Controller
 
       $answer = new Answer();
 
+      $this->authorize('create', $answer);
+
       $answer->content = $request->input('content');
       $answer->user_id = Auth::user()->id;
       $answer->question_id = $request->input('question_index');

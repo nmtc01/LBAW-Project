@@ -15,7 +15,7 @@
                 <form class="new_answer">
                     <textarea class="form-control" placeholder="Do you know the answer to this question?"id="exampleFormControlTextarea1" rows="4"></textarea>
                 </form>
-                <button class="btn my-2 my-sm-0" type="submit">Answer</button>
+                <button class="btn my-2 my-sm-0" type="submit"> Answer </button>
             </div>
 
             <div class="form-group">
@@ -23,7 +23,6 @@
                 <textarea class="form-control" placeholder="Do you want to comment this question?"id="exampleFormControlTextarea1" rows="2"></textarea>
                 <button class="btn my-2 my-sm-0" type="submit">Comment</button>
             </div>
-
             @include('partials.comments')              
             @include('partials.answers')
         </div>
