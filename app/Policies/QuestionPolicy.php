@@ -23,5 +23,11 @@ class QuestionPolicy
       // Any Authenticated user can create a question
       return Auth::check();
     }
+
+    public function edit(User $user, Question $question)
+    {
+      // Only an question owner can edit it
+      return $user->id == $question->user_id;
+    }
     
 }

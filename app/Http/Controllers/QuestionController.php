@@ -107,4 +107,23 @@ class QuestionController extends Controller
 
       return $question;
     }
+
+    public function edit(Request $request, $id) 
+    {
+      $question = new Question();
+
+      //$this->authorize('edit', $question);
+
+      $question->user_id = Auth::user()->id;
+      $question->title = $request->input('title');
+      $question->description = $request->input('description');
+      $username = Auth::user()->username;
+
+      $date = date('Y-m-d');
+      
+      $info = [$question->title, $question->description, $username, $date, $id];
+
+      return $info;
+
+    }
 }

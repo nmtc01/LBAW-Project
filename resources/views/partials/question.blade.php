@@ -5,6 +5,9 @@
         <a class="icon-question" id="delete_question">
             <i class="fas fa-trash-alt"> Delete</i>
         </a>
+        <a class="icon-question" id="edit_question">
+            <i class="fas fa-edit"> Edit</i>
+        </a>
         @endif
     </div>
     <div id="prof-img" class="col-sm-3 text-center">
@@ -15,7 +18,7 @@
     </div>
 </div>
 <div>
-    <p>{{ $question->description }}</p>
+    <p id="question_description">{{ $question->description }}</p>
     <div class=icons>
         <a class="icon" href="#">
             <i class="fas fa-thumbs-up fa-lg"> {{ $question->nr_likes }}</i>

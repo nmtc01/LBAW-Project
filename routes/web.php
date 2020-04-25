@@ -28,6 +28,7 @@ Route::get('/', 'HomeController@show');
 Route::get('question/{id}', 'QuestionController@open');
 Route::put('/api/question', 'QuestionController@create');
 Route::delete('/api/question/{id}', 'QuestionController@delete');
+Route::put('/api/question/{id}', 'QuestionController@edit');
 
 // Answers
 Route::put('/api/answer', 'AnswerController@create');

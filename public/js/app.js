@@ -3,6 +3,10 @@ function addEventListeners() {
     if (questionCreator != null)
         questionCreator.addEventListener('click', sendCreateQuestionRequest);
 
+    let answerCreator = document.querySelector('div.form-group .btn.my-2.my-sm-0');
+    if (answerCreator != null)
+        answerCreator.addEventListener('click', sendCreateAnswerRequest);
+
     let answerDeleters = document.querySelectorAll('#delete_answer');
     [].forEach.call(answerDeleters, function(deleter) {
         deleter.addEventListener('click', sendDeleteAnswerRequest);
@@ -13,9 +17,10 @@ function addEventListeners() {
         deleter.addEventListener('click', sendDeleteQuestionRequest);
     });
 
-    let answerCreator = document.querySelector('div.form-group .btn.my-2.my-sm-0');
-    if (answerCreator != null)
-        answerCreator.addEventListener('click', sendCreateAnswerRequest);
+    let questionEditors = document.querySelectorAll('#edit_question');
+    [].forEach.call(questionEditors, function(editor) {
+        editor.addEventListener('click', sendEditQuestionRequest);
+    });
 }
 
 function encodeForAjax(data) {
@@ -32,29 +37,6 @@ function sendAjaxRequest(method, url, data, handler) {
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.addEventListener('load', handler);
     request.send(encodeForAjax(data));
-}
-
-function answerDeletedHandler() {
-  let answer = JSON.parse(this.responseText);
-  let li = document.querySelector('li#answer[data-id="' + answer.id + '"]');
-  li.remove();
-}
-
-function questionDeletedHandler() {
-    if (this.status == 200) window.location = '/';
-    let question = JSON.parse(this.responseText);
-    let div = document.querySelector('div#question-div[data-id="' + question.id + '"]');
-    div.remove();
-}
-
-function sendDeleteAnswerRequest() {
-    let id = this.closest('li#answer').getAttribute('data-id');
-    sendAjaxRequest('delete', '/api/answer/' + id, null, answerDeletedHandler);
-}
-
-function sendDeleteQuestionRequest() {
-    let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('delete', '/api/question/' + id, null, questionDeletedHandler);
 }
 
 function questionAddedHandler() {
@@ -101,6 +83,55 @@ function answerAddedHandler() {
 
     addEventListeners();
 
+}
+
+function answerDeletedHandler() {
+  let answer = JSON.parse(this.responseText);
+  let li = document.querySelector('li#answer[data-id="' + answer.id + '"]');
+  li.remove();
+}
+
+function questionDeletedHandler() {
+    if (this.status == 200) window.location = '/';
+    let question = JSON.parse(this.responseText);
+    let div = document.querySelector('div#question-div[data-id="' + question.id + '"]');
+    div.remove();
+}
+
+function questionEditedHandler() {
+    let info = JSON.parse(this.responseText);
+    
+    // Create the new Question
+    let new_title = editTitle(info);
+    let new_description = editDescription(info);
+    
+    let div_title = document.querySelector("div#question-div h1");
+    let div_description = document.querySelector("div#question-div #question_description");
+    div_title.innerHTML = new_title.innerHTML;
+    div_description.outerHTML = new_description.innerHTML;
+
+    // Focus on adding an item to the new question
+    new_title.focus();
+    new_description.focus();
+}
+
+function sendDeleteAnswerRequest() {
+    let id = this.closest('li#answer').getAttribute('data-id');
+    sendAjaxRequest('delete', '/api/answer/' + id, null, answerDeletedHandler);
+}
+
+function sendDeleteQuestionRequest() {
+    let id = this.closest('div#question-div').getAttribute('data-id');
+    sendAjaxRequest('delete', '/api/question/' + id, null, questionDeletedHandler);
+}
+
+function sendEditQuestionRequest() {
+    let id = this.closest('div#question-div').getAttribute('data-id');
+    let title = document.querySelector("div#question-div h1").textContent; 
+    let description = document.querySelector("div#question-div #question_description").textContent;
+
+    if (title != '' && description !='')
+        sendAjaxRequest('put', '/api/question/' + id, { title: title, description: description }, questionEditedHandler);
 }
 
 function sendCreateQuestionRequest(event) {
@@ -155,6 +186,28 @@ function createQuestion(info) {
                                     <p class="icon" id=question_date>${info[3]}</p>
                                 </div>
                             </div>`;
+
+    return new_question;
+
+}
+
+function editTitle(info) {
+    let new_question = document.createElement('question');
+    new_question.classList.add('question');
+    new_question.setAttribute('data-id', 0);
+    new_question.innerHTML =   `<div class="col-sm-9">
+                                    <input class="form-control" type="text" value="${info[0]}">
+                                </div>`;
+
+    return new_question;
+
+}
+
+function editDescription(info) {
+    let new_question = document.createElement('question');
+    new_question.classList.add('question');
+    new_question.setAttribute('data-id', 0);
+    new_question.innerHTML = `<input id="question_description" class="form-control" type="text" value="${info[1]}">`;
 
     return new_question;
 
