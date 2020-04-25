@@ -30,19 +30,19 @@ class AnswerController extends Controller
      */
     public function create(Request $request)
     {
+      //$this->authorize('create', $answer);
 
       $answer = new Answer();
 
       $answer->content = $request->input('content');
       $answer->user_id = Auth::user()->id;
       $answer->question_id = $request->input('question_index');
-
+      $answer->save();
+      
       $username = Auth::user()->username;
       $user_score = Auth::user()->score;
 
-      $answer->save();
-
-      $info = [$answer->content, $username, $user_score];
+      $info = [$answer->content, $username, $user_score, $answer->id];
 
       return $info;
     }

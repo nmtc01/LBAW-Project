@@ -36,9 +36,8 @@ function answerDeletedHandler() {
 }
 
 function sendDeleteAnswerRequest() {
-  let id = this.closest('li#answer').getAttribute('data-id');
-
-  sendAjaxRequest('delete', '/api/answer/' + id, null, answerDeletedHandler);
+    let id = this.closest('li#answer').getAttribute('data-id');
+    sendAjaxRequest('delete', '/api/answer/' + id, null, answerDeletedHandler);
 }
 
 function questionAddedHandler() {
@@ -82,6 +81,8 @@ function answerAddedHandler() {
 
     // Focus on adding an item to the new answer
     new_answer.focus();
+
+    addEventListeners();
 
 }
 
@@ -145,8 +146,7 @@ function createQuestion(info) {
 function createAnswer(info) {
     let new_answer = document.createElement('answer');
     new_answer.classList.add('answer');
-    new_answer.setAttribute('data-id', 0);
-    new_answer.innerHTML = `<li id="answer">
+    new_answer.innerHTML = `<li id="answer" data-id="${info[3]}">
                                 <div class="row">
                                     <a class="col-sm-3 d-none d-sm-block text-center" href="../pages/profile.php">
                                         <img src="/img/unknown.png" alt="Generic placeholder image">
@@ -171,9 +171,12 @@ function createAnswer(info) {
                                         <a class="icon-answers" href="#">
                                             <i class="fas fa-bug"> Report</i>
                                         </a>
+                                        <a class="icon-answers" id="delete">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
                                     </div>
                                 </div>
-                                </li>`;
+                            </li>`;
 
     return new_answer;
 }
