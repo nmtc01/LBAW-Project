@@ -110,9 +110,9 @@ class QuestionController extends Controller
 
     public function edit(Request $request, $id) 
     {
-      $question = new Question();
+      $question = Question::find($id);
 
-      //$this->authorize('edit', $question);
+      $this->authorize('edit', $question);
 
       $question->user_id = Auth::user()->id;
       $question->title = $request->input('title');
@@ -120,6 +120,27 @@ class QuestionController extends Controller
       $username = Auth::user()->username;
 
       $date = date('Y-m-d');
+      
+      $info = [$question->title, $question->description, $username, $date, $id];
+
+      return $info;
+
+    }
+
+    public function update(Request $request, $id) 
+    {
+      $question = Question::find($id);
+
+      $this->authorize('edit', $question);
+
+      $question->user_id = Auth::user()->id;
+      $question->title = $request->input('title');
+      $question->description = $request->input('description');
+      $username = Auth::user()->username;
+
+      $date = date('Y-m-d');
+
+      $question->save();
       
       $info = [$question->title, $question->description, $username, $date, $id];
 

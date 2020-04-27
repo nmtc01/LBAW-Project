@@ -17,10 +17,17 @@ function addEventListeners() {
         deleter.addEventListener('click', sendDeleteQuestionRequest);
     });
 
-    let questionEditors = document.querySelectorAll('#edit_question');
-    [].forEach.call(questionEditors, function(editor) {
-        editor.addEventListener('click', sendEditQuestionRequest);
-    });
+    let questionEditor = document.querySelector('#edit_question');
+    if (questionEditor != null) {
+        questionEditor.addEventListener('click', sendEditQuestionRequest);
+        questionEditor.addEventListener('click', hideEdit);
+    }
+
+    let questionUpdator = document.querySelector('#save_question');
+    if (questionUpdator != null) {
+        questionUpdator.addEventListener('click', sendUpdateQuestionRequest);
+        questionUpdator.addEventListener('click', hideUpdate);
+    }
 }
 
 function encodeForAjax(data) {
@@ -107,12 +114,35 @@ function questionEditedHandler() {
     
     let div_title = document.querySelector("div#question-div h1");
     let div_description = document.querySelector("div#question-div #question_description");
-    div_title.innerHTML = new_title.innerHTML;
-    div_description.outerHTML = new_description.innerHTML;
 
+    div_title.innerHTML = new_title.innerHTML;
+    div_description.innerHTML = new_description.innerHTML;
+    
     // Focus on adding an item to the new question
     new_title.focus();
     new_description.focus();
+
+    addEventListeners();
+}
+
+function questionUpdatedHandler() {
+    let info = JSON.parse(this.responseText);
+    
+    // Create the new Question
+    let new_title = updateTitle(info);
+    let new_description = updateDescription(info);
+    
+    let div_title = document.querySelector("div#question-div #question_title");
+    let div_description = document.querySelector("div#question-div #question_description");
+
+    div_title.outerHTML = new_title.innerHTML;
+    div_description.outerHTML = new_description.innerHTML;
+    
+    // Focus on adding an item to the new question
+    new_title.focus();
+    new_description.focus();
+
+    addEventListeners();
 }
 
 function sendDeleteAnswerRequest() {
@@ -132,6 +162,15 @@ function sendEditQuestionRequest() {
 
     if (title != '' && description !='')
         sendAjaxRequest('put', '/api/question/' + id, { title: title, description: description }, questionEditedHandler);
+}
+
+function sendUpdateQuestionRequest() {
+    let id = this.closest('div#question-div').getAttribute('data-id');
+    let title = document.querySelector('input#question_title').value; 
+    let description = document.querySelector('div#question-div input#question_description').value;
+
+    if (title != "" && description != "")
+        sendAjaxRequest('put', '/api/question/' + id + '/update', { title: title, description: description }, questionUpdatedHandler);
 }
 
 function sendCreateQuestionRequest(event) {
@@ -195,9 +234,7 @@ function editTitle(info) {
     let new_question = document.createElement('question');
     new_question.classList.add('question');
     new_question.setAttribute('data-id', 0);
-    new_question.innerHTML =   `<div class="col-sm-9">
-                                    <input class="form-control" type="text" value="${info[0]}">
-                                </div>`;
+    new_question.innerHTML = `<input id="question_title" class="form-control" type="text" value="${info[0]}">`;
 
     return new_question;
 
@@ -208,6 +245,25 @@ function editDescription(info) {
     new_question.classList.add('question');
     new_question.setAttribute('data-id', 0);
     new_question.innerHTML = `<input id="question_description" class="form-control" type="text" value="${info[1]}">`;
+
+    return new_question;
+
+}
+
+function updateTitle(info) {
+    let new_question = document.createElement('question');
+    new_question.classList.add('question');
+    new_question.setAttribute('data-id', 0);
+    new_question.innerHTML = `<h1 id="question_title">${info[0]}</h1>`;
+
+    return new_question;
+}
+
+function updateDescription(info) {
+    let new_question = document.createElement('question');
+    new_question.classList.add('question');
+    new_question.setAttribute('data-id', 0);
+    new_question.innerHTML = `<p id="question_description">${info[1]}</p>`;
 
     return new_question;
 
@@ -249,6 +305,28 @@ function createAnswer(info) {
                             </li>`;
 
     return new_answer;
+}
+
+function hideEdit() {
+    let edit_btn = document.getElementById('edit_question');
+    if (edit_btn.style.display === "none") {
+        edit_btn.style.display = "block";
+    } else {
+        edit_btn.style.display = "none";
+    }
+    let update_btn = document.getElementById('save_question');
+    update_btn.style.display = "block";
+}
+
+function hideUpdate() {
+    let update_btn = document.getElementById('save_question');
+    if (update_btn.style.display === "none") {
+        update_btn.style.display = "block";
+    } else {
+        update_btn.style.display = "none";
+    }
+    let edit_btn = document.getElementById('edit_question');
+    edit_btn.style.display = "block";
 }
 
 addEventListeners();
