@@ -145,7 +145,7 @@ function answerEditedHandler() {
     // Edit Answer
     let new_content = editAnswerContent(info);
     let div_content = document.querySelector("ul#answers-list #answer"+info[3]+" #answer_content");
-    div_content.innerHTML = new_content.innerHTML;
+    div_content.outerHTML = new_content.innerHTML;
     
     // Focus
     new_content.focus();
@@ -415,27 +415,26 @@ function hideUpdateQuestion() {
 
 function hideEditAnswer() {
     let id = event.target.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id');
-    console.log(id);
     let edit_btn = document.getElementById('edit_answer'+id);
     if (edit_btn.style.display === "none") {
-        edit_btn.style.display = "block";
+        edit_btn.style.display = "contents";
     } else {
         edit_btn.style.display = "none";
     }
     let update_btn = document.getElementById('save_answer'+id);
-    update_btn.style.display = "block";
+    update_btn.style.display = "contents";
 }
 
 function hideUpdateAnswer() {
     let id = event.target.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id');
     let update_btn = document.getElementById('save_answer'+id);
     if (update_btn.style.display === "none") {
-        update_btn.style.display = "block";
+        update_btn.style.display = "contents";
     } else {
         update_btn.style.display = "none";
     }
     let edit_btn = document.getElementById('edit_answer'+id);
-    edit_btn.style.display = "block";
+    edit_btn.style.display = "contents";
 }
 
 addEventListeners();
