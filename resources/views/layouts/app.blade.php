@@ -148,7 +148,7 @@
                         <a href="../pages/profile.php">Access my profile</a>
                         </li>
                         <li>
-                        <a href="../pages/admin.php">Moderate</a>
+                        <a href="../pages/admin">Moderate</a>
                         </li>
                         @endif
                         <li>

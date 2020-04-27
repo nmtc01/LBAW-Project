@@ -9,4 +9,8 @@ class StaticController extends Controller
     public function about() {
         return view('pages.about', []);
     }
+
+    public function p404() {
+        return view('errors.404', []);
+    }
 }

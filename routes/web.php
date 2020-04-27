@@ -39,4 +39,5 @@ Route::put('/api/answer/{id}/update', 'AnswerController@update');
 
 // Static pages
 Route::get('/about', 'StaticController@about');
+Route::get('/404', 'StaticController@p404');
 
