@@ -97,4 +97,14 @@ class AnswerController extends Controller
 
     }
 
+    public function getNrAnswers($question_id){
+
+      //$count = Answer::where('question_id', $question_id)->get();
+      $count = Answer::where('question_id', $question_id)->count();
+
+      return $count;
+
+
+    }
+
 }

@@ -24,7 +24,7 @@
                 <i class="fas fa-thumbs-down fa-lg"> {{ $question->nr_dislikes }}</i>
             </a>
             <a class="icon" href="#">
-                <i class="fas fa-reply fa-lg"> 10 </i>
+                <i class="fas fa-reply fa-lg"> {{ isset($nr_answers[$question->id]) ?  $nr_answers[$question->id] : 0}} </i>
             </a>
 
             @if (Auth::check())
