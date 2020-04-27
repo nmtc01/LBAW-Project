@@ -34,6 +34,8 @@ Route::put('/api/question/{id}/update', 'QuestionController@update');
 // Answers
 Route::put('/api/answer', 'AnswerController@create');
 Route::delete('/api/answer/{id}', 'AnswerController@delete');
+Route::put('/api/answer/{id}', 'AnswerController@edit');
+Route::put('/api/answer/{id}/update', 'AnswerController@update');
 
 // Static pages
 Route::get('/about', 'StaticController@about');

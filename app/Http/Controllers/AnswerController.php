@@ -59,5 +59,42 @@ class AnswerController extends Controller
       return $answer;
     }
 
+    public function edit(Request $request, $id) 
+    {
+      $answer = Answer::find($id);
+
+      $this->authorize('edit', $answer);
+
+      $answer->user_id = Auth::user()->id;
+      $answer->content = $request->input('content');
+      $username = Auth::user()->username;
+
+      $date = date('Y-m-d');
+      
+      $info = [$answer->content, $username, $date, $id];
+
+      return $info;
+
+    }
+
+    public function update(Request $request, $id) 
+    {
+      $answer = Answer::find($id);
+
+      $this->authorize('edit', $answer);
+
+      $answer->user_id = Auth::user()->id;
+      $answer->content = $request->input('content');
+      $username = Auth::user()->username;
+
+      $date = date('Y-m-d');
+
+      $answer->save();
+      
+      $info = [$answer->content, $username, $date, $id];
+
+      return $info;
+
+    }
 
 }

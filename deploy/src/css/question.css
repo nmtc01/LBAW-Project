@@ -96,12 +96,12 @@ p#user_ans a {
     font-weight: bold;
 }
 
-li#answer {
+li.answer_item {
     border-top: solid 1px #b3afaf;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
-li#answer .ans-body p {
+li.answer_item .ans-body p {
     margin-top: .5rem;
 }

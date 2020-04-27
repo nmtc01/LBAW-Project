@@ -152,6 +152,7 @@ a {
 
 .fa-bug {
     float: right;
+    margin-top: 0.2rem; 
 }
 
 nav .pagination {

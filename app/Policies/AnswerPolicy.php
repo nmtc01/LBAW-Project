@@ -24,6 +24,12 @@ class AnswerPolicy
       return Auth::check();
     }
 
+    public function edit(User $user, Answer $answer)
+    {
+      // Only an answer owner can edit it
+      return $user->id == $answer->user_id;
+    }
+
     /*public function show(User $user, Card $card)
     {
       // Only a card owner can see it

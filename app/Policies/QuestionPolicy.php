@@ -14,7 +14,7 @@ class QuestionPolicy
 
     public function delete(User $user, Question $question)
     {
-      // Only an question owner can delete it
+      // Only a question owner can delete it
       return $user->id == $question->user_id;
     }
 
@@ -26,7 +26,7 @@ class QuestionPolicy
 
     public function edit(User $user, Question $question)
     {
-      // Only an question owner can edit it
+      // Only a question owner can edit it
       return $user->id == $question->user_id;
     }
     

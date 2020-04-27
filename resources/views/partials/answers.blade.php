@@ -2,7 +2,7 @@
             
 <ul class="list-unstyled" id="answers-list">
     @foreach($answers as $answer)
-    <li id="answer" data-id = "{{$answer->id}}">
+    <li id="answer{{$answer->id}}" class="answer_item" data-id = "{{$answer->id}}">
         <div class="row">
             <a class="col-sm-3 d-none d-sm-block text-center" href="../pages/profile.php">
                 <img src="{{ asset('img/unknown.png') }}" alt="Generic placeholder image">
@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="ans-body">
-            <p>{{ $answer->content }}</p>
+            <p id="answer_content">{{ $answer->content }}</p>
             <div class=icons-answers>
                 <a class="icon-answers" href="#">
                     <i class="fas fa-thumbs-up">{{ $answer->nr_likes }}</i>
@@ -28,6 +28,12 @@
                     <i class="fas fa-bug"> Report</i>
                 </a>
                 @if (Auth::check() && Auth::user()->id == $answer->user_id)
+                <a class="icon-answers edit_answer_btn" id="edit_answer{{$answer->id}}">
+                    <i class="fas fa-edit"> Edit</i>
+                </a>
+                <a class="icon-answers save_answer_btn" id="save_answer{{$answer->id}}">
+                    <i class="fas fa-save"> Save</i>
+                </a>
                 <a class="icon-answers" id="delete_answer">
                     <i class="fas fa-trash-alt"></i>
                 </a>

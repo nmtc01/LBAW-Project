@@ -20,14 +20,28 @@ function addEventListeners() {
     let questionEditor = document.querySelector('#edit_question');
     if (questionEditor != null) {
         questionEditor.addEventListener('click', sendEditQuestionRequest);
-        questionEditor.addEventListener('click', hideEdit);
+        questionEditor.addEventListener('click', hideEditQuestion);
     }
 
     let questionUpdator = document.querySelector('#save_question');
     if (questionUpdator != null) {
         questionUpdator.addEventListener('click', sendUpdateQuestionRequest);
-        questionUpdator.addEventListener('click', hideUpdate);
+        questionUpdator.addEventListener('click', hideUpdateQuestion);
     }
+
+    let answerEditors = document.querySelectorAll('.edit_answer_btn');
+    if (answerEditors != null)
+        [].forEach.call(answerEditors, function(editor) {
+            editor.addEventListener('click', sendEditAnswerRequest);
+            editor.addEventListener('click', hideEditAnswer);
+        });
+
+    let answerUpdators = document.querySelectorAll('.save_answer_btn');
+    if (answerUpdators != null)
+        [].forEach.call(answerUpdators, function(updator) {
+            updator.addEventListener('click', sendUpdateAnswerRequest);
+            updator.addEventListener('click', hideUpdateAnswer);
+        });
 }
 
 function encodeForAjax(data) {
@@ -63,7 +77,7 @@ function questionAddedHandler() {
 
     section.before(new_question, list.childNodes[0]);
 
-    // Focus on adding an item to the new question
+    // Focus on adding a new question
     new_question.focus();
 
 }
@@ -94,7 +108,7 @@ function answerAddedHandler() {
 
 function answerDeletedHandler() {
   let answer = JSON.parse(this.responseText);
-  let li = document.querySelector('li#answer[data-id="' + answer.id + '"]');
+  let li = document.querySelector('li#answer'+answer.id+'[data-id="' + answer.id + '"]');
   li.remove();
 }
 
@@ -108,7 +122,7 @@ function questionDeletedHandler() {
 function questionEditedHandler() {
     let info = JSON.parse(this.responseText);
     
-    // Create the new Question
+    // Edit Question
     let new_title = editTitle(info);
     let new_description = editDescription(info);
     
@@ -118,9 +132,23 @@ function questionEditedHandler() {
     div_title.innerHTML = new_title.innerHTML;
     div_description.innerHTML = new_description.innerHTML;
     
-    // Focus on adding an item to the new question
+    // Focus 
     new_title.focus();
     new_description.focus();
+
+    addEventListeners();
+}
+
+function answerEditedHandler() {
+    let info = JSON.parse(this.responseText);
+    
+    // Edit Answer
+    let new_content = editAnswerContent(info);
+    let div_content = document.querySelector("ul#answers-list #answer"+info[3]+" #answer_content");
+    div_content.innerHTML = new_content.innerHTML;
+    
+    // Focus
+    new_content.focus();
 
     addEventListeners();
 }
@@ -128,7 +156,7 @@ function questionEditedHandler() {
 function questionUpdatedHandler() {
     let info = JSON.parse(this.responseText);
     
-    // Create the new Question
+    // Update question
     let new_title = updateTitle(info);
     let new_description = updateDescription(info);
     
@@ -138,15 +166,29 @@ function questionUpdatedHandler() {
     div_title.outerHTML = new_title.innerHTML;
     div_description.outerHTML = new_description.innerHTML;
     
-    // Focus on adding an item to the new question
+    // Focus 
     new_title.focus();
     new_description.focus();
 
     addEventListeners();
 }
 
+function answerUpdatedHandler() {
+    let info = JSON.parse(this.responseText);
+    
+    // Update answer
+    let new_content = updateAnswerContent(info);
+    let div_content = document.querySelector("ul#answers-list #answer"+info[3]+" #answer_content");
+    div_content.outerHTML = new_content.innerHTML;
+    
+    // Focus 
+    new_content.focus();
+
+    addEventListeners();
+}
+
 function sendDeleteAnswerRequest() {
-    let id = this.closest('li#answer').getAttribute('data-id');
+    let id = this.closest('li.answer_item').getAttribute('data-id');
     sendAjaxRequest('delete', '/api/answer/' + id, null, answerDeletedHandler);
 }
 
@@ -164,6 +206,15 @@ function sendEditQuestionRequest() {
         sendAjaxRequest('put', '/api/question/' + id, { title: title, description: description }, questionEditedHandler);
 }
 
+function sendEditAnswerRequest() {
+    let div = event.target.parentElement.parentElement.parentElement.parentElement;
+    let id = div.getAttribute('data-id');
+    let content = document.querySelector("ul#answers-list #answer"+id+" #answer_content").textContent; 
+
+    if (content != '')
+        sendAjaxRequest('put', '/api/answer/' + id, { content: content }, answerEditedHandler);
+}
+
 function sendUpdateQuestionRequest() {
     let id = this.closest('div#question-div').getAttribute('data-id');
     let title = document.querySelector('input#question_title').value; 
@@ -171,6 +222,15 @@ function sendUpdateQuestionRequest() {
 
     if (title != "" && description != "")
         sendAjaxRequest('put', '/api/question/' + id + '/update', { title: title, description: description }, questionUpdatedHandler);
+}
+
+function sendUpdateAnswerRequest() {
+    let div = event.target.parentElement.parentElement.parentElement.parentElement;
+    let id = div.getAttribute('data-id'); 
+    let content = document.querySelector('ul#answers-list #answer'+id+' input#answer_content').value;
+
+    if (content != "")
+        sendAjaxRequest('put', '/api/answer/' + id + '/update', { content: content }, answerUpdatedHandler);
 }
 
 function sendCreateQuestionRequest(event) {
@@ -250,6 +310,15 @@ function editDescription(info) {
 
 }
 
+function editAnswerContent(info) {
+    let new_answer = document.createElement('answer');
+    new_answer.classList.add('answer');
+    new_answer.setAttribute('data-id', 0);
+    new_answer.innerHTML = `<input id="answer_content" class="form-control" type="text" value="${info[0]}">`;
+
+    return new_answer;
+}
+
 function updateTitle(info) {
     let new_question = document.createElement('question');
     new_question.classList.add('question');
@@ -269,10 +338,19 @@ function updateDescription(info) {
 
 }
 
+function updateAnswerContent(info) {
+    let new_question = document.createElement('question');
+    new_question.classList.add('question');
+    new_question.setAttribute('data-id', 0);
+    new_question.innerHTML = `<p id="answer_content">${info[0]}</p>`;
+
+    return new_question;
+}
+
 function createAnswer(info) {
     let new_answer = document.createElement('answer');
     new_answer.classList.add('answer');
-    new_answer.innerHTML = `<li id="answer" data-id="${info[3]}">
+    new_answer.innerHTML = `<li id="answer${info[3]}" class="answer_item" data-id="${info[3]}">
                                 <div class="row">
                                     <a class="col-sm-3 d-none d-sm-block text-center" href="../pages/profile.php">
                                         <img src="/img/unknown.png" alt="Generic placeholder image">
@@ -283,7 +361,7 @@ function createAnswer(info) {
                                     </div>
                                 </div>
                                 <div class="ans-body">
-                                    <p>${info[0]}</p>
+                                    <p id="answer_content">${info[0]}</p>
                                     <div class=icons-answers>
                                         <a class="icon-answers" href="#">
                                             <i class="fas fa-thumbs-up"> 0 </i>
@@ -297,6 +375,12 @@ function createAnswer(info) {
                                         <a class="icon-answers" href="#">
                                             <i class="fas fa-bug"> Report</i>
                                         </a>
+                                        <a class="icon-answers edit_answer_btn" id="edit_answer${info[3]}">
+                                            <i class="fas fa-edit"> Edit</i>
+                                        </a>
+                                        <a class="icon-answers save_answer_btn" id="save_answer${info[3]}">
+                                            <i class="fas fa-save"> Save</i>
+                                        </a>
                                         <a class="icon-answers" id="delete_answer">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
@@ -307,7 +391,7 @@ function createAnswer(info) {
     return new_answer;
 }
 
-function hideEdit() {
+function hideEditQuestion() {
     let edit_btn = document.getElementById('edit_question');
     if (edit_btn.style.display === "none") {
         edit_btn.style.display = "block";
@@ -318,7 +402,7 @@ function hideEdit() {
     update_btn.style.display = "block";
 }
 
-function hideUpdate() {
+function hideUpdateQuestion() {
     let update_btn = document.getElementById('save_question');
     if (update_btn.style.display === "none") {
         update_btn.style.display = "block";
@@ -326,6 +410,31 @@ function hideUpdate() {
         update_btn.style.display = "none";
     }
     let edit_btn = document.getElementById('edit_question');
+    edit_btn.style.display = "block";
+}
+
+function hideEditAnswer() {
+    let id = event.target.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id');
+    console.log(id);
+    let edit_btn = document.getElementById('edit_answer'+id);
+    if (edit_btn.style.display === "none") {
+        edit_btn.style.display = "block";
+    } else {
+        edit_btn.style.display = "none";
+    }
+    let update_btn = document.getElementById('save_answer'+id);
+    update_btn.style.display = "block";
+}
+
+function hideUpdateAnswer() {
+    let id = event.target.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id');
+    let update_btn = document.getElementById('save_answer'+id);
+    if (update_btn.style.display === "none") {
+        update_btn.style.display = "block";
+    } else {
+        update_btn.style.display = "none";
+    }
+    let edit_btn = document.getElementById('edit_answer'+id);
     edit_btn.style.display = "block";
 }
 
