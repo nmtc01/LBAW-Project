@@ -37,6 +37,9 @@ Route::delete('/api/answer/{id}', 'AnswerController@delete');
 Route::put('/api/answer/{id}', 'AnswerController@edit');
 Route::put('/api/answer/{id}/update', 'AnswerController@update');
 
+// Comments
+Route::put('/api/comment', 'CommentController@create');
+
 // Static pages
 Route::get('/about', 'StaticController@about');
 Route::get('/404', 'StaticController@p404');

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
+use App\Comment;
 
 class CommentController extends Controller
 {
@@ -18,5 +21,26 @@ class CommentController extends Controller
         $comments = DB::select(DB::raw("select * from comment where question_id = $id"));
 
         return $comments;
+    }
+
+    public function create(Request $request) {
+
+        $comment = new Comment();
+
+        $this->authorize('create', $comment);
+
+        $comment->content = $request->input('content');
+        $comment->user_id = Auth::user()->id;
+        $comment->question_id = $request->input('question_index');
+        
+        $comment->save();
+
+        $username = Auth::user()->username;
+        $user_score = Auth::user()->score;
+
+        $info = [$comment->content, $username, $user_score, $comment->id];
+
+        return $info;
+
     }
 }

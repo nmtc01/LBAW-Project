@@ -1,6 +1,6 @@
 <h2 class="mt-0">Comments</h2>
 
-<div class="media-body">
+<div class="media-body" id="comments-list">
     @foreach ($comments as $comment)
     <div class="comment">
         <p>

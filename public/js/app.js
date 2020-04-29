@@ -7,6 +7,10 @@ function addEventListeners() {
     if (answerCreator != null)
         answerCreator.addEventListener('click', sendCreateAnswerRequest);
 
+    let commentCreator = document.querySelector('#comment-button');
+    if (commentCreator != null)
+        commentCreator.addEventListener('click', sendCreateCommentRequest);
+
     let answerDeleters = document.querySelectorAll('#delete_answer');
     [].forEach.call(answerDeleters, function(deleter) {
         deleter.addEventListener('click', sendDeleteAnswerRequest);
@@ -103,6 +107,30 @@ function answerAddedHandler() {
     new_answer.focus();
 
     addEventListeners();
+
+}
+
+function commentAddedHandler() {
+
+    let info = JSON.parse(this.responseText);
+
+    // Create the new Comment
+    let new_answer = createComment(info);
+
+    // Reset the new comment input
+    document.getElementById("exampleFormControlTextarea2").value = "";
+
+    let section = document.getElementById("comments-list");
+    
+    let list = document.getElementById("comments-list");
+
+    section.insertBefore(new_answer, list.childNodes[0]);
+
+    // Focus on adding a new comment
+    new_answer.focus();
+
+    addEventListeners();
+
 
 }
 
@@ -257,6 +285,18 @@ function sendCreateAnswerRequest(event) {
 
 }
 
+function sendCreateCommentRequest(event) {
+
+    let content = document.getElementById("exampleFormControlTextarea2").value;
+    let question_index = this.closest('.container-fluid#question-div').getAttribute('data-id');
+
+    if (content != '')
+        sendAjaxRequest('put', '/api/comment', { content: content, question_index: question_index }, commentAddedHandler);
+
+    event.preventDefault();
+
+}
+
 function createQuestion(info) {
     let new_question = document.createElement('question');
     new_question.classList.add('question');
@@ -389,6 +429,27 @@ function createAnswer(info) {
                             </li>`;
 
     return new_answer;
+}
+
+function createComment(info){
+
+    let new_comment = document.createElement('comment');
+    new_comment.classList.add('comment');
+
+    new_comment.innerHTML = `<div class="comment">
+                                <p>
+                                    <a href="profile.php" class="username">${info[1]} </a>
+                                    <a class="icon-answers" href="#">
+                                        <i class="fas fa-bug"> Report</i>
+                                    </a>
+                                    <br>
+                                    ${info[0]}
+                                </p>
+                            </div>`;
+
+
+    return new_comment;
+
 }
 
 function hideEditQuestion() {
