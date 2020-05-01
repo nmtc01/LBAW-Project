@@ -26,6 +26,19 @@
     color: #6545c9;
 }
 
+.icon-comments{
+    color: black;
+    margin-right: 10px;
+}
+
+.icon-comments i.fas {
+    font-size: 100%;
+}
+
+.icon-comments:hover{
+    color: #6545c9;
+}
+
 .form-control{
     border: 2px solid #e5e5e5;
     border-radius: .25rem;
@@ -41,8 +54,9 @@
 .wrapper .media-body .comment p {
     border-top-style: solid;
     border-top-width: .05rem;
-    padding-top: 1rem;
+    padding-top: 0.1rem;
     border-top-color: #b3afaf;
+    font-size: 80%;
 }
 
 .wrapper .media-body .comment p .username {

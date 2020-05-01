@@ -28,7 +28,9 @@
                 <textarea class="form-control" placeholder="Do you want to comment this question?"id="exampleFormControlTextarea2" rows="2"></textarea>
                 <button class="btn my-2 my-sm-0" id="comment-button" type="submit">Comment</button>
             </div>
-            @include('partials.comments')              
+            <div class="container">
+                @include('partials.comments')
+            </div>              
             @include('partials.answers')
         </div>
     </div>

@@ -123,6 +123,11 @@ h4 {
     margin-left: 0;
 }
 
+.sidenav a:hover {
+    text-decoration: none;
+    color: #6545c9;
+}
+
 .sidenav#sidenav_left a {
     border-top: solid 1px #eee;
 }
@@ -203,4 +208,16 @@ input.btnRegister#register_button {
 
 input.btnRegister#login_button:hover {
     background: #352369;
+}
+
+.fas {
+    font-size: 1rem;
+}
+
+.fas.fa-bell {
+    font-size: 1.3rem;
+}
+
+.fas.fa-user {
+    font-size: 1.3rem;
 }

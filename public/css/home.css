@@ -8,6 +8,7 @@
 
 .wrapper #question-header{
     color: black;
+    font-size: 1.3rem;
 }
 
 .wrapper #question-header:hover{
@@ -82,7 +83,9 @@ a:hover {
 }
 
 p#question_date {
-    color: grey;
+    text-align: right;
     font-size: 0.8rem;
-    float: right;
+    margin-bottom: 0;
+    padding-right: 30px;
+    padding-left: 0px;
 }

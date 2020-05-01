@@ -5,7 +5,7 @@
     <div class="comment">
         <p>
             <a href="profile.php" class="username">{{ $userComments[$comment->id]->username}} </a>
-            <a class="icon-answers" href="#">
+            <a class="icon-comments" href="#">
                 <i class="fas fa-bug"> Report</i>
             </a>
             <br>
