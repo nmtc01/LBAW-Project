@@ -42,6 +42,12 @@ form [type="submit"] {
     text-decoration: none;
 }
 
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #352369;
+    border-color: #352369;
+}
+
 li.nav-item {
     border-radius: .25rem;
 }
@@ -220,4 +226,8 @@ input.btnRegister#login_button:hover {
 
 .fas.fa-user {
     font-size: 1.3rem;
+}
+
+.dropdown-item:focus {
+    background: #6545c9;
 }
