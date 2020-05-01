@@ -40,11 +40,5 @@ class AnswerPolicy
     {
       // Any user can list its own cards
       return Auth::check();
-    }
-
-    public function create(User $user)
-    {
-      // Any user can create a new card
-      return Auth::check();
     }*/
 }

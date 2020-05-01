@@ -218,6 +218,11 @@ input.btnRegister#login_button:hover {
 
 .fas {
     font-size: 1rem;
+    color: black;
+}
+
+.fas:hover {
+    color: #6545c9;
 }
 
 .fas.fa-bell {

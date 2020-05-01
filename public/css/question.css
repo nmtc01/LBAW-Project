@@ -128,10 +128,18 @@ li.answer_item .ans-body p {
     float: right;
 }
 
+#delete_comment {
+    float: right;
+}
+
 #save_question {
     display: none;
 }
 
 .save_answer_btn {
+    display: none;
+}
+
+.save_comment_btn {
     display: none;
 }

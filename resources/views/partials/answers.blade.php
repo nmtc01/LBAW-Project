@@ -24,7 +24,7 @@
                 <a class="icon-answers" href="#">
                     <i class="fas fa-comment">0</i>
                 </a>
-                <a class="icon-answers" href="#">
+                <a class="icon-answers">
                     <i class="fas fa-bug"> Report</i>
                 </a>
                 @if (Auth::check() && Auth::user()->id == $answer->user_id)

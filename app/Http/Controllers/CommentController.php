@@ -43,4 +43,14 @@ class CommentController extends Controller
         return $info;
 
     }
+
+    public function delete(Request $request, $id)
+    {
+      $comment = Comment::find($id);
+
+      $this->authorize('delete', $comment);
+      $comment->delete();
+
+      return $comment;
+    }
 }

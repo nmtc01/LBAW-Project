@@ -16,6 +16,11 @@ function addEventListeners() {
         deleter.addEventListener('click', sendDeleteAnswerRequest);
     });
 
+    let commentDeleters = document.querySelectorAll('#delete_comment');
+    [].forEach.call(commentDeleters, function(deleter) {
+        deleter.addEventListener('click', sendDeleteCommentRequest);
+    });
+
     let questionDeleters = document.querySelectorAll('#delete_question');
     [].forEach.call(questionDeleters, function(deleter) {
         deleter.addEventListener('click', sendDeleteQuestionRequest);
@@ -173,6 +178,12 @@ function answerDeletedHandler() {
   li.remove();
 }
 
+function commentDeletedHandler() {
+    let comment = JSON.parse(this.responseText);
+    let div = document.querySelector('div#comment'+comment.id+'[data-id="' + comment.id + '"]');
+    div.remove();
+  }
+
 function questionDeletedHandler() {
     if (this.status == 200) window.location = '/';
     let question = JSON.parse(this.responseText);
@@ -251,6 +262,11 @@ function answerUpdatedHandler() {
 function sendDeleteAnswerRequest() {
     let id = this.closest('li.answer_item').getAttribute('data-id');
     sendAjaxRequest('delete', '/api/answer/' + id, null, answerDeletedHandler);
+}
+
+function sendDeleteCommentRequest() {
+    let id = this.closest('.comment').getAttribute('data-id');
+    sendAjaxRequest('delete', '/api/comment/' + id, null, commentDeletedHandler);
 }
 
 function sendDeleteQuestionRequest() {
@@ -445,7 +461,7 @@ function createAnswer(info) {
                                         <a class="icon-answers" href="#">
                                             <i class="fas fa-comment">0</i>
                                         </a>
-                                        <a class="icon-answers" href="#">
+                                        <a class="icon-answers">
                                             <i class="fas fa-bug"> Report</i>
                                         </a>
                                         <a class="icon-answers edit_answer_btn" id="edit_answer${info[3]}">
@@ -466,19 +482,27 @@ function createAnswer(info) {
 
 function createComment(info){
 
-    let new_comment = document.createElement('comment');
+    let new_comment = document.createElement('div');
+    new_comment.setAttribute('data-id', info[3]);
     new_comment.classList.add('comment');
-
-    new_comment.innerHTML = `<div class="comment">
-                                <p>
-                                    <a href="profile.php" class="username">${info[1]} </a>
-                                    <a class="icon-answers" href="#">
-                                        <i class="fas fa-bug"> Report</i>
-                                    </a>
-                                    <br>
-                                    ${info[0]}
-                                </p>
-                            </div>`;
+    new_comment.setAttribute('id', 'comment'+info[3]);
+    new_comment.innerHTML = `<p>
+                                <a href="profile.php" class="username">${info[1]}</a>
+                                <a class="icon-comments">
+                                    <i class="fas fa-bug"> Report</i>
+                                </a>
+                                <a class="icon-comments edit_comment_btn" id="edit_comment${info[3]}">
+                                    <i class="fas fa-edit"> Edit</i>
+                                </a>
+                                <a class="icon-comments save_comment_btn" id="save_comment${info[3]}">
+                                    <i class="fas fa-save"> Save</i>
+                                </a>
+                                <a class="icon-comments" id="delete_comment">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                                <br>
+                                ${info[0]}
+                            </p>`;  
 
 
     return new_comment;

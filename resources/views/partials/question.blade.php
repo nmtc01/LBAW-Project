@@ -32,7 +32,7 @@
         <a class="icon" href="#">
             <i class="fas fa-arrow-right fa-lg"> follow</i>
         </a>
-        <a class="icon-answers" href="#">
+        <a class="icon-answers">
             <i class="fas fa-bug"> Report</i>
         </a>
     </div>

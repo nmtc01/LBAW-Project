@@ -2,12 +2,23 @@
 
 <div class="media-body" id="comments-list">
     @foreach ($comments as $comment)
-    <div class="comment">
+    <div id="comment{{$comment->id}}" class="comment" data-id = "{{$comment->id}}">
         <p>
             <a href="profile.php" class="username">{{ $userComments[$comment->id]->username}} </a>
-            <a class="icon-comments" href="#">
+            <a class="icon-comments">
                 <i class="fas fa-bug"> Report</i>
             </a>
+            @if (Auth::check() && Auth::user()->id == $comment->user_id)
+            <a class="icon-comments edit_comment_btn" id="edit_comment{{$comment->id}}">
+                <i class="fas fa-edit"> Edit</i>
+            </a>
+            <a class="icon-comments save_comment_btn" id="save_comment{{$comment->id}}">
+                <i class="fas fa-save"> Save</i>
+            </a>
+            <a class="icon-comments" id="delete_comment">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+            @endif
             <br>
             {{ $comment->content }}
         </p>

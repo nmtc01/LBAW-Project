@@ -18,5 +18,11 @@ class CommentPolicy
       return Auth::check();
     }
 
+    public function delete(User $user, Comment $comment)
+    {
+      // Only a comment owner can delete it
+      return $user->id == $comment->user_id;
+    }
+
     
 }
