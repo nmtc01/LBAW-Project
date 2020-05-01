@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{{ asset('css/question.css') }}">
 @endsection
 
+@section('side_navs')
+  @include('partials.side_navs')
+@endsection
+
 @section('content')
 <div id="question-div" class="container-fluid" data-id = "{{$question->id}}">
     <div class="wrapper col-md-5">
