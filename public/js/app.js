@@ -87,20 +87,37 @@ function questionAddedHandler() {
 }
 
 function answerAddedHandler() {
-    
-    //let answer = JSON.parse(this.responseText);
+
+    //In case of user not logged in
+    if (this.status == 403) {
+        let older_alert = document.getElementById('alert_answer');
+        if (older_alert != null)
+            return;
+
+        let new_alert = createAlert("answer");
+
+        let section = document.getElementById("add_answer_form");
+        let list = document.getElementById("add_answer_form");
+
+        section.insertBefore(new_alert, list.childNodes[0]);
+
+        return;
+    }
+
+    //Parse info
     let info = JSON.parse(this.responseText);
     
     // Create the new Answer
     let new_answer = createAnswer(info);
-
+    
     // Reset the new answer input
     document.getElementById("exampleFormControlTextarea1").value = "";
-    
+
+    //Get elements
     let section = document.getElementById("answers-list");
-    
     let list = document.getElementById("answers-list");
 
+    //Add new answer
     section.insertBefore(new_answer, list.childNodes[0]);
 
     // Focus on adding a new answer
@@ -112,26 +129,42 @@ function answerAddedHandler() {
 
 function commentAddedHandler() {
 
+    //In case of user not logged in
+    if (this.status == 403) {
+        let older_alert = document.getElementById('alert_comment');
+        if (older_alert != null)
+            return;
+
+        let new_alert = createAlert("comment");
+
+        let section = document.getElementById("add_comment_form");
+        let list = document.getElementById("add_comment_form");
+
+        section.insertBefore(new_alert, list.childNodes[0]);
+
+        return;
+    }
+
+    //Parse info
     let info = JSON.parse(this.responseText);
 
     // Create the new Comment
-    let new_answer = createComment(info);
+    let new_comment = createComment(info);
 
     // Reset the new comment input
     document.getElementById("exampleFormControlTextarea2").value = "";
 
+    //Get elements
     let section = document.getElementById("comments-list");
-    
     let list = document.getElementById("comments-list");
 
-    section.insertBefore(new_answer, list.childNodes[0]);
+    //Add new comment
+    section.insertBefore(new_comment, list.childNodes[0]);
 
     // Focus on adding a new comment
-    new_answer.focus();
+    new_comment.focus();
 
     addEventListeners();
-
-
 }
 
 function answerDeletedHandler() {
@@ -450,6 +483,17 @@ function createComment(info){
 
     return new_comment;
 
+}
+
+function createAlert(type) {
+    let new_alert = document.createElement('alert');
+    new_alert.classList.add('alert');
+    new_alert.innerHTML = ` <div id="alert_${type}" class="card text-white bg-danger">
+                                <div class="card-body">
+                                <p class="card-text">You have to be logged in to ${type} this question</p>
+                                </div>
+                            </div>`
+    return new_alert;
 }
 
 function hideEditQuestion() {
