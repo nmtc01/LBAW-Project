@@ -24,5 +24,10 @@ class CommentPolicy
       return $user->id == $comment->user_id;
     }
 
+    public function edit(User $user, Comment $comment)
+    {
+      // Only a comment owner can edit it
+      return $user->id == $comment->user_id;
+    }
     
 }

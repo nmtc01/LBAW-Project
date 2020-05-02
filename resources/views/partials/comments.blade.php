@@ -3,7 +3,7 @@
 <div class="media-body" id="comments-list">
     @foreach ($comments as $comment)
     <div id="comment{{$comment->id}}" class="comment" data-id = "{{$comment->id}}">
-        <p>
+        <div>
             <a href="profile.php" class="username">{{ $userComments[$comment->id]->username}} </a>
             <a class="icon-comments">
                 <i class="fas fa-bug"> Report</i>
@@ -20,8 +20,10 @@
             </a>
             @endif
             <br>
-            {{ $comment->content }}
-        </p>
+            <p id="comment_content">
+                {{ $comment->content }}
+            </p>
+        </div>
     </div>
     @endforeach
 </div>  

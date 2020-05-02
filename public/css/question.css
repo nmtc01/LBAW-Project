@@ -51,20 +51,21 @@
     border: none;
 }
 
-.wrapper .media-body .comment p {
+.wrapper .media-body .comment div {
     border-top-style: solid;
     border-top-width: .05rem;
     padding-top: 0.1rem;
     border-top-color: #b3afaf;
     font-size: 80%;
+    margin-bottom: 1rem;
 }
 
-.wrapper .media-body .comment p .username {
+.wrapper .media-body .comment div .username {
     color: black;
     font-weight: bold;
 }
 
-.wrapper .media-body .comment p .username:hover {
+.wrapper .media-body .comment div .username:hover {
     color: #6545c9;
 }
 

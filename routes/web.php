@@ -40,6 +40,8 @@ Route::put('/api/answer/{id}/update', 'AnswerController@update');
 // Comments
 Route::put('/api/comment', 'CommentController@create');
 Route::delete('/api/comment/{id}', 'CommentController@delete');
+Route::put('/api/comment/{id}', 'CommentController@edit');
+Route::put('/api/comment/{id}/update', 'CommentController@update');
 
 // Static pages
 Route::get('/about', 'StaticController@about');

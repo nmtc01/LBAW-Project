@@ -53,4 +53,41 @@ class CommentController extends Controller
 
       return $comment;
     }
+
+    public function edit(Request $request, $id) 
+    {
+      $comment = Comment::find($id);
+
+      $this->authorize('edit', $comment);
+
+      $comment->user_id = Auth::user()->id;
+      $comment->content = $request->input('content');
+      $username = Auth::user()->username;
+      $date = date('Y-m-d');
+      
+      $info = [$comment->content, $username, $date, $id];
+
+      return $info;
+
+    }
+
+    public function update(Request $request, $id) 
+    {
+      $comment = Comment::find($id);
+
+      $this->authorize('edit', $comment);
+
+      $comment->user_id = Auth::user()->id;
+      $comment->content = $request->input('content');
+      $username = Auth::user()->username;
+
+      $date = date('Y-m-d');
+
+      $comment->save();
+      
+      $info = [$comment->content, $username, $date, $id];
+
+      return $info;
+
+    }
 }

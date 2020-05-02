@@ -51,6 +51,20 @@ function addEventListeners() {
             updator.addEventListener('click', sendUpdateAnswerRequest);
             updator.addEventListener('click', hideUpdateAnswer);
         });
+
+    let commentEditors = document.querySelectorAll('.edit_comment_btn');
+    if (commentEditors != null)
+        [].forEach.call(commentEditors, function(editor) {
+            editor.addEventListener('click', sendEditCommentRequest);
+            editor.addEventListener('click', hideEditComment);
+        });
+
+    let commentUpdators = document.querySelectorAll('.save_comment_btn');
+    if (commentUpdators != null)
+        [].forEach.call(commentUpdators, function(updator) {
+            updator.addEventListener('click', sendUpdateCommentRequest);
+            updator.addEventListener('click', hideUpdateComment);
+        });
 }
 
 function encodeForAjax(data) {
@@ -225,6 +239,20 @@ function answerEditedHandler() {
     addEventListeners();
 }
 
+function commentEditedHandler() {
+    let info = JSON.parse(this.responseText);
+    
+    // Edit comment
+    let new_content = editCommentContent(info);
+    let div_content = document.querySelector("#comment"+info[3]+" div #comment_content");
+    div_content.outerHTML = new_content.innerHTML;
+    
+    // Focus
+    new_content.focus();
+
+    addEventListeners();
+}
+
 function questionUpdatedHandler() {
     let info = JSON.parse(this.responseText);
     
@@ -251,6 +279,20 @@ function answerUpdatedHandler() {
     // Update answer
     let new_content = updateAnswerContent(info);
     let div_content = document.querySelector("ul#answers-list #answer"+info[3]+" #answer_content");
+    div_content.outerHTML = new_content.innerHTML;
+    
+    // Focus 
+    new_content.focus();
+
+    addEventListeners();
+}
+
+function commentUpdatedHandler() {
+    let info = JSON.parse(this.responseText);
+    
+    // Update answer
+    let new_content = updateCommentContent(info);
+    let div_content = document.querySelector("#comment"+info[3]+" div #comment_content");
     div_content.outerHTML = new_content.innerHTML;
     
     // Focus 
@@ -292,6 +334,14 @@ function sendEditAnswerRequest() {
         sendAjaxRequest('put', '/api/answer/' + id, { content: content }, answerEditedHandler);
 }
 
+function sendEditCommentRequest() {
+    let div = event.target.parentElement.parentElement.parentElement;
+    let id = div.getAttribute('data-id');
+    let content = document.querySelector("#comment"+id+" div #comment_content").textContent;
+    if (content != '')
+        sendAjaxRequest('put', '/api/comment/' + id, { content: content }, commentEditedHandler);
+}
+
 function sendUpdateQuestionRequest() {
     let id = this.closest('div#question-div').getAttribute('data-id');
     let title = document.querySelector('input#question_title').value; 
@@ -308,6 +358,15 @@ function sendUpdateAnswerRequest() {
 
     if (content != "")
         sendAjaxRequest('put', '/api/answer/' + id + '/update', { content: content }, answerUpdatedHandler);
+}
+
+function sendUpdateCommentRequest() {
+    let div = event.target.parentElement.parentElement.parentElement;
+    let id = div.getAttribute('data-id'); 
+    let content = document.querySelector("#comment"+id+" div #comment_content").value;
+
+    if (content != "")
+        sendAjaxRequest('put', '/api/comment/' + id + '/update', { content: content }, commentUpdatedHandler);
 }
 
 function sendCreateQuestionRequest(event) {
@@ -408,6 +467,15 @@ function editAnswerContent(info) {
     return new_answer;
 }
 
+function editCommentContent(info) {
+    let new_comment = document.createElement('comment');
+    new_comment.classList.add('comment');
+    new_comment.setAttribute('data-id', 0);
+    new_comment.innerHTML = `<input id="comment_content" class="form-control" type="text" value="${info[0]}">`;
+
+    return new_comment;
+}
+
 function updateTitle(info) {
     let new_question = document.createElement('question');
     new_question.classList.add('question');
@@ -434,6 +502,15 @@ function updateAnswerContent(info) {
     new_question.innerHTML = `<p id="answer_content">${info[0]}</p>`;
 
     return new_question;
+}
+
+function updateCommentContent(info) {
+    let new_comment = document.createElement('comment');
+    new_comment.classList.add('comment');
+    new_comment.setAttribute('data-id', 0);
+    new_comment.innerHTML = `<p id="comment_content">${info[0]}</p>`;
+
+    return new_comment;
 }
 
 function createAnswer(info) {
@@ -486,7 +563,7 @@ function createComment(info){
     new_comment.setAttribute('data-id', info[3]);
     new_comment.classList.add('comment');
     new_comment.setAttribute('id', 'comment'+info[3]);
-    new_comment.innerHTML = `<p>
+    new_comment.innerHTML = `<div>
                                 <a href="profile.php" class="username">${info[1]}</a>
                                 <a class="icon-comments">
                                     <i class="fas fa-bug"> Report</i>
@@ -501,8 +578,10 @@ function createComment(info){
                                     <i class="fas fa-trash-alt"></i>
                                 </a>
                                 <br>
-                                ${info[0]}
-                            </p>`;  
+                                <p id="comment_content">
+                                    ${info[0]}
+                                </p>
+                            </div>`;  
 
 
     return new_comment;
@@ -563,6 +642,30 @@ function hideUpdateAnswer() {
         update_btn.style.display = "none";
     }
     let edit_btn = document.getElementById('edit_answer'+id);
+    edit_btn.style.display = "contents";
+}
+
+function hideEditComment() {
+    let id = event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
+    let edit_btn = document.getElementById('edit_comment'+id);
+    if (edit_btn.style.display === "none") {
+        edit_btn.style.display = "contents";
+    } else {
+        edit_btn.style.display = "none";
+    }
+    let update_btn = document.getElementById('save_comment'+id);
+    update_btn.style.display = "contents";
+}
+
+function hideUpdateComment() {
+    let id = event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
+    let update_btn = document.getElementById('save_comment'+id);
+    if (update_btn.style.display === "none") {
+        update_btn.style.display = "contents";
+    } else {
+        update_btn.style.display = "none";
+    }
+    let edit_btn = document.getElementById('edit_comment'+id);
     edit_btn.style.display = "contents";
 }
 
