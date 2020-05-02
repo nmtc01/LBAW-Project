@@ -16,9 +16,22 @@ class CommentController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function list($id)
+    public function listQuestionComments($id)
     {
         $comments = DB::select(DB::raw("select * from comment where question_id = $id"));
+
+        return $comments;
+    }
+
+    /**
+     * Shows the Answers's comments from a given id.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function listAnswerComments($id)
+    {
+        $comments = DB::select(DB::raw("select * from comment where answer_id = $id"));
 
         return $comments;
     }
@@ -31,7 +44,11 @@ class CommentController extends Controller
 
         $comment->content = $request->input('content');
         $comment->user_id = Auth::user()->id;
-        $comment->question_id = $request->input('question_index');
+
+        if ($request->input('question_index') != null)
+          $comment->question_id = $request->input('question_index');
+        else if ($request->input('answer_index') != null)
+          $comment->answer_id = $request->input('answer_index');
         
         $comment->save();
 
