@@ -10,6 +10,10 @@ use App\Answer;
 
 class AnswerController extends Controller
 {
+    public function __construct(){
+      $this->commentController = new CommentController();
+    }
+
     /**
      * Shows the Question's answers from a given id.
      *

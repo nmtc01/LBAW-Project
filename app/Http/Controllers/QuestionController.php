@@ -82,10 +82,12 @@ class QuestionController extends Controller
       $question = Question::find($id);
 
       $user = $this->userController->getUsername($question->user_id);
-      $comments = $this->commentController->list($question->id);
+      $comments = $this->commentController->listQuestionComments($question->id);
       $answers = $this->answerController->list($question->id);
       $userComments = [];
       $userAnswers = [];
+      $subComments = [];
+      $userSubComments = [];
 
       foreach ($comments as $comment){
         $userComments[$comment->id]=$this->userController->getUsername($comment->user_id);
@@ -93,9 +95,16 @@ class QuestionController extends Controller
 
       foreach ($answers as $answer){
         $userAnswers[$answer->id]=$this->userController->getUsername($answer->user_id);
+        $sub = $this->commentController->listAnswerComments($answer->id);
+
+        $subComments[$answer->id] = $sub;
+
+        foreach ($subComments[$answer->id] as $subComment){
+          $userSubComments[$subComment->id]=$this->userController->getUsername($subComment->user_id);
+        }
       }
 
-      return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers]);
+      return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments]);
     }
 
     public function delete(Request $request, $id)

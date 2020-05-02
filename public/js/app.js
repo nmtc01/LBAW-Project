@@ -11,6 +11,10 @@ function addEventListeners() {
     if (commentCreator != null)
         commentCreator.addEventListener('click', sendCreateCommentRequest);
 
+    let subcommentCreator = document.querySelector('#subcomment-button');
+    if (subcommentCreator != null)
+        subcommentCreator.addEventListener('click', sendCreateSubCommentRequest);
+
     let answerDeleters = document.querySelectorAll('#delete_answer');
     [].forEach.call(answerDeleters, function(deleter) {
         deleter.addEventListener('click', sendDeleteAnswerRequest);
@@ -394,13 +398,27 @@ function sendCreateAnswerRequest(event) {
 }
 
 function sendCreateCommentRequest(event) {
-
     let content = document.getElementById("exampleFormControlTextarea2").value;
     let question_index = this.closest('.container-fluid#question-div').getAttribute('data-id');
 
     if (content != '')
         sendAjaxRequest('put', '/api/comment', { content: content, question_index: question_index }, commentAddedHandler);
 
+    event.preventDefault();
+
+}
+
+function sendCreateSubCommentRequest(event) {
+    let content = document.getElementById("exampleFormControlTextarea3").value;
+    let answer_index = this.closest('.container-fluid#question-div').getAttribute('data-id');
+
+    //TODO finish this
+
+    console.log(content);
+
+    /*if (content != '')
+        sendAjaxRequest('put', '/api/comment', { content: content, answer_index: answer_index }, commentAddedHandler);
+    */
     event.preventDefault();
 
 }
