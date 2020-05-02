@@ -11,9 +11,10 @@ function addEventListeners() {
     if (commentCreator != null)
         commentCreator.addEventListener('click', sendCreateCommentRequest);
 
-    let subcommentCreator = document.querySelector('#subcomment-button');
-    if (subcommentCreator != null)
-        subcommentCreator.addEventListener('click', sendCreateSubCommentRequest);
+    let subcommentCreators = document.querySelectorAll('#subcomment-button');
+    [].forEach.call(subcommentCreators, function(creator) {
+        creator.addEventListener('click', sendCreateSubCommentRequest);
+    });
 
     let answerDeleters = document.querySelectorAll('#delete_answer');
     [].forEach.call(answerDeleters, function(deleter) {
@@ -180,6 +181,46 @@ function commentAddedHandler() {
     //Get elements
     let section = document.getElementById("comments-list");
     let list = document.getElementById("comments-list");
+
+    //Add new comment
+    section.insertBefore(new_comment, list.childNodes[0]);
+
+    // Focus on adding a new comment
+    new_comment.focus();
+
+    addEventListeners();
+}
+
+function subCommentAddedHandler() {
+
+    //In case of user not logged in
+    if (this.status == 403) {
+        let older_alert = document.getElementById('alert_comment');
+        if (older_alert != null)
+            return;
+
+        let new_alert = createAlert("comment");
+
+        let section = document.getElementById("add_comment_form");
+        let list = document.getElementById("add_comment_form");
+
+        section.insertBefore(new_alert, list.childNodes[0]);
+
+        return;
+    }
+
+    //Parse info
+    let info = JSON.parse(this.responseText);
+
+    // Create the new Comment
+    let new_comment = createComment(info);
+
+    // Reset the new comment input
+    document.getElementById("exampleFormControlTextarea3").value = "";
+
+    //Get elements
+    let section = document.getElementById("subcomments-list");
+    let list = document.getElementById("subcomments-list");
 
     //Add new comment
     section.insertBefore(new_comment, list.childNodes[0]);
@@ -410,15 +451,11 @@ function sendCreateCommentRequest(event) {
 
 function sendCreateSubCommentRequest(event) {
     let content = document.getElementById("exampleFormControlTextarea3").value;
-    let answer_index = this.closest('.container-fluid#question-div').getAttribute('data-id');
+    let answer_index = this.closest('.answer_item').getAttribute('data-id');
 
-    //TODO finish this
-
-    console.log(content);
-
-    /*if (content != '')
-        sendAjaxRequest('put', '/api/comment', { content: content, answer_index: answer_index }, commentAddedHandler);
-    */
+    if (content != '')
+        sendAjaxRequest('put', '/api/comment', { content: content, answer_index: answer_index }, subCommentAddedHandler);
+    
     event.preventDefault();
 
 }

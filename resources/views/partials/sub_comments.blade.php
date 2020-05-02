@@ -1,9 +1,9 @@
-<div class="media-body" id="comments-list">
-    <div class="form-group" id="add_comment_form">
-        <label for="exampleFormControlTextarea2"></label>
-        <input class="form-control" placeholder="Do you want to comment this answer?"id="exampleFormControlTextarea3">
-        <button class="btn my-2 my-sm-0" id="subcomment-button" type="submit">Comment</button>
-    </div>
+<div class="form-group" id="add_comment_form">
+    <label for="exampleFormControlTextarea2"></label>
+    <input class="form-control" placeholder="Do you want to comment this answer?"id="exampleFormControlTextarea3">
+    <button class="btn my-2 my-sm-0" id="subcomment-button" type="submit">Comment</button>
+</div>
+<div class="media-body" id="subcomments-list">
     @foreach ($subComments[$answer->id] as $comment)
     <div id="comment{{$comment->id}}" class="comment" data-id = "{{$comment->id}}">
         <div>

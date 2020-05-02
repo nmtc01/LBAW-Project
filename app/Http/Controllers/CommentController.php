@@ -44,7 +44,11 @@ class CommentController extends Controller
 
         $comment->content = $request->input('content');
         $comment->user_id = Auth::user()->id;
-        $comment->question_id = $request->input('question_index');
+
+        if ($request->input('question_index') != null)
+          $comment->question_id = $request->input('question_index');
+        else if ($request->input('answer_index') != null)
+          $comment->answer_id = $request->input('answer_index');
         
         $comment->save();
 

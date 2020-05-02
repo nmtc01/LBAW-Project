@@ -21,7 +21,7 @@
                 <a class="icon-answers" href="#">
                     <i class="fas fa-thumbs-down">{{ $answer->nr_dislikes }}</i>
                 </a>
-                <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments">
+                <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments{{$answer->id}}">
                     <i class="fas fa-comment">0</i>
                 </a>
                 <a class="icon-answers">
@@ -40,7 +40,7 @@
                 @endif
             </div>
         </div>
-        <div class="collapse" id="collapsed_comments">
+        <div class="collapse" id="collapsed_comments{{$answer->id}}">
             <div class="card card-body">
                 @include('partials.sub_comments')
             </div>
