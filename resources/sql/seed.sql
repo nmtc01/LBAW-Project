@@ -832,7 +832,7 @@ insert into answer (user_id, question_id, answer_date, content, marked_answer)
 insert into answer (user_id, question_id, answer_date, content, marked_answer) 
 	values (6, 6, '2019-10-01', 'First of all, Apple AirPods are not hype, they are the real deal with near unparalleled Bluetooth pairing and connectivity, excellent sound, good fit and reasonable cost. AirPods 2 are quite sufficient and nearly as good all around as the Pro version. You can spend MORE for better sound, not necessarily better Bluetooth. The only drawback to iPhone/AirPods connection is that Apple only offers 1 Bluetooth codec, and not AptX or AptX HD. Knockoffs of nearly anything are not as satisfying, or as quality as the Original! There are other earbuds out there, but you will risk the one element that is essential: Bluetooth connectivity, and pairing, regardless of upgrades.', TRUE);
 insert into answer (user_id, question_id, answer_date, content, marked_answer) 
-	values (7, 7, '2020-11-05', 'Take a look at Process and Runtime classes. Keep in mind that what you are trying to accomplish is probably not platform independent.', FALSE);
+	values (7, 7, '2020-04-20', 'Take a look at Process and Runtime classes. Keep in mind that what you are trying to accomplish is probably not platform independent.', FALSE);
 insert into answer (user_id, question_id, answer_date, content, marked_answer) 
 	values (9, 8, '2020-03-26', 'BREAKING BAD! This is the best TV show on earth. It builds up slowly but methodically to expand over several seasons. I was amazed by the storytelling. Every piece slowly falls into place to create a grand finale that has been mastered to blow your mind away.', FALSE);
 insert into answer (user_id, question_id, answer_date, content, marked_answer) 
