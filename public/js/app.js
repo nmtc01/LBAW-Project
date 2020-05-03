@@ -464,28 +464,29 @@ function createQuestion(info) {
     let new_question = document.createElement('question');
     new_question.classList.add('question');
     new_question.setAttribute('data-id', 0);
-    new_question.innerHTML = `<div class="wrapper home_question container-fluid">
+    new_question.innerHTML = `<div id="questions-list" class="wrapper home_question container-fluid">
                                 <div class="row">
-                                    <div id="prof_info" class="col-2 text-center">
+                                    <div id="prof_info" class="col-3 text-center">
                                         <img src="/img/unknown.png">
                                         <p><a class="row-2 d-none d-sm-block" href="/pages/profile.php">${info[2]}</a></p>
                                     </div>
-                                    <div class="col-10">
+                                    <div class="col-9">
                                         <h1><a id="question-header" href="question/${info[4]}">${info[0]}</a></h1>
                                     </div>
                                 </div>
-
-                                <div class="icons">
-                                    <a class="icon" href="#">
-                                    <i class="fas fa-thumbs-up fa-lg">0</i>
-                                    </a>
-                                    <a class="icon" href="#">
-                                        <i class="fas fa-thumbs-down fa-lg">0</i>
-                                    </a>
-                                    <a class="icon" href="#">
-                                        <i class="fas fa-reply fa-lg"> 10 </i>
-                                    </a>
-                                    <p class="icon" id=question_date>${info[3]}</p>
+                                <div class="row">
+                                    <div class="icons col-9">
+                                        <a class="icon" href="#">
+                                        <i class="fas fa-thumbs-up fa-lg">0</i>
+                                        </a>
+                                        <a class="icon" href="#">
+                                            <i class="fas fa-thumbs-down fa-lg">0</i>
+                                        </a>
+                                        <a class="icon" href="#">
+                                            <i class="fas fa-reply fa-lg"> 10 </i>
+                                        </a>
+                                    </div>
+                                    <p class="col-3" id=question_date>${info[3]}</p>
                                 </div>
                             </div>`;
 
