@@ -29,6 +29,7 @@ Route::get('question/{id}', 'QuestionController@open');
 Route::put('/api/question', 'QuestionController@create');
 Route::delete('/api/question/{id}', 'QuestionController@delete');
 Route::put('/api/question/{id}', 'QuestionController@edit');
+Route::put('/api/question/{id}/follow', 'QuestionFollowingController@create');
 Route::put('/api/question/{id}/update', 'QuestionController@update');
 
 // Answers

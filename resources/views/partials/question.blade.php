@@ -29,8 +29,8 @@
         <a class="icon" href="#">
             <i class="fas fa-thumbs-down fa-lg"> {{ $question->nr_dislikes }}</i>
         </a>
-        <a class="icon" href="#">
-            <i class="fas fa-arrow-right fa-lg"> follow</i>
+        <a class="icon">
+            <i class="fas fa-arrow-right fa-lg" id="follow2"> follow</i>
         </a>
         <a class="icon-answers">
             <i class="fas fa-bug"> Report</i>

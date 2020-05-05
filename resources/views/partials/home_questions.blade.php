@@ -29,8 +29,8 @@
                 </a>
 
                 @if (Auth::check())
-                <a class="icon" href="#">
-                    <i class="fas fa-arrow-right fa-lg"> follow</i>
+                <a class="icon">
+                    <i class="fas fa-arrow-right fa-lg" id="follow1"> follow</i>
                 </a>
                 @endif
             </div>

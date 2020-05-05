@@ -19,29 +19,20 @@ class QuestionFollowingController extends Controller
     /**
      * Creates a new question_following.
      *
-     * @return Answer The answer created.
      */
     public function create(Request $request)
     {
-        /*
-      //$this->authorize('create', $answer);
+        $question_following = new QuestionFollowing();
 
-      $answer = new Answer();
+        $user_id = Auth::user()->id;
+        $question_id = $request->input('id');
 
-      $this->authorize('create', $answer);
+        DB::insert('insert into question_following (user_id, question_id) values (?, ?)', [$user_id, $question_id]);
 
-      $answer->content = $request->input('content');
-      $answer->user_id = Auth::user()->id;
-      $answer->question_id = $request->input('question_index');
-      $answer->save();
-      
-      $username = Auth::user()->username;
-      $user_score = Auth::user()->score;
+        $question_title = $this->questionController->getQuestion($question_id)->title;
 
-      $info = [$answer->content, $username, $user_score, $answer->id];
+        return $question_title;
 
-      return $info;
-      */
     }
 
     public function delete(Request $request, $id)
@@ -73,6 +64,12 @@ class QuestionFollowingController extends Controller
         
 
         return $questions;
+
+    }
+
+    public function follow(Request $request){
+
+        
 
     }
 
