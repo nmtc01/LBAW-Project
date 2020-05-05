@@ -45,6 +45,7 @@ Route::put('/api/comment/{id}/update', 'CommentController@update');
 
 //Labels
 Route::put('/api/label', 'LabelController@startLabel');
+Route::post('/api/label', 'LabelController@create');
 
 // Static pages
 Route::get('/about', 'StaticController@about');
