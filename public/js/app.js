@@ -1,3 +1,7 @@
+/**
+ * Event listeners
+ */
+
 function addEventListeners() {
     let questionCreator = document.querySelector('#add_question_btn');
     if (questionCreator != null)
@@ -70,7 +74,16 @@ function addEventListeners() {
             updator.addEventListener('click', sendUpdateCommentRequest);
             updator.addEventListener('click', hideUpdateComment);
         });
+
+    let labelAdder = document.getElementById('add_label');
+    if (labelAdder != null)
+        labelAdder.addEventListener('click', sendAddLabelRequest);
 }
+
+
+/**
+ * Ajax functions
+ */
 
 function encodeForAjax(data) {
     if (data == null) return null;
@@ -87,6 +100,11 @@ function sendAjaxRequest(method, url, data, handler) {
     request.addEventListener('load', handler);
     request.send(encodeForAjax(data));
 }
+
+
+/**
+ * Handlers 
+ */
 
 function questionAddedHandler() {
     
@@ -346,6 +364,22 @@ function commentUpdatedHandler() {
     addEventListeners();
 }
 
+function labelStartedHandler() { 
+    let new_content = startLabel();
+    let plus = document.getElementById('add_label');
+    plus.outerHTML = new_content.innerHTML;
+    
+    // Focus
+    plus.focus();
+
+    addEventListeners();
+}
+
+
+/**
+ * Send requests
+ */
+
 function sendDeleteAnswerRequest() {
     let id = this.closest('li.answer_item').getAttribute('data-id');
     sendAjaxRequest('delete', '/api/answer/' + id, null, answerDeletedHandler);
@@ -379,7 +413,7 @@ function sendEditAnswerRequest() {
         sendAjaxRequest('put', '/api/answer/' + id, { content: content }, answerEditedHandler);
 }
 
-function sendEditCommentRequest() {
+function sendEditCommentRequest(event) {
     let div = event.target.parentElement.parentElement.parentElement;
     let id = div.getAttribute('data-id');
     let content = document.querySelector("#comment"+id+" div #comment_content").textContent;
@@ -459,6 +493,16 @@ function sendCreateSubCommentRequest(event) {
     event.preventDefault();
 
 }
+
+function sendAddLabelRequest() {
+    sendAjaxRequest('put', '/api/label/', null, labelStartedHandler);
+}
+
+
+/**
+ * Auxiliary functions
+ * @param info 
+ */
 
 function createQuestion(info) {
     let new_question = document.createElement('question');
@@ -723,6 +767,14 @@ function hideUpdateComment() {
     }
     let edit_btn = document.getElementById('edit_comment'+id);
     edit_btn.style.display = "contents";
+}
+
+function startLabel() {
+    let start_label = document.createElement('div');
+    start_label.innerHTML = `<input class="badge-dark badge-pill form-control col-sm-4" type="text" placeholder="#">
+                             <a class="badge badge-dark badge-pill" id="add_label">+</a>`;
+
+    return start_label;
 }
 
 addEventListeners();

@@ -43,6 +43,9 @@ Route::delete('/api/comment/{id}', 'CommentController@delete');
 Route::put('/api/comment/{id}', 'CommentController@edit');
 Route::put('/api/comment/{id}/update', 'CommentController@update');
 
+//Labels
+Route::put('/api/label', 'LabelController@startLabel');
+
 // Static pages
 Route::get('/about', 'StaticController@about');
 Route::get('/404', 'StaticController@p404');

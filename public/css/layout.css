@@ -236,3 +236,15 @@ input.btnRegister#login_button:hover {
 .dropdown-item:focus {
     background: #6545c9;
 }
+
+div#labels {
+    margin-bottom: 0.5rem;
+}
+
+input.badge-dark.badge-pill.form-control {
+    height: 1.5rem;
+}
+
+a.badge-dark.badge-pill {
+    color: white;
+}

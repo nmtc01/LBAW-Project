@@ -39,4 +39,12 @@ class Question extends Model
         return $this->hasMany('App\Comment');
     }
 
+    /**
+    * 
+    * The labels this question has
+    */
+    public function labels() {
+        return $this->hasMany('App\Label');
+    }
+
 }

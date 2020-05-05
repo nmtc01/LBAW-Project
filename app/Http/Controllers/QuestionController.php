@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-
 use App\Question;
+use App\Label;
 
 class QuestionController extends Controller
 {
@@ -155,5 +155,12 @@ class QuestionController extends Controller
 
       return $info;
 
+    }
+
+    public function startLabel(Request $request) 
+    {
+      $label = new Label();
+
+      $this->authorize('start', $label);
     }
 }

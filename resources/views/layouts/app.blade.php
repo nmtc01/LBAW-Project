@@ -114,7 +114,9 @@
                                     <label for="exampleFormControlTextarea1">Write more details here</label>
                                     <textarea class="form-control" id="formControlTextareaDescription" rows="3"></textarea>
                                 </div>
-                                <a href="#" class="badge badge-dark badge-pill">+</a>
+                                <div id="labels">
+                                    <a class="badge badge-dark badge-pill" id="add_label">+</a>
+                                </div>
                                 <div id="form-buttons" class="form-group row">
                                     <input type="file" class="form-control-file col-sm-9" id="exampleFormControlFile1" accept="image/png, image/jpeg">
                                 </div>
