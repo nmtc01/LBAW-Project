@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use App\Label;
+use App\QuestionLabel;
 
 class LabelController extends Controller
 {
@@ -31,9 +32,9 @@ class LabelController extends Controller
 
       $label->name = $request->input('name');
       $label->save();
-      
+
       //Create question_label
-      $question_label = new Question_Label();
+      $question_label = new QuestionLabel();
 
       $question_label->question_id = $request->input('question_index');
       $question_label->label_id = $label->id;

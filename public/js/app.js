@@ -379,6 +379,7 @@ function labelStartedHandler() {
 }
 
 function labelCreatedHandler() {
+    console.log(this.responseText);
     let label = JSON.parse(this.responseText);
 
     console.log(label);
