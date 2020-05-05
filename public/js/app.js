@@ -4,8 +4,9 @@
 
 function addEventListeners() {
     let questionCreator = document.querySelector('#add_question_btn');
-    if (questionCreator != null)
+    if (questionCreator != null) {
         questionCreator.addEventListener('click', sendCreateQuestionRequest);
+    }
 
     let answerCreator = document.querySelector('div.form-group .btn.my-2.my-sm-0');
     if (answerCreator != null)
@@ -125,6 +126,8 @@ function questionAddedHandler() {
 
     // Focus on adding a new question
     new_question.focus();
+
+    sendCreateLabelsRequest(info[4]);
 
 }
 
@@ -375,6 +378,28 @@ function labelStartedHandler() {
     addEventListeners();
 }
 
+function labelCreatedHandler() {
+    let label = JSON.parse(this.responseText);
+
+    console.log(label);
+
+    // Reset the new answer input
+    /*document.getElementById("formControlTextareaQuestion").value = "";
+    document.getElementById("formControlTextareaDescription").value = "";
+    
+    // Create the new Question
+    let new_question = createQuestion(info);
+    
+    let section = document.getElementById("questions-list");
+    
+    let list = document.getElementById("questions-list");
+
+    section.before(new_question, list.childNodes[0]);
+
+    // Focus on adding a new question
+    new_question.focus();*/
+}
+
 
 /**
  * Send requests
@@ -496,6 +521,18 @@ function sendCreateSubCommentRequest(event) {
 
 function sendAddLabelRequest() {
     sendAjaxRequest('put', '/api/label/', null, labelStartedHandler);
+}
+
+function sendCreateLabelsRequest(question_index) {
+    let form = document.getElementById('label_form');
+    if (form == null)
+        return;
+    let name = form.value; 
+    
+    if (name != '')
+        sendAjaxRequest('post', '/api/label', { name: name, question_index: question_index }, labelCreatedHandler);
+
+    event.preventDefault();
 }
 
 
@@ -771,7 +808,7 @@ function hideUpdateComment() {
 
 function startLabel() {
     let start_label = document.createElement('div');
-    start_label.innerHTML = `<input class="badge-dark badge-pill form-control col-sm-4" type="text" placeholder="#">
+    start_label.innerHTML = `<input id="label_form" class="badge-dark badge-pill form-control col-sm-4" type="text" placeholder="#">
                              <a class="badge badge-dark badge-pill" id="add_label">+</a>`;
 
     return start_label;

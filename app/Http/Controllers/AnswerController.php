@@ -34,8 +34,6 @@ class AnswerController extends Controller
      */
     public function create(Request $request)
     {
-      //$this->authorize('create', $answer);
-
       $answer = new Answer();
 
       $this->authorize('create', $answer);

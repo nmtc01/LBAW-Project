@@ -17,5 +17,11 @@ class LabelPolicy
       // Any Authenticated user can start a label
       return Auth::check();
     }
+
+    public function create(User $user)
+    {
+      // Any Authenticated user can create labels to a question
+      return Auth::check();
+    }
     
 }
