@@ -528,7 +528,7 @@ function sendCreateLabelsRequest(question_index) {
     if (form == null)
         return;
     let name = form.value; 
-
+    
     if (name != '')
         sendAjaxRequest('post', '/api/label', { name: name, question_index: question_index }, labelCreatedHandler);
 

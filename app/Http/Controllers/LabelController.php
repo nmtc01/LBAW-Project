@@ -31,11 +31,12 @@ class LabelController extends Controller
 
       $label->name = $request->input('name');
       $label->save();
-
+      
       //Create question_label
       $question_label = new Question_Label();
 
-      $question_id = $request->input('question_index');
+      $question_label->question_id = $request->input('question_index');
+      $question_label->label_id = $label->id;
       $question_label->save();
 
       return $label->name;
