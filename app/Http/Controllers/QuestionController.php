@@ -16,6 +16,7 @@ class QuestionController extends Controller
       $this->userController = new UserController();
       $this->commentController = new CommentController();
       $this->answerController = new AnswerController();
+      //$this->questionFollowingController = new QuestionFollowingController();
     }
 
     /**
@@ -72,6 +73,22 @@ class QuestionController extends Controller
     }
 
     /**
+     * Shows all questions for a given user.
+     *
+     * @return Response
+     */
+    public function getQuestion($question_id)
+    {
+
+      $question = Question::find($question_id);
+      
+      return $question;
+
+    }
+
+
+
+    /**
      * Opens the Question Page for a given Question id.
      *
      * @param  int  $id
@@ -79,6 +96,7 @@ class QuestionController extends Controller
      */
     public function open($id)
     {
+
       $question = Question::find($id);
 
       $user = $this->userController->getUsername($question->user_id);
@@ -88,6 +106,15 @@ class QuestionController extends Controller
       $userAnswers = [];
       $subComments = [];
       $userSubComments = [];
+
+      $questionFollowingController = new QuestionFollowingController();
+
+      
+      $questions_followed=[];
+      if(Auth::check()){
+          $questions_followed = $questionFollowingController->listFollowedQuestions();
+      }
+      
 
       foreach ($comments as $comment){
         $userComments[$comment->id]=$this->userController->getUsername($comment->user_id);
@@ -104,7 +131,7 @@ class QuestionController extends Controller
         }
       }
 
-      return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments]);
+    return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments, 'questions_followed' => $questions_followed]);
     }
 
     public function delete(Request $request, $id)
