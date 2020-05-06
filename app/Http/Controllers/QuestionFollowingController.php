@@ -35,16 +35,22 @@ class QuestionFollowingController extends Controller
 
     }
 
-    public function delete(Request $request, $id)
+    public function delete(Request $request)
     {
-        /*
-      $answer = Answer::find($id);
 
-      $this->authorize('delete', $answer);
-      $answer->delete();
+        $question_following = new QuestionFollowing();
 
-      return $answer;
-      */
+        $user_id = Auth::user()->id;
+        $question_id = $request->input('id');
+
+        //DB::delete(DB::raw("delete * from question_following where (user_id = $user_id and question_id = $question_id"));
+        DB::table('question_following')->where([['user_id', $user_id], ['question_id', $question_id],])->delete();
+
+        $question_title = $this->questionController->getQuestion($question_id)->title;
+
+        return $question_title;
+
+    
     }
 
     public function listFollowedQuestions(){

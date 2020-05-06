@@ -82,13 +82,27 @@ function addEventListeners() {
 
     // following questions
 
-    let followQuestion1 = document.querySelector('#follow1');
-    if (followQuestion1 != null)
-        followQuestion1.addEventListener('click', sendFollowRequest1);
+    let followQuestions = document.querySelectorAll('#follow1');
+    if (followQuestions != null)
+        [].forEach.call(followQuestions, function(follower) {
+            follower.addEventListener('click', sendFollowRequest1);
+        });
 
     let followQuestion2 = document.querySelector('#follow2');
     if (followQuestion2 != null)
         followQuestion2.addEventListener('click', sendFollowRequest2);
+
+    
+    let unfollowQuestions = document.querySelectorAll('#unfollow1');
+    if (unfollowQuestions != null)
+        [].forEach.call(unfollowQuestions, function(follower) {
+            follower.addEventListener('click', sendUnfollowRequest1);
+        });
+
+    let unfollowQuestion2 = document.querySelector('#unfollow2');
+    if (unfollowQuestion2 != null)
+        unfollowQuestion2.addEventListener('click', sendUnfollowRequest2);
+    
 
 }
 
@@ -527,15 +541,35 @@ function sendCreateLabelsRequest(question_index) {
 
 function sendFollowRequest1(){
     
-    // TO DO
+    
+    //let id = event.target.parentElement.getAttribute('data-id');
+    let id = this.closest('#questions-list').getAttribute('data-id');
+    console.log(id);
+    sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id });
 
 }
 
 function sendFollowRequest2(){
     
     let id = this.closest('div#question-div').getAttribute('data-id');
-    console.log(id);
     sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id });
+
+}
+
+function sendUnfollowRequest1(){
+    
+    
+    //let id = event.target.parentElement.getAttribute('data-id');
+    let id = this.closest('#questions-list').getAttribute('data-id');
+    console.log(id);
+    sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id });
+
+}
+
+function sendUnfollowRequest2(){
+    
+    let id = this.closest('div#question-div').getAttribute('data-id');
+    sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id });
 
 }
 

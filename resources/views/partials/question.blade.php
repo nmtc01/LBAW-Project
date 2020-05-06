@@ -33,7 +33,22 @@
             <i class="fas fa-thumbs-down fa-lg"> {{ $question->nr_dislikes }}</i>
         </a>
         <a class="icon">
-            <i class="fas fa-arrow-right fa-lg" id="follow2"> follow</i>
+            @php
+            $flag = false;
+            @endphp
+            @for ($j = 0; $j < count($questions_followed); $j++)
+                @if($questions_followed[$j]->id == $question->id)
+                    @php
+                    $flag = true;
+                    @endphp
+                @endif
+            @endfor
+            @if($flag)
+                <i class="fas fa-arrow-right fa-lg" id="unfollow2"> unfollow </i>
+            @else
+                <i class="fas fa-arrow-right fa-lg" id="follow2"> follow </i>
+            @endif
+            {{--<i class="fas fa-arrow-right fa-lg" id="follow2"> follow</i>--}}
         </a>
         <a class="icon-answers">
             <i class="fas fa-bug"> Report</i>
