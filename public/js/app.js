@@ -379,10 +379,7 @@ function labelStartedHandler() {
 }
 
 function labelCreatedHandler() {
-    console.log(this.responseText);
     let label = JSON.parse(this.responseText);
-
-    console.log(label);
 
     // Reset the new answer input
     /*document.getElementById("formControlTextareaQuestion").value = "";

@@ -17,6 +17,7 @@ class QuestionController extends Controller
       $this->commentController = new CommentController();
       $this->answerController = new AnswerController();
       //$this->questionFollowingController = new QuestionFollowingController();
+      $this->labelController = new LabelController();
     }
 
     /**
@@ -102,6 +103,8 @@ class QuestionController extends Controller
       $user = $this->userController->getUsername($question->user_id);
       $comments = $this->commentController->listQuestionComments($question->id);
       $answers = $this->answerController->list($question->id);
+      $labels = $this->labelController->list($question->id);
+
       $userComments = [];
       $userAnswers = [];
       $subComments = [];
@@ -131,7 +134,7 @@ class QuestionController extends Controller
         }
       }
 
-    return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments, 'questions_followed' => $questions_followed]);
+    return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments, 'questions_followed' => $questions_followed, 'labels' => $labels]);
     }
 
     public function delete(Request $request, $id)

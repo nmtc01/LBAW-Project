@@ -22,6 +22,9 @@
 </div>
 <div>
     <p id="question_description">{{ $question->description }}</p>
+    @foreach ($labels as $label)
+    <a class="badge badge-dark badge-pill" id="question_label">{{ $label->name }}</a>
+    @endforeach
     <div class=icons>
         <a class="icon" href="#">
             <i class="fas fa-thumbs-up fa-lg"> {{ $question->nr_likes }}</i>
