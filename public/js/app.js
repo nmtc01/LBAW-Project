@@ -79,6 +79,17 @@ function addEventListeners() {
     let labelAdder = document.getElementById('add_label');
     if (labelAdder != null)
         labelAdder.addEventListener('click', sendAddLabelRequest);
+
+    // following questions
+
+    let followQuestion1 = document.querySelector('#follow1');
+    if (followQuestion1 != null)
+        followQuestion1.addEventListener('click', sendFollowRequest1);
+
+    let followQuestion2 = document.querySelector('#follow2');
+    if (followQuestion2 != null)
+        followQuestion2.addEventListener('click', sendFollowRequest2);
+
 }
 
 
@@ -531,6 +542,21 @@ function sendCreateLabelsRequest(question_index) {
         sendAjaxRequest('post', '/api/label', { name: name, question_index: question_index }, labelCreatedHandler);
 
     event.preventDefault();
+}
+
+function sendFollowRequest1(){
+    
+    // TO DO
+
+}
+
+
+function sendFollowRequest2(){
+    
+    let id = this.closest('div#question-div').getAttribute('data-id');
+    console.log(id);
+    sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id });
+
 }
 
 
