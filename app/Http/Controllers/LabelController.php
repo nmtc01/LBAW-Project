@@ -27,17 +27,27 @@ class LabelController extends Controller
       //Create label
       $label = new Label();
 
+      //Check if it is authenticated
       $this->authorize('create', $label);
 
-      $label->name = $request->input('name');
-      $label->save();
+      //Check for repeated labels
+      $name = $request->input('name');
+      $label_id = '';
+      $older_label = DB::select(DB::raw("select * from label where name = '$name'"));
+
+      if ($older_label == null) {
+        //Store label
+        $label->name = $name;
+        $label->save();
+        $label_id = $label->id;
+      }
+      else $label_id = $older_label[0]->id;
+
 
       //Create question_label
       DB::table('question_label')->insert([
-        ['question_id' => $request->input('question_index'), 'label_id' => $label->id]
+        ['question_id' => $request->input('question_index'), 'label_id' => $label_id]
       ]);
-
-      return $label;
     }
 
     /**
