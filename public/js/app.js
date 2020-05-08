@@ -55,15 +55,24 @@ function addEventListeners() {
     let questionDislike = document.querySelector('#dislike1');
     if (questionDislike != null)
         questionDislike.addEventListener('click', QuestionDislikeQ);
-        /*
-
-    let questionLike = document.querySelector('#like2');
-    if (questionLike != null)
-            questionLike.addEventListener('click', QuestionLikeA);
+    
+    let questionLike2 = document.querySelector('#like2');
+    if (questionLike2 != null)
+        questionLike2.addEventListener('click', QuestionLikeA);
             
-    let questionLike = document.querySelector('#dislike2');
-    if (questionLike != null)
-        questionLike.addEventListener('click', QuestionDisLikeA);*/
+    let questionDislike2 = document.querySelector('#dislike2');
+    if (questionDislike2 != null)
+        questionDislike2.addEventListener('click', QuestionDislikeA);
+
+        /*
+    let homeLike = document.querySelector('#like3');
+    if (homeLike != null)
+        homeLike.addEventListener('click', homeLikeF);
+
+    let homeDislike = document.querySelector('#dislike3');
+    if (homeDislike != null)
+        homeDislike.addEventListener('click', homeDislikeF);
+        */
 
     let answerEditors = document.querySelectorAll('.edit_answer_btn');
     if (answerEditors != null)
@@ -878,14 +887,28 @@ function QuestionDislikeQ(){
     let id = this.closest('div#question-div').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, null);
 }
-/*
+
 function QuestionLikeA() {
-    let id = this.closest('div#answer-div').getAttribute('data-id');
+    let id = this.closest('.answer_item').getAttribute('data-id');
     sendAjaxRequest('put', '/api/answer/' + id + '/vote', { id : id}, null);
 }
 
 function QuestionDislikeA() {
-    let id = this.closest('div#answer-div').getAttribute('data-id');
+    let id = this.closest('.answer_item').getAttribute('data-id');
+    sendAjaxRequest('put', '/api/answer/' + id + '/downvote', { id : id}, null);
+}
+
+/*
+function homeLikeF() {
+    let id = this.closest('.questions-list').getAttribute('data-id');
+    console.log(id);
+    sendAjaxRequest('put', '/api/answer/' + id + '/vote', { id : id}, null);
+}
+
+
+function homeDislikeF() {
+    let id = this.closest('.questions_list').getAttribute('data-id');
+    console.log(id);
     sendAjaxRequest('put', '/api/answer/' + id + '/downvote', { id : id}, null);
 }*/
 

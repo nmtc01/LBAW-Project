@@ -60,14 +60,14 @@ class VoteController extends Controller
     }
 
 
-    /*
+    
     public function addLikeA(Request $request)
     {
 
         $user_id = Auth::user()->id;
         $answer_id = $request->input('id');
 
-        $like = DB::table('vote')->where([['user_id', $user_id], ['question_id', $question_id],])->first();
+        $like = DB::table('vote')->where([['user_id', $user_id], ['answer_id', $answer_id],])->first();
 
         if($like === null){
             DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, null, $answer_id]);
@@ -76,7 +76,7 @@ class VoteController extends Controller
             DB::table('vote')->where([['user_id', $user_id], ['answer_id', $answer_id],])->delete();
 
         }else{
-            DB::table('vote')->where([['user_id', $user_id], ['answer_id', $quesanswer_idtion_id],])->delete();
+            DB::table('vote')->where([['user_id', $user_id], ['answer_id', $answer_id],])->delete();
             DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, null, $answer_id]);
             
 
@@ -90,7 +90,7 @@ class VoteController extends Controller
         $answer_id = $request->input('id'); //???
 
         //check if it was already liked
-        $like = DB::table('vote')->where([['user_id', $user_id], ['answer_id', $question_id],])->first();
+        $like = DB::table('vote')->where([['user_id', $user_id], ['answer_id', $answer_id],])->first();
         if($like === null){
             DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, null, $answer_id]);
         }else if($like->vote == false){
@@ -100,7 +100,7 @@ class VoteController extends Controller
             DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, null, $answer_id]);
 
         }
-    }*/
+    }
 
 
 }

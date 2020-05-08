@@ -48,8 +48,8 @@ Route::put('/api/comment/{id}/update', 'CommentController@update');
 //Vote
 Route::put('/api/question/{id}/vote', 'VoteController@addLikeQ');
 Route::put('/api/question/{id}/downvote', 'VoteController@addDisikeQ');
-//Route::put('/api/answer/{id}/vote', 'VoteController@addLikeA');
-//Route::put('/api/answer/{id}/downvote', 'VoteController@addDisikeA');
+Route::put('/api/answer/{id}/vote', 'VoteController@addLikeA');
+Route::put('/api/answer/{id}/downvote', 'VoteController@addDisikeA');
 
 
 //Labels

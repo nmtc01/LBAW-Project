@@ -18,11 +18,11 @@
 
         <div class="row">
             <div class="icons col-9">
-                <a class="icon" href="#">
-                    <i class="fas fa-thumbs-up fa-lg"> {{ $questions[$i]->nr_likes }}</i>
+                <a class="icon" >
+                    <i class="fas fa-thumbs-up fa-lg" id="like3"> {{ $questions[$i]->nr_likes }}</i>
                 </a>
-                <a class="icon" href="#">
-                    <i class="fas fa-thumbs-down fa-lg"> {{ $questions[$i]->nr_dislikes }}</i>
+                <a class="icon" >
+                    <i class="fas fa-thumbs-down fa-lg" id ="dislike3"> {{ $questions[$i]->nr_dislikes }}</i>
                 </a>
                 <a class="icon" href="#">
                     <i class="fas fa-reply fa-lg"> {{ isset($nr_answers[$questions[$i]->id]) ?  $nr_answers[$questions[$i]->id] : 0}} </i>
