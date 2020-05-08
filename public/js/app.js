@@ -82,26 +82,26 @@ function addEventListeners() {
 
     // following questions
 
-    let followQuestions = document.querySelectorAll('#follow1');
+    let followQuestions = document.querySelectorAll('#followH');
     if (followQuestions != null)
         [].forEach.call(followQuestions, function(follower) {
-            follower.addEventListener('click', sendFollowRequest1);
+            follower.addEventListener('click', sendFollowRequestH);
         });
 
-    let followQuestion2 = document.querySelector('#follow2');
+    let followQuestion2 = document.querySelector('#followQ');
     if (followQuestion2 != null)
-        followQuestion2.addEventListener('click', sendFollowRequest2);
+        followQuestion2.addEventListener('click', sendFollowRequestQ);
 
     
-    let unfollowQuestions = document.querySelectorAll('#unfollow1');
+    let unfollowQuestions = document.querySelectorAll('#unfollowH');
     if (unfollowQuestions != null)
         [].forEach.call(unfollowQuestions, function(follower) {
-            follower.addEventListener('click', sendUnfollowRequest1);
+            follower.addEventListener('click', sendUnfollowRequestH);
         });
 
-    let unfollowQuestion2 = document.querySelector('#unfollow2');
+    let unfollowQuestion2 = document.querySelector('#unfollowQ');
     if (unfollowQuestion2 != null)
-        unfollowQuestion2.addEventListener('click', sendUnfollowRequest2);
+        unfollowQuestion2.addEventListener('click', sendUnfollowRequestQ);
     
 
 }
@@ -539,37 +539,49 @@ function sendCreateLabelsRequest(question_index) {
     }
 }
 
-function sendFollowRequest1(){
+// following questions
+
+function sendFollowRequestH(){
     
-    
-    //let id = event.target.parentElement.getAttribute('data-id');
     let id = this.closest('#questions-list').getAttribute('data-id');
-    console.log(id);
-    sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id });
+    sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id }, followRequestHandlerH);
+
+    //changes button color
+    this.style.color = '#6545c9';
+    this.innerHTML = " unfollow";
 
 }
 
-function sendFollowRequest2(){
+function sendFollowRequestQ(){
     
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id });
+    sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id }, followRequestHandlerQ);
+
+    // changes button color
+    this.style.color = '#6545c9';
+    this.innerHTML = " unfollow";
 
 }
 
-function sendUnfollowRequest1(){
+function sendUnfollowRequestH(){
     
-    
-    //let id = event.target.parentElement.getAttribute('data-id');
     let id = this.closest('#questions-list').getAttribute('data-id');
-    console.log(id);
-    sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id });
+    sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id }, unfollowRequestHandlerH);
+
+    // changes button color
+    this.style.color = 'black';
+    this.innerHTML = " follow";
 
 }
 
-function sendUnfollowRequest2(){
+function sendUnfollowRequestQ(){
     
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id });
+    sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id }, unfollowRequestHandlerQ);
+
+    // changes button color
+    this.style.color = 'black';
+    this.innerHTML = " follow";
 
 }
 
@@ -851,5 +863,71 @@ function startLabel() {
 
     return start_label;
 }
+
+// following questions
+function followRequestHandlerH(){
+
+    
+    let info = JSON.parse(this.responseText);
+
+    if(info[2] <= 6){
+
+        let section = document.getElementById('sidenav_left');
+
+        let new_following = document.createElement('following');
+        new_following.classList.add('sidenav');
+        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;  
+
+        section.insertBefore(new_following, section.childNodes[section.childNodes.size]);
+
+
+        return new_following;
+
+    }
+
+}
+
+function followRequestHandlerQ(){
+
+    let info = JSON.parse(this.responseText);
+
+    if(info[2] <= 6){
+
+        let section = document.getElementById('sidenav_left');
+
+        let new_following = document.createElement('following');
+        new_following.classList.add('sidenav');
+        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;  
+
+        section.insertBefore(new_following, section.childNodes[section.childNodes.size]);
+
+        return new_following;
+
+    }
+    
+}
+
+function unfollowRequestHandlerH(){
+
+    let info = JSON.parse(this.responseText);
+    let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
+    if(li != null){
+        li.remove();
+    }
+
+
+}
+
+function unfollowRequestHandlerQ(){
+
+    let info = JSON.parse(this.responseText);
+    let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
+    if(li != null){
+        li.remove();
+    }
+
+}
+
+
 
 addEventListeners();

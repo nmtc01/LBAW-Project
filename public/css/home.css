@@ -59,8 +59,12 @@
     color: #6545c9;
 }
 
-#unfollow1{
+#unfollowH{
     color: #6545c9;
+}
+
+#unfollowH:hover{
+    color: black;
 }
 
 .elements{
