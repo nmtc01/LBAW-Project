@@ -220,6 +220,41 @@ CREATE TRIGGER update_score_question
     FOR EACH ROW
     EXECUTE PROCEDURE update_score_question();
 
+--extra trigger
+
+CREATE OR REPLACE FUNCTION update_score_question_delete() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = FALSE) THEN
+		UPDATE question
+		SET nr_dislikes = nr_dislikes-1
+		WHERE OLD.question_id = id;
+		UPDATE "user"
+		SET score = score+1
+		FROM question
+		WHERE OLD.question_id = question.id AND question.user_id = "user".id;
+    ELSE IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = TRUE) THEN
+        UPDATE question
+		SET nr_likes = nr_likes-1
+		WHERE OLD.question_id = id;
+		UPDATE "user"
+		SET score = score-1
+		FROM question
+		WHERE OLD.question_id = question.id AND question.user_id = "user".id;
+    END IF;
+	END IF;
+    RETURN OLD;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER update_score_question_delete
+    AFTER DELETE ON vote
+    FOR EACH ROW
+    EXECUTE PROCEDURE update_score_question_delete();
+
+	------
+
 
 --Trigger 2
 CREATE OR REPLACE FUNCTION update_score_answer() RETURNS TRIGGER AS
@@ -253,6 +288,40 @@ CREATE TRIGGER update_score_answer
     FOR EACH ROW
     EXECUTE PROCEDURE update_score_answer();
 
+--extra trigger 2
+
+
+CREATE OR REPLACE FUNCTION update_score_answer_delete() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = FALSE) THEN
+		UPDATE answer
+		SET nr_dislikes = nr_dislikes-1
+		WHERE OLD.answer_id = id;
+		UPDATE "user"
+		SET score = score+1
+		FROM answer
+		WHERE OLD.answer_id = answer.id AND answer.user_id = "user".id;
+    ELSE IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = TRUE) THEN
+        UPDATE answer
+		SET nr_likes = nr_likes-1
+		WHERE OLD.answer_id = id;
+		UPDATE "user"
+		SET score = score-1
+		FROM answer
+		WHERE OLD.answer_id = answer.id AND answer.user_id = "user".id;
+    END IF;
+	END IF;
+    RETURN OLD;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER update_score_answer_delete
+    AFTER DELETE ON vote
+    FOR EACH ROW
+    EXECUTE PROCEDURE update_score_answer_delete();
+--
 
 --Trigger 3
 CREATE OR REPLACE FUNCTION vote_own_question() RETURNS TRIGGER AS

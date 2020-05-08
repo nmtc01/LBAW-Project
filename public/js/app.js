@@ -48,6 +48,23 @@ function addEventListeners() {
         questionUpdator.addEventListener('click', hideUpdateQuestion);
     }
 
+    let questionLike = document.querySelector('#like1');
+    if (questionLike != null)
+        questionLike.addEventListener('click', QuestionLikeQ);
+
+    let questionDislike = document.querySelector('#dislike1');
+    if (questionDislike != null)
+        questionDislike.addEventListener('click', QuestionDislikeQ);
+        /*
+
+    let questionLike = document.querySelector('#like2');
+    if (questionLike != null)
+            questionLike.addEventListener('click', QuestionLikeA);
+            
+    let questionLike = document.querySelector('#dislike2');
+    if (questionLike != null)
+        questionLike.addEventListener('click', QuestionDisLikeA);*/
+
     let answerEditors = document.querySelectorAll('.edit_answer_btn');
     if (answerEditors != null)
         [].forEach.call(answerEditors, function(editor) {
@@ -851,5 +868,25 @@ function startLabel() {
 
     return start_label;
 }
+
+function QuestionLikeQ() {
+    let id = this.closest('div#question-div').getAttribute('data-id');
+    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, null);
+}
+
+function QuestionDislikeQ(){
+    let id = this.closest('div#question-div').getAttribute('data-id');
+    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, null);
+}
+/*
+function QuestionLikeA() {
+    let id = this.closest('div#answer-div').getAttribute('data-id');
+    sendAjaxRequest('put', '/api/answer/' + id + '/vote', { id : id}, null);
+}
+
+function QuestionDislikeA() {
+    let id = this.closest('div#answer-div').getAttribute('data-id');
+    sendAjaxRequest('put', '/api/answer/' + id + '/downvote', { id : id}, null);
+}*/
 
 addEventListeners();

@@ -26,11 +26,11 @@
     <a class="badge badge-dark badge-pill" id="question_label">{{ $label->name }}</a>
     @endforeach
     <div class=icons>
-        <a class="icon" href="#">
-            <i class="fas fa-thumbs-up fa-lg"> {{ $question->nr_likes }}</i>
+        <a class="icon" >
+            <i class="fas fa-thumbs-up fa-lg" id="like1"> {{ $question->nr_likes }}</i>
         </a>
-        <a class="icon" href="#">
-            <i class="fas fa-thumbs-down fa-lg"> {{ $question->nr_dislikes }}</i>
+        <a class="icon" >
+            <i class="fas fa-thumbs-down fa-lg" id="dislike1"> {{ $question->nr_dislikes }}</i>
         </a>
         <a class="icon">
             @php
