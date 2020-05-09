@@ -26,14 +26,35 @@
     <a class="badge badge-dark badge-pill" id="question_label">{{ $label->name }}</a>
     @endforeach
     <div class=icons>
+
+        @if($vote != null)
+
+            @if($vote->vote)
+            <a class="icon" >
+                <i class="fas fa-thumbs-up fa-lg" id="like1P"> {{ $question->nr_likes }}</i>
+            </a>
+            @else
         <a class="icon" >
-            <i class="fas fa-thumbs-up fa-lg" id="like1"> {{ $question->nr_likes }}</i>
-        </a>
+                <i class="fas fa-thumbs-up fa-lg" id="like1"> {{ $question->nr_likes }}</i>
+            </a>
+            @endif
+            @if(!$vote->vote)
+            <a class="icon" >
+                <i class="fas fa-thumbs-down fa-lg" id="dislike1P"> {{ $question->nr_dislikes }}</i>
+            </a>
+            @else
+            <a class="icon" >
+                <i class="fas fa-thumbs-down fa-lg" id="dislike1"> {{ $question->nr_dislikes }}</i>
+            </a>
+            @endif
+        @else
         <a class="icon" >
-            <i class="fas fa-thumbs-down fa-lg" id="dislike1"> {{ $question->nr_dislikes }}</i>
-        </a>
-        @if (Auth::check())
-        <a class="icon">
+                <i class="fas fa-thumbs-up fa-lg" id="like1"> {{ $question->nr_likes }}</i>
+            </a>
+        <a class="icon" >
+                <i class="fas fa-thumbs-down fa-lg" id="dislike1"> {{ $question->nr_dislikes }}</i>
+            </a>
+        @endif
             @php
             $flag = false;
             @endphp
@@ -45,13 +66,12 @@
                 @endif
             @endfor
             @if($flag)
-                <i class="fas fa-arrow-right fa-lg" id="unfollowQ"> unfollow </i>
+                <i class="fas fa-arrow-right fa-lg" id="unfollow2"> unfollow </i>
             @else
-                <i class="fas fa-arrow-right fa-lg" id="followQ"> follow </i>
+                <i class="fas fa-arrow-right fa-lg" id="follow2"> follow </i>
             @endif
             {{--<i class="fas fa-arrow-right fa-lg" id="follow2"> follow</i>--}}
         </a>
-        @endif
         <a class="icon-answers">
             <i class="fas fa-bug"> Report</i>
         </a>

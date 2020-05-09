@@ -11,15 +11,12 @@ use App\Vote;
 class VoteController extends Controller
 {
     public function __construct(){
-        $this->userController = new UserController();
         $this->questionController = new QuestionController();
         $this->answerController = new AnswerController();
     }
 
     public function addLikeQ(Request $request)
     {
-
-
         $vote = new Vote();
         $user_id = Auth::user()->id;
         $question_id = $request->input('id');
@@ -34,6 +31,7 @@ class VoteController extends Controller
             DB::table('vote')->where([['user_id', $user_id], ['question_id', $question_id],])->delete();
 
         }else{
+            
             DB::table('vote')->where([['user_id', $user_id], ['question_id', $question_id],])->delete();
             DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, $question_id, null]);
 
@@ -119,5 +117,10 @@ class VoteController extends Controller
     $info = [$answer->nr_likes, $answer->nr_dislikes];
     return $info;
 
+    }
+
+    public function getQVote($user_id, $question_id){
+        $vote = DB::table('vote')->where([['user_id', $user_id], ['question_id', $question_id],])->first();
+        return $vote->vote;
     }
 }

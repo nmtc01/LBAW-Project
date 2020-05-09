@@ -57,9 +57,17 @@ function addEventListeners() {
     if (questionLike != null)
         questionLike.addEventListener('click', QuestionLikeQ);
 
+    let questionLikeP = document.querySelector('#like1P');
+    if (questionLikeP != null)
+        questionLikeP.addEventListener('click', QuestionLikeQ);
+
     let questionDislike = document.querySelector('#dislike1');
     if (questionDislike != null)
         questionDislike.addEventListener('click', QuestionDislikeQ);
+
+    let questionDislikeP = document.querySelector('#dislike1P');
+    if (questionDislikeP != null)
+        questionDislikeP.addEventListener('click', QuestionDislikeQ);        
     
     let questionLike2 = document.querySelector('#like2');
     if (questionLike2 != null)
@@ -924,22 +932,22 @@ function startLabel() {
 
 function QuestionLikeQ() {
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, handleLikeQ());
+    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, handleLikeQ);
 }
 
 function QuestionDislikeQ(){
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, null);
+    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, handleDislikeQ);
 }
 
 function QuestionLikeA() {
     let id = this.closest('.answer_item').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/answer/' + id + '/vote', { id : id}, null);
+    sendAjaxRequest('put', '/api/answer/' + id + '/vote', { id : id}, handleLikeA);
 }
 
 function QuestionDislikeA() {
     let id = this.closest('.answer_item').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/answer/' + id + '/downvote', { id : id}, null);
+    sendAjaxRequest('put', '/api/answer/' + id + '/downvote', { id : id}, handleDislikeA);
 }
 
 
@@ -1021,9 +1029,78 @@ function unfollowRequestHandlerQ(){
 }
 
 function handleLikeQ(){
-    console.log(this.responseText);
     let info = JSON.parse(this.responseText);
 
+    let buttonl = document.querySelector('#like1');
+    if (buttonl === null) buttonl = document.querySelector('#like1P');
+
+    let buttond = document.querySelector('#dislike1');
+    if (buttond === null) buttonl = document.querySelector('#dislike1P');
+
+
+    if (buttonl.style.color != '#6545c9')
+        buttonl.style.color = '#6545c9';
+    else buttonl.style.color = 'black';
+
+    buttonl.innerHTML = ' '+ info[0];
+    buttond.innerHTML = ' ' + info[1];
+
+}
+
+function handleDislikeQ(){
+    let info = JSON.parse(this.responseText);
+
+    let button = document.querySelector('#dislike1');
+    if (button === null) button = document.querySelector('#dislike1P');
+
+    let buttonl = document.querySelector('#like1');
+    if (buttonl === null) buttonl = document.querySelector('#like1P');
+
+
+    if (button.style.color != '#6545c9')
+        button.style.color = '#6545c9';
+    else button.style.color = 'black';
+
+    buttonl.innerHTML = ' ' + info[0];
+    button.innerHTML = ' '+ info[1];
+
+}
+
+function handleLikeA(){
+    let info = JSON.parse(this.responseText);
+
+    let buttonl = document.querySelector('#like2');
+    if (buttonl === null) buttonl = document.querySelector('#like2P');
+
+    let buttond = document.querySelector('#dislike2');
+    if (buttond === null) buttonl = document.querySelector('#dislike2P');
+
+
+    if (buttonl.style.color != '#6545c9')
+        buttonl.style.color = '#6545c9';
+    else buttonl.style.color = 'black';
+
+    buttonl.innerHTML = ' '+ info[0];
+    buttond.innerHTML = ' ' + info[1];
+
+}
+
+function handleDislikeA(){
+    let info = JSON.parse(this.responseText);
+
+    let button = document.querySelector('#dislike2');
+    if (button === null) button = document.querySelector('#dislike2P');
+
+    let buttonl = document.querySelector('#like2');
+    if (buttonl === null) buttonl = document.querySelector('#like2P');
+
+
+    if (button.style.color != '#6545c9')
+        button.style.color = '#6545c9';
+    else button.style.color = 'black';
+
+    buttonl.innerHTML = ' ' + info[0];
+    button.innerHTML = ' '+ info[1];
 
 }
 

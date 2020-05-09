@@ -16,6 +16,7 @@ class HomeController extends Controller
         $this->userController = new UserController();
         $this->answerController = new AnswerController();
         $this->questionFollowingController = new QuestionFollowingController();
+    
     }
 
 

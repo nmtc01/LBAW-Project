@@ -15,18 +15,33 @@
         <div class="ans-body">
             <p id="answer_content">{{ $answer->content }}</p>
             <div class=icons-answers>
-                <a class="icon-answers" id="like2">
-                    <i class="fas fa-thumbs-up" >{{ $answer->nr_likes }}</i>
+                @if($answersVotes[$answer->id] != null)
+
+                    @if(($answersVotes[$answer->id])->vote == true)
+                    <a class="icon-answers" >
+                    <i class="fas fa-thumbs-up" id="like2P">{{ $answer->nr_likes }}</i>
+                    </a>
+                    <a class="icon-answers"  >
+                        <i class="fas fa-thumbs-down" id="dislike2">{{ $answer->nr_dislikes }}</i>
+                    </a>
+                    @else
+                    <a class="icon-answers" 
+                    <i class="fas fa-thumbs-up" id="like2">>{{ $answer->nr_likes }}</i>
+                    </a>
+                    <a class="icon-answers" >
+                        <i class="fas fa-thumbs-down" id="dislike2P">{{ $answer->nr_dislikes }}</i>
+                    </a>
+
+                    @endif
+
+                @else
+                <a class="icon-answers" >
+                    <i class="fas fa-thumbs-up" id="like2">{{ $answer->nr_likes }}</i>
                 </a>
-                <a class="icon-answers"  id="dislike2">
-                    <i class="fas fa-thumbs-down">{{ $answer->nr_dislikes }}</i>
+                <a class="icon-answers"  >
+                    <i class="fas fa-thumbs-down" id="dislike2">{{ $answer->nr_dislikes }}</i>
                 </a>
-                <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments{{$answer->id}}">
-                    <i class="fas fa-comment">0</i>
-                </a>
-                <a class="icon-answers">
-                    <i class="fas fa-bug"> Report</i>
-                </a>
+                @endif
                 @if (Auth::check() && Auth::user()->id == $answer->user_id)
                 <a class="icon-answers edit_answer_btn" id="edit_answer{{$answer->id}}">
                     <i class="fas fa-edit"> Edit</i>
