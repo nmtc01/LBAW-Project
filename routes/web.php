@@ -60,3 +60,6 @@ Route::post('/api/label', 'LabelController@create');
 Route::get('/about', 'StaticController@about');
 Route::get('/404', 'StaticController@p404');
 
+// Search page
+Route::post('/api/search', 'SearchController@startSearch');
+Route::get('/search/{KeyWord}', 'SearchController@show');

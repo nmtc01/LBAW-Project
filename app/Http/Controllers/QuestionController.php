@@ -74,6 +74,20 @@ class QuestionController extends Controller
     }
 
     /**
+     * Shows all questions.
+     *
+     * @return Response
+     */
+    public function listSearch($KeyWord)
+    {
+      $keyWord = $KeyWord;
+      $questions = DB::select(DB::raw("select * from question where LOWER(title) like LOWER('%$keyWord%') or LOWER(description) like LOWER('%$keyWord%') order by question_date desc, (nr_likes - nr_dislikes) desc"));
+
+      return $questions;
+
+    }
+
+    /**
      * Shows all questions for a given user.
      *
      * @return Response

@@ -3,6 +3,11 @@
  */
 
 function addEventListeners() {
+    let search = document.querySelector('#start_search');
+    if (search != null) {
+        search.addEventListener('keypress', sendSearchRequest);
+    }
+
     let questionCreator = document.querySelector('#add_question_btn');
     if (questionCreator != null) {
         questionCreator.addEventListener('click', sendCreateQuestionRequest);
@@ -111,26 +116,26 @@ function addEventListeners() {
 
     // following questions
 
-    let followQuestions = document.querySelectorAll('#follow1');
+    let followQuestions = document.querySelectorAll('#followH');
     if (followQuestions != null)
         [].forEach.call(followQuestions, function(follower) {
-            follower.addEventListener('click', sendFollowRequest1);
+            follower.addEventListener('click', sendFollowRequestH);
         });
 
-    let followQuestion2 = document.querySelector('#follow2');
+    let followQuestion2 = document.querySelector('#followQ');
     if (followQuestion2 != null)
-        followQuestion2.addEventListener('click', sendFollowRequest2);
+        followQuestion2.addEventListener('click', sendFollowRequestQ);
 
     
-    let unfollowQuestions = document.querySelectorAll('#unfollow1');
+    let unfollowQuestions = document.querySelectorAll('#unfollowH');
     if (unfollowQuestions != null)
         [].forEach.call(unfollowQuestions, function(follower) {
-            follower.addEventListener('click', sendUnfollowRequest1);
+            follower.addEventListener('click', sendUnfollowRequestH);
         });
 
-    let unfollowQuestion2 = document.querySelector('#unfollow2');
+    let unfollowQuestion2 = document.querySelector('#unfollowQ');
     if (unfollowQuestion2 != null)
-        unfollowQuestion2.addEventListener('click', sendUnfollowRequest2);
+        unfollowQuestion2.addEventListener('click', sendUnfollowRequestQ);
     
 
 }
@@ -161,19 +166,30 @@ function sendAjaxRequest(method, url, data, handler) {
  * Handlers 
  */
 
+function showSearchHandler() {
+    console.log(this.responseText);
+    let info = JSON.parse(this.responseText);
+
+    console.log(info);
+
+    if (this.status == 200) window.location = '/search/' + info.KeyWord;
+
+    //addEventListeners();
+}
+
 function questionAddedHandler() {
-    
+
     let info = JSON.parse(this.responseText);
 
     // Reset the new answer input
     document.getElementById("formControlTextareaQuestion").value = "";
     document.getElementById("formControlTextareaDescription").value = "";
-    
+
     // Create the new Question
     let new_question = createQuestion(info);
-    
+
     let section = document.getElementById("questions-list");
-    
+
     let list = document.getElementById("questions-list");
 
     section.before(new_question, list.childNodes[0]);
@@ -205,10 +221,10 @@ function answerAddedHandler() {
 
     //Parse info
     let info = JSON.parse(this.responseText);
-    
+
     // Create the new Answer
     let new_answer = createAnswer(info);
-    
+
     // Reset the new answer input
     document.getElementById("exampleFormControlTextarea1").value = "";
 
@@ -307,16 +323,16 @@ function subCommentAddedHandler() {
 }
 
 function answerDeletedHandler() {
-  let answer = JSON.parse(this.responseText);
-  let li = document.querySelector('li#answer'+answer.id+'[data-id="' + answer.id + '"]');
-  li.remove();
+    let answer = JSON.parse(this.responseText);
+    let li = document.querySelector('li#answer' + answer.id + '[data-id="' + answer.id + '"]');
+    li.remove();
 }
 
 function commentDeletedHandler() {
     let comment = JSON.parse(this.responseText);
-    let div = document.querySelector('div#comment'+comment.id+'[data-id="' + comment.id + '"]');
+    let div = document.querySelector('div#comment' + comment.id + '[data-id="' + comment.id + '"]');
     div.remove();
-  }
+}
 
 function questionDeletedHandler() {
     if (this.status == 200) window.location = '/';
@@ -327,17 +343,17 @@ function questionDeletedHandler() {
 
 function questionEditedHandler() {
     let info = JSON.parse(this.responseText);
-    
+
     // Edit Question
     let new_title = editTitle(info);
     let new_description = editDescription(info);
-    
+
     let div_title = document.querySelector("div#question-div h1");
     let div_description = document.querySelector("div#question-div #question_description");
 
     div_title.innerHTML = new_title.innerHTML;
     div_description.innerHTML = new_description.innerHTML;
-    
+
     // Focus 
     new_title.focus();
     new_description.focus();
@@ -347,12 +363,12 @@ function questionEditedHandler() {
 
 function answerEditedHandler() {
     let info = JSON.parse(this.responseText);
-    
+
     // Edit Answer
     let new_content = editAnswerContent(info);
-    let div_content = document.querySelector("ul#answers-list #answer"+info[3]+" #answer_content");
+    let div_content = document.querySelector("ul#answers-list #answer" + info[3] + " #answer_content");
     div_content.outerHTML = new_content.innerHTML;
-    
+
     // Focus
     new_content.focus();
 
@@ -361,12 +377,12 @@ function answerEditedHandler() {
 
 function commentEditedHandler() {
     let info = JSON.parse(this.responseText);
-    
+
     // Edit comment
     let new_content = editCommentContent(info);
-    let div_content = document.querySelector("#comment"+info[3]+" div #comment_content");
+    let div_content = document.querySelector("#comment" + info[3] + " div #comment_content");
     div_content.outerHTML = new_content.innerHTML;
-    
+
     // Focus
     new_content.focus();
 
@@ -375,17 +391,17 @@ function commentEditedHandler() {
 
 function questionUpdatedHandler() {
     let info = JSON.parse(this.responseText);
-    
+
     // Update question
     let new_title = updateTitle(info);
     let new_description = updateDescription(info);
-    
+
     let div_title = document.querySelector("div#question-div #question_title");
     let div_description = document.querySelector("div#question-div #question_description");
 
     div_title.outerHTML = new_title.innerHTML;
     div_description.outerHTML = new_description.innerHTML;
-    
+
     // Focus 
     new_title.focus();
     new_description.focus();
@@ -395,12 +411,12 @@ function questionUpdatedHandler() {
 
 function answerUpdatedHandler() {
     let info = JSON.parse(this.responseText);
-    
+
     // Update answer
     let new_content = updateAnswerContent(info);
-    let div_content = document.querySelector("ul#answers-list #answer"+info[3]+" #answer_content");
+    let div_content = document.querySelector("ul#answers-list #answer" + info[3] + " #answer_content");
     div_content.outerHTML = new_content.innerHTML;
-    
+
     // Focus 
     new_content.focus();
 
@@ -409,23 +425,23 @@ function answerUpdatedHandler() {
 
 function commentUpdatedHandler() {
     let info = JSON.parse(this.responseText);
-    
+
     // Update answer
     let new_content = updateCommentContent(info);
-    let div_content = document.querySelector("#comment"+info[3]+" div #comment_content");
+    let div_content = document.querySelector("#comment" + info[3] + " div #comment_content");
     div_content.outerHTML = new_content.innerHTML;
-    
+
     // Focus 
     new_content.focus();
 
     addEventListeners();
 }
 
-function labelStartedHandler() { 
+function labelStartedHandler() {
     let new_content = startLabel();
     let plus = document.getElementById('add_label');
     plus.outerHTML = new_content.innerHTML;
-    
+
     // Focus
     plus.focus();
 
@@ -436,6 +452,19 @@ function labelStartedHandler() {
 /**
  * Send requests
  */
+
+function sendSearchRequest(e) {
+    if (e.key === 'Enter') {
+        let content = document.getElementById("start_search").value;
+
+        console.log(content);
+
+        if (content != '')
+            sendAjaxRequest('post', 'api/search', { content: content }, showSearchHandler);
+
+        event.preventDefault();
+    }
+}
 
 function sendDeleteAnswerRequest() {
     let id = this.closest('li.answer_item').getAttribute('data-id');
@@ -454,17 +483,17 @@ function sendDeleteQuestionRequest() {
 
 function sendEditQuestionRequest() {
     let id = this.closest('div#question-div').getAttribute('data-id');
-    let title = document.querySelector("div#question-div h1").textContent; 
+    let title = document.querySelector("div#question-div h1").textContent;
     let description = document.querySelector("div#question-div #question_description").textContent;
 
-    if (title != '' && description !='')
+    if (title != '' && description != '')
         sendAjaxRequest('put', '/api/question/' + id, { title: title, description: description }, questionEditedHandler);
 }
 
 function sendEditAnswerRequest() {
     let div = event.target.parentElement.parentElement.parentElement.parentElement;
     let id = div.getAttribute('data-id');
-    let content = document.querySelector("ul#answers-list #answer"+id+" #answer_content").textContent; 
+    let content = document.querySelector("ul#answers-list #answer" + id + " #answer_content").textContent;
 
     if (content != '')
         sendAjaxRequest('put', '/api/answer/' + id, { content: content }, answerEditedHandler);
@@ -473,14 +502,14 @@ function sendEditAnswerRequest() {
 function sendEditCommentRequest(event) {
     let div = event.target.parentElement.parentElement.parentElement;
     let id = div.getAttribute('data-id');
-    let content = document.querySelector("#comment"+id+" div #comment_content").textContent;
+    let content = document.querySelector("#comment" + id + " div #comment_content").textContent;
     if (content != '')
         sendAjaxRequest('put', '/api/comment/' + id, { content: content }, commentEditedHandler);
 }
 
 function sendUpdateQuestionRequest() {
     let id = this.closest('div#question-div').getAttribute('data-id');
-    let title = document.querySelector('input#question_title').value; 
+    let title = document.querySelector('input#question_title').value;
     let description = document.querySelector('div#question-div input#question_description').value;
 
     if (title != "" && description != "")
@@ -489,8 +518,8 @@ function sendUpdateQuestionRequest() {
 
 function sendUpdateAnswerRequest() {
     let div = event.target.parentElement.parentElement.parentElement.parentElement;
-    let id = div.getAttribute('data-id'); 
-    let content = document.querySelector('ul#answers-list #answer'+id+' input#answer_content').value;
+    let id = div.getAttribute('data-id');
+    let content = document.querySelector('ul#answers-list #answer' + id + ' input#answer_content').value;
 
     if (content != "")
         sendAjaxRequest('put', '/api/answer/' + id + '/update', { content: content }, answerUpdatedHandler);
@@ -498,8 +527,8 @@ function sendUpdateAnswerRequest() {
 
 function sendUpdateCommentRequest() {
     let div = event.target.parentElement.parentElement.parentElement;
-    let id = div.getAttribute('data-id'); 
-    let content = document.querySelector("#comment"+id+" div #comment_content").value;
+    let id = div.getAttribute('data-id');
+    let content = document.querySelector("#comment" + id + " div #comment_content").value;
 
     if (content != "")
         sendAjaxRequest('put', '/api/comment/' + id + '/update', { content: content }, commentUpdatedHandler);
@@ -507,10 +536,10 @@ function sendUpdateCommentRequest() {
 
 function sendCreateQuestionRequest(event) {
 
-    let title = document.getElementById("formControlTextareaQuestion").value; 
+    let title = document.getElementById("formControlTextareaQuestion").value;
     let description = document.getElementById("formControlTextareaDescription").value;
 
-    if (title != '' && description !='')
+    if (title != '' && description != '')
         sendAjaxRequest('put', '/api/question', { title: title, description: description }, questionAddedHandler);
 
     event.preventDefault();
@@ -520,7 +549,7 @@ function sendCreateQuestionRequest(event) {
 function sendCreateAnswerRequest(event) {
 
     let content = document.getElementById("exampleFormControlTextarea1").value;
-    let question_index = this.closest('.container-fluid#question-div').getAttribute('data-id'); 
+    let question_index = this.closest('.container-fluid#question-div').getAttribute('data-id');
 
     if (content != '')
         sendAjaxRequest('put', '/api/answer', { content: content, question_index: question_index }, answerAddedHandler);
@@ -546,7 +575,7 @@ function sendCreateSubCommentRequest(event) {
 
     if (content != '')
         sendAjaxRequest('put', '/api/comment', { content: content, answer_index: answer_index }, subCommentAddedHandler);
-    
+
     event.preventDefault();
 
 }
@@ -568,37 +597,49 @@ function sendCreateLabelsRequest(question_index) {
     }
 }
 
-function sendFollowRequest1(){
+// following questions
+
+function sendFollowRequestH(){
     
-    
-    //let id = event.target.parentElement.getAttribute('data-id');
     let id = this.closest('#questions-list').getAttribute('data-id');
-    console.log(id);
-    sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id });
+    sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id }, followRequestHandlerH);
+
+    //changes button color
+    this.style.color = '#6545c9';
+    this.innerHTML = " unfollow";
 
 }
 
-function sendFollowRequest2(){
+function sendFollowRequestQ(){
     
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id });
+    sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id }, followRequestHandlerQ);
+
+    // changes button color
+    this.style.color = '#6545c9';
+    this.innerHTML = " unfollow";
 
 }
 
-function sendUnfollowRequest1(){
+function sendUnfollowRequestH(){
     
-    
-    //let id = event.target.parentElement.getAttribute('data-id');
     let id = this.closest('#questions-list').getAttribute('data-id');
-    console.log(id);
-    sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id });
+    sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id }, unfollowRequestHandlerH);
+
+    // changes button color
+    this.style.color = 'black';
+    this.innerHTML = " follow";
 
 }
 
-function sendUnfollowRequest2(){
+function sendUnfollowRequestQ(){
     
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id });
+    sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id }, unfollowRequestHandlerQ);
+
+    // changes button color
+    this.style.color = 'black';
+    this.innerHTML = " follow";
 
 }
 
@@ -761,12 +802,12 @@ function createAnswer(info) {
     return new_answer;
 }
 
-function createComment(info){
+function createComment(info) {
 
     let new_comment = document.createElement('div');
     new_comment.setAttribute('data-id', info[3]);
     new_comment.classList.add('comment');
-    new_comment.setAttribute('id', 'comment'+info[3]);
+    new_comment.setAttribute('id', 'comment' + info[3]);
     new_comment.innerHTML = `<div>
                                 <a href="profile.php" class="username">${info[1]}</a>
                                 <a class="icon-comments">
@@ -785,7 +826,7 @@ function createComment(info){
                                 <p id="comment_content">
                                     ${info[0]}
                                 </p>
-                            </div>`;  
+                            </div>`;
 
 
     return new_comment;
@@ -827,49 +868,49 @@ function hideUpdateQuestion() {
 
 function hideEditAnswer() {
     let id = event.target.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id');
-    let edit_btn = document.getElementById('edit_answer'+id);
+    let edit_btn = document.getElementById('edit_answer' + id);
     if (edit_btn.style.display === "none") {
         edit_btn.style.display = "contents";
     } else {
         edit_btn.style.display = "none";
     }
-    let update_btn = document.getElementById('save_answer'+id);
+    let update_btn = document.getElementById('save_answer' + id);
     update_btn.style.display = "contents";
 }
 
 function hideUpdateAnswer() {
     let id = event.target.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id');
-    let update_btn = document.getElementById('save_answer'+id);
+    let update_btn = document.getElementById('save_answer' + id);
     if (update_btn.style.display === "none") {
         update_btn.style.display = "contents";
     } else {
         update_btn.style.display = "none";
     }
-    let edit_btn = document.getElementById('edit_answer'+id);
+    let edit_btn = document.getElementById('edit_answer' + id);
     edit_btn.style.display = "contents";
 }
 
 function hideEditComment() {
     let id = event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
-    let edit_btn = document.getElementById('edit_comment'+id);
+    let edit_btn = document.getElementById('edit_comment' + id);
     if (edit_btn.style.display === "none") {
         edit_btn.style.display = "contents";
     } else {
         edit_btn.style.display = "none";
     }
-    let update_btn = document.getElementById('save_comment'+id);
+    let update_btn = document.getElementById('save_comment' + id);
     update_btn.style.display = "contents";
 }
 
 function hideUpdateComment() {
     let id = event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
-    let update_btn = document.getElementById('save_comment'+id);
+    let update_btn = document.getElementById('save_comment' + id);
     if (update_btn.style.display === "none") {
         update_btn.style.display = "contents";
     } else {
         update_btn.style.display = "none";
     }
-    let edit_btn = document.getElementById('edit_comment'+id);
+    let edit_btn = document.getElementById('edit_comment' + id);
     edit_btn.style.display = "contents";
 }
 
@@ -883,7 +924,7 @@ function startLabel() {
 
 function QuestionLikeQ() {
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, null);
+    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, handleLikeQ());
 }
 
 function QuestionDislikeQ(){
@@ -914,5 +955,78 @@ function homeDislikeF() {
     console.log("disliked")
     sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, null);
 }
+
+// following questions
+function followRequestHandlerH(){
+
+    
+    let info = JSON.parse(this.responseText);
+
+    if(info[2] <= 6){
+
+        let section = document.getElementById('sidenav_left');
+
+        let new_following = document.createElement('following');
+        new_following.classList.add('sidenav');
+        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;  
+
+        section.insertBefore(new_following, section.childNodes[section.childNodes.size]);
+
+
+        return new_following;
+
+    }
+
+}
+
+function followRequestHandlerQ(){
+
+    let info = JSON.parse(this.responseText);
+
+    if(info[2] <= 6){
+
+        let section = document.getElementById('sidenav_left');
+
+        let new_following = document.createElement('following');
+        new_following.classList.add('sidenav');
+        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;  
+
+        section.insertBefore(new_following, section.childNodes[section.childNodes.size]);
+
+        return new_following;
+
+    }
+    
+}
+
+function unfollowRequestHandlerH(){
+
+    let info = JSON.parse(this.responseText);
+    let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
+    if(li != null){
+        li.remove();
+    }
+
+
+}
+
+function unfollowRequestHandlerQ(){
+
+    let info = JSON.parse(this.responseText);
+    let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
+    if(li != null){
+        li.remove();
+    }
+
+}
+
+function handleLikeQ(){
+    console.log(this.responseText);
+    let info = JSON.parse(this.responseText);
+
+
+}
+
+
 
 addEventListeners();

@@ -32,6 +32,7 @@
         <a class="icon" >
             <i class="fas fa-thumbs-down fa-lg" id="dislike1"> {{ $question->nr_dislikes }}</i>
         </a>
+        @if (Auth::check())
         <a class="icon">
             @php
             $flag = false;
@@ -44,12 +45,13 @@
                 @endif
             @endfor
             @if($flag)
-                <i class="fas fa-arrow-right fa-lg" id="unfollow2"> unfollow </i>
+                <i class="fas fa-arrow-right fa-lg" id="unfollowQ"> unfollow </i>
             @else
-                <i class="fas fa-arrow-right fa-lg" id="follow2"> follow </i>
+                <i class="fas fa-arrow-right fa-lg" id="followQ"> follow </i>
             @endif
             {{--<i class="fas fa-arrow-right fa-lg" id="follow2"> follow</i>--}}
         </a>
+        @endif
         <a class="icon-answers">
             <i class="fas fa-bug"> Report</i>
         </a>

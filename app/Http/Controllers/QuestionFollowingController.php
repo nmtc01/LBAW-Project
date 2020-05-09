@@ -29,9 +29,12 @@ class QuestionFollowingController extends Controller
 
         DB::insert('insert into question_following (user_id, question_id) values (?, ?)', [$user_id, $question_id]);
 
-        $question_title = $this->questionController->getQuestion($question_id)->title;
+        $question = $this->questionController->getQuestion($question_id);
+        $questions_number = DB::table('question_following')->where('user_id', $user_id)->count();
 
-        return $question_title;
+        $info = [$question->title, $question_id, $questions_number];
+
+        return $info;
 
     }
 
@@ -46,9 +49,11 @@ class QuestionFollowingController extends Controller
         //DB::delete(DB::raw("delete * from question_following where (user_id = $user_id and question_id = $question_id"));
         DB::table('question_following')->where([['user_id', $user_id], ['question_id', $question_id],])->delete();
 
-        $question_title = $this->questionController->getQuestion($question_id)->title;
+        $question = $this->questionController->getQuestion($question_id);
 
-        return $question_title;
+        $info = [$question->title, $question_id];
+
+        return $info;
 
     
     }

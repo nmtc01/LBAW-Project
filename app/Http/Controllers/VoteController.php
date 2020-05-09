@@ -38,6 +38,11 @@ class VoteController extends Controller
             DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, $question_id, null]);
 
         }
+
+        $question = $this->questionController->getQuestion($question_id);
+        $info = [$question->nr_likes, $question->nr_dislikes];
+        return $info;
+
     }
 
     public function addDislikeQ(Request $request)
@@ -57,6 +62,10 @@ class VoteController extends Controller
             DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, $question_id, null]);
 
         }
+
+        $question = $this->questionController->getQuestion($question_id);
+        $info = [ $question->nr_likes, $question->nr_dislikes];
+        return $info;
     }
 
 
@@ -81,6 +90,10 @@ class VoteController extends Controller
             
 
         }
+
+        $answer = $this->answerController->getAnswer($answer_id);
+        $info = [ $answer->nr_likes, $answer->nr_dislikes];
+        return $info;
     }
 
     public function addDislikeA(Request $request)
@@ -100,7 +113,11 @@ class VoteController extends Controller
             DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, null, $answer_id]);
 
         }
+    
+
+    $answer = $this->answerController->getAnswer($answer_id);
+    $info = [$answer->nr_likes, $answer->nr_dislikes];
+    return $info;
+
     }
-
-
 }

@@ -17,8 +17,12 @@
     color: #6545c9;
 }
 
-#unfollow2{
+#unfollowQ{
     color: #6545c9;
+}
+
+#unfollowQ:hover{
+    color: black;
 }
 
 .icon-answers{
