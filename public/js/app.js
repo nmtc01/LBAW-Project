@@ -954,14 +954,14 @@ function QuestionDislikeA() {
 function homeLikeF() {
     let id = this.closest('div#questions-list').getAttribute('data-id');
     console.log("liked");
-    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, null);
+    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, handleLikeH);
 }
 
 
 function homeDislikeF() {
     let id = this.closest('div#questions-list').getAttribute('data-id');
     console.log("disliked")
-    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, null);
+    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, handleDislikeH);
 }
 
 // following questions
@@ -1093,6 +1093,44 @@ function handleDislikeA(){
 
     let buttonl = document.querySelector('#like2');
     if (buttonl === null) buttonl = document.querySelector('#like2P');
+
+
+    if (button.style.color != '#6545c9')
+        button.style.color = '#6545c9';
+    else button.style.color = 'black';
+
+    buttonl.innerHTML = ' ' + info[0];
+    button.innerHTML = ' '+ info[1];
+
+}
+
+function handleLikeH(){
+    let info = JSON.parse(this.responseText);
+
+    let buttonl = document.querySelector('#like3');
+    if (buttonl === null) buttonl = document.querySelector('#like3P');
+
+    let buttond = document.querySelector('#dislike3');
+    if (buttond === null) buttonl = document.querySelector('#dislike3P');
+
+
+    if (buttonl.style.color != '#6545c9')
+        buttonl.style.color = '#6545c9';
+    else buttonl.style.color = 'black';
+
+    buttonl.innerHTML = ' '+ info[0];
+    buttond.innerHTML = ' ' + info[1];
+
+}
+
+function handleDislikeH(){
+    let info = JSON.parse(this.responseText);
+
+    let button = document.querySelector('#dislike3');
+    if (button === null) button = document.querySelector('#dislike3P');
+
+    let buttonl = document.querySelector('#like3');
+    if (buttonl === null) buttonl = document.querySelector('#like3P');
 
 
     if (button.style.color != '#6545c9')

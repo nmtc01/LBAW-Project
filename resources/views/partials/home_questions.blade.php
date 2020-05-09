@@ -18,16 +18,36 @@
 
         <div class="row">
             <div class="icons col-9">
-                <a class="icon" >
-                    <i class="fas fa-thumbs-up fa-lg" id="like3"> {{ $questions[$i]->nr_likes }}</i>
-                </a>
-                <a class="icon" >
-                    <i class="fas fa-thumbs-down fa-lg" id ="dislike3"> {{ $questions[$i]->nr_dislikes }}</i>
-                </a>
+
+                @if($questionsVotes[($questions[$i])->id] != null)
+
+                    @if($questionsVotes[($questions[$i])->id]->vote == true)
+                        <a class="icon" >
+                            <i class="fas fa-thumbs-up fa-lg" id="like3P"> {{ $questions[$i]->nr_likes }}</i>
+                        </a>
+                        <a class="icon" >
+                            <i class="fas fa-thumbs-down fa-lg" id ="dislike3"> {{ $questions[$i]->nr_dislikes }}</i>
+                        </a>
+                    @else
+                        <a class="icon" >
+                            <i class="fas fa-thumbs-up fa-lg" id="like3"> {{ $questions[$i]->nr_likes }}</i>
+                        </a>
+                        <a class="icon" >
+                            <i class="fas fa-thumbs-down fa-lg" id ="dislike3P"> {{ $questions[$i]->nr_dislikes }}</i>
+                        </a>
+                    @endif
+
+                @else
+                    <a class="icon" >
+                        <i class="fas fa-thumbs-up fa-lg" id="like3"> {{ $questions[$i]->nr_likes }}</i>
+                    </a>
+                    <a class="icon" >
+                        <i class="fas fa-thumbs-down fa-lg" id ="dislike3"> {{ $questions[$i]->nr_dislikes }}</i>
+                    </a>
+                @endif
                 <a class="icon" href="#">
                     <i class="fas fa-reply fa-lg"> {{ isset($nr_answers[$questions[$i]->id]) ?  $nr_answers[$questions[$i]->id] : 0}} </i>
                 </a>
-
                 @if (Auth::check())
                 <a class="icon">
                     @php
