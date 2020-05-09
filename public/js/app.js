@@ -97,13 +97,8 @@ function addEventListeners() {
     if (followQuestion2 != null)
         followQuestion2.addEventListener('click', sendFollowRequestQ);
 
-<<<<<<< HEAD
 
-    let unfollowQuestions = document.querySelectorAll('#unfollow1');
-=======
-    
     let unfollowQuestions = document.querySelectorAll('#unfollowH');
->>>>>>> c60fd0a500ce5dfcbd4f99d4970045a281943978
     if (unfollowQuestions != null)
         [].forEach.call(unfollowQuestions, function(follower) {
             follower.addEventListener('click', sendUnfollowRequestH);
@@ -111,13 +106,8 @@ function addEventListeners() {
 
     let unfollowQuestion2 = document.querySelector('#unfollowQ');
     if (unfollowQuestion2 != null)
-<<<<<<< HEAD
-        unfollowQuestion2.addEventListener('click', sendUnfollowRequest2);
-
-=======
         unfollowQuestion2.addEventListener('click', sendUnfollowRequestQ);
-    
->>>>>>> c60fd0a500ce5dfcbd4f99d4970045a281943978
+
 
 }
 
@@ -578,17 +568,10 @@ function sendCreateLabelsRequest(question_index) {
     }
 }
 
-<<<<<<< HEAD
-function sendFollowRequest1() {
-
-
-    //let id = event.target.parentElement.getAttribute('data-id');
-=======
 // following questions
 
-function sendFollowRequestH(){
-    
->>>>>>> c60fd0a500ce5dfcbd4f99d4970045a281943978
+function sendFollowRequestH() {
+
     let id = this.closest('#questions-list').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id }, followRequestHandlerH);
 
@@ -598,13 +581,8 @@ function sendFollowRequestH(){
 
 }
 
-<<<<<<< HEAD
-function sendFollowRequest2() {
+function sendFollowRequestQ() {
 
-=======
-function sendFollowRequestQ(){
-    
->>>>>>> c60fd0a500ce5dfcbd4f99d4970045a281943978
     let id = this.closest('div#question-div').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id }, followRequestHandlerQ);
 
@@ -614,15 +592,8 @@ function sendFollowRequestQ(){
 
 }
 
-<<<<<<< HEAD
-function sendUnfollowRequest1() {
+function sendUnfollowRequestH() {
 
-
-    //let id = event.target.parentElement.getAttribute('data-id');
-=======
-function sendUnfollowRequestH(){
-    
->>>>>>> c60fd0a500ce5dfcbd4f99d4970045a281943978
     let id = this.closest('#questions-list').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id }, unfollowRequestHandlerH);
 
@@ -632,13 +603,8 @@ function sendUnfollowRequestH(){
 
 }
 
-<<<<<<< HEAD
-function sendUnfollowRequest2() {
+function sendUnfollowRequestQ() {
 
-=======
-function sendUnfollowRequestQ(){
-    
->>>>>>> c60fd0a500ce5dfcbd4f99d4970045a281943978
     let id = this.closest('div#question-div').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id }, unfollowRequestHandlerQ);
 
@@ -928,18 +894,18 @@ function startLabel() {
 }
 
 // following questions
-function followRequestHandlerH(){
+function followRequestHandlerH() {
 
-    
+
     let info = JSON.parse(this.responseText);
 
-    if(info[2] <= 6){
+    if (info[2] <= 6) {
 
         let section = document.getElementById('sidenav_left');
 
         let new_following = document.createElement('following');
         new_following.classList.add('sidenav');
-        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;  
+        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;
 
         section.insertBefore(new_following, section.childNodes[section.childNodes.size]);
 
@@ -950,42 +916,42 @@ function followRequestHandlerH(){
 
 }
 
-function followRequestHandlerQ(){
+function followRequestHandlerQ() {
 
     let info = JSON.parse(this.responseText);
 
-    if(info[2] <= 6){
+    if (info[2] <= 6) {
 
         let section = document.getElementById('sidenav_left');
 
         let new_following = document.createElement('following');
         new_following.classList.add('sidenav');
-        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;  
+        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;
 
         section.insertBefore(new_following, section.childNodes[section.childNodes.size]);
 
         return new_following;
 
     }
-    
+
 }
 
-function unfollowRequestHandlerH(){
+function unfollowRequestHandlerH() {
 
     let info = JSON.parse(this.responseText);
     let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
-    if(li != null){
+    if (li != null) {
         li.remove();
     }
 
 
 }
 
-function unfollowRequestHandlerQ(){
+function unfollowRequestHandlerQ() {
 
     let info = JSON.parse(this.responseText);
     let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
-    if(li != null){
+    if (li != null) {
         li.remove();
     }
 
