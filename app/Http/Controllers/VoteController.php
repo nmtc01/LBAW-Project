@@ -19,12 +19,13 @@ class VoteController extends Controller
     public function addLikeQ(Request $request)
     {
 
+
+        $vote = new Vote();
         $user_id = Auth::user()->id;
         $question_id = $request->input('id');
 
-        //check if it was already liked
+        
         $like = DB::table('vote')->where([['user_id', $user_id], ['question_id', $question_id],])->first();
-        $nrLikes = (DB::table('question')->where([['id', $question_id],])->first())->nr_likes;
 
         if($like === null){
             DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, $question_id, null]);
@@ -35,12 +36,11 @@ class VoteController extends Controller
         }else{
             DB::table('vote')->where([['user_id', $user_id], ['question_id', $question_id],])->delete();
             DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, $question_id, null]);
-            
 
         }
     }
 
-    public function addDisikeQ(Request $request)
+    public function addDislikeQ(Request $request)
     {
 
         $user_id = Auth::user()->id;
@@ -83,7 +83,7 @@ class VoteController extends Controller
         }
     }
 
-    public function addDisikeA(Request $request)
+    public function addDislikeA(Request $request)
     {
 
         $user_id = Auth::user()->id;
