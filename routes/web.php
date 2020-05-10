@@ -54,5 +54,5 @@ Route::get('/about', 'StaticController@about');
 Route::get('/404', 'StaticController@p404');
 
 // Search page
-Route::get('/search/{KeyWord}', 'SearchController@show');
+Route::get('/search/{content}', 'SearchController@show');
 Route::post('/search', 'SearchController@startSearch');
