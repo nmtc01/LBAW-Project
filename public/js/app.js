@@ -138,14 +138,8 @@ function sendAjaxRequest(method, url, data, handler) {
  */
 
 function showSearchHandler() {
-    console.log(this.responseText);
-    let info = JSON.parse(this.responseText);
-
-    console.log(info);
-
-    if (this.status == 200) window.location = '/search/' + info.KeyWord;
-
-    //addEventListeners();
+    if (this.status == 200) 
+        window.location = '/search/' + this.responseText;
 }
 
 function questionAddedHandler() {
@@ -428,10 +422,8 @@ function sendSearchRequest(e) {
     if (e.key === 'Enter') {
         let content = document.getElementById("start_search").value;
 
-        console.log(content);
-
         if (content != '')
-            sendAjaxRequest('post', 'api/search', { content: content }, showSearchHandler);
+            sendAjaxRequest('post', '/search', { content }, showSearchHandler);
 
         event.preventDefault();
     }

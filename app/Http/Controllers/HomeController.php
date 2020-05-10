@@ -37,8 +37,6 @@ class HomeController extends Controller
             $nr_answers[$question->id] = $this->answerController->getNrAnswers($question->id);
         }
 
-
-
         return view('pages.home',['questions' => $questions, 'users' => $users, 'nr_answers' => $nr_answers, 'questions_followed' => $questions_followed]);
     }
 

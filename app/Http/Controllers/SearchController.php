@@ -17,11 +17,10 @@ class SearchController extends Controller
         $this->userController = new UserController();
         $this->answerController = new AnswerController();
         $this->questionFollowingController = new QuestionFollowingController();
-        //$this->searchKeyWord=' eidoid ';
     }
 
     public function show($KeyWord) {
-
+        
         $questions = $this->questionController->listSearch($KeyWord);
 
         $questions_followed=[];
@@ -44,7 +43,6 @@ class SearchController extends Controller
     public function startSearch(Request $request)
     {
         $content = $request->input('content');
-        $arr = array('KeyWord' => $content);
-        return json_encode($arr);
+        return $content;
     }
 }
