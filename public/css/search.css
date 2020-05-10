@@ -1,3 +1,11 @@
+html, body {
+    height: 100%;
+}
+
+main {
+    min-height: 80%;
+}
+
 #headingOne {
     background-color: #806bbe;
 }
@@ -56,4 +64,14 @@
 .dates {
     margin-left: auto;
     padding-top: 1rem;
+}
+
+.wrapper #question-header{
+    color: black;
+    font-size: 1.3rem;
+}
+
+.wrapper #question-header:hover{
+    color: #6545c9;
+    text-decoration: none;
 }
