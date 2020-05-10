@@ -28,6 +28,7 @@
                         <a class="icon" >
                             <i class="fas fa-thumbs-down fa-lg" id ="dislike3"> {{ $questions[$i]->nr_dislikes }}</i>
                         </a>
+                        {{$questionsVotes[($questions[$i])->id]->vote}}
                     @else
                         <a class="icon" >
                             <i class="fas fa-thumbs-up fa-lg" id="like3"> {{ $questions[$i]->nr_likes }}</i>
