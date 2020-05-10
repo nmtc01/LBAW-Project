@@ -90,6 +90,18 @@ function addEventListeners() {
             homeD.addEventListener('click', homeDislikeF);
         });    
 
+    let homeLike3 = document.querySelectorAll('#like3P');
+    if (homeLike3 != null)
+        [].forEach.call(homeLike3, function(homeL3) {
+            homeL3.addEventListener('click', homeLikeF);
+        });   
+
+    let homeDislike3 = document.querySelectorAll('#dislike3P');
+    if (homeDislike3 != null)
+        [].forEach.call(homeDislike, function(homeD3) {
+            homeD3.addEventListener('click', homeDislikeF);
+        }); 
+
     let answerEditors = document.querySelectorAll('.edit_answer_btn');
     if (answerEditors != null)
         [].forEach.call(answerEditors, function(editor) {
@@ -953,14 +965,13 @@ function QuestionDislikeA() {
 
 function homeLikeF() {
     let id = this.closest('div#questions-list').getAttribute('data-id');
-    console.log("liked");
     sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, handleLikeH);
 }
 
 
-function homeDislikeF() {
+function homeDislikeF() {  
+    console.log(event.target);
     let id = this.closest('div#questions-list').getAttribute('data-id');
-    console.log("disliked")
     sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, handleDislikeH);
 }
 
@@ -1107,39 +1118,61 @@ function handleDislikeA(){
 function handleLikeH(){
     let info = JSON.parse(this.responseText);
 
-    let buttonl = document.querySelector('#like3');
-    if (buttonl === null) buttonl = document.querySelector('#like3P');
+    let buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3");
+    if (buttonl === null) buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3P");
 
-    let buttond = document.querySelector('#dislike3');
-    if (buttond === null) buttonl = document.querySelector('#dislike3P');
+    let buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3");
+    if (buttond === null) button = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3P");
 
 
-    if (buttonl.style.color != '#6545c9')
-        buttonl.style.color = '#6545c9';
-    else buttonl.style.color = 'black';
+    //if (buttonl.style.color != '#6545c9')
+      //  buttonl.style.color = '#6545c9';
+    //else buttonl.style.color = '#000000';
 
-    buttonl.innerHTML = ' '+ info[0];
-    buttond.innerHTML = ' ' + info[1];
+    let newL = changeLikeColor(info[0]);
+    let newD = changeDislikeColor(info[1])
+
+    buttonl.outerHTML = newL.innerHTML;
+    buttond.outerHTML = newD.innerHTML;
 
 }
 
 function handleDislikeH(){
     let info = JSON.parse(this.responseText);
 
-    let button = document.querySelector('#dislike3');
-    if (button === null) button = document.querySelector('#dislike3P');
+    let button = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3");
 
-    let buttonl = document.querySelector('#like3');
-    if (buttonl === null) buttonl = document.querySelector('#like3P');
+    if (button === null) button = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3P");
+
+    let buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3");
+    if (buttonl === null) buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3P");
 
 
-    if (button.style.color != '#6545c9')
-        button.style.color = '#6545c9';
-    else button.style.color = 'black';
+    //if (button.style.color != '#6545c9')
+      //  button.style.color = '#6545c9';
+    //else button.style.color = '#000000';
+
+
 
     buttonl.innerHTML = ' ' + info[0];
     button.innerHTML = ' '+ info[1];
 
+}
+
+function changeLikeColor(nr_likes) {
+    let new_like = document.createElement('like');
+    new_like.innerHTML = ` <a class="icon" >
+                             <i class="fas fa-thumbs-up fa-lg" id="like3P"> ${nr_likes} </i>
+                            </a>`
+    return new_like;
+}
+
+function changeDislikeColor(nr_dislikes) {
+    let new_dislike = document.createElement('dislike');
+    new_dislike.innerHTML = ` <a class="icon" >
+    <i class="fas fa-thumbs-up fa-lg" id="like3P"> ${nr_dislikes} </i>
+   </a>`
+    return new_dislike;
 }
 
 

@@ -144,6 +144,7 @@ class QuestionController extends Controller
         $userAnswers[$answer->id]=$this->userController->getUsername($answer->user_id);
         $sub = $this->commentController->listAnswerComments($answer->id);
         $answersVotes[$answer->id] = DB::table('vote')->where([['user_id', $answer->user_id], ['answer_id', $answer->id],])->first();
+        
 
         $subComments[$answer->id] = $sub;
 

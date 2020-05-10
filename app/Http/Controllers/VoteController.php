@@ -38,7 +38,7 @@ class VoteController extends Controller
         }
 
         $question = $this->questionController->getQuestion($question_id);
-        $info = [$question->nr_likes, $question->nr_dislikes];
+        $info = [$question->nr_likes, $question->nr_dislikes, $question_id];
         return $info;
 
     }
@@ -62,7 +62,7 @@ class VoteController extends Controller
         }
 
         $question = $this->questionController->getQuestion($question_id);
-        $info = [ $question->nr_likes, $question->nr_dislikes];
+        $info = [ $question->nr_likes, $question->nr_dislikes, $question_id];
         return $info;
     }
 
