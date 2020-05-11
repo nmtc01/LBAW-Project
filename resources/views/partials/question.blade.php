@@ -56,6 +56,7 @@
             </a>
         @endif
         @if(Auth::check())
+        <a class="icon">
             @php
             $flag = false;
             @endphp
@@ -71,7 +72,6 @@
             @else
                 <i class="fas fa-arrow-right fa-lg" id="followQ"> follow </i>
             @endif
-            {{--<i class="fas fa-arrow-right fa-lg" id="follow2"> follow</i>--}}
         </a>
         @endif
         <a class="icon-answers">

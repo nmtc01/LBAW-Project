@@ -630,9 +630,7 @@ function sendFollowRequestH() {
     let id = this.closest('#questions-list').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id }, followRequestHandlerH);
 
-    //changes button color
-    this.style.color = '#6545c9';
-    this.innerHTML = " unfollow";
+    
 
 }
 
@@ -641,10 +639,6 @@ function sendFollowRequestQ() {
     let id = this.closest('div#question-div').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id }, followRequestHandlerQ);
 
-    // changes button color
-    this.style.color = '#6545c9';
-    this.innerHTML = " unfollow";
-
 }
 
 function sendUnfollowRequestH() {
@@ -652,20 +646,12 @@ function sendUnfollowRequestH() {
     let id = this.closest('#questions-list').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id }, unfollowRequestHandlerH);
 
-    // changes button color
-    this.style.color = 'black';
-    this.innerHTML = " follow";
-
 }
 
 function sendUnfollowRequestQ() {
 
     let id = this.closest('div#question-div').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id }, unfollowRequestHandlerQ);
-
-    // changes button color
-    this.style.color = 'black';
-    this.innerHTML = " follow";
 
 }
 
@@ -980,69 +966,6 @@ function homeDislikeF() {
     sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, handleDislikeH);
 }
 
-// following questions
-function followRequestHandlerH(){
-
-    
-    let info = JSON.parse(this.responseText);
-
-    if(info[2] <= 6){
-
-        let section = document.getElementById('sidenav_left');
-
-        let new_following = document.createElement('following');
-        new_following.classList.add('sidenav');
-        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;  
-
-        section.insertBefore(new_following, section.childNodes[section.childNodes.size]);
-
-
-        return new_following;
-
-    }
-
-}
-
-function followRequestHandlerQ(){
-
-    let info = JSON.parse(this.responseText);
-
-    if(info[2] <= 6){
-
-        let section = document.getElementById('sidenav_left');
-
-        let new_following = document.createElement('following');
-        new_following.classList.add('sidenav');
-        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;  
-
-        section.insertBefore(new_following, section.childNodes[section.childNodes.size]);
-
-        return new_following;
-
-    }
-    
-}
-
-function unfollowRequestHandlerH(){
-
-    let info = JSON.parse(this.responseText);
-    let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
-    if(li != null){
-        li.remove();
-    }
-
-
-}
-
-function unfollowRequestHandlerQ(){
-
-    let info = JSON.parse(this.responseText);
-    let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
-    if(li != null){
-        li.remove();
-    }
-
-}
 
 function handleLikeQ(){
     let info = JSON.parse(this.responseText);
@@ -1275,9 +1198,22 @@ function dislikeBlack(nr_dislikes, index) {
 // following questions
 function followRequestHandlerH() {
 
-
     let info = JSON.parse(this.responseText);
 
+    // gets the button
+    let btn = document.querySelector("#questions-list[data-id='" + info[1] + "'] #followH");
+
+    // changes the button style
+    let new_unfollow = document.createElement('i');
+    new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg" id="unfollowH"> unfollow </i>`
+    btn.outerHTML = new_unfollow.innerHTML;
+    btn.innerHTML = " unfollow";
+    
+    // updates EventListeners
+    addEventListeners();
+
+    /*
+    // updates sidenav
     if (info[2] <= 6) {
 
         let section = document.getElementById('sidenav_left');
@@ -1292,6 +1228,7 @@ function followRequestHandlerH() {
         return new_following;
 
     }
+    */
 
 }
 
@@ -1299,40 +1236,85 @@ function followRequestHandlerQ() {
 
     let info = JSON.parse(this.responseText);
 
+    // gets the button
+    let btn = document.querySelector("#followQ");
+        
+    // changes the button style
+    let new_unfollow = document.createElement('i');
+    new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg" id="unfollowQ"> unfollow </i>`
+    btn.outerHTML = new_unfollow.innerHTML;
+    btn.innerHTML = " unfollow";
+
+    // updates EventListeners
+    addEventListeners();
+
+    /*
+    // updates sidenav
     if (info[2] <= 6) {
 
         let section = document.getElementById('sidenav_left');
 
         let new_following = document.createElement('following');
         new_following.classList.add('sidenav');
-        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;
+        new_following.innerHTML = `<a class="row" href="${info[1]}"> ${info[0]}</a>`;
 
         section.insertBefore(new_following, section.childNodes[section.childNodes.size]);
 
         return new_following;
 
     }
+    */
 
 }
 
 function unfollowRequestHandlerH() {
 
     let info = JSON.parse(this.responseText);
+
+    // gets the button
+    let btn = document.querySelector("#questions-list[data-id='" + info[1] + "'] #unfollowH");
+    
+    // changes the button style
+    let new_follow = document.createElement('i');
+    new_follow.innerHTML = `<i class="fas fa-arrow-right fa-lg" id="followH"> follow </i>`
+    btn.outerHTML = new_follow.innerHTML;
+    btn.innerHTML = " follow";
+
+    // updates EventListeners
+    addEventListeners();
+    
+    /*
+    // updates sidenav
     let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
     if (li != null) {
         li.remove();
     }
-
+    */
 
 }
 
 function unfollowRequestHandlerQ() {
 
     let info = JSON.parse(this.responseText);
+
+    // gets the button
+    let btn = document.querySelector("#unfollowQ");
+        
+    // changes the button style
+    let new_unfollow = document.createElement('i');
+    new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg" id="followQ"> follow </i>`
+    btn.outerHTML = new_unfollow.innerHTML;
+    btn.innerHTML = " follow";
+
+    // updates EventListeners
+    addEventListeners();
+    
+    /*
     let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
     if (li != null) {
         li.remove();
     }
+    */
 
 }
 
