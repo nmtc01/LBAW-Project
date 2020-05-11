@@ -6,10 +6,11 @@ use App\QuestionFollowing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class SearchController extends Controller
 {
 
     private $questionController;
+    private $searchKeyWord;
 
     public function __construct(){
         $this->questionController = new QuestionController();
@@ -18,10 +19,9 @@ class HomeController extends Controller
         $this->questionFollowingController = new QuestionFollowingController();
     }
 
-
-    public function show() {
-
-        $questions = $this->questionController->list();
+    public function show($KeyWord) {
+        
+        $questions = $this->questionController->listSearch($KeyWord);
 
         $questions_followed=[];
         if(Auth::check()){
@@ -36,12 +36,13 @@ class HomeController extends Controller
             $users[$question->id] = $this->userController->getUsername($question->user_id);
             $nr_answers[$question->id] = $this->answerController->getNrAnswers($question->id);
         }
-
-        return view('pages.home',['questions' => $questions, 'users' => $users, 'nr_answers' => $nr_answers, 'questions_followed' => $questions_followed]);
+        
+        return view('pages.search',['questions' => $questions, 'users' => $users, 'nr_answers' => $nr_answers, 'questions_followed' => $questions_followed, 'KeyWord' => $KeyWord]);
     }
 
-    public function home() {
-        return redirect('home');
+    public function startSearch(Request $request)
+    {
+        $content = $request->input('content');
+        return $content;
     }
-
 }

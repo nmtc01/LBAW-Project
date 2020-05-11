@@ -41,9 +41,9 @@
                         @endif
                     @endfor
                     @if($flag)
-                        <i class="fas fa-arrow-right fa-lg" id="unfollow1"> unfollow </i>
+                        <i class="fas fa-arrow-right fa-lg" id="unfollowH"> unfollow </i>
                     @else
-                        <i class="fas fa-arrow-right fa-lg" id="follow1"> follow </i>
+                        <i class="fas fa-arrow-right fa-lg" id="followH"> follow </i>
                     @endif
                 </a>
                 @endif
