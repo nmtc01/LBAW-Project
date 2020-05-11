@@ -14,6 +14,16 @@ class AnswerController extends Controller
       $this->commentController = new CommentController();
     }
 
+
+    public function getAnswer($answer_id)
+    {
+
+      $answer = Answer::find($answer_id);
+      
+      return $answer;
+
+    }
+
     /**
      * Shows the Question's answers from a given id.
      *

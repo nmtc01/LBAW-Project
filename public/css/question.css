@@ -152,3 +152,19 @@ li.answer_item .ans-body p {
 .save_comment_btn {
     display: none;
 }
+
+#like1P{
+    color: #6545c9;
+}
+
+#like2P{
+    color: #6545c9;
+}
+
+#dislike1P{
+    color: #6545c9;
+}
+
+#dislike2P{
+    color: #6545c9;
+}

@@ -57,27 +57,66 @@ function addEventListeners() {
     if (questionLike != null)
         questionLike.addEventListener('click', QuestionLikeQ);
 
+    let questionLikeP = document.querySelector('#like1P');
+    if (questionLikeP != null)
+        questionLikeP.addEventListener('click', QuestionLikeQ);
+
     let questionDislike = document.querySelector('#dislike1');
     if (questionDislike != null)
         questionDislike.addEventListener('click', QuestionDislikeQ);
+
+    let questionDislikeP = document.querySelector('#dislike1P');
+    if (questionDislikeP != null)
+        questionDislikeP.addEventListener('click', QuestionDislikeQ);        
+
+    let answerLike = document.querySelectorAll('#like2');
+    if (answerLike != null){
+        [].forEach.call(answerLike, function(al) {
+            al.addEventListener('click', QuestionLikeA);
+        });   
+    }
+
+    let answerLikeP = document.querySelectorAll('#like2P');
+    if (answerLikeP != null){
+        [].forEach.call(answerLikeP, function(alP) {
+            alP.addEventListener('click', QuestionLikeA);
+        });   
+    }
+        
     
-    let questionLike2 = document.querySelector('#like2');
-    if (questionLike2 != null)
-        questionLike2.addEventListener('click', QuestionLikeA);
-            
-    let questionDislike2 = document.querySelector('#dislike2');
-    if (questionDislike2 != null)
-        questionDislike2.addEventListener('click', QuestionDislikeA);
+    let answerdislike = document.querySelectorAll('#dislike2');
+    if (answerdislike != null){
+        [].forEach.call(answerdislike, function(ad) {
+            ad.addEventListener('click', QuestionDislikeA);
+        });   
+    }
 
-        /*
-    let homeLike = document.querySelector('#like3');
-    if (homeLike != null)
-        homeLike.addEventListener('click', homeLikeF);
+    let answerdislikeP = document.querySelectorAll('#dislike2P');
+    if (answerdislikeP != null){
+        [].forEach.call(answerdislikeP, function(adP) {
+            adP.addEventListener('click', QuestionDislikeA);
+        });   
+    }
 
-    let homeDislike = document.querySelector('#dislike3');
-    if (homeDislike != null)
-        homeDislike.addEventListener('click', homeDislikeF);
-        */
+    let homeLike = document.querySelectorAll('#like3');
+        [].forEach.call(homeLike, function(homeL) {
+            homeL.addEventListener('click', homeLikeF);
+        });   
+
+    let homeDislike = document.querySelectorAll('#dislike3');
+        [].forEach.call(homeDislike, function(homeD) {
+            homeD.addEventListener('click', homeDislikeF);
+        });    
+
+    let homeLikeP = document.querySelectorAll('#like3P');
+        [].forEach.call(homeLikeP, function(homeLP) {
+            homeLP.addEventListener('click', homeLikeF);
+        });   
+
+    let homeDislikeP = document.querySelectorAll('#dislike3P');
+        [].forEach.call(homeDislikeP, function(homeDP) {
+            homeDP.addEventListener('click', homeDislikeF);
+        }); 
 
     let answerEditors = document.querySelectorAll('.edit_answer_btn');
     if (answerEditors != null)
@@ -123,7 +162,6 @@ function addEventListeners() {
     if (followQuestion2 != null)
         followQuestion2.addEventListener('click', sendFollowRequestQ);
 
-
     let unfollowQuestions = document.querySelectorAll('#unfollowH');
     if (unfollowQuestions != null)
         [].forEach.call(unfollowQuestions, function(follower) {
@@ -133,7 +171,6 @@ function addEventListeners() {
     let unfollowQuestion2 = document.querySelector('#unfollowQ');
     if (unfollowQuestion2 != null)
         unfollowQuestion2.addEventListener('click', sendUnfollowRequestQ);
-
 
 }
 
@@ -913,37 +950,328 @@ function startLabel() {
 
 function QuestionLikeQ() {
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, null);
+    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, handleLikeQ);
 }
 
 function QuestionDislikeQ(){
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, null);
+    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, handleDislikeQ);
 }
 
 function QuestionLikeA() {
     let id = this.closest('.answer_item').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/answer/' + id + '/vote', { id : id}, null);
+    sendAjaxRequest('put', '/api/answer/' + id + '/vote', { id : id}, handleLikeA);
 }
 
 function QuestionDislikeA() {
     let id = this.closest('.answer_item').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/answer/' + id + '/downvote', { id : id}, null);
+    sendAjaxRequest('put', '/api/answer/' + id + '/downvote', { id : id}, handleDislikeA);
 }
 
-/*
+
 function homeLikeF() {
-    let id = this.closest('.questions-list').getAttribute('data-id');
-    console.log(id);
-    sendAjaxRequest('put', '/api/answer/' + id + '/vote', { id : id}, null);
+    let id = this.closest('div#questions-list').getAttribute('data-id');
+    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, handleLikeH);
 }
 
 
-function homeDislikeF() {
-    let id = this.closest('.questions_list').getAttribute('data-id');
-    console.log(id);
-    sendAjaxRequest('put', '/api/answer/' + id + '/downvote', { id : id}, null);
-}*/
+function homeDislikeF() {  
+    let id = this.closest('div#questions-list').getAttribute('data-id');
+    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, handleDislikeH);
+}
+
+// following questions
+function followRequestHandlerH(){
+
+    
+    let info = JSON.parse(this.responseText);
+
+    if(info[2] <= 6){
+
+        let section = document.getElementById('sidenav_left');
+
+        let new_following = document.createElement('following');
+        new_following.classList.add('sidenav');
+        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;  
+
+        section.insertBefore(new_following, section.childNodes[section.childNodes.size]);
+
+
+        return new_following;
+
+    }
+
+}
+
+function followRequestHandlerQ(){
+
+    let info = JSON.parse(this.responseText);
+
+    if(info[2] <= 6){
+
+        let section = document.getElementById('sidenav_left');
+
+        let new_following = document.createElement('following');
+        new_following.classList.add('sidenav');
+        new_following.innerHTML = `<a class="row" href="question/${info[1]}"> ${info[0]}</a>`;  
+
+        section.insertBefore(new_following, section.childNodes[section.childNodes.size]);
+
+        return new_following;
+
+    }
+    
+}
+
+function unfollowRequestHandlerH(){
+
+    let info = JSON.parse(this.responseText);
+    let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
+    if(li != null){
+        li.remove();
+    }
+
+
+}
+
+function unfollowRequestHandlerQ(){
+
+    let info = JSON.parse(this.responseText);
+    let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
+    if(li != null){
+        li.remove();
+    }
+
+}
+
+function handleLikeQ(){
+    let info = JSON.parse(this.responseText);
+
+    let buttonl = document.querySelector('#like1');
+    if (buttonl === null) buttonl = document.querySelector('#like1P');
+
+    let buttond = document.querySelector('#dislike1');
+    if (buttond === null) buttond = document.querySelector('#dislike1P');
+
+
+    if(info[3] == 1){ //only like placed
+        let newL = likePurple(info[0],1);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
+    }else if(info[3] == 2){ //like erased
+        let newL = likeBlack(info[0],1);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
+
+    }else{//like added and dislike removed
+        let newL = likePurple(info[0],1);
+        let newD = dislikeBlack(info[1],1);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
+
+}
+
+function handleDislikeQ(){
+    let info = JSON.parse(this.responseText);
+
+    let buttond = document.querySelector('#dislike1');
+    if (buttond === null) buttond = document.querySelector('#dislike1P');
+
+    let buttonl = document.querySelector('#like1');
+    if (buttonl === null) buttonl = document.querySelector('#like1P');
+
+
+    if(info[3] == 1){ //only dislike placed
+        let newD = dislikePurple(info[1],1);
+
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+    }else if(info[3] == 2){ //dislike erased
+        let newD = dislikeBlack(info[1],1);
+
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+
+    }else{//dislike added and like removed
+        let newL = likeBlack(info[0],1);
+        let newD = dislikePurple(info[1],1);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
+
+}
+
+function handleLikeA(){
+    let info = JSON.parse(this.responseText);
+
+    let buttonl = document.querySelector('#like2');
+    if (buttonl === null) buttonl = document.querySelector('#like2P');
+
+    let buttond = document.querySelector('#dislike2');
+    if (buttond === null) buttond = document.querySelector('#dislike2P');
+
+
+    if(info[2] == 1){ //only like placed
+        let newL = likePurple(info[0],2);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
+    }else if(info[2] == 2){ //like erased
+        let newL = likeBlack(info[0],2);
+
+        console.log(newL);
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
+
+    }else{//like added and dislike removed
+        let newL = likePurple(info[0],2);
+        let newD = dislikeBlack(info[1],2);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
+
+}
+
+function handleDislikeA(){
+    let info = JSON.parse(this.responseText);
+
+    let buttond = document.querySelector('#dislike2');
+    if (buttond === null) buttond = document.querySelector('#dislike2P');
+
+    let buttonl = document.querySelector('#like2');
+    if (buttonl === null) buttonl = document.querySelector('#like2P');
+
+
+    if(info[2] == 1){ //only dislike placed
+        let newD = dislikePurple(info[1],2);
+
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+    }else if(info[2] == 2){ //dislike erased
+        let newD = dislikeBlack(info[1],2);
+
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+
+    }else{//dislike added and like removed
+        let newL = likeBlack(info[0],2);
+        let newD = dislikePurple(info[1],2);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
+
+}
+
+function handleLikeH(){
+    let info = JSON.parse(this.responseText);
+
+    let buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3");
+    if (buttonl === null) buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3P");
+
+    let buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3");
+    if (buttond === null) buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3P");
+
+    if(info[3] == 1){ //only like placed
+        let newL = likePurple(info[0],3);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
+    }else if(info[3] == 2){ //like erased
+        let newL = likeBlack(info[0],3);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
+
+    }else{//like added and dislike removed
+        let newL = likePurple(info[0],3);
+        let newD = dislikeBlack(info[1],3);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
+}
+
+function handleDislikeH(){
+    let info = JSON.parse(this.responseText);
+
+
+    let buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3");
+    if (buttonl === null) buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3P");
+
+    let buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3");
+    if (buttond === null) buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3P");
+
+
+    if(info[3] == 1){ //only dislike placed
+        let newD = dislikePurple(info[1],3);
+
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+    }else if(info[3] == 2){ //dislike erased
+        let newD = dislikeBlack(info[1],3);
+
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+
+    }else{//dislike added and like removed
+        let newL = likeBlack(info[0],3);
+        let newD = dislikePurple(info[1],3);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
+
+}
+
+function likePurple(nr_likes, index) {
+    let new_like = document.createElement('i');
+    new_like.innerHTML = ` 
+     <i class="fas fa-thumbs-up fa-lg" id="like${index}P" aria-hidden="true"> ${nr_likes}</i>
+    `
+    return new_like;
+}
+
+function likeBlack(nr_likes,index) {
+    let new_like = document.createElement('i');
+    new_like.innerHTML = ` 
+     <i class="fas fa-thumbs-up fa-lg" id="like${index}" aria-hidden="true"> ${nr_likes}</i>`
+    return new_like;
+}
+
+function dislikePurple(nr_dislikes, index) {
+    let new_dislike = document.createElement('i');
+    new_dislike.innerHTML = `
+    <i class="fas fa-thumbs-down fa-lg" id="dislike${index}P" aria-hidden="true"> ${nr_dislikes}</i>`
+    return new_dislike;
+}
+
+function dislikeBlack(nr_dislikes, index) {
+    let new_dislike = document.createElement('i');
+    new_dislike.innerHTML = `
+    <i class="fas fa-thumbs-down fa-lg" id="dislike${index}" aria-hidden="true"> ${nr_dislikes}</i>`
+    return new_dislike;
+}
+
+
 // following questions
 function followRequestHandlerH() {
 

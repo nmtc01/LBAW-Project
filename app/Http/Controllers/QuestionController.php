@@ -123,6 +123,8 @@ class QuestionController extends Controller
       $userAnswers = [];
       $subComments = [];
       $userSubComments = [];
+      $vote = null;
+      $answersVotes = [];
 
       $questionFollowingController = new QuestionFollowingController();
 
@@ -130,6 +132,7 @@ class QuestionController extends Controller
       $questions_followed=[];
       if(Auth::check()){
           $questions_followed = $questionFollowingController->listFollowedQuestions();
+          $vote = DB::table('vote')->where([['user_id', Auth::user()->id], ['question_id', $id],])->first();
       }
       
 
@@ -140,6 +143,8 @@ class QuestionController extends Controller
       foreach ($answers as $answer){
         $userAnswers[$answer->id]=$this->userController->getUsername($answer->user_id);
         $sub = $this->commentController->listAnswerComments($answer->id);
+        if(Auth::check()) $answersVotes[$answer->id] = DB::table('vote')->where([['user_id', Auth::user()->id], ['answer_id', $answer->id],])->first();
+        
 
         $subComments[$answer->id] = $sub;
 
@@ -148,7 +153,7 @@ class QuestionController extends Controller
         }
       }
 
-    return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments, 'questions_followed' => $questions_followed, 'labels' => $labels]);
+    return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments, 'questions_followed' => $questions_followed, 'labels' => $labels, 'vote' => $vote ,'answersVotes' => $answersVotes]);
     }
 
     public function delete(Request $request, $id)
