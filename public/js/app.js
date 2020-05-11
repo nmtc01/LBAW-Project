@@ -68,21 +68,42 @@ function addEventListeners() {
     let questionDislikeP = document.querySelector('#dislike1P');
     if (questionDislikeP != null)
         questionDislikeP.addEventListener('click', QuestionDislikeQ);        
-    
-    let questionLike2 = document.querySelector('#like2');
-    if (questionLike2 != null)
-        questionLike2.addEventListener('click', QuestionLikeA);
-            
-    let questionDislike2 = document.querySelector('#dislike2');
-    if (questionDislike2 != null)
-        questionDislike2.addEventListener('click', QuestionDislikeA);
 
+    let answerLike = document.querySelectorAll('#like2');
+    if (answerLike != null){
+        [].forEach.call(answerLike, function(al) {
+            al.addEventListener('click', QuestionLikeA);
+        });   
+    }
+
+    let answerLikeP = document.querySelectorAll('#like2P');
+    if (answerLikeP != null){
+        [].forEach.call(answerLikeP, function(alP) {
+            alP.addEventListener('click', QuestionLikeA);
+        });   
+    }
+        
+    
+    let answerdislike = document.querySelectorAll('#dislike2');
+    if (answerdislike != null){
+        [].forEach.call(answerdislike, function(ad) {
+            ad.addEventListener('click', QuestionDislikeA);
+        });   
+    }
+
+    let answerdislikeP = document.querySelectorAll('#dislike2P');
+    if (answerdislikeP != null){
+        [].forEach.call(answerdislikeP, function(adP) {
+            adP.addEventListener('click', QuestionDislikeA);
+        });   
+    }
 
     let homeLike = document.querySelectorAll('#like3');
-    if (homeLike != null)
-    [].forEach.call(homeLike, function(homeL) {
-        homeL.addEventListener('click', homeLikeF);
-    });   
+    if (homeLike != null){
+        [].forEach.call(homeLike, function(homeL) {
+            homeL.addEventListener('click', homeLikeF);
+        });   
+    }
 
     let homeDislike = document.querySelectorAll('#dislike3');
     if (homeDislike != null)
@@ -90,16 +111,16 @@ function addEventListeners() {
             homeD.addEventListener('click', homeDislikeF);
         });    
 
-    let homeLike3 = document.querySelectorAll('#like3P');
-    if (homeLike3 != null)
-        [].forEach.call(homeLike3, function(homeL3) {
-            homeL3.addEventListener('click', homeLikeF);
+    let homeLikeP = document.querySelectorAll('#like3P');
+    if (homeLikeP != null){
+        [].forEach.call(homeLikeP, function(homeLP) {
+            homeLP.addEventListener('click', homeLikeF);
         });   
+    }
 
-    let homeDislike3 = document.querySelectorAll('#dislike3P');
-    if (homeDislike3 != null)
-        [].forEach.call(homeDislike, function(homeD3) {
-            homeD3.addEventListener('click', homeDislikeF);
+    let homeDislikeP = document.querySelectorAll('#dislike3P');
+        [].forEach.call(homeDislikeP, function(homeDP) {
+            homeDP.addEventListener('click', homeDislikeF);
         }); 
 
     let answerEditors = document.querySelectorAll('.edit_answer_btn');
@@ -970,7 +991,6 @@ function homeLikeF() {
 
 
 function homeDislikeF() {  
-    console.log(event.target);
     let id = this.closest('div#questions-list').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, handleDislikeH);
 }
@@ -1046,34 +1066,62 @@ function handleLikeQ(){
     if (buttonl === null) buttonl = document.querySelector('#like1P');
 
     let buttond = document.querySelector('#dislike1');
-    if (buttond === null) buttonl = document.querySelector('#dislike1P');
+    if (buttond === null) buttond = document.querySelector('#dislike1P');
 
 
-    if (buttonl.style.color != '#6545c9')
-        buttonl.style.color = '#6545c9';
-    else buttonl.style.color = 'black';
+    if(info[3] == 1){ //only like placed
+        let newL = likePurple(info[0],1);
 
-    buttonl.innerHTML = ' '+ info[0];
-    buttond.innerHTML = ' ' + info[1];
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
+    }else if(info[3] == 2){ //like erased
+        let newL = likeBlack(info[0],1);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
+
+    }else{//like added and dislike removed
+        let newL = likePurple(info[0],1);
+        let newD = dislikeBlack(info[1],1);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
 
 }
 
 function handleDislikeQ(){
     let info = JSON.parse(this.responseText);
 
-    let button = document.querySelector('#dislike1');
-    if (button === null) button = document.querySelector('#dislike1P');
+    let buttond = document.querySelector('#dislike1');
+    if (buttond === null) buttond = document.querySelector('#dislike1P');
 
     let buttonl = document.querySelector('#like1');
     if (buttonl === null) buttonl = document.querySelector('#like1P');
 
 
-    if (button.style.color != '#6545c9')
-        button.style.color = '#6545c9';
-    else button.style.color = 'black';
+    if(info[3] == 1){ //only dislike placed
+        let newD = dislikePurple(info[1],1);
 
-    buttonl.innerHTML = ' ' + info[0];
-    button.innerHTML = ' '+ info[1];
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+    }else if(info[3] == 2){ //dislike erased
+        let newD = dislikeBlack(info[1],1);
+
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+
+    }else{//dislike added and like removed
+        let newL = likeBlack(info[0],1);
+        let newD = dislikePurple(info[1],1);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
 
 }
 
@@ -1084,34 +1132,63 @@ function handleLikeA(){
     if (buttonl === null) buttonl = document.querySelector('#like2P');
 
     let buttond = document.querySelector('#dislike2');
-    if (buttond === null) buttonl = document.querySelector('#dislike2P');
+    if (buttond === null) buttond = document.querySelector('#dislike2P');
 
 
-    if (buttonl.style.color != '#6545c9')
-        buttonl.style.color = '#6545c9';
-    else buttonl.style.color = 'black';
+    if(info[2] == 1){ //only like placed
+        let newL = likePurple(info[0],2);
 
-    buttonl.innerHTML = ' '+ info[0];
-    buttond.innerHTML = ' ' + info[1];
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
+    }else if(info[2] == 2){ //like erased
+        let newL = likeBlack(info[0],2);
+
+        console.log(newL);
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
+
+    }else{//like added and dislike removed
+        let newL = likePurple(info[0],2);
+        let newD = dislikeBlack(info[1],2);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
 
 }
 
 function handleDislikeA(){
     let info = JSON.parse(this.responseText);
 
-    let button = document.querySelector('#dislike2');
-    if (button === null) button = document.querySelector('#dislike2P');
+    let buttond = document.querySelector('#dislike2');
+    if (buttond === null) buttond = document.querySelector('#dislike2P');
 
     let buttonl = document.querySelector('#like2');
     if (buttonl === null) buttonl = document.querySelector('#like2P');
 
 
-    if (button.style.color != '#6545c9')
-        button.style.color = '#6545c9';
-    else button.style.color = 'black';
+    if(info[2] == 1){ //only dislike placed
+        let newD = dislikePurple(info[1],2);
 
-    buttonl.innerHTML = ' ' + info[0];
-    button.innerHTML = ' '+ info[1];
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+    }else if(info[2] == 2){ //dislike erased
+        let newD = dislikeBlack(info[1],2);
+
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+
+    }else{//dislike added and like removed
+        let newL = likeBlack(info[0],2);
+        let newD = dislikePurple(info[1],2);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
 
 }
 
@@ -1122,56 +1199,90 @@ function handleLikeH(){
     if (buttonl === null) buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3P");
 
     let buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3");
-    if (buttond === null) button = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3P");
+    if (buttond === null) buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3P");
 
+    if(info[3] == 1){ //only like placed
+        let newL = likePurple(info[0],3);
 
-    //if (buttonl.style.color != '#6545c9')
-      //  buttonl.style.color = '#6545c9';
-    //else buttonl.style.color = '#000000';
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
+    }else if(info[3] == 2){ //like erased
+        let newL = likeBlack(info[0],3);
 
-    let newL = changeLikeColor(info[0]);
-    let newD = changeDislikeColor(info[1])
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.innerHTML = ' '+ info[1];
 
-    buttonl.outerHTML = newL.innerHTML;
-    buttond.outerHTML = newD.innerHTML;
+    }else{//like added and dislike removed
+        let newL = likePurple(info[0],3);
+        let newD = dislikeBlack(info[1],3);
 
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
 }
 
 function handleDislikeH(){
     let info = JSON.parse(this.responseText);
 
-    let button = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3");
-
-    if (button === null) button = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3P");
 
     let buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3");
     if (buttonl === null) buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3P");
 
-
-    //if (button.style.color != '#6545c9')
-      //  button.style.color = '#6545c9';
-    //else button.style.color = '#000000';
+    let buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3");
+    if (buttond === null) buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3P");
 
 
+    if(info[3] == 1){ //only dislike placed
+        let newD = dislikePurple(info[1],3);
 
-    buttonl.innerHTML = ' ' + info[0];
-    button.innerHTML = ' '+ info[1];
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+    }else if(info[3] == 2){ //dislike erased
+        let newD = dislikeBlack(info[1],3);
+
+        buttond.outerHTML = newD.innerHTML;
+        buttonl.innerHTML = ' '+ info[0];
+
+    }else{//dislike added and like removed
+        let newL = likeBlack(info[0],3);
+        let newD = dislikePurple(info[1],3);
+
+        buttonl.outerHTML = newL.innerHTML;
+        buttond.outerHTML = newD.innerHTML;
+    }
+
+    addEventListeners();
 
 }
 
-function changeLikeColor(nr_likes) {
-    let new_like = document.createElement('like');
-    new_like.innerHTML = ` <a class="icon" >
-                             <i class="fas fa-thumbs-up fa-lg" id="like3P"> ${nr_likes} </i>
-                            </a>`
+function likePurple(nr_likes, index) {
+    let new_like = document.createElement('i');
+    new_like.innerHTML = ` 
+     <i class="fas fa-thumbs-up fa-lg" id="like${index}P" aria-hidden="true"> ${nr_likes}</i>
+    `
     return new_like;
 }
 
-function changeDislikeColor(nr_dislikes) {
-    let new_dislike = document.createElement('dislike');
-    new_dislike.innerHTML = ` <a class="icon" >
-    <i class="fas fa-thumbs-up fa-lg" id="like3P"> ${nr_dislikes} </i>
-   </a>`
+function likeBlack(nr_likes,index) {
+    let new_like = document.createElement('i');
+    new_like.innerHTML = ` 
+     <i class="fas fa-thumbs-up fa-lg" id="like${index}" aria-hidden="true"> ${nr_likes}</i>`
+    return new_like;
+}
+
+function dislikePurple(nr_dislikes, index) {
+    let new_dislike = document.createElement('i');
+    new_dislike.innerHTML = `
+    <i class="fas fa-thumbs-down fa-lg" id="dislike${index}P" aria-hidden="true"> ${nr_dislikes}</i>`
+    return new_dislike;
+}
+
+function dislikeBlack(nr_dislikes, index) {
+    let new_dislike = document.createElement('i');
+    new_dislike.innerHTML = `
+    <i class="fas fa-thumbs-down fa-lg" id="dislike${index}" aria-hidden="true"> ${nr_dislikes}</i>`
     return new_dislike;
 }
 

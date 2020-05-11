@@ -38,8 +38,9 @@ class HomeController extends Controller
         foreach($questions as $question){
             $users[$question->id] = $this->userController->getUsername($question->user_id);
             $nr_answers[$question->id] = $this->answerController->getNrAnswers($question->id);
-            $questionsVotes[$question->id] = DB::table('vote')->where([['user_id', Auth::user()->id], ['question_id', $question->id],])->first();
-         
+            if(Auth::check()){
+                $questionsVotes[$question->id] = DB::table('vote')->where([['user_id', Auth::user()->id], ['question_id', $question->id],])->first();
+            }else $questionsVotes[$question->id] = 0;
         }
 
 

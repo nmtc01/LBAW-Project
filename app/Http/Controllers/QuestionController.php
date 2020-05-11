@@ -143,7 +143,7 @@ class QuestionController extends Controller
       foreach ($answers as $answer){
         $userAnswers[$answer->id]=$this->userController->getUsername($answer->user_id);
         $sub = $this->commentController->listAnswerComments($answer->id);
-        $answersVotes[$answer->id] = DB::table('vote')->where([['user_id', $answer->user_id], ['answer_id', $answer->id],])->first();
+        if(Auth::check()) $answersVotes[$answer->id] = DB::table('vote')->where([['user_id', Auth::user()->id], ['answer_id', $answer->id],])->first();
         
 
         $subComments[$answer->id] = $sub;
@@ -152,11 +152,6 @@ class QuestionController extends Controller
           $userSubComments[$subComment->id]=$this->userController->getUsername($subComment->user_id);
         }
       }
-
-      
-
-
-
 
     return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments, 'questions_followed' => $questions_followed, 'labels' => $labels, 'vote' => $vote ,'answersVotes' => $answersVotes]);
     }
