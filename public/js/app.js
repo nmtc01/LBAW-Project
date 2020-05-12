@@ -206,27 +206,16 @@ function showSearchHandler() {
 }
 
 function questionAddedHandler() {
-
     let info = JSON.parse(this.responseText);
 
     // Reset the new answer input
     document.getElementById("formControlTextareaQuestion").value = "";
     document.getElementById("formControlTextareaDescription").value = "";
 
-    // Create the new Question
-    let new_question = createQuestion(info);
+    if (this.status == 200) 
+        window.location = '/question/' + info[0];
 
-    let section = document.getElementById("questions-list");
-
-    let list = document.getElementById("questions-list");
-
-    section.before(new_question, list.childNodes[0]);
-
-    // Focus on adding a new question
-    new_question.focus();
-
-    sendCreateLabelsRequest(info[4]);
-
+    sendCreateLabelsRequest(info[0]);
 }
 
 function answerAddedHandler() {
@@ -660,41 +649,6 @@ function sendUnfollowRequestQ() {
  * Auxiliary functions
  * @param info 
  */
-
-function createQuestion(info) {
-    let new_question = document.createElement('question');
-    new_question.classList.add('question');
-    new_question.setAttribute('data-id', 0);
-    new_question.innerHTML = `<div id="questions-list" class="wrapper home_question container-fluid">
-                                <div class="row">
-                                    <div id="prof_info" class="col-3 text-center">
-                                        <img src="/img/unknown.png">
-                                        <p><a class="row-2 d-none d-sm-block" href="/pages/profile.php">${info[2]}</a></p>
-                                    </div>
-                                    <div class="col-9">
-                                        <h1><a id="question-header" href="question/${info[4]}">${info[0]}</a></h1>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="icons col-9">
-                                        <a class="icon" href="#">
-                                        <i class="fas fa-thumbs-up fa-lg">0</i>
-                                        </a>
-                                        <a class="icon" href="#">
-                                            <i class="fas fa-thumbs-down fa-lg">0</i>
-                                        </a>
-                                        <a class="icon" href="#">
-                                            <i class="fas fa-reply fa-lg"> 10 </i>
-                                        </a>
-                                    </div>
-                                    <p class="col-3" id=question_date>${info[3]}</p>
-                                </div>
-                            </div>`;
-
-    return new_question;
-
-}
-
 function editTitle(info) {
     let new_question = document.createElement('question');
     new_question.classList.add('question');

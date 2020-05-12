@@ -36,11 +36,12 @@ class QuestionController extends Controller
       $question->description = $request->input('description');
       $username = Auth::user()->username;
 
-      $date = date('Y-m-d');
+      //$date = date('Y-m-d');
 
       $question->save();
       
-      $info = [$question->title, $question->description, $username, $date, $question->id];
+      //$info = [$question->title, $question->description, $username, $date, $question->id];
+      $info = [$question->id];
 
       return $info;
     }
