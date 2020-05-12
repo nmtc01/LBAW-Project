@@ -15,7 +15,8 @@
         <div class="ans-body">
             <p id="answer_content">{{ $answer->content }}</p>
             <div class=icons-answers>
-                @if($answersVotes[$answer->id] != null)
+                @if($answersVotes != null)
+                    @if($answersVotes[$answer->id])
 
                     @if(($answersVotes[$answer->id])->vote == true)
                     <a class="icon-answers" >
@@ -33,6 +34,7 @@
                     </a>
 
                     @endif
+                @endif
 
                 @else
                 <a class="icon-answers" >
