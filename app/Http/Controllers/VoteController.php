@@ -18,6 +18,9 @@ class VoteController extends Controller
     public function addLikeQ(Request $request)
     {
         $vote = new Vote();
+
+        $this->authorize('create', $vote);
+
         $user_id = Auth::user()->id;
         $question_id = $request->input('id');
         $operation = 0;
@@ -26,7 +29,11 @@ class VoteController extends Controller
         $like = DB::table('vote')->where([['user_id', $user_id], ['question_id', $question_id],])->first();
 
         if($like === null){
-            DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, $question_id, null]);
+            $vote->vote = true;
+            $vote->user_id = $user_id;
+            $vote->question_id = $question_id;
+            $vote->save();
+            //DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, $question_id, null]);
             $operation = 1;
         }else if($like->vote == true){
             
@@ -34,9 +41,12 @@ class VoteController extends Controller
             $operation = 2;
 
         }else{
-            
             DB::table('vote')->where([['user_id', $user_id], ['question_id', $question_id],])->delete();
-            DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, $question_id, null]);
+            $vote->vote = true;
+            $vote->user_id = $user_id;
+            $vote->question_id = $question_id;
+            $vote->save();
+            //DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, $question_id, null]);
             $operation = 3;
 
         }
@@ -49,6 +59,9 @@ class VoteController extends Controller
 
     public function addDislikeQ(Request $request)
     {
+        $vote = new Vote();
+
+        $this->authorize('create', $vote);
 
         $user_id = Auth::user()->id;
         $question_id = $request->input('id');
@@ -57,14 +70,22 @@ class VoteController extends Controller
         //check if it was already liked
         $like = DB::table('vote')->where([['user_id', $user_id], ['question_id', $question_id],])->first();
         if($like === null){
-            DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, $question_id, null]);
+            $vote->vote = false;
+            $vote->user_id = $user_id;
+            $vote->question_id = $question_id;
+            $vote->save();
+            //DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, $question_id, null]);
             $operation = 1;
         }else if($like->vote == false){
             DB::table('vote')->where([['user_id', $user_id], ['question_id', $question_id],])->delete();
             $operation = 2;
         }else{
             DB::table('vote')->where([['user_id', $user_id], ['question_id', $question_id],])->delete();
-            DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, $question_id, null]);
+            $vote->vote = false;
+            $vote->user_id = $user_id;
+            $vote->question_id = $question_id;
+            $vote->save();
+            //DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, $question_id, null]);
             $operation = 3;
 
         }
@@ -78,6 +99,9 @@ class VoteController extends Controller
     
     public function addLikeA(Request $request)
     {
+        $vote = new Vote();
+
+        $this->authorize('create', $vote);
 
         $user_id = Auth::user()->id;
         $answer_id = $request->input('id');
@@ -86,7 +110,11 @@ class VoteController extends Controller
         $like = DB::table('vote')->where([['user_id', $user_id], ['answer_id', $answer_id],])->first();
 
         if($like === null){
-            DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, null, $answer_id]);
+            $vote->vote = true;
+            $vote->user_id = $user_id;
+            $vote->answer_id = $answer_id;
+            $vote->save();
+            //DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, null, $answer_id]);
             $operation = 1;
         }else if($like->vote == true){
             DB::table('vote')->where([['user_id', $user_id], ['answer_id', $answer_id],])->delete();
@@ -94,7 +122,11 @@ class VoteController extends Controller
 
         }else{
             DB::table('vote')->where([['user_id', $user_id], ['answer_id', $answer_id],])->delete();
-            DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, null, $answer_id]);
+            $vote->vote = true;
+            $vote->user_id = $user_id;
+            $vote->answer_id = $answer_id;
+            $vote->save();
+            //DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [true, $user_id, null, $answer_id]);
             $operation = 3;
 
         }
@@ -106,6 +138,9 @@ class VoteController extends Controller
 
     public function addDislikeA(Request $request)
     {
+        $vote = new Vote();
+
+        $this->authorize('create', $vote);
 
         $user_id = Auth::user()->id;
         $answer_id = $request->input('id'); //???
@@ -113,19 +148,27 @@ class VoteController extends Controller
         //check if it was already liked
         $like = DB::table('vote')->where([['user_id', $user_id], ['answer_id', $answer_id],])->first();
         if($like === null){
-            DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, null, $answer_id]);
+            $vote->vote = false;
+            $vote->user_id = $user_id;
+            $vote->answer_id = $answer_id;
+            $vote->save();
+            //DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, null, $answer_id]);
         }else if($like->vote == false){
             DB::table('vote')->where([['user_id', $user_id], ['answer_id', $answer_id],])->delete();
         }else{
             DB::table('vote')->where([['user_id', $user_id], ['answer_id', $answer_id],])->delete();
-            DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, null, $answer_id]);
+            $vote->vote = false;
+            $vote->user_id = $user_id;
+            $vote->answer_id = $answer_id;
+            $vote->save();
+            //DB::insert('insert into vote (vote, user_id, question_id, answer_id) values (?, ?, ?, ?)', [false, $user_id, null, $answer_id]);
 
         }
     
 
-    $answer = $this->answerController->getAnswer($answer_id);
-    $info = [$answer->nr_likes, $answer->nr_dislikes];
-    return $info;
+        $answer = $this->answerController->getAnswer($answer_id);
+        $info = [$answer->nr_likes, $answer->nr_dislikes];
+        return $info;
 
     }
 
