@@ -53,13 +53,13 @@
                     @php
                     $flag = false;
                     @endphp
-                    @for ($j = 0; $j < count($questions_followed); $j++)
-                        @if($questions_followed[$j]->id == $questions[$i]->id)
+                    @foreach ($questions_followed as $question_followed)
+                        @if($question_followed->id == $questions[$i]->id)
                             @php
                             $flag = true;
                             @endphp
                         @endif
-                    @endfor
+                    @endforeach
                     @if($flag)
                         <i class="fas fa-arrow-right fa-lg" id="unfollowH"> unfollow </i>
                     @else

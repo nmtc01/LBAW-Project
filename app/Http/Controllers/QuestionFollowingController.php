@@ -24,6 +24,8 @@ class QuestionFollowingController extends Controller
     {
         $question_following = new QuestionFollowing();
 
+        $this->authorize('create', $question_following);
+
         $user_id = Auth::user()->id;
         $question_id = $request->input('id');
 
@@ -40,13 +42,13 @@ class QuestionFollowingController extends Controller
 
     public function delete(Request $request)
     {
-
-        $question_following = new QuestionFollowing();
-
         $user_id = Auth::user()->id;
         $question_id = $request->input('id');
 
-        //DB::delete(DB::raw("delete * from question_following where (user_id = $user_id and question_id = $question_id"));
+        $question_following = new QuestionFollowing();
+        $question_following->user_id = $user_id;
+        $this->authorize('delete', $question_following);
+
         DB::table('question_following')->where([['user_id', $user_id], ['question_id', $question_id],])->delete();
 
         $question = $this->questionController->getQuestion($question_id);
@@ -69,7 +71,9 @@ class QuestionFollowingController extends Controller
         $i = 0;
 
         foreach($followed_questions as $followed_question){
-            $questions[$i] = $this->questionController->getQuestion($followed_question->question_id);
+            $questions[$followed_question->question_id] = $this->questionController->getQuestion($followed_question->question_id);
+            if ($i >= 6)
+                break;
             $i++;
         }
         

@@ -2,14 +2,9 @@
     @if (Auth::check())
     
     <label>Following</label>
-    {{--@foreach($questions_followed as $question_followed)--}}
-    @for ($i = 0; $i < count($questions_followed); $i++)
-    @if($i >= 6)
-        @break
-    @endif
-    <a class="row" data-id="{{$questions_followed[$i]->id}}" href="{{ asset('question/'.$questions_followed[$i]->id) }}"> {{ $questions_followed[$i]->title }}</a>
-    @endfor
-    {{--@endforeach--}}
+    @foreach($questions_followed as $question_followed)
+    <a class="row" data-id="{{$question_followed->id}}" href="{{ asset('question/'.$question_followed->id) }}"> {{ $question_followed->title }}</a>
+    @endforeach
 
     @else
     <label>Popular questions</label>
