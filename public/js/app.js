@@ -201,7 +201,6 @@ function sendAjaxRequest(method, url, data, handler) {
  */
 
 function showSearchHandler() {
-    console.log(this.responseText);
     if (this.status == 200) 
         window.location = '/search/' + this.responseText;
 }
