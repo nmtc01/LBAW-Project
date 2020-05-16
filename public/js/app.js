@@ -172,6 +172,20 @@ function addEventListeners() {
     if (unfollowQuestion2 != null)
         unfollowQuestion2.addEventListener('click', sendUnfollowRequestQ);
 
+    // best answer
+
+    let selectBestAnswer = document.querySelectorAll('#best-answer-black');
+    if (selectBestAnswer != null)
+        [].forEach.call(selectBestAnswer, function(bestAnswer) {
+            bestAnswer.addEventListener('click', setBestAnswerRequest);
+        });
+
+    let deselectBestAnswer = document.querySelectorAll('#best-answer-green');
+    if (deselectBestAnswer != null)
+        [].forEach.call(deselectBestAnswer, function(bestAnswer) {
+            bestAnswer.addEventListener('click', setBestAnswerRequest);
+        });
+
 }
 
 
@@ -773,6 +787,15 @@ function sendUnfollowRequestQ() {
 
 }
 
+// best answer
+
+function setBestAnswerRequest(){
+
+    let id = this.closest('.answer_item').getAttribute('data-id');
+    sendAjaxRequest('put', '/api/answer/' + id + '/best', { id: id }, setBestAnswerHandler);
+
+}
+
 
 /**
  * Auxiliary functions
@@ -1275,6 +1298,57 @@ function dislikeBlack(nr_dislikes, index) {
     new_dislike.innerHTML = `
     <i class="fas fa-thumbs-down fa-lg" id="dislike${index}" aria-hidden="true"> ${nr_dislikes}</i>`
     return new_dislike;
+}
+
+// best answer
+
+function setBestAnswerHandler(){
+
+    let info = JSON.parse(this.responseText);
+    let answer_id = info[0];
+    let value = info[1];
+
+    if(value){
+
+        let marked_before = document.querySelector('#best-answer-green');
+        if(marked_before != null){
+            // changes the button style
+            let update_before = document.createElement('i');
+            update_before.innerHTML = `<i class="fas fa-check-circle" id="best-answer-black"> Set as best answer</i>`
+            marked_before.outerHTML = update_before.innerHTML;
+            marked_before.innerHTML = " Set as best answer";
+        }
+
+        let marked_new = document.querySelector("#answer" + answer_id +"[data-id='" + answer_id + "'] #best-answer-black");
+        // changes the button style
+        let update_new = document.createElement('i');
+        update_new.innerHTML = `<i class="fas fa-check-circle" id="best-answer-green"> Set as best answer</i>`
+        marked_new.outerHTML = update_new.innerHTML;
+        marked_new.innerHTML = " Set as best answer";
+
+        // updates EventListeners
+        addEventListeners();
+        
+    }
+    else{
+
+        let marked_new = document.querySelector("#answer" + answer_id +"[data-id='" + answer_id + "'] #best-answer-green");
+        // changes the button style
+        let update_new = document.createElement('i');
+        update_new.innerHTML = `<i class="fas fa-check-circle" id="best-answer-black"> Set as best answer</i>`
+        marked_new.outerHTML = update_new.innerHTML;
+        marked_new.innerHTML = " Set as best answer";
+
+        // updates EventListeners
+        addEventListeners();
+
+    }
+    
+
+    
+
+
+
 }
 
 

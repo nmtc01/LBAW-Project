@@ -17,6 +17,23 @@
     color: #6545c9;
 }
 
+#best-answer-black{
+    width: 100%;
+}
+
+#best-answer-black:hover{
+    color: #28A745;
+}
+
+#best-answer-green{
+    width: 100%;
+    color: #28A745;
+}
+
+#best-answer-green:hover{
+    color: black;
+}
+
 #unfollowQ{
     color: #6545c9;
 }
@@ -167,4 +184,8 @@ li.answer_item .ans-body p {
 
 #dislike2P{
     color: #6545c9;
+}
+
+.best-answer{
+    float:right;
 }

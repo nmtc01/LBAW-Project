@@ -38,6 +38,7 @@ Route::put('/api/answer', 'AnswerController@create');
 Route::delete('/api/answer/{id}', 'AnswerController@delete');
 Route::put('/api/answer/{id}', 'AnswerController@edit');
 Route::put('/api/answer/{id}/update', 'AnswerController@update');
+Route::put('/api/answer/{id}/best', 'AnswerController@setBestAnswer');
 
 // Comments
 Route::put('/api/comment', 'CommentController@create');

@@ -111,12 +111,43 @@ class AnswerController extends Controller
 
     public function getNrAnswers($question_id){
 
-      //$count = Answer::where('question_id', $question_id)->get();
       $count = Answer::where('question_id', $question_id)->count();
 
       return $count;
 
+    }
+
+    public function setBestAnswer(Request $request){
+
+      $answer = Answer::find($request->input('id'));
+
+      if($answer->marked_answer){
+        $answer->marked_answer = 0;
+        
+      }
+      else{
+        $this->setMarkedAnswersFalse($answer->question_id);
+        $answer->marked_answer = 1;
+      }
+      
+      $answer->save();
+
+      $info = [$answer->id, $answer->marked_answer];
+
+      return $info;
 
     }
 
+    public function setMarkedAnswersFalse($question_id){
+
+      $answers = $this->list($question_id);
+      foreach($answers as $answer){
+        $new_answer = Answer::find($answer->id);
+        $new_answer->marked_answer = 0;
+        $new_answer->save();
+      }
+
+    }
+
+    
 }

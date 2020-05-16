@@ -3,6 +3,25 @@
 <ul class="list-unstyled" id="answers-list">
     @foreach($answers as $answer)
     <li id="answer{{$answer->id}}" class="answer_item" data-id = "{{$answer->id}}">
+        @if(Auth::check() && Auth::user()->username == $user->username)
+            <div class="best-answer">
+                <a class="icon-best-answer">
+                    @if($answer->marked_answer)
+                    <i class="fas fa-check-circle" id="best-answer-green"> Set as best answer </i>
+                    @else
+                    <i class="fas fa-check-circle" id="best-answer-black"> Set as best answer</i>
+                    @endif
+                </a>
+            </div>
+        @else
+            @if($answer->marked_answer)
+                <div class="best-answer">
+                    <a class="icon-best-answer">
+                        <i class="fas fa-check-circle" id="best-answer-green"></i>
+                    </a>
+                </div>
+            @endif
+        @endif
         <div class="row">
             <a class="col-sm-3 d-none d-sm-block text-center" href="../pages/profile.php">
                 <img src="{{ asset('img/unknown.png') }}" alt="Generic placeholder image">
@@ -15,8 +34,8 @@
         <div class="ans-body">
             <p id="answer_content">{{ $answer->content }}</p>
             <div class=icons-answers>
-                @if($answersVotes != null)
-                    @if($answersVotes[$answer->id])
+                
+                @if($answersVotes != null && $answersVotes[$answer->id] != null)
 
                     @if(($answersVotes[$answer->id])->vote == true)
                     <a class="icon-answers" >
@@ -34,7 +53,7 @@
                     </a>
 
                     @endif
-                @endif
+                    
 
                 @else
                 <a class="icon-answers" >
