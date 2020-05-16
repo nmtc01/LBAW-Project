@@ -63,6 +63,12 @@
                     <i class="fas fa-thumbs-down" id="dislike2"> {{ $answer->nr_dislikes }}</i>
                 </a>
                 @endif
+                <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments{{$answer->id}}">
+                    <i class="fas fa-comment">0</i>
+                </a>
+                <a class="icon-answers">
+                    <i class="fas fa-bug"> Report</i>
+                </a>
                 @if (Auth::check() && Auth::user()->id == $answer->user_id)
                 <a class="icon-answers edit_answer_btn" id="edit_answer{{$answer->id}}">
                     <i class="fas fa-edit"> Edit</i>
