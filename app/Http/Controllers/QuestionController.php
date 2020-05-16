@@ -79,10 +79,33 @@ class QuestionController extends Controller
      *
      * @return Response
      */
-    public function listSearch($KeyWord)
+    public function listSearch($KeyWord, $start_date, $end_date)
     {
       $keyWord = $KeyWord;
-      $questions = DB::select(DB::raw("select * from question where LOWER(title) like LOWER('%$keyWord%') or LOWER(description) like LOWER('%$keyWord%') order by question_date desc, (nr_likes - nr_dislikes) desc"));
+      $questions = '';
+      if ($start_date == '' && $end_date == '') {
+        $questions = DB::select(DB::raw("select * from question 
+                                        where LOWER(title) like LOWER('%$keyWord%') or LOWER(description) like LOWER('%$keyWord%') 
+                                        order by question_date desc, (nr_likes - nr_dislikes) desc"));
+      }
+      else if ($start_date != '' && $end_date == '') {
+        $questions = DB::select(DB::raw("select * from question 
+                                        where ((LOWER(title) like LOWER('%$keyWord%') or LOWER(description) like LOWER('%$keyWord%'))
+                                        and (question_date >= '$start_date')) 
+                                        order by question_date desc, (nr_likes - nr_dislikes) desc"));
+      }
+      else if ($start_date == '' && $end_date != '') {
+        $questions = DB::select(DB::raw("select * from question 
+                                        where ((LOWER(title) like LOWER('%$keyWord%') or LOWER(description) like LOWER('%$keyWord%'))
+                                        and (question_date <= '$end_date')) 
+                                        order by question_date desc, (nr_likes - nr_dislikes) desc"));
+      }
+      else if ($start_date != '' && $end_date != '') {
+        $questions = DB::select(DB::raw("select * from question 
+                                        where ((LOWER(title) like LOWER('%$keyWord%') or LOWER(description) like LOWER('%$keyWord%'))
+                                        and (question_date >= '$start_date' and question_date <= '$end_date')) 
+                                        order by question_date desc, (nr_likes - nr_dislikes) desc"));
+      }
 
       return $questions;
 

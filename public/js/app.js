@@ -201,6 +201,7 @@ function sendAjaxRequest(method, url, data, handler) {
  */
 
 function showSearchHandler() {
+    console.log(this.responseText);
     if (this.status == 200) 
         window.location = '/search/' + this.responseText;
 }
@@ -593,7 +594,17 @@ function unfollowRequestHandlerQ() {
 
 function sendSearchRequest(e) {
     if (e.key === 'Enter') {
-        let content = document.getElementById("start_search").value;
+        let keyword = document.getElementById("start_search").value;
+        let start = document.querySelector('.dates #start_date');
+        let end = document.querySelector('.dates #end_date');
+
+        let start_date = '';
+        let end_date = '';
+        if (start != null)
+            start_date = '%strDate'+start.value;
+        if (end != null)
+            end_date ='%endDate'+end.value;
+        content = keyword+start_date+end_date;
 
         if (content != '')
             sendAjaxRequest('post', '/search', { content }, showSearchHandler);

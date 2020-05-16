@@ -30,11 +30,11 @@
                             <div class="dates col-sm-6 row my-auto">
                                 <div class="col-sm-6">
                                     <label>Start</label>
-                                    <input type="date" value="dd-mm-yyyy">
+                                    <input id="start_date" type="date" placeholder="dd-mm-yyyy">
                                 </div>
                                 <div class="col-sm-6">
                                     <label>End</label>
-                                    <input type="date" value="dd-mm-yyyy">
+                                    <input id="end_date" type="date" placeholder="dd-mm-yyyy">
                                 </div>
                             </div>
                         </div>

@@ -19,9 +19,29 @@ class SearchController extends Controller
         $this->questionFollowingController = new QuestionFollowingController();
     }
 
-    public function show($KeyWord) {
-        
-        $questions = $this->questionController->listSearch($KeyWord);
+    public function show($content) {
+        $KeyWord = '';
+        $start_date = '';
+        $end_date = '';
+
+        $array = preg_split("/%strDate/", $content);
+        if (count($array) == 1) {
+            $array = preg_split("/%endDate/", $array[0]);
+            $KeyWord = $array[0];
+            if (count($array) == 2) {
+                $end_date = $array[1];
+            }
+        }
+        else if (count($array) == 2) {
+            $KeyWord = $array[0];
+            $array = preg_split("/%endDate/", $array[1]);
+            $start_date = $array[0];
+            if (count($array) == 2) {
+                $end_date = $array[1];
+            }
+        }
+
+        $questions = $this->questionController->listSearch($KeyWord, $start_date, $end_date);
 
         $questions_followed=[];
         if(Auth::check()){
