@@ -64,7 +64,7 @@
                 </a>
                 @endif
                 <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments{{$answer->id}}">
-                    <i class="fas fa-comment"> 0</i>
+                    <i class="fas fa-comment"> {{ count($subComments[$answer->id]) }}</i>
                 </a>
                 <a class="icon-answers">
                     <i class="fas fa-bug"> Report</i>
