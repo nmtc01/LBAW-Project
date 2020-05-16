@@ -75,7 +75,7 @@
                     $flag = false;
                     @endphp
                     @foreach ($questions_followed as $question_followed)
-                        @if($question_followed->id == $question[$i]->id)
+                        @if($question_followed->id == $questions[$i]->id)
                             @php
                             $flag = true;
                             @endphp
