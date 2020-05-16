@@ -875,7 +875,7 @@ function createAnswer(info) {
                                         <a class="icon-answers" href="#">
                                             <i class="fas fa-thumbs-down"> 0 </i>
                                         </a>
-                                        <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments{{$answer->id}}">
+                                        <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments${info[3]}">
                                             <i class="fas fa-comment">0</i>
                                         </a>
                                         <a class="icon-answers">
@@ -890,6 +890,17 @@ function createAnswer(info) {
                                         <a class="icon-answers" id="delete_answer">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
+                                    </div>
+                                </div>
+                                <div class="collapse" id="collapsed_comments${info[3]}">
+                                    <div class="card card-body">
+                                        <div class="form-group" id="add_comment_form">
+                                            <label for="exampleFormControlTextarea2"></label>
+                                            <input class="form-control" placeholder="Do you want to comment this answer?"id="exampleFormControlTextarea3">
+                                            <button class="btn my-2 my-sm-0" id="subcomment-button" type="submit">Comment</button>
+                                        </div>
+                                        <div class="media-body" id="subcomments-list">
+                                        </div>  
                                     </div>
                                 </div>
                             </li>`;
