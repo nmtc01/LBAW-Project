@@ -875,7 +875,7 @@ function createAnswer(info) {
                                         <a class="icon-answers" href="#">
                                             <i class="fas fa-thumbs-down"> 0 </i>
                                         </a>
-                                        <a class="icon-answers" href="#">
+                                        <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments{{$answer->id}}">
                                             <i class="fas fa-comment">0</i>
                                         </a>
                                         <a class="icon-answers">
