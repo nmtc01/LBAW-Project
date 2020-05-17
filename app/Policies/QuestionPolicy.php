@@ -14,8 +14,8 @@ class QuestionPolicy
 
     public function delete(User $user, Question $question)
     {
-      // Only a question owner can delete it
-      return $user->id == $question->user_id;
+      // Only a question owner or an admin can delete it
+      return $user->id == $question->user_id || $user->getUserCurrentRole() == 'administrator';
     }
 
     public function create(User $user)
@@ -26,8 +26,8 @@ class QuestionPolicy
 
     public function edit(User $user, Question $question)
     {
-      // Only a question owner can edit it
-      return $user->id == $question->user_id;
+      // Only a question owner, an admin or a moderator can edit it
+      return $user->id == $question->user_id || $user->getUserCurrentRole() == 'administrator' || $user->getUserCurrentRole() == 'moderator';
     }
     
 }

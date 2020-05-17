@@ -69,16 +69,23 @@
                 <a class="icon-answers">
                     <i class="fas fa-bug"> Report</i>
                 </a>
-                @if (Auth::check() && Auth::user()->id == $answer->user_id)
+                @if (Auth::check())
+                    @if (Auth::user()->getUserCurrentRole() == 'administrator' ||
+                         Auth::user()->getUserCurrentRole() == 'moderator' ||
+                         Auth::user()->id == $answer->user_id)
                 <a class="icon-answers edit_answer_btn" id="edit_answer{{$answer->id}}">
                     <i class="fas fa-edit"> Edit</i>
                 </a>
                 <a class="icon-answers save_answer_btn" id="save_answer{{$answer->id}}">
                     <i class="fas fa-save"> Save</i>
                 </a>
+                    @endif
+                    @if (Auth::user()->getUserCurrentRole() == 'administrator' ||
+                         Auth::user()->id == $answer->user_id)
                 <a class="icon-answers" id="delete_answer">
                     <i class="fas fa-trash-alt"></i>
                 </a>
+                    @endif
                 @endif
             </div>
         </div>

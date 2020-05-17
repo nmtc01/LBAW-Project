@@ -14,8 +14,8 @@ class AnswerPolicy
 
     public function delete(User $user, Answer $answer)
     {
-      // Only an answer owner can delete it
-      return $user->id == $answer->user_id;
+      // Only an answer owner or an admin can delete it
+      return $user->id == $answer->user_id || $user->getUserCurrentRole() == 'administrator';
     }
 
     public function create(User $user)
@@ -26,8 +26,8 @@ class AnswerPolicy
 
     public function edit(User $user, Answer $answer)
     {
-      // Only an answer owner can edit it
-      return $user->id == $answer->user_id;
+      // Only an answer owner, an admin or a moderator can edit it
+      return $user->id == $answer->user_id || $user->getUserCurrentRole() == 'administrator' || $user->getUserCurrentRole() == 'moderator';
     }
 
     /*public function show(User $user, Card $card)

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\User;
+use App\UserManagement;
 
 class UserController extends Controller
 {
@@ -36,6 +37,4 @@ class UserController extends Controller
 
       return $username;
     }
-
-
 }

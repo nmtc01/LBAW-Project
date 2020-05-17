@@ -196,14 +196,10 @@ class QuestionController extends Controller
 
       $this->authorize('edit', $question);
 
-      $question->user_id = Auth::user()->id;
       $question->title = $request->input('title');
       $question->description = $request->input('description');
-      $username = Auth::user()->username;
-
-      $date = date('Y-m-d');
       
-      $info = [$question->title, $question->description, $username, $date, $id];
+      $info = [$question->title, $question->description];
 
       return $info;
 
@@ -215,16 +211,11 @@ class QuestionController extends Controller
 
       $this->authorize('edit', $question);
 
-      $question->user_id = Auth::user()->id;
       $question->title = $request->input('title');
       $question->description = $request->input('description');
-      $username = Auth::user()->username;
-
-      $date = date('Y-m-d');
-
       $question->save();
       
-      $info = [$question->title, $question->description, $username, $date, $id];
+      $info = [$question->title, $question->description];
 
       return $info;
 

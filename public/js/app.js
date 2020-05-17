@@ -397,7 +397,7 @@ function answerEditedHandler() {
 
     // Edit Answer
     let new_content = editAnswerContent(info);
-    let div_content = document.querySelector("ul#answers-list #answer" + info[3] + " #answer_content");
+    let div_content = document.querySelector("ul#answers-list #answer" + info[1] + " #answer_content");
     div_content.outerHTML = new_content.innerHTML;
 
     // Focus
@@ -411,7 +411,7 @@ function commentEditedHandler() {
 
     // Edit comment
     let new_content = editCommentContent(info);
-    let div_content = document.querySelector("#comment" + info[3] + " div #comment_content");
+    let div_content = document.querySelector("#comment" + info[1] + " div #comment_content");
     div_content.outerHTML = new_content.innerHTML;
 
     // Focus
@@ -445,7 +445,7 @@ function answerUpdatedHandler() {
 
     // Update answer
     let new_content = updateAnswerContent(info);
-    let div_content = document.querySelector("ul#answers-list #answer" + info[3] + " #answer_content");
+    let div_content = document.querySelector("ul#answers-list #answer" + info[1] + " #answer_content");
     div_content.outerHTML = new_content.innerHTML;
 
     // Focus 
@@ -459,7 +459,7 @@ function commentUpdatedHandler() {
 
     // Update answer
     let new_content = updateCommentContent(info);
-    let div_content = document.querySelector("#comment" + info[3] + " div #comment_content");
+    let div_content = document.querySelector("#comment" + info[1] + " div #comment_content");
     div_content.outerHTML = new_content.innerHTML;
 
     // Focus 

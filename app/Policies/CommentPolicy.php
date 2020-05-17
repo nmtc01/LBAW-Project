@@ -20,14 +20,14 @@ class CommentPolicy
 
     public function delete(User $user, Comment $comment)
     {
-      // Only a comment owner can delete it
-      return $user->id == $comment->user_id;
+      // Only a comment owner or an admin can delete it
+      return $user->id == $comment->user_id || $user->getUserCurrentRole() == 'administrator';
     }
 
     public function edit(User $user, Comment $comment)
     {
-      // Only a comment owner can edit it
-      return $user->id == $comment->user_id;
+      // Only a comment owner, an admin or a moderator can edit it
+      return $user->id == $comment->user_id || $user->getUserCurrentRole() == 'administrator' || $user->getUserCurrentRole() == 'moderator';
     }
     
 }

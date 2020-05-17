@@ -58,7 +58,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Comment');
     }
 
+    public function getUserCurrentRole()
+    {
+        $user_management = UserManagement::where('id', $this->id)->first();
+        $role = $user_management->status;
 
-
-
+        return $role;
+    }
 }

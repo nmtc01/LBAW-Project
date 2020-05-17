@@ -77,13 +77,9 @@ class AnswerController extends Controller
 
       $this->authorize('edit', $answer);
 
-      $answer->user_id = Auth::user()->id;
       $answer->content = $request->input('content');
-      $username = Auth::user()->username;
-
-      $date = date('Y-m-d');
       
-      $info = [$answer->content, $username, $date, $id];
+      $info = [$answer->content, $id];
 
       return $info;
 
@@ -95,15 +91,10 @@ class AnswerController extends Controller
 
       $this->authorize('edit', $answer);
 
-      $answer->user_id = Auth::user()->id;
       $answer->content = $request->input('content');
-      $username = Auth::user()->username;
-
-      $date = date('Y-m-d');
-
       $answer->save();
       
-      $info = [$answer->content, $username, $date, $id];
+      $info = [$answer->content, $id];
 
       return $info;
 

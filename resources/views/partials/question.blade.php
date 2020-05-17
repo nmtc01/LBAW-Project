@@ -1,16 +1,23 @@
 <div class="row flex-row-reverse">
     <div class="col-sm-9">
         <h1 id="question_title">{{ $question->title }}</h1>
-        @if (Auth::check() && Auth::user()->id == $question->user_id)
+        @if (Auth::check())
+            @if (Auth::user()->getUserCurrentRole() == 'administrator' || 
+                 Auth::user()->id == $question->user_id)
         <a class="icon-question" id="delete_question">
             <i class="fas fa-trash-alt"> Delete</i>
         </a>
+            @endif
+            @if (Auth::user()->getUserCurrentRole() == 'administrator' || 
+                 Auth::user()->getUserCurrentRole() == 'moderator' || 
+                 Auth::user()->id == $question->user_id)
         <a class="icon-question" id="edit_question">
             <i class="fas fa-edit"> Edit</i>
         </a>
         <a class="icon-question" id="save_question">
             <i class="fas fa-save"> Save</i>
         </a>
+            @endif
         @endif
     </div>
     <div id="prof-img" class="col-sm-3 text-center">

@@ -557,7 +557,7 @@ insert into "user" (first_name, last_name, email, bio, username, password)
 insert into "user" (first_name, last_name, email, bio, username, password)
 	values ('Roberto', 'Mourato', 'robmoura@hotmail.com', 'UP student', 'bob56moura', '75748e28843cab0cc7ca4ba8dcdc11552ea7bb3b652a3cbd26c53dec861408bc');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Lurdes', 'Cardoso', 'lurdes01@hotmail.com', 'babysitter', 'lurdes01', 'e8253a1cf0d0d37032c0665de988369972f1b8502025aae5c71c187c7ea19a43');
+	values ('Lurdes', 'Cardoso', 'lurdes01@hotmail.com', 'babysitter', 'lurdes01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
 insert into "user" (first_name, last_name, email, bio, username, password)
 	values ('Paula', 'Tavares', 'paultavares@hotmail.com', 'hairdresser', 'paula64', '39427764c90328dc57389a2adb9202ae18cb3c38f27f5e7d3a19e5d23d7bbe4f');	
 insert into "user" (first_name, last_name, email, bio, username, password)
@@ -569,7 +569,7 @@ insert into "user" (first_name, last_name, email, bio, username, password)
 insert into "user" (first_name, last_name, email, bio, username, password)
 	values ('Clarinda', 'Teixeira', 'cteixeira@gmail.com', 'secretary', 'lindas', 'f15c4ab57663235d2212e96c280feae3e73ece417252d82c8784b34bad60cac');	
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Teresa', 'Teixeira', 'teresateixeira@gmail.com', 'seamstress', 'costureirinha', '327e51644afc5c688575ae43f30293513b6ed0dc6015ac12bf43f83628f739ea');
+	values ('Teresa', 'Teixeira', 'teresateixeira@gmail.com', 'seamstress', 'costureirinha', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
 insert into "user" (first_name, last_name, email, bio, username, password)
 	values ('Susana', 'Silva', 'ssilva@gmail.com', 'translator', 'silva77', 'd7aceb7abf5cf0b582ed8d10f324bb35495611edf04a8d30d699e21ffa6a64ff');
 insert into "user" (first_name, last_name, email, bio, username, password)
@@ -607,7 +607,7 @@ insert into "user" (first_name, last_name, email, bio, username, password)
 insert into "user" (first_name, last_name, email, bio, username, password)
 	values ('Carlos', 'Cruz', 'cruz@gmail.com', 'fisheman', 'cruz24', '2faecef2c88d125f3ba7dcac070b493f99d701ff43070c298cfa20a9f1459fd5');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Teodora', 'Vieira', 'vieira@gmail.com', 'cattle breeder', 'vieira01', 'e4a80fee9a4d8f87b0a5a408103ad723e2f83db981cdb10ef8c64a50fd70d508');
+	values ('Teodora', 'Vieira', 'vieira@gmail.com', 'cattle breeder', 'vieira01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
 insert into "user" (first_name, last_name, email, bio, username, password)
 	values ('Silvia', 'Rodrigues', 'silrodrigues@gmail.com', 'librarian', 'sil14', 'f820f43abb76bc0ff9a3a1b5ddbea160efa28921723b601caf746533be992957');
 insert into "user" (first_name, last_name, email, bio, username, password)
