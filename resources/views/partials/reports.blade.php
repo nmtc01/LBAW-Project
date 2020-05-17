@@ -4,6 +4,7 @@
             <button type="button" class="list-group-item list-group-item-action active">
                 Questions
             </button>
+            {{-- for cycle here --}}
             <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem0{{--TODO id--}}">
                 Will Erling Braut Haaland be a future winner of the Ballon d’Or?
             </button>
@@ -34,6 +35,7 @@
             <button type="button" class="list-group-item list-group-item-action active">
                 Answers
             </button>
+            {{-- for cycle here --}}
             <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem1{{--TODO id--}}">
                 In this example, the variable x is an int and Java will initialize it to 0 for you.
             </button>
@@ -63,6 +65,7 @@
             <button type="button" class="list-group-item list-group-item-action active">
                 Comments
             </button>
+            {{-- for cycle here --}}
             <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem2{{--TODO id--}}">
                 Please include the name of the object variable in the exception message.
             </button>
