@@ -42,9 +42,9 @@ class AnswerPolicy
       return Auth::check();
     }*/
 
-    public function setBestAnswer(User $user){
+    public function setBestAnswer(User $user, Answer $answer, User $question_user){
 
-      return Auth::check();
+      return Auth::check() && $user->username == $question_user->username;
 
     }
 

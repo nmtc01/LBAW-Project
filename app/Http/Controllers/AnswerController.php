@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 use App\Answer;
+use App\User;
 
 class AnswerController extends Controller
 {
@@ -112,7 +113,14 @@ class AnswerController extends Controller
 
       $answer = Answer::find($request->input('id'));
 
-      $this->authorize('setBestAnswer', $answer);
+      $username = $request->input('username');
+
+      // $question_user = DB::table('user')->where('username', $username)->first();
+
+      $user = new User();
+      $user->username = $username;
+
+      $this->authorize('setBestAnswer', [$answer, $user]);
 
       if($answer->marked_answer){
         $answer->marked_answer = 0;

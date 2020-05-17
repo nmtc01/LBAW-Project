@@ -24,7 +24,7 @@
         <a class="row-sm" href="profile.php">
             <img src="{{asset('/img/unknown.png')}}" alt="Generic placeholder image">
         </a>
-        <p class="row-sm text-truncate"><a href="profile.php">{{ $user->username }}</a></p>
+        <p class="row-sm text-truncate" id="username-question"><a href="profile.php">{{ $user->username }}</a></p>
     </div>
 </div>
 <div>

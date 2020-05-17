@@ -792,7 +792,8 @@ function sendUnfollowRequestQ() {
 function setBestAnswerRequest(){
 
     let id = this.closest('.answer_item').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/answer/' + id + '/best', { id: id }, setBestAnswerHandler);
+    let username = document.querySelector('#username-question a').innerHTML;
+    sendAjaxRequest('put', '/api/answer/' + id + '/best', { id: id, username : username }, setBestAnswerHandler);
 
 }
 
@@ -1314,6 +1315,10 @@ function dislikeBlack(nr_dislikes, index) {
 // best answer
 
 function setBestAnswerHandler(){
+
+    if(this.status == 403){
+        return;
+    }
 
     let info = JSON.parse(this.responseText);
     let answer_id = info[0];
