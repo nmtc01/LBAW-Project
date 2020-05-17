@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{ asset('css/modmin.css') }}">
 @endsection
 
+@section('content')
 <div class="container moderate">
 
     <ul class="nav nav-tabs">
@@ -19,23 +20,12 @@
       </li>
     </ul>
 
-    
-    {{-- draw reported tables --}}
     <div class="tab-content py-4">
-
-        {{-- draw_reported_tab_mod(1, $ids[0], $titles1, $reports1, true); --}}
-        @section('content')
             @include('partials.reports')
             @include('partials.reported_users')
-            @include('partials.promote')
-        @endsection
-
-        
-
-            
+            @include('partials.promote')   
     </div>
-    {{-- end draw reported tables --}}
-
 
 </div>
+@endsection
 
