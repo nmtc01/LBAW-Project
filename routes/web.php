@@ -64,3 +64,8 @@ Route::get('/404', 'StaticController@p404');
 // Search page
 Route::get('/search/{content}', 'SearchController@show');
 Route::post('/search', 'SearchController@startSearch');
+
+
+// Moderate
+Route::get('/admin', 'HomeController@moderate');
+

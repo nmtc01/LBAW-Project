@@ -153,7 +153,7 @@
                         <a href="../pages/profile.php">Access my profile</a>
                         </li>
                         <li>
-                        <a href="../pages/admin">Moderate</a>
+                        <a href="{{ asset('/admin') }}">Moderate</a>
                         </li>
                         @endif
                         <li>

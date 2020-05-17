@@ -52,4 +52,10 @@ class HomeController extends Controller
         return redirect('home');
     }
 
+    public function moderate(){
+
+        return view('pages.moderate');
+
+    }
+
 }
