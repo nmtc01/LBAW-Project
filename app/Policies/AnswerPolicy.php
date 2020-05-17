@@ -41,4 +41,11 @@ class AnswerPolicy
       // Any user can list its own cards
       return Auth::check();
     }*/
+
+    public function setBestAnswer(User $user){
+
+      return Auth::check();
+
+    }
+
 }

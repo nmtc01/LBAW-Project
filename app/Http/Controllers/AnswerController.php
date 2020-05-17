@@ -112,6 +112,8 @@ class AnswerController extends Controller
 
       $answer = Answer::find($request->input('id'));
 
+      $this->authorize('setBestAnswer', $answer);
+
       if($answer->marked_answer){
         $answer->marked_answer = 0;
         
