@@ -67,5 +67,5 @@ Route::post('/search', 'SearchController@startSearch');
 
 
 // Moderate
-Route::get('/admin', 'HomeController@moderate');
+Route::get('/admin', 'ModerationController@show');
 

@@ -37,5 +37,31 @@
     color: #6545c9;
 }
 
+#modal-report {
+    background: rgb(182, 4, 4);
+    padding: 0.5rem;
+    border-radius: 0.1rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+#modal-report p {
+    font-style: italic;
+}
+
+#modal-report p#report_content {
+    margin-bottom: 0;
+}
+
+#modal-report p#report_date {
+    margin-bottom: 0;
+}
+
+#modal-report p span {
+    font-weight: bold;
+}
+
+
+
 
 

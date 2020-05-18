@@ -554,6 +554,10 @@ insert into report (reporter_id, user_id, question_id, answer_id, comment_id, re
 insert into report (reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
 	values (20, NULL, 3, NULL, NULL, '2020-04-10', 'This question is disrespectful');
 insert into report (reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
+	values (4, NULL, 3, NULL, NULL, '2020-04-10', 'This question is absurd');
+insert into report (reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
+	values (2, NULL, 10, NULL, NULL, '2020-05-18', 'This question is stupid');
+insert into report (reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
 	values (21, NULL, NULL, 9, NULL, '2020-01-12', 'This answer is racist');
 insert into report (reporter_id, user_id, question_id, answer_id, comment_id, report_date, description) 
 	values (22, NULL, NULL, NULL, 9, '2020-03-11', 'This comment is totally unhelpful');

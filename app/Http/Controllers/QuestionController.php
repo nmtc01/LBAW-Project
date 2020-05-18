@@ -227,4 +227,31 @@ class QuestionController extends Controller
 
       $this->authorize('start', $label);
     }
+
+    /**
+     * Shows all reported questions.
+     *
+     * @return Response
+     */
+    public function listReported()
+    {
+      //TODO report message
+      $questionsReports = [];
+      
+      $reportedQuestions = DB::table('question')
+                          ->join('report', 'question.id', '=', 'report.question_id')
+                          ->select('question.*')
+                          ->groupby('question.id')
+                          ->get();
+
+      foreach($reportedQuestions as $reportedQuestion) {
+        $questionsReports[$reportedQuestion->id] = DB::table('report')
+                                                  ->where('question_id', $reportedQuestion->id)
+                                                  ->get();
+      }
+
+      $info = ['questionsReports' => $questionsReports, 'reportedQuestions' => $reportedQuestions];
+
+      return $info;
+    }
 }
