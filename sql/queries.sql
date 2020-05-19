@@ -159,6 +159,10 @@ JOIN "user" u ON u.id = report.user_id
 GROUP BY u.id
 ORDER BY reports desc;
 
+--SELECT26
+SELECT question.id FROM question JOIN question_label on question.id = question_label.question_id
+JOIN "label" l on l.id = question_label.label_id
+WHERE l.name = $label;
 
 --INSERT01
 INSERT INTO questions (user_id, title, description)
