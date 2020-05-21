@@ -46,11 +46,11 @@
             <button type="button" class="list-group-item list-group-item-action active">
                 Answers
             </button>
-            {{-- for cycle here --}}
-            <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem1{{--TODO id--}}">
-                In this example, the variable x is an int and Java will initialize it to 0 for you.
+            @foreach($reportedAnswers as $reportedAnswer)
+            <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_answer{{ $reportedAnswer->id }}">
+                {{ $reportedAnswer->content }}
             </button>
-            <div class="modal fade" id="reported_elem1{{--TODO id--}}" tabindex="-1" role="dialog" aria-labelledby="reported_title" aria-hidden="true">
+            <div class="modal fade" id="reported_answer{{ $reportedAnswer->id }}" tabindex="-1" role="dialog" aria-labelledby="reported_title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -60,27 +60,36 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h1>In this example, the variable x is an int and Java will initialize it to 0 for you.</h1>
-                            <p><a href="{{--TODO--}}">nmtc01</a></p>
+                            <h1>{{ $reportedAnswer->content }}</h1>
+                            <p><a href="{{--TODO--}}">{{$answer_owners[$reportedAnswer->id]->username}}</a></p>
+                            @foreach ($answerReports[$reportedAnswer->id] as $report)
+                            <div id="modal-report">
+                                <p id=report_content><span>{{ $answer_reporters[$report->id]->username }}</span> - "{{ $report->description }}"</p>
+                                <p id=report_date>{{ $report->report_date }}</p> 
+                            </div>
+                            @endforeach
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
-                                Edit
-                            </button>
+                            <a href="{{ action('QuestionController@open', ['id' => $reportedAnswer->question_id]) }}">
+                                <button type="button" class="btn btn-primary">
+                                    Edit
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
         <div class="list-group">
             <button type="button" class="list-group-item list-group-item-action active">
                 Comments
             </button>
-            {{-- for cycle here --}}
-            <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem2{{--TODO id--}}">
-                Please include the name of the object variable in the exception message.
+            @foreach($reportedComments as $reportedComment)
+            <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_comment{{ $reportedComment->id }}">
+                {{ $reportedComment->content }}
             </button>
-            <div class="modal fade" id="reported_elem2{{--TODO id--}}" tabindex="-1" role="dialog" aria-labelledby="reported_title" aria-hidden="true">
+            <div class="modal fade" id="reported_comment{{ $reportedComment->id }}" tabindex="-1" role="dialog" aria-labelledby="reported_title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -90,17 +99,26 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h1>Please include the name of the object variable in the exception message.</h1>
-                            <p><a href="{{--TODO--}}">nmtc01</a></p>
+                            <h1>{{ $reportedComment->content }}</h1>
+                            <p><a href="{{--TODO--}}">{{$comment_owners[$reportedComment->id]->username}}</a></p>
+                            @foreach ($commentReports[$reportedComment->id] as $report)
+                            <div id="modal-report">
+                                <p id=report_content><span>{{ $comment_reporters[$report->id]->username }}</span> - "{{ $report->description }}"</p>
+                                <p id=report_date>{{ $report->report_date }}</p> 
+                            </div>
+                            @endforeach
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
-                                Edit
-                            </button>
+                            <a href="{{ action('QuestionController@open', ['id' => $reportedComment->question_id]) }}">
+                                <button type="button" class="btn btn-primary">
+                                    Edit
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </div>

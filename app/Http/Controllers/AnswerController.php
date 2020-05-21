@@ -150,5 +150,29 @@ class AnswerController extends Controller
 
     }
 
+    public function listReported(){
+
+      //TODO report message
+      $answerReports = [];
+      
+      $reportedAnswers = DB::table('answer')
+                          ->join('report', 'answer.id', '=', 'report.answer_id')
+                          ->select('answer.*')
+                          ->groupby('answer.id')
+                          ->get();
+
+      foreach($reportedAnswers as $reportedAnswer) {
+        $answerReports[$reportedAnswer->id] = DB::table('report')
+                                                  ->where('answer_id', $reportedAnswer->id)
+                                                  ->get();
+      }
+
+      $info = ['answerReports' => $answerReports, 'reportedAnswers' => $reportedAnswers];
+
+      return $info;
+      
+
+    }
+
     
 }
