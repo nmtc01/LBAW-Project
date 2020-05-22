@@ -967,7 +967,7 @@ insert into comment (user_id, question_id, answer_id, comment_date, content)
 insert into comment (user_id, question_id, answer_id, comment_date, content) 
 	values (9, 23, NULL, '2020-03-28', 'Salt and acid are powerful flavour enhancers. You don’t taste the salt nor the acid until you over do it. Salt is very delicate when dealing with reducing liquids or sauces, but that gets written up as “timing”. Salt can kill bitter too.');
 insert into comment (user_id, question_id, answer_id, comment_date, content) 
-	values (1, 26, NULL, '2020-03-11', 'It’s like the design team found a Macbook Pro and decided to mess it’s best features up and add them onto the Surface.');
+	values (1, NULL, 26, '2020-03-11', 'It’s like the design team found a Macbook Pro and decided to mess it’s best features up and add them onto the Surface.');
 insert into comment (user_id, question_id, answer_id, comment_date, content) 
 	values (30, NULL, 2, '2020-04-02', 'Thank you for such a good question. I was thinking on the same thing.');
 
