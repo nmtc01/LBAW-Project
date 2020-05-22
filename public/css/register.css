@@ -1,6 +1,6 @@
 body { 
     padding-top: 60px; 
-    background-image: linear-gradient(to right, #1e143d, #6545c9, #6545c9);
+    background-image: linear-gradient(to right, #1e143d, #207fae, #207fae);
 }
 
 .register {
@@ -58,7 +58,7 @@ body {
     border: none;
     border-radius: .25rem;
     padding: 2%;
-    background: #6545c9;
+    background: #207fae;
     color: #fff;
     font-weight: 600;
     width: 50%;
@@ -71,7 +71,7 @@ body {
 
 .register-left [type="button"] {
     background-color: white;
-    color: #6545c9;
+    color: #207fae;
 }
 
 .register-left :first-child {

@@ -12,20 +12,20 @@
 }
 
 .wrapper #question-header:hover{
-    color: #6545c9;
+    color: #207fae;
     text-decoration: none;
 }
 
 .wrapper .media .media-body p a {
-    color: #6545c9;
+    color: #207fae;
 }
 
 .input-button {
-    background-color: #6545c9;
+    background-color: #207fae;
     padding: 15px 15px 15px 15px;
     border: 2px solid #e5e5e5;
     border-radius: .25rem;
-    border-color: #6545c9;
+    border-color: #207fae;
     margin: 15px auto 0;
     text-align: left;
     color: white;
@@ -35,8 +35,8 @@
 .input-button:hover {
     background-color: white;
     border: 2px solid #e5e5e5;
-    border-color: #6545c9;
-    color: #6545c9;
+    border-color: #207fae;
+    color: #207fae;
 
 }
 
@@ -56,11 +56,11 @@
 }
 
 .icon:hover{
-    color: #6545c9;
+    color: #207fae;
 }
 
 #unfollowH{
-    color: #6545c9;
+    color: #207fae;
 }
 
 #unfollowH:hover{
@@ -75,7 +75,7 @@
     top:40%;
     right: 0px;
     background: white;
-    border-left: 2px solid #6545c9;
+    border-left: 2px solid #207fae;
     
     display: flex;
     flex-wrap: wrap;
@@ -83,7 +83,7 @@
 }
 
 a {
-    color: #6545c9;
+    color: #207fae;
 }
 
 a:hover {
@@ -99,9 +99,9 @@ p#question_date {
 }
 
 #like3P{
-    color: #6545c9;
+    color: #207fae;
 }
 
 #dislike3P{
-    color: #6545c9;
+    color: #207fae;
 }

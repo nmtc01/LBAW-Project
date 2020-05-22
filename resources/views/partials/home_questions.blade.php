@@ -1,4 +1,4 @@
-<div class="col-md-5 container-fluid">
+<div class="col-md-6 container-fluid">
     <a @if(!Auth::check()) href="{{ asset('login') }}" @endif>
         <button id="add_btn" class="input-button" @if(Auth::check())data-toggle="modal" data-target="#ask_something"@endif>
             What is your question?

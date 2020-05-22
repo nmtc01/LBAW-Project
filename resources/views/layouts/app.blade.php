@@ -42,18 +42,14 @@
             
             <nav class="navbar navbar-expand-lg navbar-light navbar-default fixed-top">
             
-                <a href="{{ asset('/') }}" class="navbar-brand">Answerly</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                        <li>
-                            <form class="form-inline">
-                                <input id="start_search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            </form>
-                        </li>
+                <a href="{{ asset('/') }}" id="answerly" class="navbar-brand col-sm-3">Answerly</a>
+                <div id="search-bar" class="collapse navbar-collapse navbarSupportedContent m-auto">
+                    <form class="form-inline navbar-nav m-auto">
+                        <input id="start_search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    </form>
+                </div>
+                <div id="sign-in" class="collapse navbar-collapse navbarSupportedContent col-sm-3">
+                    <ul class="navbar-nav">
                         @if (!Auth::check())
                         <li class="nav-item">
                             <a class="btn btn-primary my-2 my-sm-0" href="{{ url('/login') }}" role="button">Sign in</a>
@@ -93,7 +89,10 @@
                         @endif
                     </ul>
                 </div>
-
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </nav>
             <div class="modal fade" id="ask_something" tabindex="-1" role="dialog" aria-labelledby="ask_something_title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">

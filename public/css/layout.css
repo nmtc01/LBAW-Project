@@ -4,7 +4,7 @@ body {
 }
 
 header nav {
-    background-color: #6545c9;
+    background-color: #207fae;
 }
 
 .navbar-light .navbar-brand {
@@ -17,7 +17,7 @@ header nav {
 
 form [type="submit"] {
     background-color: white;
-    color: #6545c9;
+    color: #207fae;
 }
 
 .navbar-light .navbar-toggler-icon {
@@ -29,16 +29,16 @@ form [type="submit"] {
 }
 
 .btn {
-    background-color: #6545c9;
-    color: white;
+    background-color: #34556a;
+    color: #e7e8e9;
     border-radius: .25rem;
-    border: 1px solid white;
+    border: 1px solid #34556a;
 }
 
 .btn:hover {
     background-color: white;
-    color: #6545c9;
-    border-color: #6545c9;
+    color: #207fae;
+    border-color: #207fae;
     text-decoration: none;
 }
 
@@ -54,7 +54,7 @@ li.nav-item {
 
 footer {
     margin-top: 5rem;
-    background-color: #6545c9;
+    background-color: #34556a;
     color: white;
 }
 
@@ -104,24 +104,24 @@ h4 {
     border: 2px solid #e5e5e5;
     width: 15%;
     top: 75px;
-    right: 14%;
+    right: 10%;
     padding: 2%;
     position: fixed;
     background: white;
     border-radius: .25rem;
-    color: #6545c9;
+    color: #207fae;
 }
 
 .sidenav#sidenav_left {
     border: 2px solid #e5e5e5;
     width: 18%;
     top: 75px;
-    left: 10.5%;
+    left: 7%;
     padding: 2%;
     position: fixed;
     background: white;
     border-radius: .25rem;
-    color: #6545c9;
+    color: #207fae;
 }
 
 .sidenav a {
@@ -131,7 +131,7 @@ h4 {
 
 .sidenav a:hover {
     text-decoration: none;
-    color: #6545c9;
+    color: #207fae;
 }
 
 .sidenav#sidenav_left a {
@@ -154,7 +154,7 @@ a {
 }
 
 #notification h4 span {
-    color: #6545c9;
+    color: #207fae;
 }
 
 #notifications_menu {
@@ -171,16 +171,16 @@ nav .pagination {
 }
 
 nav .pagination .page-item .page-link {
-    color: #6545c9;
+    color: #207fae;
 }
 
 nav .pagination .page-item #previous {
-    background-color: #6545c9;
+    background-color: #207fae;
     color: white;
 }
 
 nav .pagination .page-item #next {
-    background-color: #6545c9;
+    background-color: #207fae;
     color: white;
 }
 
@@ -191,7 +191,7 @@ input.btnRegister#login_button {
     border: none;
     border-radius: .25rem;
     padding: 2%;
-    background: #6545c9;
+    background: #207fae;
     color: #fff;
     font-weight: 600;
     width: 50%;
@@ -205,7 +205,7 @@ input.btnRegister#register_button {
     border: none;
     border-radius: .25rem;
     padding: 2%;
-    background: #6545c9;
+    background: #207fae;
     color: #fff;
     font-weight: 600;
     width: 50%;
@@ -222,7 +222,7 @@ input.btnRegister#login_button:hover {
 }
 
 .fas:hover {
-    color: #6545c9;
+    color: #207fae;
 }
 
 .fas.fa-bell {
@@ -234,7 +234,7 @@ input.btnRegister#login_button:hover {
 }
 
 .dropdown-item:focus {
-    background: #6545c9;
+    background: #207fae;
 }
 
 div#labels {
@@ -247,4 +247,30 @@ input.badge-dark.badge-pill.form-control {
 
 a.badge-dark.badge-pill {
     color: white;
+}
+
+#answerly {
+    margin: 0;
+    padding: 0;
+}
+
+#sign-in {
+    margin: 0;
+    padding: 0%;
+}
+
+#sign-in ul {
+    margin-left: auto; 
+}
+
+#search-bar {
+    margin: 0;
+}
+
+#search-bar form {
+    width: 97%;
+}
+
+#search-bar form input {
+    width: 100%;
 }

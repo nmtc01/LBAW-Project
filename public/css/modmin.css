@@ -8,7 +8,7 @@
 .reports{
     padding: 2%;
     font-size: 1.6rem;
-    color: #6545c9;
+    color: #207fae;
     font-weight: bold;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .list-group .active{
-    background-color: #6545c9;
+    background-color: #207fae;
 }
 
 .moderate{
@@ -34,7 +34,7 @@
 }
 
 .nav-link{
-    color: #6545c9;
+    color: #207fae;
 }
 
 #modal-report {

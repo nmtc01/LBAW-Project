@@ -7,12 +7,12 @@ main {
 }
 
 #headingOne {
-    background-color: #806bbe;
+    background-color: #4b8eaf;
 }
 
 .filters {
     margin: 0 auto;
-    background-color: #806bbe;
+    background-color: #4b8eaf;
     padding: 1%;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
@@ -46,7 +46,7 @@ main {
 }
 
 .wrapper a:hover {
-    color: #6545c9;
+    color: #207fae;
 }
 
 .sidenav#sidenav_right {
@@ -72,6 +72,6 @@ main {
 }
 
 .wrapper #question-header:hover{
-    color: #6545c9;
+    color: #207fae;
     text-decoration: none;
 }
