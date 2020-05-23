@@ -150,11 +150,11 @@ li.answer_item .ans-body p {
     margin-top: .5rem;
 }
 
-#delete_question {
+#delete-question-btn {
     float: right;
 }
 
-#delete_answer {
+#delete_answer-btn {
     float: right;
 }
 

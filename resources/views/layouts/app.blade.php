@@ -127,8 +127,8 @@
                         </div>
                     </div>
                 </div>
-            </div>  
-            
+            </div> 
+
         </header>
         <section id="side_navs">
             @yield('side_navs')
