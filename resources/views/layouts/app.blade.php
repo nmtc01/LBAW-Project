@@ -69,7 +69,7 @@
                                 </div>
                                 <a class="fas fa-user fa-lg dropdown-toggle" id="dropdownMenuProfileButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                             </li>
-                            <li class="nav-link">
+                            <li class="nav-link ml-2">
                                 <div class="dropdown">
                                     <div id="notifications_menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuNotificationsButton">
                                     <?php
@@ -148,16 +148,18 @@
                     <!-- Links -->
                     <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Access</h3>
                     <ul class="list-unstyled">
-                        @if (Auth::check())
+                        @if (Auth::check() && 
+                            (Auth::user()->getUserCurrentRole() == "administrator" || 
+                             Auth::user()->getUserCurrentRole() == "moderator"))
                         <li>
-                        <a href="../pages/profile.php">Access my profile</a>
+                            <a href="../pages/profile.php">Access my profile</a>
                         </li>
                         <li>
-                        <a href="{{ asset('/admin') }}">Moderate</a>
+                            <a href="{{ asset('/admin') }}">Moderate</a>
                         </li>
                         @endif
                         <li>
-                        <a href="{{ asset('/') }}">Get back home</a>
+                            <a href="{{ asset('/') }}">Get back home</a>
                         </li>
                     </ul>
                 </div>

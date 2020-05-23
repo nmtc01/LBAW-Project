@@ -16,6 +16,8 @@ class ModerationController extends Controller
     }
 
     public function show(){
+        if (!Auth::check() || (Auth::user()->getUserCurrentRole() != "administrator" && Auth::user()->getUserCurrentRole() != "moderator"))
+            return redirect('/');
 
         // get reported questions
 

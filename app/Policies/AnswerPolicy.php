@@ -30,18 +30,6 @@ class AnswerPolicy
       return $user->id == $answer->user_id || $user->getUserCurrentRole() == 'administrator' || $user->getUserCurrentRole() == 'moderator';
     }
 
-    /*public function show(User $user, Card $card)
-    {
-      // Only a card owner can see it
-      return $user->id == $card->user_id;
-    }
-
-    public function list(User $user)
-    {
-      // Any user can list its own cards
-      return Auth::check();
-    }*/
-
     public function setBestAnswer(User $user, Answer $answer, User $question_user){
 
       return Auth::check() && $user->username == $question_user->username;
