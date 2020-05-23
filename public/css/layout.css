@@ -44,8 +44,8 @@ form [type="submit"] {
 
 .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #352369;
-    border-color: #352369;
+    background-color: #207fae;
+    border-color: #207fae;
 }
 
 li.nav-item {
@@ -213,7 +213,7 @@ input.btnRegister#register_button {
 }
 
 input.btnRegister#login_button:hover {
-    background: #352369;
+    background: #207fae;
 }
 
 .fas {
