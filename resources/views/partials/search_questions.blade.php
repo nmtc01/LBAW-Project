@@ -44,9 +44,9 @@
         </div>
     </div>
 </div>
-<div class="col-md-5 container-fluid">
+<div class="col-md-6 container-fluid">
     @for($i = 0; $i < count($questions); $i++)
-    <div id="questions-list" class="wrapper home_question container-fluid" data-id="{{$questions[$i]->id}}">
+    <div @if($i == 0) id="question-list-first" @else id="question-list" @endif class="wrapper home_question container-fluid" data-id="{{$questions[$i]->id}}">
         <div class="row">
             <div id="prof_info" class="col-3 text-center">
                 <img src="{{asset('/img/unknown.png')}}">

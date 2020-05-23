@@ -128,7 +128,7 @@
 }
 
 a {
-    color: #207fae;
+    color: #34556a;
 }
 
 p#user_ans {
@@ -192,4 +192,8 @@ li.answer_item .ans-body p {
 
 .best-answer{
     float:right;
+}
+
+#question_title {
+    color: #34556a;
 }
