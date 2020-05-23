@@ -6,13 +6,21 @@
     </a>
     @for($i = 0; $i < count($questions); $i++)
     <div id="questions-list" class="wrapper home_question container-fluid" data-id="{{$questions[$i]->id}}">
-        <div class="row">
+        <div class="row mb-3">
             <div id="prof_info" class="col-3 text-center">
                 <img src="{{asset('/img/unknown.png')}}">
                 <p><a class="row-2 d-none d-sm-block" href="/pages/profile.php">{{$users[$questions[$i]->id]->username}}</a></p>
             </div>
             <div class="col-9">
                 <h1><a id="question-header" href="{{ asset('question/'.$questions[$i]->id) }}">{{$questions[$i]->title }}</a></h1>
+                <div id="brief-description" class="module">
+                    <p>{{ $questions[$i]->description }}</p>
+                    <div id="more-btn-div">
+                        <div>
+                            <a href="{{ asset('question/'.$questions[$i]->id) }}">(...)</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

@@ -1,14 +1,15 @@
 .wrapper {
     background-color: white;
-    padding: 2%;
+    padding: 2% 7% 2% 2%;
     border: 2px solid #e5e5e5;
     border-radius: .25rem;
     margin: 1% auto;
 }
 
 .wrapper #question-header{
-    color: black;
-    font-size: 1.3rem;
+    color: #34556a;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .wrapper #question-header:hover{
@@ -83,7 +84,7 @@
 }
 
 a {
-    color: #207fae;
+    color: #34556a;
 }
 
 a:hover {
@@ -94,7 +95,7 @@ p#question_date {
     text-align: right;
     font-size: 0.8rem;
     margin-bottom: 0;
-    padding-right: 30px;
+    padding-right: 15px;
     padding-left: 0px;
 }
 
@@ -104,4 +105,38 @@ p#question_date {
 
 #dislike3P{
     color: #207fae;
+}
+
+#brief-description.module {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    height: 3rem;
+}
+
+#more-btn-div {
+    background:white; 
+    box-sizing: border-box;
+    direction: ltr;
+    position: absolute;
+    right: 15px;
+    bottom: 0px;
+}
+
+#more-btn-div div {
+    box-sizing: border-box;
+    direction: ltr;
+    box-shadow: rgba(255, 255, 255, 0.85) -8px 0px 8px;
+    color: #34556a;
+    font-weight: bold;
+}
+
+#more-btn-div div a {
+    text-decoration: none;
+}
+
+#more-btn-div div a:hover {
+    text-decoration: none;
 }

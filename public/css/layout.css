@@ -254,6 +254,15 @@ a.badge-dark.badge-pill {
     padding: 0;
 }
 
+#answerly a{
+    text-decoration: none;
+    color: white;
+}
+
+#answerly a:hover{
+    color: #34556a;
+}
+
 #sign-in {
     margin: 0;
     padding: 0%;

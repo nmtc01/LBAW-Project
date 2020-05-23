@@ -76,6 +76,10 @@
     border: none;
 }
 
+.wrapper {
+    padding: 2rem;
+}
+
 .wrapper .media-body .comment div {
     border-top-style: solid;
     border-top-width: .05rem;

@@ -1,7 +1,7 @@
 <div id="sidenav_left" class="sidenav d-none d-md-block">
     @if (Auth::check())
     
-    <label>Following</label>
+    <label>Most recently followed questions</label>
     @foreach($questions_followed as $question_followed)
     <a class="row" data-id="{{$question_followed->id}}" href="{{ asset('question/'.$question_followed->id) }}"> {{ $question_followed->title }}</a>
     @endforeach

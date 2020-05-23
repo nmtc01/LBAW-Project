@@ -41,8 +41,9 @@
         <header>
             
             <nav class="navbar navbar-expand-lg navbar-light navbar-default fixed-top">
-            
-                <a href="{{ asset('/') }}" id="answerly" class="navbar-brand col-sm-3">Answerly</a>
+                <div id="answerly" class="navbar-brand col-3">
+                    <a href="{{ asset('/') }}">Answerly</a>
+                </div>
                 <div id="search-bar" class="collapse navbar-collapse navbarSupportedContent m-auto">
                     <form class="form-inline navbar-nav m-auto">
                         <input id="start_search" class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -59,7 +60,7 @@
                             <li class="nav-item">
                                 <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#ask_something" type="submit">Ask Something</button>
                             </li>
-                            <li class="nav-link">
+                            <li class="nav-link ml-2">
                                 <div class="dropdown">
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuProfileButton">
                                         <a class="dropdown-item" href="../pages/profile.php">Profile</a>

@@ -10,8 +10,8 @@
 @endsection
 
 @section('content')
-<div id="question-div" class="container-fluid" data-id = "{{$question->id}}">
-    <div class="wrapper col-md-5">
+<div id="question-div" class="container-fluid col-md-6" data-id = "{{$question->id}}">
+    <div class="wrapper">
         @include('partials.question')
         <div>
             <div class="form-group" id="add_answer_form">
