@@ -24,10 +24,10 @@ class SearchController extends Controller
         $KeyWord = '';
         $start_date = '';
         $end_date = '';
-
-        $array = preg_split("/%strDate/", $content);
+        
+        $array = preg_split("/&strDate=/", $content);
         if (count($array) == 1) {
-            $array = preg_split("/%endDate/", $array[0]);
+            $array = preg_split("/&endDate=/", $array[0]);
             $KeyWord = $array[0];
             if (count($array) == 2) {
                 $end_date = $array[1];
@@ -35,7 +35,7 @@ class SearchController extends Controller
         }
         else if (count($array) == 2) {
             $KeyWord = $array[0];
-            $array = preg_split("/%endDate/", $array[1]);
+            $array = preg_split("/&endDate=/", $array[1]);
             $start_date = $array[0];
             if (count($array) == 2) {
                 $end_date = $array[1];

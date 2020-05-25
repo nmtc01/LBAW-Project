@@ -614,9 +614,11 @@ function sendSearchRequest(e) {
         let start_date = '';
         let end_date = '';
         if (start != null)
-            start_date = '%strDate'+start.value;
+            if (start.value != '')
+                start_date = '&strDate='+start.value;
         if (end != null)
-            end_date ='%endDate'+end.value;
+            if (end.value != '')
+                end_date ='&endDate='+end.value;
         content = keyword+start_date+end_date;
 
         if (content != '')
