@@ -35,7 +35,7 @@ class UserController extends Controller
       return $username;
     }
 
-    public function profile() {
+    public function profile($id) {
       /*$questions = $this->questionController->list();
 
       $questions_followed=[];
@@ -56,6 +56,9 @@ class UserController extends Controller
           }else $questionsVotes[$question->id] = 0;
       }*/
 
-      return view('pages.profile');
+      //$userInfo = DB::select(DB::raw("select * from 'user' where id = $id"));
+      $userInfo = DB::table('user')->where('id', $id)->first();
+
+      return view('pages.profile', ['userInfo' => $userInfo]);
     }
 }

@@ -10,7 +10,7 @@
             <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem4{{--TODO id--}}">
                 bob56moura
             </button>
-            <div class="modal fade" id="reported_elem4{{--TODO id--}}" tabindex="-1" role="dialog" aria-labelledby="reported_title" aria-hidden="true">
+            <div class="modal fade" id="reported_elem4{{--TODO id--}}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -41,7 +41,7 @@
             <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem5{{--TODO id--}}">
                 nmtc01
             </button>
-            <div class="modal fade" id="reported_elem5{{--TODO id--}}" tabindex="-1" role="dialog" aria-labelledby="reported_title" aria-hidden="true">
+            <div class="modal fade" id="reported_elem5{{--TODO id--}}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

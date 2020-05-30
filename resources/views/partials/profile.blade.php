@@ -17,21 +17,23 @@
             </ul>
             <div class="tab-content py-4">
                 <div class="tab-pane active" id="profile">
-                    <h5 class="mb-3">António Sardinha</h5>
+                    <h5 class="mb-3">{{$userInfo->first_name}} {{$userInfo->last_name}}</h5>
                     <div class="row">
                         <div class="col-md-6">
                             <p>
-                                Username: Tuna
+                                Username: {{$userInfo->username}}
                             </p>
                             <p>
-                                Email: fishforlife@email.com
+                                Email: {{$userInfo->email}}
                             </p>
                             <p>
-                                Description: Fisherman and Poet
+                                Description: {{$userInfo->bio}}
                             </p>
+                            <!--
                             <p>
                                 Birthdate: 25/04/1974
                             </p>
+                        -->
                         </div>
                         <div class="col-md-6">
                             <h6>Recent labels</h6>
@@ -44,7 +46,7 @@
                             <a href="#" class="badge badge-dark badge-pill">rede</a>
                             <a href="#" class="badge badge-dark badge-pill">pesca</a>
                             <hr>
-                            <span class="badge badge-success"><i class="fas fa-star"></i> Score 9999</span>
+                            <span class="badge badge-success"><i class="fas fa-star"></i> Score {{$userInfo->score}}</span>
                         </div>
                     </div>
                     <!--/row-->
