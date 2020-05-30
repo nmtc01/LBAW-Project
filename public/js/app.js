@@ -485,7 +485,7 @@ function followRequestHandlerH() {
     let info = JSON.parse(this.responseText);
 
     // gets the button
-    let btn = document.querySelector("#questions-list[data-id='" + info[1] + "'] #followH");
+    let btn = document.querySelector(".questions-list[data-id='" + info[1] + "'] #followH");
 
     // changes the button style
     let new_unfollow = document.createElement('i');
@@ -554,7 +554,7 @@ function unfollowRequestHandlerH() {
     let info = JSON.parse(this.responseText);
 
     // gets the button
-    let btn = document.querySelector("#questions-list[data-id='" + info[1] + "'] #unfollowH");
+    let btn = document.querySelector(".questions-list[data-id='" + info[1] + "'] #unfollowH");
     
     // changes the button style
     let new_follow = document.createElement('i');
@@ -763,7 +763,7 @@ function sendCreateLabelsRequest(question_index) {
 
 function sendFollowRequestH() {
 
-    let id = this.closest('#questions-list').getAttribute('data-id');
+    let id = this.closest('.questions-list').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/follow', { id: id }, followRequestHandlerH);
 
 }
@@ -777,7 +777,7 @@ function sendFollowRequestQ() {
 
 function sendUnfollowRequestH() {
 
-    let id = this.closest('#questions-list').getAttribute('data-id');
+    let id = this.closest('.questions-list').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/unfollow', { id: id }, unfollowRequestHandlerH);
 
 }
@@ -1076,13 +1076,13 @@ function QuestionDislikeA() {
 
 
 function homeLikeF() {
-    let id = this.closest('div#questions-list').getAttribute('data-id');
+    let id = this.closest('div.questions-list').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, handleLikeH);
 }
 
 
 function homeDislikeF() {  
-    let id = this.closest('div#questions-list').getAttribute('data-id');
+    let id = this.closest('div.questions-list').getAttribute('data-id');
     sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, handleDislikeH);
 }
 
@@ -1223,11 +1223,11 @@ function handleDislikeA(){
 function handleLikeH(){
     let info = JSON.parse(this.responseText);
 
-    let buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3");
-    if (buttonl === null) buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3P");
+    let buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] #like3");
+    if (buttonl === null) buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] #like3P");
 
-    let buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3");
-    if (buttond === null) buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3P");
+    let buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] #dislike3");
+    if (buttond === null) buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] #dislike3P");
 
     if(info[3] == 1){ //only like placed
         let newL = likePurple(info[0],3);
@@ -1255,11 +1255,11 @@ function handleDislikeH(){
     let info = JSON.parse(this.responseText);
 
 
-    let buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3");
-    if (buttonl === null) buttonl = document.querySelector("#questions-list[data-id='" + info[2] + "'] #like3P");
+    let buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] #like3");
+    if (buttonl === null) buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] #like3P");
 
-    let buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3");
-    if (buttond === null) buttond = document.querySelector("#questions-list[data-id='" + info[2] + "'] #dislike3P");
+    let buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] #dislike3");
+    if (buttond === null) buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] #dislike3P");
 
 
     if(info[3] == 1){ //only dislike placed
