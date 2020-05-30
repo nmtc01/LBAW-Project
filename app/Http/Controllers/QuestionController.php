@@ -85,35 +85,35 @@ class QuestionController extends Controller
       $questions = '';
       $question_labels = '';
       if ($start_date == '' && $end_date == '') {
-        $questions = DB::select(DB::raw("select * from question 
+        $questions = DB::select(DB::raw("SELECT * from question 
                                         where LOWER(title) like LOWER('%$keyWord%') or LOWER(description) like LOWER('%$keyWord%') 
                                         order by question_date desc, (nr_likes - nr_dislikes) desc"));
 
         $question_labels = DB::select(DB::raw("SELECT question.* FROM question JOIN question_label on question.id = question_label.question_id JOIN label l on l.id = question_label.label_id WHERE l.name = '$keyWord'"));
       }
       else if ($start_date != '' && $end_date == '') {
-        $questions = DB::select(DB::raw("select * from question 
+        $questions = DB::select(DB::raw("SELECT * from question 
                                         where ((LOWER(title) like LOWER('%$keyWord%') or LOWER(description) like LOWER('%$keyWord%'))
                                         and (question_date >= '$start_date')) 
                                         order by question_date desc, (nr_likes - nr_dislikes) desc"));
 
-        $question_labels = DB::select(DB::raw("SELECT question.* FROM question JOIN question_label on question.id = question_label.question_id JOIN label l on l.id = question_label.label_id WHERE l.name = '$keyWord'"));
+        $question_labels = DB::select(DB::raw("SELECT question.* FROM question JOIN question_label on question.id = question_label.question_id JOIN label l on l.id = question_label.label_id WHERE (l.name = '$keyWord') and (question_date >= '$start_date')"));
       }
       else if ($start_date == '' && $end_date != '') {
-        $questions = DB::select(DB::raw("select * from question 
+        $questions = DB::select(DB::raw("SELECT * from question 
                                         where ((LOWER(title) like LOWER('%$keyWord%') or LOWER(description) like LOWER('%$keyWord%'))
                                         and (question_date <= '$end_date')) 
                                         order by question_date desc, (nr_likes - nr_dislikes) desc"));
 
-        $question_labels = DB::select(DB::raw("SELECT question.* FROM question JOIN question_label on question.id = question_label.question_id JOIN label l on l.id = question_label.label_id WHERE l.name = '$keyWord'"));
+        $question_labels = DB::select(DB::raw("SELECT question.* FROM question JOIN question_label on question.id = question_label.question_id JOIN label l on l.id = question_label.label_id WHERE (l.name = '$keyWord') and (question_date <= '$end_date'))"));
       }
       else if ($start_date != '' && $end_date != '') {
-        $questions = DB::select(DB::raw("select * from question 
+        $questions = DB::select(DB::raw("SELECT * from question 
                                         where ((LOWER(title) like LOWER('%$keyWord%') or LOWER(description) like LOWER('%$keyWord%'))
                                         and (question_date >= '$start_date' and question_date <= '$end_date')) 
                                         order by question_date desc, (nr_likes - nr_dislikes) desc"));
 
-        $question_labels = DB::select(DB::raw("SELECT question.* FROM question JOIN question_label on question.id = question_label.question_id JOIN label l on l.id = question_label.label_id WHERE l.name = '$keyWord'"));
+        $question_labels = DB::select(DB::raw("SELECT question.* FROM question JOIN question_label on question.id = question_label.question_id JOIN label l on l.id = question_label.label_id WHERE (l.name = '$keyWord') and (question_date >= '$start_date' and question_date <= '$end_date')"));
       }
 
       $result = array_merge($questions, $question_labels);

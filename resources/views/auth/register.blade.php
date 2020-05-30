@@ -18,7 +18,7 @@
 
         <div class="tab-content" id="myTabContent">
 
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-pane fade show active" id="home" role="tabpanel">
 
               <form method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group">
-                      <input id="last_name" class="form-control" placeholder="Last Name *" type="text" name="last_name" value="{{ old('last_name') }}" required autofocus>
+                      <input id="last_name" class="form-control" placeholder="Last Name *" type="text" name="last_name" value="{{ old('last_name') }}" required>
                       @if ($errors->has('last_name'))
                         <span class="error">
                             {{ $errors->first('last_name') }}
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="form-group">
-                      <input id="email" class="form-control" placeholder="Your Email *" type="text" name="email" value="{{ old('email') }}" required autofocus>
+                      <input id="email" class="form-control" placeholder="Your Email *" type="text" name="email" value="{{ old('email') }}" required>
                       @if ($errors->has('email'))
                         <span class="error">
                             {{ $errors->first('email') }}
@@ -72,7 +72,7 @@
                   <div class="col-md-6 ml-auto">
 
                     <div class="form-group">
-                      <input id="username" class="form-control" placeholder="Username *" type="text" name="username" value="{{ old('username') }}" required autofocus>
+                      <input id="username" class="form-control" placeholder="Username *" type="text" name="username" value="{{ old('username') }}" required>
                       @if ($errors->has('username'))
                         <span class="error">
                             {{ $errors->first('username') }}
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="form-group">
-                      <textarea class="form-control" placeholder="Description" name="bio" value="" rows="5"></textarea>
+                      <textarea class="form-control" placeholder="Description" name="bio" rows="5"></textarea>
                       @if ($errors->has('bio'))
                         <span class="error">
                             {{ $errors->first('bio') }}
