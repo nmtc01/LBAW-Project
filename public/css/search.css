@@ -70,12 +70,12 @@ main {
     padding-top: 1rem;
 }
 
-.wrapper #question-header{
+.wrapper .question-header{
     color: #34556a;
     font-size: 1.3rem;
 }
 
-.wrapper #question-header:hover{
+.wrapper .question-header:hover{
     color: #207fae;
     text-decoration: none;
 }
