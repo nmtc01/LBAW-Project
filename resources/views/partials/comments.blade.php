@@ -4,7 +4,7 @@
     @foreach ($comments as $comment)
     <div id="comment{{$comment->id}}" class="comment" data-id = "{{$comment->id}}">
         <div>
-            <a href="profile.php" class="username">{{ $userComments[$comment->id]->username}} </a>
+            <a href="{{ asset('/user/'.$userComments[$comment->id]->id) }}" class="username">{{ $userComments[$comment->id]->username}} </a>
             <a class="icon-comments">
                 <i class="fas fa-bug"> Report</i>
             </a>

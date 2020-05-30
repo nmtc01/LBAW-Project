@@ -9,7 +9,7 @@
         <div class="row mb-3">
             <div id="prof_info" class="col-3 text-center">
                 <img src="{{asset('/img/unknown.png')}}">
-                <p><a class="row-2 d-none d-sm-block" href="/pages/profile.php">{{$users[$questions[$i]->id]->username}}</a></p>
+                <p><a class="row-2 d-none d-sm-block" href="{{ asset('/user/'.$users[$questions[$i]->id]->id) }}">{{$users[$questions[$i]->id]->username}}</a></p>
             </div>
             <div class="col-9">
                 <h1><a id="question-header" href="{{ asset('question/'.$questions[$i]->id) }}">{{$questions[$i]->title }}</a></h1>

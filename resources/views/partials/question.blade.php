@@ -40,10 +40,10 @@
         @endif
     </div>
     <div id="prof-img" class="col-sm-3 text-center">
-        <a class="row-sm" href="profile.php">
+        <a class="row-sm" href="{{ asset('/user/'.$question->user_id) }}">
             <img src="{{asset('/img/unknown.png')}}" alt="Generic placeholder image">
         </a>
-        <p class="row-sm text-truncate" id="username-question"><a href="profile.php">{{ $user->username }}</a></p>
+        <p class="row-sm text-truncate" id="username-question"><a href="{{ asset('/user/'.$user->id) }}">{{ $user->username }}</a></p>
     </div>
 </div>
 <div>

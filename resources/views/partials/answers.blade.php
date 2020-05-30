@@ -23,12 +23,12 @@
             @endif
         @endif
         <div class="row">
-            <a class="col-sm-3 d-none d-sm-block text-center" href="../pages/profile.php">
+            <a class="col-sm-3 d-none d-sm-block text-center" href="{{ asset('/user/'.$userAnswers[$answer->id]->id) }}">
                 <img src="{{ asset('img/unknown.png') }}" alt="Generic placeholder image">
             </a>
             <div class="col-sm-9">
                 <span class="badge badge-success"><i class="fas fa-star"></i>Score {{ $userAnswers[$answer->id]->score }}</span>
-                <p id="user_ans"><a href="../pages/profile.php">{{ $userAnswers[$answer->id]->username }}</a></p>
+                <p id="user_ans"><a href="{{ asset('/user/'.$userAnswers[$answer->id]->id) }}">{{ $userAnswers[$answer->id]->username }}</a></p>
             </div>
         </div>
         <div class="ans-body">

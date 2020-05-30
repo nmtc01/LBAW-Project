@@ -63,7 +63,7 @@
                             <li class="nav-link ml-2">
                                 <div class="dropdown">
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuProfileButton">
-                                        <a class="dropdown-item" href="../pages/profile.php">Profile</a>
+                                        <a class="dropdown-item" href="{{ asset('/user/'.Auth::user()->id) }}">Profile</a>
                                         <a class="dropdown-item" href="{{ url('/logout') }}">Logout</a><span>{{ Auth::user()->name }}</span>
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@
                             (Auth::user()->getUserCurrentRole() == "administrator" || 
                              Auth::user()->getUserCurrentRole() == "moderator"))
                         <li>
-                            <a href="../pages/profile.php">Access my profile</a>
+                            <a href="{{ asset('/user/'.Auth::user()->id) }}">Access my profile</a>
                         </li>
                         <li>
                             <a href="{{ asset('/admin') }}">Moderate</a>

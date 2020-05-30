@@ -884,12 +884,12 @@ function createAnswer(info) {
     new_answer.classList.add('answer');
     new_answer.innerHTML = `<li id="answer${info[3]}" class="answer_item" data-id="${info[3]}">
                                 <div class="row">
-                                    <a class="col-sm-3 d-none d-sm-block text-center" href="../pages/profile.php">
+                                    <a class="col-sm-3 d-none d-sm-block text-center" href="/user/${info[4]}">
                                         <img src="/img/unknown.png" alt="Generic placeholder image">
                                     </a>
                                     <div class="col-sm-9">
                                         <span class="badge badge-success"><i class="fas fa-star"></i>Score ${info[2]}</span>
-                                        <p id="user_ans"><a href="../pages/profile.php"> ${info[1]} </a></p>
+                                        <p id="user_ans"><a href="/user/${info[4]}"> ${info[1]} </a></p>
                                     </div>
                                 </div>
                                 <div class="ans-body">
@@ -941,7 +941,7 @@ function createComment(info) {
     new_comment.classList.add('comment');
     new_comment.setAttribute('id', 'comment' + info[3]);
     new_comment.innerHTML = `<div>
-                                <a href="profile.php" class="username">${info[1]}</a>
+                                <a href="/user/${info[4]}" class="username">${info[1]}</a>
                                 <a class="icon-comments">
                                     <i class="fas fa-bug"> Report</i>
                                 </a>

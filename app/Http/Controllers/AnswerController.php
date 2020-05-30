@@ -57,7 +57,7 @@ class AnswerController extends Controller
       $username = Auth::user()->username;
       $user_score = Auth::user()->score;
 
-      $info = [$answer->content, $username, $user_score, $answer->id];
+      $info = [$answer->content, $username, $user_score, $answer->id, $answer->user_id];
 
       return $info;
     }

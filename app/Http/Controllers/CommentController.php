@@ -55,7 +55,7 @@ class CommentController extends Controller
         $username = Auth::user()->username;
         $user_score = Auth::user()->score;
 
-        $info = [$comment->content, $username, $user_score, $comment->id];
+        $info = [$comment->content, $username, $user_score, $comment->id, $comment->user_id];
 
         return $info;
 

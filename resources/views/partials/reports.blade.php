@@ -31,8 +31,11 @@
                                 @endforeach
                         </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                Resolve
+                            </button>
                             <a href="{{ action('QuestionController@open', ['id' => $reportedQuestion->id]) }}">
-                                <button type="button" class="btn btn-primary">
+                                <button type="button" class="btn btn-primary view">
                                     View
                                 </button>
                             </a>
@@ -70,9 +73,12 @@
                             @endforeach
                         </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                Resolve
+                            </button>
                             <a href="{{ action('QuestionController@open', ['id' => $reportedAnswer->question_id]) }}">
-                                <button type="button" class="btn btn-primary">
-                                    Edit
+                                <button type="button" class="btn btn-primary view">
+                                    View
                                 </button>
                             </a>
                         </div>
@@ -109,9 +115,12 @@
                             @endforeach
                         </div>
                         <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                Resolve
+                            </button>
                             <a href="{{ action('QuestionController@open', ['id' => $reportedComment->question_id]) }}">
-                                <button type="button" class="btn btn-primary">
-                                    Edit
+                                <button type="button" class="btn btn-primary view">
+                                    View
                                 </button>
                             </a>
                         </div>

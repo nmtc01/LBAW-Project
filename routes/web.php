@@ -52,7 +52,6 @@ Route::put('/api/question/{id}/downvote', 'VoteController@addDislikeQ');
 Route::put('/api/answer/{id}/vote', 'VoteController@addLikeA');
 Route::put('/api/answer/{id}/downvote', 'VoteController@addDislikeA');
 
-
 //Labels
 Route::put('/api/label', 'LabelController@startLabel');
 Route::post('/api/label', 'LabelController@create');
@@ -65,7 +64,9 @@ Route::get('/404', 'StaticController@p404');
 Route::get('/search/{content}', 'SearchController@show');
 Route::post('/search', 'SearchController@startSearch');
 
-
 // Moderate
 Route::get('/admin', 'ModerationController@show');
+
+//Profile
+Route::get('/user/{id}', 'UserController@profile');
 
