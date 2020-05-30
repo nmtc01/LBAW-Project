@@ -11,7 +11,7 @@
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="card-body filters">
                 <form>
-                    <div id="filters-bar container row">
+                    <div id="filters-bar">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-check">
@@ -30,11 +30,11 @@
                             <div class="dates col-sm-6 row my-auto">
                                 <div class="col-sm-6">
                                     <label>Start</label>
-                                    <input id="start_date" type="date" placeholder="dd-mm-yyyy">
+                                    <input id="start_date" type="date">
                                 </div>
                                 <div class="col-sm-6">
                                     <label>End</label>
-                                    <input id="end_date" type="date" placeholder="dd-mm-yyyy">
+                                    <input id="end_date" type="date">
                                 </div>
                             </div>
                         </div>
@@ -48,12 +48,12 @@
     @for($i = 0; $i < count($questions); $i++)
     <div @if($i == 0) id="question-list-first" @else id="question-list" @endif class="wrapper home_question container-fluid" data-id="{{$questions[$i]->id}}">
         <div class="row">
-            <div id="prof_info" class="col-3 text-center">
-                <img src="{{asset('/img/unknown.png')}}">
+            <div class="col-3 text-center">
+                <img src="{{asset('/img/unknown.png')}}" alt="user image">
                 <p><a class="row-2 d-none d-sm-block" href="{{ asset('/user/'.$questions[$i]->user_id) }}">{{$users[$questions[$i]->id]->username}}</a></p>
             </div>
             <div class="col-9">
-                <h1><a id="question-header" href="{{ asset('question/'.$questions[$i]->id) }}">{{$questions[$i]->title }}</a></h1>
+                <h1><a class="question-header" href="{{ asset('question/'.$questions[$i]->id) }}">{{$questions[$i]->title }}</a></h1>
             </div>
         </div>
 

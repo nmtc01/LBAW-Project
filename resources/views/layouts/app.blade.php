@@ -95,11 +95,11 @@
                         <div class="modal-body">
                             <form>
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Write your question here</label>
+                                    <label for="formControlTextareaQuestion">Write your question here</label>
                                     <textarea class="form-control" id="formControlTextareaQuestion" rows="1"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Write more details here</label>
+                                    <label for="formControlTextareaDescription">Write more details here</label>
                                     <textarea class="form-control" id="formControlTextareaDescription" rows="3"></textarea>
                                 </div>
                                 <div id="labels">
@@ -118,9 +118,9 @@
             </div> 
 
         </header>
-        <section id="side_navs">
+        <div id="side_navs">
             @yield('side_navs')
-        </section>
+        </div>
 
         <section id="content">
             @yield('content')

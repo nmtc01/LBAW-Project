@@ -10,7 +10,7 @@
             <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem3{{--TODO id--}}">
                 pedrodantas
             </button>
-            <div class="modal fade" id="reported_elem3{{--TODO id--}}" tabindex="-1" role="dialog" aria-labelledby="reported_title" aria-hidden="true">
+            <div class="modal fade" id="reported_elem3{{--TODO id--}}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

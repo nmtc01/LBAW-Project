@@ -6,13 +6,13 @@
     margin: 1% auto;
 }
 
-.wrapper #question-header{
+.wrapper .question-header{
     color: #34556a;
     font-size: 1.2rem;
     font-weight: bold;
 }
 
-.wrapper #question-header:hover{
+.wrapper .question-header:hover{
     color: #207fae;
     text-decoration: none;
 }
