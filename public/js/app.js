@@ -283,8 +283,8 @@ function commentAddedHandler() {
 
         let new_alert = createAlert("comment");
 
-        let section = document.getElementById("add_comment_form");
-        let list = document.getElementById("add_comment_form");
+        let section = document.getElementsByClassName("add_comment_form")[0];
+        let list = document.getElementsByClassName("add_comment_form")[0];
 
         section.insertBefore(new_alert, list.childNodes[0]);
 
@@ -323,8 +323,8 @@ function subCommentAddedHandler() {
 
         let new_alert = createAlert("comment");
 
-        let section = document.getElementById("add_comment_form");
-        let list = document.getElementById("add_comment_form");
+        let section = document.getElementsByClassName("add_comment_form")[0];
+        let list = document.getElementsByClassName("add_comment_form")[0];
 
         section.insertBefore(new_alert, list.childNodes[0]);
 

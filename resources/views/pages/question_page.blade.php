@@ -22,7 +22,7 @@
                 <button class="btn my-2 my-sm-0" type="submit"> Answer </button>
             </div>
 
-            <div class="form-group" id="add_comment_form">
+            <div class="form-group add_comment_form">
                 <label for="exampleFormControlTextarea2"></label>
                 <textarea class="form-control" placeholder="Do you want to comment this question?"id="exampleFormControlTextarea2" rows="2"></textarea>
                 <button class="btn my-2 my-sm-0" id="comment-button" type="submit">Comment</button>

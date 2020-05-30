@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-    
-        {{--<title>{{ config('app.name', 'Laravel') }}</title>--}}
-
-        <!-- Styles -->
-        {{--  <link href="{{ asset('css/milligram.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
-
         <title>Answerly</title>
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -23,12 +16,7 @@
         <script src="https://kit.fontawesome.com/6d90d25abc.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
             crossorigin="anonymous">
-
-        <script type="text/javascript">
-            // Fix for Firefox autofocus CSS bug
-            // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
-        </script>
-        <script type="text/javascript" src={{ asset('js/app.js') }} defer> 
+        <script src={{ asset('js/app.js') }} defer> 
         </script>
 
         <!-- our css -->
@@ -62,12 +50,12 @@
                             </li>
                             <li class="nav-link ml-2">
                                 <div class="dropdown">
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuProfileButton">
-                                        <a class="dropdown-item" href="{{ asset('/user/'.Auth::user()->id) }}">Profile</a>
-                                        <a class="dropdown-item" href="{{ url('/logout') }}">Logout</a><span>{{ Auth::user()->name }}</span>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a role="button" class="dropdown-item" href="{{ asset('/user/'.Auth::user()->id) }}">Profile</a>
+                                        <a role="button" class="dropdown-item" href="{{ url('/logout') }}">Logout</a><span>{{ Auth::user()->name }}</span>
                                     </div>
                                 </div>
-                                <a class="fas fa-user fa-lg dropdown-toggle" id="dropdownMenuProfileButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a role="button" class="fas fa-user fa-lg dropdown-toggle" id="dropdownMenuProfileButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                             </li>
                             <li class="nav-link ml-2">
                                 <div class="dropdown">
@@ -83,7 +71,7 @@
                                     ?>
                                     </div>
                                 </div>
-                                <a class="fas fa-bell fa-lg dropdown-toggle" id="dropdownMenuNotificationsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                <a role="button" class="fas fa-bell fa-lg dropdown-toggle" id="dropdownMenuNotificationsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                                 </a>
                             </li>
                         </li>
@@ -91,11 +79,11 @@
                     </ul>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </nav>
-            <div class="modal fade" id="ask_something" tabindex="-1" role="dialog" aria-labelledby="ask_something_title" aria-hidden="true">
+            <div class="modal fade" id="ask_something" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
