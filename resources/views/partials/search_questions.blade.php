@@ -109,7 +109,7 @@
                 </a>
                 @endif
             </div>
-            <p class="col-3" id=question_date>{{ $questions[$i]->question_date }}</p>
+            <p class="col-3 question_date">{{ $questions[$i]->question_date }}</p>
         </div>
     </div>
     @endfor

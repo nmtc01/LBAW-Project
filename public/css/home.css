@@ -91,7 +91,7 @@ a:hover {
     color: black;
 }
 
-p#question_date {
+p.question_date {
     text-align: right;
     font-size: 0.8rem;
     margin-bottom: 0;
