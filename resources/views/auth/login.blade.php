@@ -16,7 +16,7 @@
 
         <div class="col-md-9 register-right">
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade show active" id="home" role="tabpanel">
 
                 <div class="row register-form">
 
@@ -27,7 +27,7 @@
                                 {{ csrf_field() }}
                         
                                 <div class="form-group">
-                                    <input id="username" type="username" class="form-control" name="username" placeholder="Username *" value="{{ old('username') }}" required autofocus>
+                                    <input id="username" type="text" class="form-control" name="username" placeholder="Username *" value="{{ old('username') }}" required autofocus>
                                 </div>
                                 @if ($errors->has('username'))
                                     <span class="error">
