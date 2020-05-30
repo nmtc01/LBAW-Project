@@ -37,11 +37,11 @@
     color: #207fae;
 }
 
-#unfollowH{
+.unfollowH{
     color: #207fae;
 }
 
-#unfollowH:hover{
+.unfollowH:hover{
     color: black;
 }
 
@@ -77,11 +77,11 @@ p.question_date {
     padding-left: 0px;
 }
 
-#like3P{
+.like3P{
     color: #207fae;
 }
 
-#dislike3P{
+.dislike3P{
     color: #207fae;
 }
 
