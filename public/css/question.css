@@ -34,11 +34,11 @@
     color: black;
 }
 
-#unfollowQ{
+.unfollowQ{
     color: #207fae;
 }
 
-#unfollowQ:hover{
+.unfollowQ:hover{
     color: black;
 }
 
@@ -174,19 +174,19 @@ li.answer_item .ans-body p {
     display: none;
 }
 
-#like1P{
+.like1P{
     color: #207fae;
 }
 
-#like2P{
+.like2P{
     color: #207fae;
 }
 
-#dislike1P{
+.dislike1P{
     color: #207fae;
 }
 
-#dislike2P{
+.dislike2P{
     color: #207fae;
 }
 

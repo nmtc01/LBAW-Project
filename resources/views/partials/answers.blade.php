@@ -39,17 +39,17 @@
 
                     @if(($answersVotes[$answer->id])->vote == true)
                     <a class="icon-answers" >
-                    <i class="fas fa-thumbs-up" id="like2P"> {{ $answer->nr_likes }}</i>
+                    <i class="fas fa-thumbs-up like2P"> {{ $answer->nr_likes }}</i>
                     </a>
                     <a class="icon-answers"  >
-                        <i class="fas fa-thumbs-down" id="dislike2"> {{ $answer->nr_dislikes }}</i>
+                        <i class="fas fa-thumbs-down dislike2"> {{ $answer->nr_dislikes }}</i>
                     </a>
                     @else
                     <a class="icon-answers">
-                    <i class="fas fa-thumbs-up" id="like2"> {{ $answer->nr_likes }}</i>
+                    <i class="fas fa-thumbs-up like2"> {{ $answer->nr_likes }}</i>
                     </a>
                     <a class="icon-answers" >
-                        <i class="fas fa-thumbs-down" id="dislike2P"> {{ $answer->nr_dislikes }}</i>
+                        <i class="fas fa-thumbs-down dislike2P"> {{ $answer->nr_dislikes }}</i>
                     </a>
 
                     @endif
@@ -57,10 +57,10 @@
 
                 @else
                 <a class="icon-answers" >
-                    <i class="fas fa-thumbs-up" id="like2"> {{ $answer->nr_likes }}</i>
+                    <i class="fas fa-thumbs-up like2"> {{ $answer->nr_likes }}</i>
                 </a>
                 <a class="icon-answers"  >
-                    <i class="fas fa-thumbs-down" id="dislike2"> {{ $answer->nr_dislikes }}</i>
+                    <i class="fas fa-thumbs-down dislike2"> {{ $answer->nr_dislikes }}</i>
                 </a>
                 @endif
                 <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments{{$answer->id}}">

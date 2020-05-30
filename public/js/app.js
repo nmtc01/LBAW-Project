@@ -53,30 +53,30 @@ function addEventListeners() {
         questionUpdator.addEventListener('click', hideUpdateQuestion);
     }
 
-    let questionLike = document.querySelector('#like1');
+    let questionLike = document.querySelector('.like1');
     if (questionLike != null)
         questionLike.addEventListener('click', QuestionLikeQ);
 
-    let questionLikeP = document.querySelector('#like1P');
+    let questionLikeP = document.querySelector('.like1P');
     if (questionLikeP != null)
         questionLikeP.addEventListener('click', QuestionLikeQ);
 
-    let questionDislike = document.querySelector('#dislike1');
+    let questionDislike = document.querySelector('.dislike1');
     if (questionDislike != null)
         questionDislike.addEventListener('click', QuestionDislikeQ);
 
-    let questionDislikeP = document.querySelector('#dislike1P');
+    let questionDislikeP = document.querySelector('.dislike1P');
     if (questionDislikeP != null)
         questionDislikeP.addEventListener('click', QuestionDislikeQ);        
 
-    let answerLike = document.querySelectorAll('#like2');
+    let answerLike = document.querySelectorAll('.like2');
     if (answerLike != null){
         [].forEach.call(answerLike, function(al) {
             al.addEventListener('click', QuestionLikeA);
         });   
     }
 
-    let answerLikeP = document.querySelectorAll('#like2P');
+    let answerLikeP = document.querySelectorAll('.like2P');
     if (answerLikeP != null){
         [].forEach.call(answerLikeP, function(alP) {
             alP.addEventListener('click', QuestionLikeA);
@@ -84,36 +84,36 @@ function addEventListeners() {
     }
         
     
-    let answerdislike = document.querySelectorAll('#dislike2');
+    let answerdislike = document.querySelectorAll('.dislike2');
     if (answerdislike != null){
         [].forEach.call(answerdislike, function(ad) {
             ad.addEventListener('click', QuestionDislikeA);
         });   
     }
 
-    let answerdislikeP = document.querySelectorAll('#dislike2P');
+    let answerdislikeP = document.querySelectorAll('.dislike2P');
     if (answerdislikeP != null){
         [].forEach.call(answerdislikeP, function(adP) {
             adP.addEventListener('click', QuestionDislikeA);
         });   
     }
 
-    let homeLike = document.querySelectorAll('#like3');
+    let homeLike = document.querySelectorAll('.like3');
         [].forEach.call(homeLike, function(homeL) {
             homeL.addEventListener('click', homeLikeF);
         });   
 
-    let homeDislike = document.querySelectorAll('#dislike3');
+    let homeDislike = document.querySelectorAll('.dislike3');
         [].forEach.call(homeDislike, function(homeD) {
             homeD.addEventListener('click', homeDislikeF);
         });    
 
-    let homeLikeP = document.querySelectorAll('#like3P');
+    let homeLikeP = document.querySelectorAll('.like3P');
         [].forEach.call(homeLikeP, function(homeLP) {
             homeLP.addEventListener('click', homeLikeF);
         });   
 
-    let homeDislikeP = document.querySelectorAll('#dislike3P');
+    let homeDislikeP = document.querySelectorAll('.dislike3P');
         [].forEach.call(homeDislikeP, function(homeDP) {
             homeDP.addEventListener('click', homeDislikeF);
         }); 
@@ -152,23 +152,23 @@ function addEventListeners() {
 
     // following questions
 
-    let followQuestions = document.querySelectorAll('#followH');
+    let followQuestions = document.querySelectorAll('.followH');
     if (followQuestions != null)
         [].forEach.call(followQuestions, function(follower) {
             follower.addEventListener('click', sendFollowRequestH);
         });
 
-    let followQuestion2 = document.querySelector('#followQ');
+    let followQuestion2 = document.querySelector('.followQ');
     if (followQuestion2 != null)
         followQuestion2.addEventListener('click', sendFollowRequestQ);
 
-    let unfollowQuestions = document.querySelectorAll('#unfollowH');
+    let unfollowQuestions = document.querySelectorAll('.unfollowH');
     if (unfollowQuestions != null)
         [].forEach.call(unfollowQuestions, function(follower) {
             follower.addEventListener('click', sendUnfollowRequestH);
         });
 
-    let unfollowQuestion2 = document.querySelector('#unfollowQ');
+    let unfollowQuestion2 = document.querySelector('.unfollowQ');
     if (unfollowQuestion2 != null)
         unfollowQuestion2.addEventListener('click', sendUnfollowRequestQ);
 
@@ -485,11 +485,11 @@ function followRequestHandlerH() {
     let info = JSON.parse(this.responseText);
 
     // gets the button
-    let btn = document.querySelector(".questions-list[data-id='" + info[1] + "'] #followH");
+    let btn = document.querySelector(".questions-list[data-id='" + info[1] + "'] .followH");
 
     // changes the button style
     let new_unfollow = document.createElement('i');
-    new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg" id="unfollowH"> unfollow </i>`
+    new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg unfollowH"> unfollow </i>`
     btn.outerHTML = new_unfollow.innerHTML;
     btn.innerHTML = " unfollow";
     
@@ -520,11 +520,11 @@ function followRequestHandlerQ() {
     let info = JSON.parse(this.responseText);
 
     // gets the button
-    let btn = document.querySelector("#followQ");
+    let btn = document.querySelector(".followQ");
         
     // changes the button style
     let new_unfollow = document.createElement('i');
-    new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg" id="unfollowQ"> unfollow </i>`
+    new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg unfollowQ"> unfollow </i>`
     btn.outerHTML = new_unfollow.innerHTML;
     btn.innerHTML = " unfollow";
 
@@ -554,11 +554,11 @@ function unfollowRequestHandlerH() {
     let info = JSON.parse(this.responseText);
 
     // gets the button
-    let btn = document.querySelector(".questions-list[data-id='" + info[1] + "'] #unfollowH");
+    let btn = document.querySelector(".questions-list[data-id='" + info[1] + "'] .unfollowH");
     
     // changes the button style
     let new_follow = document.createElement('i');
-    new_follow.innerHTML = `<i class="fas fa-arrow-right fa-lg" id="followH"> follow </i>`
+    new_follow.innerHTML = `<i class="fas fa-arrow-right fa-lg followH"> follow </i>`
     btn.outerHTML = new_follow.innerHTML;
     btn.innerHTML = " follow";
 
@@ -580,11 +580,11 @@ function unfollowRequestHandlerQ() {
     let info = JSON.parse(this.responseText);
 
     // gets the button
-    let btn = document.querySelector("#unfollowQ");
+    let btn = document.querySelector(".unfollowQ");
         
     // changes the button style
     let new_unfollow = document.createElement('i');
-    new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg" id="followQ"> follow </i>`
+    new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg followQ"> follow </i>`
     btn.outerHTML = new_unfollow.innerHTML;
     btn.innerHTML = " follow";
 
@@ -1090,11 +1090,11 @@ function homeDislikeF() {
 function handleLikeQ(){
     let info = JSON.parse(this.responseText);
 
-    let buttonl = document.querySelector('#like1');
-    if (buttonl === null) buttonl = document.querySelector('#like1P');
+    let buttonl = document.querySelector('.like1');
+    if (buttonl === null) buttonl = document.querySelector('.like1P');
 
-    let buttond = document.querySelector('#dislike1');
-    if (buttond === null) buttond = document.querySelector('#dislike1P');
+    let buttond = document.querySelector('.dislike1');
+    if (buttond === null) buttond = document.querySelector('.dislike1P');
 
 
     if(info[3] == 1){ //only like placed
@@ -1123,11 +1123,11 @@ function handleLikeQ(){
 function handleDislikeQ(){
     let info = JSON.parse(this.responseText);
 
-    let buttond = document.querySelector('#dislike1');
-    if (buttond === null) buttond = document.querySelector('#dislike1P');
+    let buttond = document.querySelector('.dislike1');
+    if (buttond === null) buttond = document.querySelector('.dislike1P');
 
-    let buttonl = document.querySelector('#like1');
-    if (buttonl === null) buttonl = document.querySelector('#like1P');
+    let buttonl = document.querySelector('.like1');
+    if (buttonl === null) buttonl = document.querySelector('.like1P');
 
 
     if(info[3] == 1){ //only dislike placed
@@ -1156,11 +1156,18 @@ function handleDislikeQ(){
 function handleLikeA(){
     let info = JSON.parse(this.responseText);
 
-    let buttonl = document.querySelector('#like2');
-    if (buttonl === null) buttonl = document.querySelector('#like2P');
+    /*
+    let buttonl = document.querySelector('.like2');
+    if (buttonl === null) buttonl = document.querySelector('.like2P');
 
-    let buttond = document.querySelector('#dislike2');
-    if (buttond === null) buttond = document.querySelector('#dislike2P');
+    let buttond = document.querySelector('.dislike2');
+    if (buttond === null) buttond = document.querySelector('.dislike2P');
+    */
+   let buttonl = document.querySelector(".answer_item[data-id='" + info[3] + "'] .like2");
+    if (buttonl === null) buttonl = document.querySelector(".answer_item[data-id='" + info[3] + "'] .like2P");
+
+    let buttond = document.querySelector(".answer_item[data-id='" + info[3] + "'] .dislike2");
+    if (buttond === null) buttond = document.querySelector(".answer_item[data-id='" + info[3] + "'] .dislike2P");
 
 
     if(info[2] == 1){ //only like placed
@@ -1190,11 +1197,19 @@ function handleLikeA(){
 function handleDislikeA(){
     let info = JSON.parse(this.responseText);
 
-    let buttond = document.querySelector('#dislike2');
-    if (buttond === null) buttond = document.querySelector('#dislike2P');
+    /*
+    let buttond = document.querySelector('.dislike2');
+    if (buttond === null) buttond = document.querySelector('.dislike2P');
 
-    let buttonl = document.querySelector('#like2');
-    if (buttonl === null) buttonl = document.querySelector('#like2P');
+    let buttonl = document.querySelector('.like2');
+    if (buttonl === null) buttonl = document.querySelector('.like2P');
+    */
+
+    let buttond = document.querySelector(".answer_item[data-id='" + info[3] + "'] .dislike2");
+    if (buttond === null) buttond = document.querySelector(".answer_item[data-id='" + info[3] + "'] .dislike2P");
+
+    let buttonl = document.querySelector(".answer_item[data-id='" + info[3] + "'] .like2");
+    if (buttonl === null) buttonl = document.querySelector(".answer_item[data-id='" + info[3] + "'] .like2P");
 
 
     if(info[2] == 1){ //only dislike placed
@@ -1223,11 +1238,11 @@ function handleDislikeA(){
 function handleLikeH(){
     let info = JSON.parse(this.responseText);
 
-    let buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] #like3");
-    if (buttonl === null) buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] #like3P");
+    let buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] .like3");
+    if (buttonl === null) buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] .like3P");
 
-    let buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] #dislike3");
-    if (buttond === null) buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] #dislike3P");
+    let buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] .dislike3");
+    if (buttond === null) buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] .dislike3P");
 
     if(info[3] == 1){ //only like placed
         let newL = likePurple(info[0],3);
@@ -1255,11 +1270,11 @@ function handleDislikeH(){
     let info = JSON.parse(this.responseText);
 
 
-    let buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] #like3");
-    if (buttonl === null) buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] #like3P");
+    let buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] .like3");
+    if (buttonl === null) buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] .like3P");
 
-    let buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] #dislike3");
-    if (buttond === null) buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] #dislike3P");
+    let buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] .dislike3");
+    if (buttond === null) buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] .dislike3P");
 
 
     if(info[3] == 1){ //only dislike placed
@@ -1288,7 +1303,7 @@ function handleDislikeH(){
 function likePurple(nr_likes, index) {
     let new_like = document.createElement('i');
     new_like.innerHTML = ` 
-     <i class="fas fa-thumbs-up fa-lg" id="like${index}P" aria-hidden="true"> ${nr_likes}</i>
+     <i class="fas fa-thumbs-up fa-lg like${index}P" aria-hidden="true"> ${nr_likes}</i>
     `
     return new_like;
 }
@@ -1296,21 +1311,21 @@ function likePurple(nr_likes, index) {
 function likeBlack(nr_likes,index) {
     let new_like = document.createElement('i');
     new_like.innerHTML = ` 
-     <i class="fas fa-thumbs-up fa-lg" id="like${index}" aria-hidden="true"> ${nr_likes}</i>`
+     <i class="fas fa-thumbs-up fa-lg like${index}" aria-hidden="true"> ${nr_likes}</i>`
     return new_like;
 }
 
 function dislikePurple(nr_dislikes, index) {
     let new_dislike = document.createElement('i');
     new_dislike.innerHTML = `
-    <i class="fas fa-thumbs-down fa-lg" id="dislike${index}P" aria-hidden="true"> ${nr_dislikes}</i>`
+    <i class="fas fa-thumbs-down fa-lg dislike${index}P" aria-hidden="true"> ${nr_dislikes}</i>`
     return new_dislike;
 }
 
 function dislikeBlack(nr_dislikes, index) {
     let new_dislike = document.createElement('i');
     new_dislike.innerHTML = `
-    <i class="fas fa-thumbs-down fa-lg" id="dislike${index}" aria-hidden="true"> ${nr_dislikes}</i>`
+    <i class="fas fa-thumbs-down fa-lg dislike${index}" aria-hidden="true"> ${nr_dislikes}</i>`
     return new_dislike;
 }
 

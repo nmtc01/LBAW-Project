@@ -57,28 +57,28 @@
 
             @if($vote->vote)
             <a class="icon" >
-                <i class="fas fa-thumbs-up fa-lg" id="like1P"> {{ $question->nr_likes }}</i>
+                <i class="fas fa-thumbs-up fa-lg like1P"> {{ $question->nr_likes }}</i>
             </a>
             @else
         <a class="icon" >
-                <i class="fas fa-thumbs-up fa-lg" id="like1"> {{ $question->nr_likes }}</i>
+                <i class="fas fa-thumbs-up fa-lg like1"> {{ $question->nr_likes }}</i>
             </a>
             @endif
             @if(!$vote->vote)
             <a class="icon" >
-                <i class="fas fa-thumbs-down fa-lg" id="dislike1P"> {{ $question->nr_dislikes }}</i>
+                <i class="fas fa-thumbs-down fa-lg dislike1P"> {{ $question->nr_dislikes }}</i>
             </a>
             @else
             <a class="icon" >
-                <i class="fas fa-thumbs-down fa-lg" id="dislike1"> {{ $question->nr_dislikes }}</i>
+                <i class="fas fa-thumbs-down fa-lg dislike1"> {{ $question->nr_dislikes }}</i>
             </a>
             @endif
         @else
         <a class="icon" >
-                <i class="fas fa-thumbs-up fa-lg" id="like1"> {{ $question->nr_likes }}</i>
+                <i class="fas fa-thumbs-up fa-lg like1"> {{ $question->nr_likes }}</i>
             </a>
         <a class="icon" >
-                <i class="fas fa-thumbs-down fa-lg" id="dislike1"> {{ $question->nr_dislikes }}</i>
+                <i class="fas fa-thumbs-down fa-lg dislike1"> {{ $question->nr_dislikes }}</i>
             </a>
         @endif
         @if(Auth::check())
@@ -94,9 +94,9 @@
                 @endif
             @endforeach
             @if($flag)
-                <i class="fas fa-arrow-right fa-lg" id="unfollowQ"> unfollow </i>
+                <i class="fas fa-arrow-right fa-lg unfollowQ"> unfollow </i>
             @else
-                <i class="fas fa-arrow-right fa-lg" id="followQ"> follow </i>
+                <i class="fas fa-arrow-right fa-lg followQ"> follow </i>
             @endif
         </a>
         @endif

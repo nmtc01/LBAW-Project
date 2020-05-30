@@ -31,26 +31,26 @@
 
                     @if($questionsVotes[($questions[$i])->id]->vote == 1)
                         <a class="icon" >
-                            <i class="fas fa-thumbs-up fa-lg" id="like3P"> {{ $questions[$i]->nr_likes }}</i>
+                            <i class="fas fa-thumbs-up fa-lg like3P"> {{ $questions[$i]->nr_likes }}</i>
                         </a>
                         <a class="icon" >
-                            <i class="fas fa-thumbs-down fa-lg" id ="dislike3"> {{ $questions[$i]->nr_dislikes }}</i>
+                            <i class="fas fa-thumbs-down fa-lg dislike3"> {{ $questions[$i]->nr_dislikes }}</i>
                         </a>
                     @else
                         <a class="icon" >
-                            <i class="fas fa-thumbs-up fa-lg" id="like3"> {{ $questions[$i]->nr_likes }}</i>
+                            <i class="fas fa-thumbs-up fa-lg like3"> {{ $questions[$i]->nr_likes }}</i>
                         </a>
                         <a class="icon" >
-                            <i class="fas fa-thumbs-down fa-lg" id="dislike3P"> {{ $questions[$i]->nr_dislikes }}</i>
+                            <i class="fas fa-thumbs-down fa-lg dislike3P"> {{ $questions[$i]->nr_dislikes }}</i>
                         </a>
                     @endif
 
                 @else
                     <a class="icon" >
-                        <i class="fas fa-thumbs-up fa-lg" id="like3"> {{ $questions[$i]->nr_likes }}</i>
+                        <i class="fas fa-thumbs-up fa-lg like3"> {{ $questions[$i]->nr_likes }}</i>
                     </a>
                     <a class="icon" >
-                        <i class="fas fa-thumbs-down fa-lg" id ="dislike3"> {{ $questions[$i]->nr_dislikes }}</i>
+                        <i class="fas fa-thumbs-down fa-lg dislike3"> {{ $questions[$i]->nr_dislikes }}</i>
                     </a>
                 @endif
                 <a class="icon" href="#">
@@ -69,9 +69,9 @@
                         @endif
                     @endforeach
                     @if($flag)
-                        <i class="fas fa-arrow-right fa-lg" id="unfollowH"> unfollow </i>
+                        <i class="fas fa-arrow-right fa-lg unfollowH"> unfollow </i>
                     @else
-                        <i class="fas fa-arrow-right fa-lg" id="followH"> follow </i>
+                        <i class="fas fa-arrow-right fa-lg followH"> follow </i>
                     @endif
                 </a>
                 @endif
