@@ -1,21 +1,21 @@
 <div class="col-md-6 container-fluid">
     <a @if(!Auth::check()) href="{{ asset('login') }}" @endif>
-        <button id="add_btn" class="input-button" @if(Auth::check())data-toggle="modal" data-target="#ask_something"@endif>
+        <div id="add_btn" class="input-button" @if(Auth::check())data-toggle="modal" data-target="#ask_something"@endif>
             What is your question?
-        </button>
+        </div>
     </a>
     @for($i = 0; $i < count($questions); $i++)
-    <div id="questions-list" class="wrapper home_question container-fluid" data-id="{{$questions[$i]->id}}">
+    <div class="wrapper home_question container-fluid questions-list" data-id="{{$questions[$i]->id}}">
         <div class="row mb-3">
             <div class="col-3 text-center">
-                <img src="{{asset('/img/unknown.png')}}">
+                <img src="{{asset('/img/unknown.png')}}" alt="user image">
                 <p><a class="row-2 d-none d-sm-block" href="{{ asset('/user/'.$users[$questions[$i]->id]->id) }}">{{$users[$questions[$i]->id]->username}}</a></p>
             </div>
             <div class="col-9">
                 <h1><a class="question-header" href="{{ asset('question/'.$questions[$i]->id) }}">{{$questions[$i]->title }}</a></h1>
-                <div id="brief-description" class="module">
+                <div class="module brief-description">
                     <p>{{ $questions[$i]->description }}</p>
-                    <div id="more-btn-div">
+                    <div class="more-btn-div">
                         <div>
                             <a href="{{ asset('question/'.$questions[$i]->id) }}">(...)</a>
                         </div>
