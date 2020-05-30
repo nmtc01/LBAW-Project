@@ -41,7 +41,7 @@
                             <i class="fas fa-thumbs-up fa-lg" id="like3"> {{ $questions[$i]->nr_likes }}</i>
                         </a>
                         <a class="icon" >
-                            <i class="fas fa-thumbs-down fa-lg" id ="dislike3P"> {{ $questions[$i]->nr_dislikes }}</i>
+                            <i class="fas fa-thumbs-down fa-lg" id="dislike3P"> {{ $questions[$i]->nr_dislikes }}</i>
                         </a>
                     @endif
 
@@ -76,7 +76,7 @@
                 </a>
                 @endif
             </div>
-            <p class="col-3" id=question_date>{{ $questions[$i]->question_date }}</p>
+            <p class="col-3 question_date">{{ $questions[$i]->question_date }}</p>
         </div>
     </div>
     @endfor
