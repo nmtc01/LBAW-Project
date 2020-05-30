@@ -6,4 +6,5 @@
 @endsection
 
 @section('content')
+  @include('partials.profile')
 @endsection
