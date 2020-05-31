@@ -20,7 +20,7 @@
                         <div class="modal-body">
                             <div class="container">
                                 <h2>{{ $reportedQuestion->title }}</h2>
-                                <a href="{{--TODO--}}">{{ $owners[$reportedQuestion->id]->username }}</a>
+                                <a href="{{ asset('/user/'.$owners[$reportedQuestion->id]->id) }}">{{ $owners[$reportedQuestion->id]->username }}</a>
                                 <p>{{ $reportedQuestion->description }}</p>
                             </div>
                                 @foreach ($questionsReports[$reportedQuestion->id] as $report)
@@ -31,12 +31,22 @@
                                 @endforeach
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#resolveReportedQuestion{{ $reportedQuestion->id }}" aria-expanded="false">
                                 Resolve
                             </button>
                             <a href="{{ action('QuestionController@open', ['id' => $reportedQuestion->id]) }}" role="button" class="btn btn-primary view">
                                 View
                             </a>
+                        </div>
+                        <div class="collapse" id="resolveReportedQuestion{{ $reportedQuestion->id }}">
+                            <div class="card card-body">
+                                <textarea class="form-control" placeholder="Write here a brief commentary explaining your contribution handling this report. Then press Send." name="report_resolve" rows="5"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary send">
+                                    Send
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,7 +72,7 @@
                         </div>
                         <div class="modal-body">
                             <h1>{{ $reportedAnswer->content }}</h1>
-                            <p><a href="{{--TODO--}}">{{$answer_owners[$reportedAnswer->id]->username}}</a></p>
+                            <p><a href="{{ asset('/user/'.$answer_owners[$reportedAnswer->id]->id) }}">{{$answer_owners[$reportedAnswer->id]->username}}</a></p>
                             @foreach ($answerReports[$reportedAnswer->id] as $report)
                             <div class="modal-report">
                                 <p class="report_content"><span>{{ $answer_reporters[$report->id]->username }}</span> - "{{ $report->description }}"</p>
@@ -71,12 +81,22 @@
                             @endforeach
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#resolveReportedAnswer{{ $reportedAnswer->id }}" aria-expanded="false">
                                 Resolve
                             </button>
                             <a href="{{ action('QuestionController@open', ['id' => $reportedAnswer->question_id]) }}" role="button" class="btn btn-primary view">
                                 View
                             </a>
+                        </div>
+                        <div class="collapse" id="resolveReportedAnswer{{ $reportedAnswer->id }}">
+                            <div class="card card-body">
+                                <textarea class="form-control" placeholder="Write here a brief commentary explaining your contribution handling this report. Then press Send." name="report_resolve" rows="5"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary send">
+                                    Send
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -102,7 +122,7 @@
                         </div>
                         <div class="modal-body">
                             <h1>{{ $reportedComment->content }}</h1>
-                            <p><a href="{{--TODO--}}">{{$comment_owners[$reportedComment->id]->username}}</a></p>
+                            <p><a href="{{ asset('/user/'.$comment_owners[$reportedComment->id]->id) }}">{{$comment_owners[$reportedComment->id]->username}}</a></p>
                             @foreach ($commentReports[$reportedComment->id] as $report)
                             <div class="modal-report">
                                 <p class="report_content"><span>{{ $comment_reporters[$report->id]->username }}</span> - "{{ $report->description }}"</p>
@@ -111,12 +131,22 @@
                             @endforeach
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                            <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#resolveReportedComment{{ $reportedComment->id }}" aria-expanded="false">
                                 Resolve
                             </button>
                             <a href="{{ action('QuestionController@open', ['id' => $reportedComment->question_id]) }}" role="button" class="btn btn-primary view">
                                 View
                             </a>
+                        </div>
+                        <div class="collapse" id="resolveReportedComment{{ $reportedComment->id }}">
+                            <div class="card card-body">
+                                <textarea class="form-control" placeholder="Write here a brief commentary explaining your contribution handling this report. Then press Send." name="report_resolve" rows="5"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary send">
+                                    Send
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

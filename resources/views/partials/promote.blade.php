@@ -24,9 +24,6 @@
                             <p>This user has a score of {{ $best_user->score }}</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                Resolve
-                            </button>
                             <a href="{{ asset('/user/'.$best_user->id) }}" role="button" class="btn btn-primary view">
                                 View
                             </a>
@@ -49,7 +46,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Reported Element</h5>
+                            <h5 class="modal-title">Best scored moderators</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -59,9 +56,6 @@
                             <p>This moderator has a score of {{ $best_moderator->score }}</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                Resolve
-                            </button>
                             <a href="{{ asset('/user/'.$best_moderator->id) }}" role="button" class="btn btn-primary view">
                                 View
                             </a>
