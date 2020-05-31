@@ -8,7 +8,7 @@
             <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_question{{ $reportedQuestion->id }}">
                 {{ $reportedQuestion->title }}
             </button>
-            <div class="modal fade" id="reported_question{{ $reportedQuestion->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade" id="reported_question{{ $reportedQuestion->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-id={{ $reportedQuestion->id }}>
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -23,12 +23,12 @@
                                 <a href="{{ asset('/user/'.$owners[$reportedQuestion->id]->id) }}">{{ $owners[$reportedQuestion->id]->username }}</a>
                                 <p>{{ $reportedQuestion->description }}</p>
                             </div>
-                                @foreach ($questionsReports[$reportedQuestion->id] as $report)
-                                <div class="modal-report">
-                                    <p class="report_content"><span>{{ $reporters[$report->id]->username }}</span> - "{{ $report->description }}"</p>
-                                    <p class="report_date">{{ $report->report_date }}</p> 
-                                </div>
-                                @endforeach
+                            @foreach ($questionsReports[$reportedQuestion->id] as $report)
+                            <div class="modal-report reportForQuestion{{$reportedQuestion->id}}" data-id={{ $report->id }}>
+                                <p class="report_content"><span>{{ $reporters[$report->id]->username }}</span> - "{{ $report->description }}"</p>
+                                <p class="report_date">{{ $report->report_date }}</p> 
+                            </div>
+                            @endforeach
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#resolveReportedQuestion{{ $reportedQuestion->id }}" aria-expanded="false">
@@ -38,12 +38,12 @@
                                 View
                             </a>
                         </div>
-                        <div class="collapse" id="resolveReportedQuestion{{ $reportedQuestion->id }}">
+                        <div class="collapse resolveReportedQuestion" id="resolveReportedQuestion{{ $reportedQuestion->id }}">
                             <div class="card card-body">
                                 <textarea class="form-control" placeholder="Write here a brief commentary explaining your contribution handling this report. Then press Send." name="report_resolve" rows="5"></textarea>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary send">
+                                <button data-dismiss="modal" type="button" class="btn btn-primary send resolve-btn">
                                     Send
                                 </button>
                             </div>

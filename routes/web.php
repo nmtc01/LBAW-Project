@@ -66,6 +66,7 @@ Route::post('/search', 'SearchController@startSearch');
 
 // Moderate
 Route::get('/admin', 'ModerationController@show');
+Route::post('/admin/{report_id}', 'ReportStatusController@resolve');
 
 //Profile
 Route::get('/user/{id}', 'UserController@profile');

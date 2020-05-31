@@ -186,6 +186,15 @@ function addEventListeners() {
             bestAnswer.addEventListener('click', setBestAnswerRequest);
         });
 
+    // report status
+    
+    let resolvers = document.querySelectorAll('.resolve-btn');
+    if (resolvers != null)
+        [].forEach.call(resolvers, function(resolveReport) {
+            resolveReport.addEventListener('click', sendResolveReportRequest);
+        });
+
+
 }
 
 
@@ -213,6 +222,11 @@ function sendAjaxRequest(method, url, data, handler) {
 /**
  * Handlers 
  */
+function resolvedReport() {
+    if (this.status == 200) {
+        window.location = "/admin";
+    }
+}
 
 function showSearchHandler() {
     if (this.status == 200) 
@@ -799,6 +813,18 @@ function setBestAnswerRequest(){
 
 }
 
+// report status
+
+function sendResolveReportRequest(event) {
+    let id = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id');
+    let reports = document.querySelectorAll('.modal-report.reportForQuestion'+id);
+    [].forEach.call(reports, function(reports) {
+        let report_id = reports.getAttribute('data-id');
+        let comment = document.querySelector(".resolveReportedQuestion textarea").value;
+        if (comment != '')
+            sendAjaxRequest('post', '/admin/' + report_id, { comment: comment }, resolvedReport);
+    });
+}
 
 /**
  * Auxiliary functions

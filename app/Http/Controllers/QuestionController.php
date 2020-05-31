@@ -16,7 +16,6 @@ class QuestionController extends Controller
       $this->userController = new UserController();
       $this->commentController = new CommentController();
       $this->answerController = new AnswerController();
-      //$this->questionFollowingController = new QuestionFollowingController();
       $this->labelController = new LabelController();
     }
 
