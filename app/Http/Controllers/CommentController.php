@@ -106,7 +106,9 @@ class CommentController extends Controller
       
       $reportedComments = DB::table('comment')
                           ->join('report', 'comment.id', '=', 'report.comment_id')
+                          ->join('report_status', 'report.id', '=', 'report_status.report_id')
                           ->select('comment.*')
+                          ->where('report_status.state', '<>', 'resolved')
                           ->groupby('comment.id')
                           ->get();
 

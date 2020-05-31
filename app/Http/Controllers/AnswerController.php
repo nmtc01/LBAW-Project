@@ -156,7 +156,9 @@ class AnswerController extends Controller
       
       $reportedAnswers = DB::table('answer')
                           ->join('report', 'answer.id', '=', 'report.answer_id')
+                          ->join('report_status', 'report.id', '=', 'report_status.report_id')
                           ->select('answer.*')
+                          ->where('report_status.state', '<>', 'resolved')
                           ->groupby('answer.id')
                           ->get();
 

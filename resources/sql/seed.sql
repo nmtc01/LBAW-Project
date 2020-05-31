@@ -1119,6 +1119,10 @@ insert into report_status (report_id, state, comment, responsible_user)
 	values (3, 'reviewing', 'Working on it', 5);
 insert into report_status (report_id, state, comment, responsible_user)
 	values (4, 'resolved', 'Finished review, fixed problem', 6);
+insert into report_status (report_id, state, comment, responsible_user)
+	values (5, 'resolved', 'Finished review', 6);
+insert into report_status (report_id, state, comment, responsible_user)
+	values (6, 'resolved', 'Fixed problem', 6);
 
 --question_following
 insert into question_following (user_id, question_id) values (1, 2);

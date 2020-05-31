@@ -249,13 +249,16 @@ class QuestionController extends Controller
       
       $reportedQuestions = DB::table('question')
                           ->join('report', 'question.id', '=', 'report.question_id')
+                          ->join('report_status', 'report.id', '=', 'report_status.report_id')
                           ->select('question.*')
+                          ->where('report_status.state', '<>', 'resolved')
                           ->groupby('question.id')
                           ->get();
 
       foreach($reportedQuestions as $reportedQuestion) {
         $questionsReports[$reportedQuestion->id] = DB::table('report')
-                                                  ->where('question_id', $reportedQuestion->id)
+                                                  ->select('report.*')
+                                                  ->where('report.question_id', $reportedQuestion->id)
                                                   ->get();
       }
 

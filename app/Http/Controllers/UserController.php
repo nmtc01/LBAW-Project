@@ -68,7 +68,9 @@ class UserController extends Controller
       
       $reportedUsers = DB::table('user')
                           ->join('report', 'user.id', '=', 'report.user_id')
+                          ->join('report_status', 'report.id', '=', 'report_status.report_id')
                           ->select('user.*')
+                          ->where('report_status.state', '<>', 'resolved')
                           ->groupby('user.id')
                           ->get();
 
