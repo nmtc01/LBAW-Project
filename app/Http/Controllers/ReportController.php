@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Report;
 use App\ReportStatus;
+use App\User;
 
 class ReportController extends Controller
 {
@@ -25,10 +26,22 @@ class ReportController extends Controller
       $report->save();
 
       $reportStatus->report_id = $report->id;
-      //TODO
-      $reportStatus->responsible_user = 1;
+      $reportStatus->responsible_user = $this->getModerator();
       $reportStatus->save();
 
       return $report;
+    }
+
+    public function getModerator() {
+        $moderators = DB::table('user')
+                    ->join('user_management', 'user.id', '=', 'user_management.user_id')
+                    ->select('user.id')
+                    ->where('user_management.status', '=', 'moderator')
+                    ->orWhere('user_management.status', '=', 'administrator')
+                    ->get();
+
+        if ($moderators != null)
+            return $moderators[0]->id;
+        else return null;
     }
 }
