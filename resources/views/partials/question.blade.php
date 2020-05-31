@@ -101,7 +101,7 @@
         </a>
         @endif
         <a class="icon-answers">
-            <i class="fas fa-bug"> Report</i>
+            <i class="fas fa-bug" data-toggle="modal" data-target="#report_something"> Report</i>
         </a>
     </div>
 </div>

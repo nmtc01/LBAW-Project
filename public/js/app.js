@@ -186,7 +186,7 @@ function addEventListeners() {
             bestAnswer.addEventListener('click', setBestAnswerRequest);
         });
 
-    // report status
+    // reports
     
     let resolvers = document.querySelectorAll('.resolve-btn');
     if (resolvers != null)
@@ -194,6 +194,10 @@ function addEventListeners() {
             resolveReport.addEventListener('click', sendResolveReportRequest);
         });
 
+    let reporter = document.querySelector('#report_elem');
+    if (reporter != null) {
+        reporter.addEventListener('click', sendReportQuestionRequest);
+    }
 
 }
 
@@ -813,7 +817,7 @@ function setBestAnswerRequest(){
 
 }
 
-// report status
+// reports
 
 function sendResolveReportRequest(event) {
     let div = event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
@@ -839,18 +843,26 @@ function sendResolveReportRequest(event) {
         class1 = 'reportForUser';
         id2 = 'resolveReportedUser';
     }
-console.log(class1);
-console.log(id2);
+
     let reports = document.querySelectorAll('.modal-report.'+class1+''+id);
-console.log(reports);
     [].forEach.call(reports, function(reports) {
         let report_id = reports.getAttribute('data-id');
-console.log(report_id);
         let comment = document.querySelector("#"+id2+""+id+" textarea").value;
-        if (comment != '')
+        if (comment != '' && report_id != '')
             sendAjaxRequest('post', '/admin/' + report_id, { comment: comment }, resolvedReport);
     });
 }
+
+function sendReportQuestionRequest() {
+    let id = document.getElementById('question-div').getAttribute('data-id');
+    let description = document.querySelector('#report_something textarea').value;
+
+    if (id != '' && description != '')
+        sendAjaxRequest('put', '/api/question/'+id+'/report', { description: description });
+
+    event.preventDefault();
+}
+
 
 /**
  * Auxiliary functions
