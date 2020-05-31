@@ -67,8 +67,25 @@ class ModerationController extends Controller
             }
         }
 
+        // get reported users
 
-        return view('pages.moderate', ['questionsReports' => $questionsReports, 'reportedQuestions' => $reportedQuestions, 'owners' => $owners, 'reporters' => $reporters, 'answerReports' => $answerReports, 'reportedAnswers' => $reportedAnswers, 'answer_owners' => $answer_owners, 'answer_reporters' => $answer_reporters, 'commentReports' => $commentReports, 'reportedComments' => $reportedComments, 'comment_owners' => $comment_owners, 'comment_reporters' => $comment_reporters]);
+        $user_info = $this->userController->listReported();
+        $userReports = $user_info['userReports'];
+        $reportedUsers = $user_info['reportedUsers'];
+        $user_reporters = [];
+
+        foreach($reportedUsers as $user){
+            foreach($userReports[$user->id] as $report){
+                $user_reporters[$report->id] = $this->userController->getUsername($report->reporter_id);
+            }
+        }
+
+        // get best users
+
+        $best_users = $this->userController->listBestScoreUsers();
+        $best_moderators = $this->userController->listBestScoreModerators();
+
+        return view('pages.moderate', ['questionsReports' => $questionsReports, 'reportedQuestions' => $reportedQuestions, 'owners' => $owners, 'reporters' => $reporters, 'answerReports' => $answerReports, 'reportedAnswers' => $reportedAnswers, 'answer_owners' => $answer_owners, 'answer_reporters' => $answer_reporters, 'commentReports' => $commentReports, 'reportedComments' => $reportedComments, 'comment_owners' => $comment_owners, 'comment_reporters' => $comment_reporters, 'userReports' => $userReports, 'reportedUsers' => $reportedUsers, 'user_reporters' => $user_reporters, 'best_users' => $best_users, 'best_moderators' => $best_moderators]);
 
     }
 

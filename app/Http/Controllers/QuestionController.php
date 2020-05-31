@@ -245,7 +245,6 @@ class QuestionController extends Controller
      */
     public function listReported()
     {
-      //TODO report message
       $questionsReports = [];
       
       $reportedQuestions = DB::table('question')

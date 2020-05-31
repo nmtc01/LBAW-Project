@@ -152,7 +152,6 @@ class AnswerController extends Controller
 
     public function listReported(){
 
-      //TODO report message
       $answerReports = [];
       
       $reportedAnswers = DB::table('answer')

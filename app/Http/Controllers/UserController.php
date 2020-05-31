@@ -61,4 +61,50 @@ class UserController extends Controller
 
       return view('pages.profile', ['userInfo' => $userInfo]);
     }
+
+    public function listReported(){
+
+      $userReports = [];
+      
+      $reportedUsers = DB::table('user')
+                          ->join('report', 'user.id', '=', 'report.user_id')
+                          ->select('user.*')
+                          ->groupby('user.id')
+                          ->get();
+
+      foreach($reportedUsers as $reportedUser) {
+        $userReports[$reportedUser->id] = DB::table('report')
+                                                  ->where('user_id', $reportedUser->id)
+                                                  ->get();
+      }
+
+      $info = ['userReports' => $userReports, 'reportedUsers' => $reportedUsers];
+
+      return $info;
+      
+    }
+
+    public function listBestScoreUsers(){
+      $best = DB::table('user')
+                  ->join('user_management', 'user.id', '=', 'user_management.user_id')
+                  ->select('user.*')
+                  ->where('user_management.status', 'user')
+                  ->orderByRaw('score DESC')
+                  ->limit(10)
+                  ->get();
+
+      return $best;
+    }
+
+    public function listBestScoreModerators(){
+      $best = DB::table('user')
+                  ->join('user_management', 'user.id', '=', 'user_management.user_id')
+                  ->select('user.*')
+                  ->where('user_management.status', 'moderator')
+                  ->orderByRaw('score DESC')
+                  ->limit(10)
+                  ->get();
+
+      return $best;
+    }
 }

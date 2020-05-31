@@ -6,31 +6,40 @@
             <button type="button" class="list-group-item list-group-item-action active">
                 Username
             </button>
-            {{-- for cycle here --}}
-            <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem3{{--TODO id--}}">
-                pedrodantas
+            @foreach ($reportedUsers as $reportedUser)
+            <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_elem3{{ $reportedUser->id }}">
+                {{ $reportedUser->username }}
             </button>
-            <div class="modal fade" id="reported_elem3{{--TODO id--}}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade" id="reported_elem3{{ $reportedUser->id }}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Reported Element</h5>
+                            <h5 class="modal-title">Reported User</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h1>pedrodantas</h1>
-                            <p><a href="{{--TODO--}}">This user was the origin of 10 reported elements</a></p>
+                            <h1>{{ $reportedUser->username }}</h1>
+                            @foreach ($userReports[$reportedUser->id] as $report)
+                            <div class="modal-report">
+                                <p class="report_content"><span>{{ $user_reporters[$report->id]->username }}</span> - "{{ $report->description }}"</p>
+                                <p class="report_date">{{ $report->report_date }}</p> 
+                            </div>
+                            @endforeach
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">
-                                Ban
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                Resolve
                             </button>
+                            <a href="{{ asset('/user/'.$reportedUser->id) }}" role="button" class="btn btn-primary view">
+                                View
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
        
     </div>

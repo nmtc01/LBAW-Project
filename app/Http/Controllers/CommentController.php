@@ -102,7 +102,6 @@ class CommentController extends Controller
 
     public function listReported(){
 
-      //TODO report message
       $commentReports = [];
       
       $reportedComments = DB::table('comment')
