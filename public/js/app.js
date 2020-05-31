@@ -816,11 +816,37 @@ function setBestAnswerRequest(){
 // report status
 
 function sendResolveReportRequest(event) {
-    let id = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id');
-    let reports = document.querySelectorAll('.modal-report.reportForQuestion'+id);
+    let div = event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+    let id = div.getAttribute('data-id');
+    let type = div.getAttribute('id')
+
+    let class1;
+    let id2;
+
+    if (type == 'reported_question'+id) {
+        class1 = 'reportForQuestion';
+        id2 = 'resolveReportedQuestion';
+    }
+    else if (type == 'reported_answer'+id) {
+        class1 = 'reportForAnswer';
+        id2 = 'resolveReportedAnswer';
+    }
+    else if (type == 'reported_comment'+id) {
+        class1 = 'reportForComment';
+        id2 = 'resolveReportedComment';
+    }
+    else if (type == 'reported_user'+id) {
+        class1 = 'reportForUser';
+        id2 = 'resolveReportedUser';
+    }
+console.log(class1);
+console.log(id2);
+    let reports = document.querySelectorAll('.modal-report.'+class1+''+id);
+console.log(reports);
     [].forEach.call(reports, function(reports) {
         let report_id = reports.getAttribute('data-id');
-        let comment = document.querySelector(".resolveReportedQuestion textarea").value;
+console.log(report_id);
+        let comment = document.querySelector("#"+id2+""+id+" textarea").value;
         if (comment != '')
             sendAjaxRequest('post', '/admin/' + report_id, { comment: comment }, resolvedReport);
     });

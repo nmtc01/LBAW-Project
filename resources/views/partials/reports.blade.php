@@ -38,7 +38,7 @@
                                 View
                             </a>
                         </div>
-                        <div class="collapse resolveReportedQuestion" id="resolveReportedQuestion{{ $reportedQuestion->id }}">
+                        <div class="collapse" id="resolveReportedQuestion{{ $reportedQuestion->id }}">
                             <div class="card card-body">
                                 <textarea class="form-control" placeholder="Write here a brief commentary explaining your contribution handling this report. Then press Send." name="report_resolve" rows="5"></textarea>
                             </div>
@@ -61,7 +61,7 @@
             <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_answer{{ $reportedAnswer->id }}">
                 {{ $reportedAnswer->content }}
             </button>
-            <div class="modal fade" id="reported_answer{{ $reportedAnswer->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade" id="reported_answer{{ $reportedAnswer->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-id={{ $reportedAnswer->id }}>
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -74,7 +74,7 @@
                             <h1>{{ $reportedAnswer->content }}</h1>
                             <p><a href="{{ asset('/user/'.$answer_owners[$reportedAnswer->id]->id) }}">{{$answer_owners[$reportedAnswer->id]->username}}</a></p>
                             @foreach ($answerReports[$reportedAnswer->id] as $report)
-                            <div class="modal-report">
+                            <div class="modal-report reportForAnswer{{$reportedAnswer->id}}" data-id={{ $report->id }}>
                                 <p class="report_content"><span>{{ $answer_reporters[$report->id]->username }}</span> - "{{ $report->description }}"</p>
                                 <p class="report_date">{{ $report->report_date }}</p> 
                             </div>
@@ -93,7 +93,7 @@
                                 <textarea class="form-control" placeholder="Write here a brief commentary explaining your contribution handling this report. Then press Send." name="report_resolve" rows="5"></textarea>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary send">
+                                <button type="button" class="btn btn-primary send resolve-btn">
                                     Send
                                 </button>
                             </div>
@@ -111,7 +111,7 @@
             <button type="button" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#reported_comment{{ $reportedComment->id }}">
                 {{ $reportedComment->content }}
             </button>
-            <div class="modal fade" id="reported_comment{{ $reportedComment->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade" id="reported_comment{{ $reportedComment->id }}" tabindex="-1" role="dialog" aria-hidden="true" data-id={{ $reportedComment->id }}>
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -124,7 +124,7 @@
                             <h1>{{ $reportedComment->content }}</h1>
                             <p><a href="{{ asset('/user/'.$comment_owners[$reportedComment->id]->id) }}">{{$comment_owners[$reportedComment->id]->username}}</a></p>
                             @foreach ($commentReports[$reportedComment->id] as $report)
-                            <div class="modal-report">
+                            <div class="modal-report reportForComment{{$reportedComment->id}}" data-id={{ $report->id }}>
                                 <p class="report_content"><span>{{ $comment_reporters[$report->id]->username }}</span> - "{{ $report->description }}"</p>
                                 <p class="report_date">{{ $report->report_date }}</p> 
                             </div>
@@ -143,7 +143,7 @@
                                 <textarea class="form-control" placeholder="Write here a brief commentary explaining your contribution handling this report. Then press Send." name="report_resolve" rows="5"></textarea>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary send">
+                                <button type="button" class="btn btn-primary send resolve-btn">
                                     Send
                                 </button>
                             </div>
