@@ -109,36 +109,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>How do I put the hook on the line?</td>
-                                        <td>8</td>
-                                        <td>300</td>
+                                <?php $i = 1; ?>
+                                @foreach($userQuestions as $question)
+                                    <tr>nr_answers
+                                        <th scope="row">{{$question->id}}</th>
+                                        <td>{{$question->title}}</td>
+                                        <td>{{ $nr_answers[$question->id] }}</td>
+                                        <td>{{$question->nr_likes - $question->nr_dislikes}}</td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Is it a good time to go fishing?</td>
-                                        <td>17</td>
-                                        <td>146</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Is it sardine season?</td>
-                                        <td>3</td>
-                                        <td>421</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>In what order should I watch all the mcu?</td>
-                                        <td>7</td>
-                                        <td>67</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Is it possible for Leicester City to defeat Aston Villa in the English Premier League?</td>
-                                        <td>2</td>
-                                        <td>41</td>
-                                    </tr>
+                                @endforeach
+                                    
+                                    
                                 </tbody>
                             </table>
                         </div>

@@ -36,30 +36,29 @@ class UserController extends Controller
     }
 
     public function profile($id) {
-      /*$questions = $this->questionController->list();
 
-      $questions_followed=[];
-      if(Auth::check()){
-          $questions_followed = $this->questionFollowingController->listFollowedQuestions();
-      }
-      
-      
       $users = [];
       $nr_answers = [];
       $questionsVotes = [];
+      $nr_answers = [];
 
-      foreach($questions as $question){
-          $users[$question->id] = $this->userController->getUsername($question->user_id);
-          $nr_answers[$question->id] = $this->answerController->getNrAnswers($question->id);
-          if(Auth::check()){
-              $questionsVotes[$question->id] = DB::table('vote')->where([['user_id', Auth::user()->id], ['question_id', $question->id],])->first();
-          }else $questionsVotes[$question->id] = 0;
-      }*/
+      $userQuestions = DB::select(DB::raw("SELECT question.*
+      from question 
+      where question.user_id = $id
+      limit 5;"));
 
-      //$userInfo = DB::select(DB::raw("select * from 'user' where id = $id"));
+      $answerController = new AnswerController();
+      
+      foreach($userQuestions as $question){
+        $nr_answers[$question->id] = $answerController->getNrAnswers($question->id);
+        
+      }
+
+
       $userInfo = DB::table('user')->where('id', $id)->first();
 
-      return view('pages.profile', ['userInfo' => $userInfo]);
+      
+      return view('pages.profile', ['userInfo' => $userInfo, 'userQuestions' => $userQuestions, 'nr_answers' => $nr_answers,]);
     }
 
     public function listReported(){
