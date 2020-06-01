@@ -36,6 +36,8 @@ class UserController extends Controller
     }
 
     public function profile($id) {
+      if (!Auth::check())
+        return redirect('/');
 
       $users = [];
       $nr_answers = [];
