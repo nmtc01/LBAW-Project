@@ -205,6 +205,12 @@ function addEventListeners() {
             reportAnswer.addEventListener('click', sendReportAnswerRequest);
         });
 
+    let commentReporters = document.querySelectorAll('.report_comment');
+    if (commentReporters != null)
+        [].forEach.call(commentReporters, function(reportComment) {
+            reportComment.addEventListener('click', sendReportCommentRequest);
+        });
+
 }
 
 
@@ -236,6 +242,10 @@ function resolvedReport() {
     if (this.status == 200) {
         window.location = "/admin";
     }
+}
+
+function reportAddedHanlder() {
+    
 }
 
 function showSearchHandler() {
@@ -861,11 +871,16 @@ function sendResolveReportRequest(event) {
 
 function sendReportQuestionRequest() {
     let id = document.getElementById('question-div').getAttribute('data-id');
-    let description = document.querySelector('#report_something textarea').value;
+    let elem = document.querySelector('#report_something textarea');
+    let description = '';
+
+    if (elem != null)
+        description = elem.value;
 
     if (id != '' && description != '')
-        sendAjaxRequest('put', '/api/question/'+id+'/report', { description: description });
+        sendAjaxRequest('put', '/api/question/'+id+'/report', { description: description }, reportAddedHanlder);
 
+    elem.value = "";
     event.preventDefault();
 }
 
@@ -878,8 +893,24 @@ function sendReportAnswerRequest() {
         description = elem.value;
 
     if (id != '' && description != '')
-        sendAjaxRequest('put', '/api/answer/'+id+'/report', { description: description });
+        sendAjaxRequest('put', '/api/answer/'+id+'/report', { description: description }, reportAddedHanlder);
 
+    elem.value = "";
+    event.preventDefault();
+}
+
+function sendReportCommentRequest() {
+    let id = this.closest('div.comment').getAttribute('data-id');
+    let elem = document.querySelector('#collapseReportComment'+id+' textarea');
+    let description = '';
+
+    if (elem != null)
+        description = elem.value;
+
+    if (id != '' && description != '')
+        sendAjaxRequest('put', '/api/comment/'+id+'/report', { description: description }, reportAddedHanlder);
+
+    elem.value = "";
     event.preventDefault();
 }
 
@@ -1038,9 +1069,9 @@ function createComment(info) {
     new_comment.setAttribute('data-id', info[3]);
     new_comment.classList.add('comment');
     new_comment.setAttribute('id', 'comment' + info[3]);
-    new_comment.innerHTML = `<div>
+    new_comment.innerHTML = `<div class="content">
                                 <a href="/user/${info[4]}" class="username">${info[1]}</a>
-                                <a class="icon-comments">
+                                <a class="icon-comments" data-toggle="collapse" data-target="#collapseReportComment${info[3]}" aria-expanded="false">
                                     <i class="fas fa-bug"> Report</i>
                                 </a>
                                 <a class="icon-comments edit_comment_btn" id="edit_comment${info[3]}">
@@ -1056,6 +1087,20 @@ function createComment(info) {
                                 <p id="comment_content">
                                     ${info[0]}
                                 </p>
+                            </div>
+                            <div class="collapse collapsed_report" id="collapseReportComment${info[3]}">
+                                <div class="card card-header">
+                                    <h5>Help us</h5>
+                                </div>
+                                <div class="card card-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="formControlTextareaQuestion">Write here a brief description of the problem</label>
+                                            <textarea class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </form>
+                                    <button type="submit" class="btn btn-primary report_comment" data-toggle="collapse" data-target="#collapseReportComment${info[3]}">Send</button>
+                                </div>
                             </div>`;
 
 

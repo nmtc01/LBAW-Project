@@ -38,7 +38,7 @@
                 <form>
                     <div class="form-group">
                         <label for="formControlTextareaQuestion">Write here a brief description of the problem</label>
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="2"></textarea>
                     </div>
                 </form>
                 <button type="submit" class="btn btn-primary report_comment" data-toggle="collapse" data-target="#collapseReportComment{{$comment->id}}">Send</button>

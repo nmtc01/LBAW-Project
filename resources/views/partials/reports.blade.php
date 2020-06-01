@@ -134,9 +134,15 @@
                             <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#resolveReportedComment{{ $reportedComment->id }}" aria-expanded="false">
                                 Resolve
                             </button>
+                            @if ($reportedComment->question_id != null)
                             <a href="{{ action('QuestionController@open', ['id' => $reportedComment->question_id]) }}" role="button" class="btn btn-primary view">
                                 View
                             </a>
+                            @else
+                            <a href="{{ action('QuestionController@open', ['id' => $reportedComment->answer_id]) }}" role="button" class="btn btn-primary view">
+                                View
+                            </a>
+                            @endif
                         </div>
                         <div class="collapse" id="resolveReportedComment{{ $reportedComment->id }}">
                             <div class="card card-body">

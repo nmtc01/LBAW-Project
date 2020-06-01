@@ -6,9 +6,9 @@
 <div class="media-body" id="subcomments-list">
     @foreach ($subComments[$answer->id] as $comment)
     <div id="comment{{$comment->id}}" class="comment" data-id = "{{$comment->id}}">
-        <div>
+        <div class="content">
             <a href="{{ asset('/user/'.$comment->user_id) }}" class="username">{{ $userSubComments[$comment->id]->username }}</a>
-            <a class="icon-comments">
+            <a class="icon-comments" data-toggle="collapse" data-target="#collapseReportComment{{$comment->id}}" aria-expanded="false">
                 <i class="fas fa-bug"> Report</i>
             </a>
             @if (Auth::check())
@@ -33,6 +33,20 @@
             <p id="comment_content">
                 {{ $comment->content }} 
             </p>
+        </div>
+        <div class="collapse collapsed_report" id="collapseReportComment{{$comment->id}}">
+            <div class="card card-header">
+                <h5>Help us</h5>
+            </div>
+            <div class="card card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="formControlTextareaQuestion">Write here a brief description of the problem</label>
+                        <textarea class="form-control" rows="2"></textarea>
+                    </div>
+                </form>
+                <button type="submit" class="btn btn-primary report_comment" data-toggle="collapse" data-target="#collapseReportComment{{$comment->id}}">Send</button>
+            </div>
         </div>
     </div>
     @endforeach
