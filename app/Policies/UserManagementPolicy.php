@@ -24,4 +24,11 @@ class UserManagementPolicy
       return $user->getUserCurrentRole() == 'administrator' && $user->id != $demoted_user->id;
     }
 
+    public function ban(User $user, UserManagement $status, User $banned_user)
+    {
+      // Only administrators can demote users
+      return $user->getUserCurrentRole() == 'administrator' && $user->id != $banned_user->id 
+        && $banned_user->getUserCurrentRole() != 'administrator' && $banned_user->getUserCurrentRole() != 'moderator';
+    }
+
 }
