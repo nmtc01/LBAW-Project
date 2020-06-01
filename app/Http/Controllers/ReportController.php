@@ -12,16 +12,34 @@ use App\User;
 
 class ReportController extends Controller
 {
-    public function create(Request $request, $question_id)
+    public function createQ(Request $request, $question_id)
     {
       $report = new Report();
       $reportStatus = new ReportStatus();
 
-      $this->authorize('create', $report);
+      $this->authorize('createQ', $report);
 
-      //TODO comments, answers and user reports
       $report->reporter_id = Auth::user()->id;
       $report->question_id = $question_id;
+      $report->description = $request->input('description');
+      $report->save();
+
+      $reportStatus->report_id = $report->id;
+      $reportStatus->responsible_user = $this->getModerator();
+      $reportStatus->save();
+
+      return $report;
+    }
+
+    public function createA(Request $request, $answer_id)
+    {
+      $report = new Report();
+      $reportStatus = new ReportStatus();
+
+      $this->authorize('createA', $report);
+
+      $report->reporter_id = Auth::user()->id;
+      $report->answer_id = $answer_id;
       $report->description = $request->input('description');
       $report->save();
 

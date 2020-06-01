@@ -197,3 +197,7 @@ li.answer_item .ans-body p {
 #question_title {
     color: #34556a;
 }
+
+.collapsed_report {
+    margin-top: 1rem;
+}

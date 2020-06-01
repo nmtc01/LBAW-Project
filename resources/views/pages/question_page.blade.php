@@ -28,7 +28,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="report_elem" type="submit" class="btn btn-primary" data-dismiss="modal">Send</button>
+                <button id="report_question" type="submit" class="btn btn-primary" data-dismiss="modal">Send</button>
             </div>
         </div>
     </div>

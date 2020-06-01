@@ -194,10 +194,16 @@ function addEventListeners() {
             resolveReport.addEventListener('click', sendResolveReportRequest);
         });
 
-    let reporter = document.querySelector('#report_elem');
-    if (reporter != null) {
-        reporter.addEventListener('click', sendReportQuestionRequest);
+    let questionReporter = document.querySelector('#report_question');
+    if (questionReporter != null) {
+        questionReporter.addEventListener('click', sendReportQuestionRequest);
     }
+
+    let answerReporters = document.querySelectorAll('.report_answer');
+    if (answerReporters != null)
+        [].forEach.call(answerReporters, function(reportAnswer) {
+            reportAnswer.addEventListener('click', sendReportAnswerRequest);
+        });
 
 }
 
@@ -863,6 +869,20 @@ function sendReportQuestionRequest() {
     event.preventDefault();
 }
 
+function sendReportAnswerRequest() {
+    let id = this.closest('li').getAttribute('data-id');
+    let elem = document.querySelector('#collapseReport'+id+' textarea');
+    let description = '';
+
+    if (elem != null)
+        description = elem.value;
+
+    if (id != '' && description != '')
+        sendAjaxRequest('put', '/api/answer/'+id+'/report', { description: description });
+
+    event.preventDefault();
+}
+
 
 /**
  * Auxiliary functions
@@ -968,7 +988,7 @@ function createAnswer(info) {
                                         <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments${info[3]}">
                                             <i class="fas fa-comment">0</i>
                                         </a>
-                                        <a class="icon-answers">
+                                        <a class="icon-answers" data-toggle="collapse" data-target="#collapseReport${info[3]}" aria-expanded="false">
                                             <i class="fas fa-bug"> Report</i>
                                         </a>
                                         <a class="icon-answers edit_answer_btn" id="edit_answer${info[3]}">
@@ -991,6 +1011,20 @@ function createAnswer(info) {
                                         </div>
                                         <div class="media-body" id="subcomments-list">
                                         </div>  
+                                    </div>
+                                </div>
+                                <div class="collapse collapsed_report" id="collapseReport${info[3]}">
+                                    <div class="card card-header">
+                                        <h5>Help us</h5>
+                                    </div>
+                                    <div class="card card-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="formControlTextareaQuestion">Write here a brief description of the problem</label>
+                                                <textarea class="form-control" rows="5"></textarea>
+                                            </div>
+                                        </form>
+                                        <button type="submit" class="btn btn-primary report_answer" data-toggle="collapse" data-target="#collapseReport${info[3]}">Send</button>
                                     </div>
                                 </div>
                             </li>`;

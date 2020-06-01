@@ -11,9 +11,15 @@ class ReportPolicy
 {
     use HandlesAuthorization;
 
-    public function create(User $user)
+    public function createQ(User $user)
     {
-      // Any Authenticated user can report an element
+      // Any Authenticated user can report a question
+      return Auth::check();
+    }
+
+    public function createA(User $user)
+    {
+      // Any Authenticated user can report an answer
       return Auth::check();
     }
 
