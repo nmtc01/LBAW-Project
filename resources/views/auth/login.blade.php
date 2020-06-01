@@ -23,6 +23,10 @@
                         <div class="col-md-6 ml-auto">
                                     
                             {{-- code Laravel --}}
+                            @if (session('message'))
+                                <div class="alert alert-danger">{{ session('message') }}</div>
+                            @endif
+
                             <form method="POST" action="{{ route('login') }}">
                                 {{ csrf_field() }}
                         

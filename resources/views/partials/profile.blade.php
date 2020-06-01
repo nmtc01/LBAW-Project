@@ -11,7 +11,7 @@
                 @if ($userInfo->getUserCurrentRole() == 'user')
                 <p>This user is a normal authenticated user</p> 
                 <button id="promote-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Promote</button>
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Ban</button>
+                <button id="ban-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Ban</button>
 
                 @elseif ($userInfo->getUserCurrentRole() == 'moderator')
                 <p>This user is a moderator</p>
