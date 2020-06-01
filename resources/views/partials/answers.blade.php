@@ -66,7 +66,7 @@
                 <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments{{$answer->id}}">
                     <i class="fas fa-comment"> {{ count($subComments[$answer->id]) }}</i>
                 </a>
-                <a class="icon-answers" data-toggle="collapse" data-target="#collapseReport{{$answer->id}}" aria-expanded="false">
+                <a class="icon-answers" data-toggle="collapse" data-target="#collapseReportAnswer{{$answer->id}}" aria-expanded="false">
                     <i class="fas fa-bug"> Report</i>
                 </a>
                 @if (Auth::check())
@@ -94,7 +94,7 @@
                 @include('partials.sub_comments')
             </div>
         </div>
-        <div class="collapse collapsed_report" id="collapseReport{{$answer->id}}">
+        <div class="collapse collapsed_report" id="collapseReportAnswer{{$answer->id}}">
             <div class="card card-header">
                 <h5>Help us</h5>
             </div>
@@ -105,7 +105,7 @@
                         <textarea class="form-control" rows="5"></textarea>
                     </div>
                 </form>
-                <button type="submit" class="btn btn-primary report_answer" data-toggle="collapse" data-target="#collapseReport{{$answer->id}}">Send</button>
+                <button type="submit" class="btn btn-primary report_answer" data-toggle="collapse" data-target="#collapseReportAnswer{{$answer->id}}">Send</button>
             </div>
         </div>
     </li>

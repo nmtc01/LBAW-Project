@@ -50,6 +50,25 @@ class ReportController extends Controller
       return $report;
     }
 
+    public function createC(Request $request, $comment_id)
+    {
+      $report = new Report();
+      $reportStatus = new ReportStatus();
+
+      $this->authorize('createC', $report);
+
+      $report->reporter_id = Auth::user()->id;
+      $report->comment_id = $comment_id;
+      $report->description = $request->input('description');
+      $report->save();
+
+      $reportStatus->report_id = $report->id;
+      $reportStatus->responsible_user = $this->getModerator();
+      $reportStatus->save();
+
+      return $report;
+    }
+
     public function getModerator() {
         $moderators = DB::table('user')
                     ->join('user_management', 'user.id', '=', 'user_management.user_id')

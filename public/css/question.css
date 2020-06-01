@@ -80,7 +80,7 @@
     padding: 2rem;
 }
 
-.wrapper .media-body .comment div {
+.wrapper .media-body .comment div.content {
     border-top-style: solid;
     border-top-width: .05rem;
     padding-top: 0.1rem;

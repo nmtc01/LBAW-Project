@@ -871,7 +871,7 @@ function sendReportQuestionRequest() {
 
 function sendReportAnswerRequest() {
     let id = this.closest('li').getAttribute('data-id');
-    let elem = document.querySelector('#collapseReport'+id+' textarea');
+    let elem = document.querySelector('#collapseReportAnswer'+id+' textarea');
     let description = '';
 
     if (elem != null)
@@ -988,7 +988,7 @@ function createAnswer(info) {
                                         <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments${info[3]}">
                                             <i class="fas fa-comment">0</i>
                                         </a>
-                                        <a class="icon-answers" data-toggle="collapse" data-target="#collapseReport${info[3]}" aria-expanded="false">
+                                        <a class="icon-answers" data-toggle="collapse" data-target="#collapseReportAnswer${info[3]}" aria-expanded="false">
                                             <i class="fas fa-bug"> Report</i>
                                         </a>
                                         <a class="icon-answers edit_answer_btn" id="edit_answer${info[3]}">
@@ -1013,7 +1013,7 @@ function createAnswer(info) {
                                         </div>  
                                     </div>
                                 </div>
-                                <div class="collapse collapsed_report" id="collapseReport${info[3]}">
+                                <div class="collapse collapsed_report" id="collapseReportAnswer${info[3]}">
                                     <div class="card card-header">
                                         <h5>Help us</h5>
                                     </div>
@@ -1024,7 +1024,7 @@ function createAnswer(info) {
                                                 <textarea class="form-control" rows="5"></textarea>
                                             </div>
                                         </form>
-                                        <button type="submit" class="btn btn-primary report_answer" data-toggle="collapse" data-target="#collapseReport${info[3]}">Send</button>
+                                        <button type="submit" class="btn btn-primary report_answer" data-toggle="collapse" data-target="#collapseReportAnswer${info[3]}">Send</button>
                                     </div>
                                 </div>
                             </li>`;

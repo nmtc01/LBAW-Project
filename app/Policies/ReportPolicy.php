@@ -23,4 +23,10 @@ class ReportPolicy
       return Auth::check();
     }
 
+    public function createC(User $user)
+    {
+      // Any Authenticated user can report a comment
+      return Auth::check();
+    }
+
 }

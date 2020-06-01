@@ -69,6 +69,7 @@ Route::get('/admin', 'ModerationController@show');
 Route::post('/admin/{report_id}', 'ReportStatusController@resolve');
 Route::put('/api/question/{id}/report', 'ReportController@createQ');
 Route::put('/api/answer/{id}/report', 'ReportController@createA');
+Route::put('/api/comment/{id}/report', 'ReportController@createC');
 
 //Profile
 Route::get('/user/{id}', 'UserController@profile');
