@@ -1,4 +1,4 @@
-<div class="modal fade" id="manage_users" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="manage_users" tabindex="-1" role="dialog" aria-hidden="true" data-id="{{ $userInfo->id }}">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,17 +10,17 @@
             <div class="modal-body">
                 @if ($userInfo->getUserCurrentRole() == 'user')
                 <p>This user is a normal authenticated user</p> 
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Promote</button>
+                <button id="promote-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Promote</button>
                 <button type="submit" class="btn btn-primary" data-dismiss="modal">Ban</button>
 
                 @elseif ($userInfo->getUserCurrentRole() == 'moderator')
                 <p>This user is a moderator</p>
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Promote</button>
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Demote</button>
+                <button id="promote-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Promote</button>
+                <button id="demote-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Demote</button>
 
                 @elseif ($userInfo->getUserCurrentRole() == 'administrator') 
                 <p>This user is an administrator</p>
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Demote</button>
+                <button id="demote-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Demote</button>
 
                 @else
                 <p>This user was banned</p>
@@ -65,7 +65,7 @@
                     </li>
                     @endif
                 </ul>
-                @if(Auth::user()->getUserCurrentRole() == 'administrator')
+                @if(Auth::user()->getUserCurrentRole() == 'administrator' && Auth::user()->id != $userInfo->id)
                 <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#manage_users">Moderate</button>
                 @endif
             </div>
