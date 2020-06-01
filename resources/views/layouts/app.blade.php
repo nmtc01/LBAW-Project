@@ -60,18 +60,20 @@
                             <li class="nav-link ml-2">
                                 <div class="dropdown">
                                     <div id="notifications_menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuNotificationsButton">
-                                    <?php
-                                    /*$img = array("bob_iger.jpeg","robert-jr.jpg");
-                                    $user = array("pedro_dantas","cr7fan");
-                                    $question = array("Will Erling Braut Haaland be a future winner of the Ballon d’Or?","How can I learn C and C++?");
-                                    for($i = 0; $i < 2; $i++) {
-                                        draw_notification($img[0], $user[0], $question[0]);
-                                        draw_notification($img[1], $user[1], $question[1]);
-                                    }*/
-                                    ?>
+                                    @foreach(Auth::user()->listNotificationsBell(); as $notification)
+                                        @if($notification->question_id != null)
+                                            <a role="button" class="dropdown-item" href="{{ asset('/question/'.$notification->question_id) }}">{{$notification->content}}</a>
+                                        @else
+                                            <a role="button" class="dropdown-item" href="">{{$notification->content}}</a>
+                                        @endif
+                                    @endforeach
                                     </div>
                                 </div>
+                                @if(Auth::user()->hasSeen())
                                 <a role="button" class="fas fa-bell fa-lg dropdown-toggle" id="dropdownMenuNotificationsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                @else
+                                <a role="button" class="fas fa-bell fa-lg dropdown-toggle" id="dropdownMenuNotificationsButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                @endif
                                 </a>
                             </li>
                         </li>

@@ -38,15 +38,6 @@ CREATE TABLE label (
     name            TEXT            NOT NULL          
 );
 
--- Table: notification
-CREATE TABLE notification (
-    id              SERIAL          PRIMARY KEY,
-    content         TEXT            NOT NULL,
-    date            DATE            DEFAULT 'Now' NOT NULL,
-    viewed          BOOLEAN         DEFAULT FALSE NOT NULL,
-    user_id         INTEGER         REFERENCES "user" (id) NOT NULL
-);
-
 -- Table: user_management
 CREATE TABLE user_management (
     id                  SERIAL          PRIMARY KEY,
@@ -70,6 +61,16 @@ CREATE TABLE question (
     CHECK (
         nr_likes >= 0 AND nr_dislikes >= 0
     )         
+);
+
+-- Table: notification
+CREATE TABLE notification (
+    id              SERIAL          PRIMARY KEY,
+    content         TEXT            NOT NULL,
+    date            DATE            DEFAULT 'Now' NOT NULL,
+    viewed          BOOLEAN         DEFAULT FALSE NOT NULL,
+    user_id         INTEGER         REFERENCES "user" (id) NOT NULL,
+	question_id		INTEGER			DEFAULT NULL REFERENCES "question" (id)
 );
 
 -- Table: answer
@@ -734,28 +735,6 @@ insert into label (name) values ('rock');
 insert into label (name) values ('pop');
 insert into label (name) values ('english');
 
---notification
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 20);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-2', FALSE, 19);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-3', FALSE, 18);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-4', FALSE, 17);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-5', TRUE, 16);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-6', TRUE, 15);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-7', FALSE, 14);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-8', TRUE, 13);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-9', TRUE, 12);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-10', FALSE, 11);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-11', TRUE, 10);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-12', TRUE, 9);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-13', FALSE, 8);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 7);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 6);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 5);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 4);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 3);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', FALSE, 2);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 1);
-
 --user_management
 insert into user_management (status, date_last_changed, user_id) values ('administrator', '2020-03-01', 1);
 insert into user_management (status, date_last_changed, user_id) values ('administrator', '2020-03-01', 2);
@@ -886,6 +865,30 @@ insert into question (user_id, title, description, question_date)
 	values (49, 'History', 'Who are some historical figures wrongly portrayed in popular culture?', '2019-09-01');		
 insert into question (user_id, title, description, question_date) 
 	values (59, 'Popular cliches in movies', 'What is a movie cliche you never get tired of seeing?', '2019-08-01');
+
+
+--notification
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 20);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-2', FALSE, 19);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-3', FALSE, 18);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-4', FALSE, 17);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-5', TRUE, 16);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-6', TRUE, 15);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-7', FALSE, 14);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-8', TRUE, 13);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-9', TRUE, 12);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-10', FALSE, 11);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-11', TRUE, 10);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-12', TRUE, 9);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-13', FALSE, 8);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 7);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 6);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 5);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 4);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 3);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 2);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 2, 2);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 1);
 	
 --answer
 insert into answer (user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 

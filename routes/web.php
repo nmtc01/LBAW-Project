@@ -76,3 +76,6 @@ Route::put('/user/{user_id}/demote', 'ModerationController@demote');
 //Profile
 Route::get('/user/{id}', 'UserController@profile');
 
+// Notification
+Route::put('/api/notification', 'NotificationController@update');
+

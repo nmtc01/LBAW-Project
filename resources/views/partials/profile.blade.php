@@ -49,6 +49,7 @@
                     <li class="nav-item">
                         <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
                     </li>
+                    @if(Auth::user()->id == $userInfo->id)
                     <li class="nav-item">
                         <a href="" data-target="#notifications" data-toggle="tab" class="nav-link">Notifications</a>
                     </li>
@@ -58,6 +59,11 @@
                     <li class="nav-item">
                         <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
                     </li>
+                    @else
+                    <li class="nav-item">
+                        <a href="" data-target="#my-questions" data-toggle="tab" class="nav-link">Recent Questions</a>
+                    </li>
+                    @endif
                 </ul>
                 @if(Auth::user()->getUserCurrentRole() == 'administrator' && Auth::user()->id != $userInfo->id)
                 <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#manage_users">Moderate</button>
@@ -94,34 +100,17 @@
                     </div>
                     <!--/row-->
                 </div>
+                @if(Auth::user()->id == $userInfo->id)
                 <div class="tab-pane" id="notifications">
                     <table class="table table-hover table-striped">
                         <tbody>
+                            @foreach(Auth::user()->listNotifications(); as $notification)
                             <tr>
                                 <td>
-                                    <span class="float-right font-weight-bold">3 hrs ago</span> You were reported by SociedadeAntiPesca.
+                                <span class="float-right font-weight-bold">{{$notification->date}}</span> <a class="question-header-profile" href="{{ asset('/question/'.$notification->question_id) }}">{{$notification->content}}</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">Yesterday</span> Your account is being verified for suspected behavior.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">9/10</span> New features on the website soon, stay tuned!
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">9/6</span> You have been a very active user!
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">9/4</span> Welcome to our website!!!
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <nav aria-label="Page navigation example">
@@ -154,12 +143,13 @@
                                 <tbody>
                                 <?php $i = 1; ?>
                                 @foreach($userQuestions as $question)
-                                    <tr>nr_answers
-                                        <th scope="row">{{$question->id}}</th>
+                                    <tr>
+                                        <th scope="row">{{$i}}</th>
                                         <td>{{$question->title}}</td>
                                         <td>{{ $nr_answers[$question->id] }}</td>
                                         <td>{{$question->nr_likes - $question->nr_dislikes}}</td>
                                     </tr>
+                                    <?php $i = $i + 1; ?>
                                 @endforeach
                                     
                                     
@@ -234,6 +224,52 @@
                         </div>
                     </form>
                 </div>
+                @else
+                <div class="tab-pane" id="my-questions">
+                    <div class="col-md-12">
+                        <h5 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>Recent Activity</h5>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Question</th>
+                                        <th scope="col">Answers</th>
+                                        <th scope="col">Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php $i = 1; ?>
+                                @foreach($userQuestions as $question)
+                                    <tr>
+                                        <th scope="row">{{$i}}</th>
+                                        <td>{{$question->title}}</td>
+                                        <td>{{ $nr_answers[$question->id] }}</td>
+                                        <td>{{$question->nr_likes - $question->nr_dislikes}}</td>
+                                    </tr>
+                                 <?php $i = $i + 1; ?>
+                                @endforeach
+                                    
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                <a id="previous" class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                <a id="next" class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </div>

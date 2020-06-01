@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\User;
+use App\Notification;
 use App\UserManagement;
 
 class UserController extends Controller
@@ -108,4 +109,5 @@ class UserController extends Controller
 
       return $best;
     }
+
 }
