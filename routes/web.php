@@ -72,6 +72,7 @@ Route::put('/api/answer/{id}/report', 'ReportController@createA');
 Route::put('/api/comment/{id}/report', 'ReportController@createC');
 Route::put('/user/{user_id}/promote', 'ModerationController@promote');
 Route::put('/user/{user_id}/demote', 'ModerationController@demote');
+Route::put('/user/{user_id}/ban', 'ModerationController@ban');
 
 //Profile
 Route::get('/user/{id}', 'UserController@profile');

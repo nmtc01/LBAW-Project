@@ -223,6 +223,11 @@ function addEventListeners() {
         demoter.addEventListener('click', sendDemoteRequest);
     }
 
+    let banner = document.querySelector('#ban-btn');
+    if (banner != null) {
+        banner.addEventListener('click', sendBanRequest);
+    }
+
     // notifications
 
     let notificationBell = document.querySelector('#dropdownMenuNotificationsButton2');
@@ -951,6 +956,13 @@ function sendDemoteRequest() {
 
     if (id != '')
         sendAjaxRequest('put', '/user/'+id+'/demote', null, manageUsersHandler);
+}
+
+function sendBanRequest() {
+    let id = this.closest('#manage_users').getAttribute('data-id');
+
+    if (id != '')
+        sendAjaxRequest('put', '/user/'+id+'/ban', null, manageUsersHandler);
 }
 
 

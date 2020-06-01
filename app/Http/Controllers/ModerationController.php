@@ -106,12 +106,10 @@ class ModerationController extends Controller
         
         //Promote user
         if ($currentRole == 'user') {
-            $user_management->user_id = $id;
             $user_management->status = 'moderator';
             $user_management->save();
         }
         else if ($currentRole == 'moderator') {
-            $user_management->user_id = $id;
             $user_management->status = 'administrator';
             $user_management->save();
         }
@@ -131,15 +129,31 @@ class ModerationController extends Controller
         
         //Demote user
         if ($currentRole == 'moderator') {
-            $user_management->user_id = $id;
             $user_management->status = 'user';
             $user_management->save();
         }
         else if ($currentRole == 'administrator') {
-            $user_management->user_id = $id;
             $user_management->status = 'moderator';
             $user_management->save();
         }
+    }
+
+    public function ban($id) {
+        
+        //Get user with id
+        $user = User::find($id);
+        //Get its current role
+        $currentRole = $user->getUserCurrentRole();
+
+        //Create new user_management
+        $user_management = UserManagement::where('user_id', $id)->first();
+
+        $this->authorize('ban', [$user_management, $user]);
+        
+        //Demote user
+        $user_management->user_id = $id;
+        $user_management->status = 'banned';
+        $user_management->save();
     }
 
 }
