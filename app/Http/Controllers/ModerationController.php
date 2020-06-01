@@ -101,6 +101,8 @@ class ModerationController extends Controller
 
         //Create new user_management
         $user_management = UserManagement::where('user_id', $id)->first();
+
+        $this->authorize('promote', [$user_management, $user]);
         
         //Promote user
         if ($currentRole == 'user') {
@@ -124,6 +126,8 @@ class ModerationController extends Controller
 
         //Create new user_management
         $user_management = UserManagement::where('user_id', $id)->first();
+
+        $this->authorize('demote', [$user_management, $user]);
         
         //Demote user
         if ($currentRole == 'moderator') {

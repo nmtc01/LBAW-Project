@@ -15,12 +15,12 @@
 
                 @elseif ($userInfo->getUserCurrentRole() == 'moderator')
                 <p>This user is a moderator</p>
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Promote</button>
+                <button id="promote-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Promote</button>
                 <button id="demote-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Demote</button>
 
                 @elseif ($userInfo->getUserCurrentRole() == 'administrator') 
                 <p>This user is an administrator</p>
-                <button type="submit" class="btn btn-primary" data-dismiss="modal">Demote</button>
+                <button id="demote-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Demote</button>
 
                 @else
                 <p>This user was banned</p>
@@ -59,7 +59,7 @@
                         <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
                     </li>
                 </ul>
-                @if(Auth::user()->getUserCurrentRole() == 'administrator')
+                @if(Auth::user()->getUserCurrentRole() == 'administrator' && Auth::user()->id != $userInfo->id)
                 <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#manage_users">Moderate</button>
                 @endif
             </div>
