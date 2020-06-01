@@ -1,20 +1,68 @@
+<div class="modal fade" id="manage_users" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Change user status</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @if ($userInfo->getUserCurrentRole() == 'user')
+                <p>This user is a normal authenticated user</p> 
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Promote</button>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Ban</button>
+
+                @elseif ($userInfo->getUserCurrentRole() == 'moderator')
+                <p>This user is a moderator</p>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Promote</button>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Demote</button>
+
+                @elseif ($userInfo->getUserCurrentRole() == 'administrator') 
+                <p>This user is an administrator</p>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Demote</button>
+
+                @else
+                <p>This user was banned</p>
+
+                @endif
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container profile">
     <div class="row my-2">
+        <div class="col-lg-4 order-lg-1 text-center">
+            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+            <h6 class="mt-2">Upload a different photo</h6>
+            <div class="file btn btn-link">
+                Choose file
+                <input type="file" name="file" />
+            </div>
+        </div>
         <div class="col-lg-8 order-lg-2">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" data-target="#notifications" data-toggle="tab" class="nav-link">Notifications</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" data-target="#my-questions" data-toggle="tab" class="nav-link">My Questions</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
-                </li>
-            </ul>
+            <div class="row">
+                <ul class="nav nav-tabs col-10">
+                    <li class="nav-item">
+                        <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" data-target="#notifications" data-toggle="tab" class="nav-link">Notifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" data-target="#my-questions" data-toggle="tab" class="nav-link">My Questions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+                    </li>
+                </ul>
+                @if(Auth::user()->getUserCurrentRole() == 'administrator')
+                <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#manage_users">Moderate</button>
+                @endif
+            </div>
             <div class="tab-content py-4">
                 <div class="tab-pane active" id="profile">
                     <h5 class="mb-3">{{$userInfo->first_name}} {{$userInfo->last_name}}</h5>
@@ -29,11 +77,6 @@
                             <p>
                                 Description: {{$userInfo->bio}}
                             </p>
-                            <!--
-                            <p>
-                                Birthdate: 25/04/1974
-                            </p>
-                        -->
                         </div>
                         <div class="col-md-6">
                             <h6>Recent labels</h6>
@@ -191,14 +234,6 @@
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-4 order-lg-1 text-center">
-            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
-            <h6 class="mt-2">Upload a different photo</h6>
-            <div class="file btn btn-link">
-                Choose file
-                <input type="file" name="file" />
             </div>
         </div>
     </div>

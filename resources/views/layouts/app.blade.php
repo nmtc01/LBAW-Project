@@ -46,7 +46,7 @@
                         @else
                         <li>
                             <li class="nav-item">
-                                <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#ask_something" type="submit">Ask Something</button>
+                                <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#ask_something">Ask Something</button>
                             </li>
                             <li class="nav-link ml-2">
                                 <div class="dropdown">

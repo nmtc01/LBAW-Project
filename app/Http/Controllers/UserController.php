@@ -54,10 +54,8 @@ class UserController extends Controller
         
       }
 
+      $userInfo = User::find($id);
 
-      $userInfo = DB::table('user')->where('id', $id)->first();
-
-      
       return view('pages.profile', ['userInfo' => $userInfo, 'userQuestions' => $userQuestions, 'nr_answers' => $nr_answers,]);
     }
 
