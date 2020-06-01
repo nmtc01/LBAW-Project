@@ -65,4 +65,11 @@ class User extends Authenticatable
 
         return $role;
     }
+
+    public function listNotifications(){
+        //$notificationController = new NotificationController;
+        //return $notificationController->listUserNotifications($id);
+        $user_notifications = Notification::where('user_id', $this->id)->get();
+        return $user_notifications;
+    }
 }

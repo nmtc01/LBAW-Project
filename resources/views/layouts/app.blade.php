@@ -69,6 +69,10 @@
                                         draw_notification($img[1], $user[1], $question[1]);
                                     }*/
                                     ?>
+                                    
+                                    @foreach(Auth::user()->listNotifications(); as $notification)
+                                        <a role="button" class="dropdown-item" href="">{{$notification->content}}</a>
+                                    @endforeach
                                     </div>
                                 </div>
                                 <a role="button" class="fas fa-bell fa-lg dropdown-toggle" id="dropdownMenuNotificationsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>

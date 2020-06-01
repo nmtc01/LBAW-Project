@@ -13,6 +13,7 @@ class AnswerController extends Controller
 {
     public function __construct(){
       $this->commentController = new CommentController();
+      $this->notificationController = new NotificationController();
     }
 
 
@@ -53,6 +54,21 @@ class AnswerController extends Controller
       $answer->user_id = Auth::user()->id;
       $answer->question_id = $request->input('question_index');
       $answer->save();
+
+      // notificaties question's user
+
+      $notification_user_id = DB::table('question')
+                  ->select('question.*')
+                  ->where('question.id', $answer->question_id)
+                  ->first();
+      error_log($notification_user_id->user_id);
+      $content = 'A user has answered a question of yours';
+      //$this->notificationController->create($content, $notification_user_id);
+      DB::table('notification')->insert([
+        ['content' => $content, 'user_id' => $notification_user_id->user_id]
+      ]);
+
+      // ----
       
       $username = Auth::user()->username;
       $user_score = Auth::user()->score;
