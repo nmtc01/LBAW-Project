@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
+use App\User;
+use App\UserManagement;
+
 class ModerationController extends Controller
 {
     public function __construct(){
@@ -87,6 +90,52 @@ class ModerationController extends Controller
 
         return view('pages.moderate', ['questionsReports' => $questionsReports, 'reportedQuestions' => $reportedQuestions, 'owners' => $owners, 'reporters' => $reporters, 'answerReports' => $answerReports, 'reportedAnswers' => $reportedAnswers, 'answer_owners' => $answer_owners, 'answer_reporters' => $answer_reporters, 'commentReports' => $commentReports, 'reportedComments' => $reportedComments, 'comment_owners' => $comment_owners, 'comment_reporters' => $comment_reporters, 'userReports' => $userReports, 'reportedUsers' => $reportedUsers, 'user_reporters' => $user_reporters, 'best_users' => $best_users, 'best_moderators' => $best_moderators]);
 
+    }
+
+    public function promote($id) {
+        
+        //Get user with id
+        $user = User::find($id);
+        //Get its current role
+        $currentRole = $user->getUserCurrentRole();
+
+        //Create new user_management
+        $user_management = UserManagement::where('user_id', $id)->first();
+        
+        //Promote user
+        if ($currentRole == 'user') {
+            $user_management->user_id = $id;
+            $user_management->status = 'moderator';
+            $user_management->save();
+        }
+        else if ($currentRole == 'moderator') {
+            $user_management->user_id = $id;
+            $user_management->status = 'administrator';
+            $user_management->save();
+        }
+    }
+
+    public function demote($id) {
+        
+        //Get user with id
+        $user = User::find($id);
+        //Get its current role
+        $currentRole = $user->getUserCurrentRole();
+
+        //Create new user_management
+        $user_management = UserManagement::where('user_id', $id)->first();
+        
+        //Demote user
+        if ($currentRole == 'moderator') {
+            $user_management->user_id = $id;
+            $user_management->status = 'user';
+            $user_management->save();
+        }
+        else if ($currentRole == 'administrator') {
+            $user_management->user_id = $id;
+            $user_management->status = 'moderator';
+            $user_management->save();
+        }
     }
 
 }

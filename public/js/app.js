@@ -211,6 +211,18 @@ function addEventListeners() {
             reportComment.addEventListener('click', sendReportCommentRequest);
         });
 
+    // moderate
+
+    let promoter = document.querySelector('#promote-btn');
+    if (promoter != null) {
+        promoter.addEventListener('click', sendPromoteRequest);
+    }
+
+    let demoter = document.querySelector('#demote-btn');
+    if (demoter != null) {
+        demoter.addEventListener('click', sendDemoteRequest);
+    }
+
 }
 
 
@@ -634,6 +646,10 @@ function unfollowRequestHandlerQ() {
 
 }
 
+function manageUsersHandler() {
+    if (this.status == 200)
+        window.location = '/admin';
+}
 
 /**
  * Send requests
@@ -912,6 +928,22 @@ function sendReportCommentRequest() {
 
     elem.value = "";
     event.preventDefault();
+}
+
+// moderate
+
+function sendPromoteRequest() {
+    let id = this.closest('#manage_users').getAttribute('data-id');
+
+    if (id != '')
+        sendAjaxRequest('put', '/user/'+id+'/promote', null, manageUsersHandler);
+}
+
+function sendDemoteRequest() {
+    let id = this.closest('#manage_users').getAttribute('data-id');
+
+    if (id != '')
+        sendAjaxRequest('put', '/user/'+id+'/demote', null, manageUsersHandler);
 }
 
 
