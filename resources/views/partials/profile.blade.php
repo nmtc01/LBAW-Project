@@ -104,31 +104,13 @@
                 <div class="tab-pane" id="notifications">
                     <table class="table table-hover table-striped">
                         <tbody>
+                            @foreach(Auth::user()->listNotifications(); as $notification)
                             <tr>
                                 <td>
-                                    <span class="float-right font-weight-bold">3 hrs ago</span> You were reported by SociedadeAntiPesca.
+                                <span class="float-right font-weight-bold">{{$notification->date}}</span> <a class="question-header-profile" href="{{ asset('/question/'.$notification->question_id) }}">{{$notification->content}}</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">Yesterday</span> Your account is being verified for suspected behavior.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">9/10</span> New features on the website soon, stay tuned!
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">9/6</span> You have been a very active user!
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="float-right font-weight-bold">9/4</span> Welcome to our website!!!
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <nav aria-label="Page navigation example">

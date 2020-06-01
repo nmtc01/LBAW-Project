@@ -57,15 +57,14 @@ class AnswerController extends Controller
 
       // notificaties question's user
 
-      $notification_user_id = DB::table('question')
+      $notification_question = DB::table('question')
                   ->select('question.*')
                   ->where('question.id', $answer->question_id)
                   ->first();
-      error_log($notification_user_id->user_id);
       $content = 'A user has answered a question of yours';
-      //$this->notificationController->create($content, $notification_user_id);
+
       DB::table('notification')->insert([
-        ['content' => $content, 'user_id' => $notification_user_id->user_id]
+        ['content' => $content, 'user_id' => $notification_question->user_id, 'question_id' => $notification_question->id]
       ]);
 
       // ----

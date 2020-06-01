@@ -67,9 +67,12 @@ class User extends Authenticatable
     }
 
     public function listNotifications(){
-        //$notificationController = new NotificationController;
-        //return $notificationController->listUserNotifications($id);
-        $user_notifications = Notification::where('user_id', $this->id)->get();
+        $user_notifications = Notification::where('user_id', $this->id)->orderBy('date', 'DESC')->get();
+        return $user_notifications;
+    }
+
+    public function listNotificationsBell(){
+        $user_notifications = Notification::where('user_id', $this->id)->orderBy('date', 'DESC')->limit(6)->get();
         return $user_notifications;
     }
 }
