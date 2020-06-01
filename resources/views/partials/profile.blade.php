@@ -161,12 +161,13 @@
                                 <tbody>
                                 <?php $i = 1; ?>
                                 @foreach($userQuestions as $question)
-                                    <tr>nr_answers
-                                        <th scope="row">{{$question->id}}</th>
+                                    <tr>
+                                        <th scope="row">{{$i}}</th>
                                         <td>{{$question->title}}</td>
                                         <td>{{ $nr_answers[$question->id] }}</td>
                                         <td>{{$question->nr_likes - $question->nr_dislikes}}</td>
                                     </tr>
+                                    <?php $i = $i + 1; ?>
                                 @endforeach
                                     
                                     
@@ -258,12 +259,13 @@
                                 <tbody>
                                 <?php $i = 1; ?>
                                 @foreach($userQuestions as $question)
-                                    <tr>nr_answers
-                                        <th scope="row">{{$question->id}}</th>
+                                    <tr>
+                                        <th scope="row">{{$i}}</th>
                                         <td>{{$question->title}}</td>
                                         <td>{{ $nr_answers[$question->id] }}</td>
                                         <td>{{$question->nr_likes - $question->nr_dislikes}}</td>
                                     </tr>
+                                 <?php $i = $i + 1; ?>
                                 @endforeach
                                     
                                     
