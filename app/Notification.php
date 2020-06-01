@@ -21,9 +21,4 @@ class Notification extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function create($content, $user_id){
-        error_log("heeheheh");
-        return "hey";
-    }
-
 }

@@ -80,9 +80,7 @@ class User extends Authenticatable
         $seen = true;
         $user_notifications = Notification::where('user_id', $this->id)->orderBy('date', 'DESC')->limit(6)->get();
         foreach($user_notifications as $user_notification){
-            error_log($user_notification->viewed);
             if($user_notification->viewed != 1){
-                error_log("false");
                 $seen = false;
             }
         }
