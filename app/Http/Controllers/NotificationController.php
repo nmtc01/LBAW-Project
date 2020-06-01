@@ -15,4 +15,16 @@ class NotificationController extends Controller
         $this->userController = new UserController();
     }
 
+    public function update(){
+
+        $user_notifications = Notification::where('user_id', Auth::user()->id)->orderBy('date', 'DESC')->get();
+
+        foreach($user_notifications as $notification){
+            $notification->viewed = 1;
+            $notification->save();
+        }
+
+
+    }
+
 }

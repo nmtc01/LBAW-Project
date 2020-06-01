@@ -886,7 +886,7 @@ insert into notification (content, date, viewed, user_id) values ('A user has an
 insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 5);
 insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 4);
 insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 3);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', FALSE, 2);
+insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 2);
 insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 2, 2);
 insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 1);
 	

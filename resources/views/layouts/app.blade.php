@@ -69,7 +69,11 @@
                                     @endforeach
                                     </div>
                                 </div>
+                                @if(Auth::user()->hasSeen())
                                 <a role="button" class="fas fa-bell fa-lg dropdown-toggle" id="dropdownMenuNotificationsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                @else
+                                <a role="button" class="fas fa-bell fa-lg dropdown-toggle" id="dropdownMenuNotificationsButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                @endif
                                 </a>
                             </li>
                         </li>
