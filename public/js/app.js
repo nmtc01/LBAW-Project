@@ -455,6 +455,22 @@ function questionEditedHandler() {
     addEventListeners();
 }
 
+function labelEditedHandler() {
+    let info = JSON.parse(this.responseText);
+
+    // Edit Label
+    let new_name = editLabelName(info);
+
+    let badge_name = document.querySelector("div#question-div #question_label"+info[1]);
+
+    badge_name.innerHTML = new_name.innerHTML;
+
+    // Focus 
+    new_name.focus();
+
+    addEventListeners();
+}
+
 function answerEditedHandler() {
     let info = JSON.parse(this.responseText);
 
@@ -499,6 +515,22 @@ function questionUpdatedHandler() {
     // Focus 
     new_title.focus();
     new_description.focus();
+
+    addEventListeners();
+}
+
+function labelUpdatedHandler() {
+    let info = JSON.parse(this.responseText);
+
+    // Update question
+    let new_name = updateLabelName(info);
+
+    let a_name = document.querySelector("div#question-div #question_label"+info[1]);
+
+    a_name.outerHTML = new_name.innerHTML;
+
+    // Focus 
+    new_name.focus();
 
     addEventListeners();
 }
@@ -722,6 +754,14 @@ function sendEditQuestionRequest() {
 
     if (title != '' && description != '')
         sendAjaxRequest('put', '/api/question/' + id, { title: title, description: description }, questionEditedHandler);
+    
+    let labels = document.querySelectorAll('.badge.badge-dark.badge-pill.labels');
+    [].forEach.call(labels, function(label) {
+        let label_id = label.getAttribute('data-id');
+        let name = label.textContent;
+        if (label_id != '' && name != '')
+            sendAjaxRequest('put', '/api/label/' + label_id, { name: name }, labelEditedHandler);
+    });
 }
 
 function sendEditAnswerRequest() {
@@ -748,6 +788,14 @@ function sendUpdateQuestionRequest() {
 
     if (title != "" && description != "")
         sendAjaxRequest('put', '/api/question/' + id + '/update', { title: title, description: description }, questionUpdatedHandler);
+
+    let labels = document.querySelectorAll('.badge.badge-dark.badge-pill.labels');
+    [].forEach.call(labels, function(label) {
+        let label_id = label.getAttribute('data-id');
+        let name = label.firstChild.value;
+        if (label_id != '' && name != '')
+            sendAjaxRequest('put', '/api/label/' + label_id + '/update', { name: name }, labelUpdatedHandler);
+    });
 }
 
 function sendUpdateAnswerRequest() {
@@ -1015,6 +1063,14 @@ function editDescription(info) {
 
 }
 
+function editLabelName(info) {
+    let new_name = document.createElement('name');
+    new_name.innerHTML = `<input class="form-control" type="text" value="${info[0]}">`;
+
+    return new_name;
+
+}
+
 function editAnswerContent(info) {
     let new_answer = document.createElement('answer');
     new_answer.classList.add('answer');
@@ -1050,6 +1106,13 @@ function updateDescription(info) {
 
     return new_question;
 
+}
+
+function updateLabelName(info) {
+    let new_label = document.createElement('label');
+    new_label.innerHTML = `<a class="badge badge-dark badge-pill labels" id="question_label${info[1]}" data-id="${info[1]}">${info[0]}</a>`;
+
+    return new_label;
 }
 
 function updateAnswerContent(info) {

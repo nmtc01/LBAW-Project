@@ -55,6 +55,8 @@ Route::put('/api/answer/{id}/downvote', 'VoteController@addDislikeA');
 //Labels
 Route::put('/api/label', 'LabelController@startLabel');
 Route::post('/api/label', 'LabelController@create');
+Route::put('/api/label/{id}', 'LabelController@edit');
+Route::put('/api/label/{id}/update', 'LabelController@update');
 
 // Static pages
 Route::get('/about', 'StaticController@about');

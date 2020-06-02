@@ -58,7 +58,7 @@
 <div>
     <p id="question_description">{{ $question->description }}</p>
     @foreach ($labels as $label)
-    <a class="badge badge-dark badge-pill" id="question_label">{{ $label->name }}</a>
+    <a class="badge badge-dark badge-pill labels" id="question_label{{ $label->id }}" data-id="{{ $label->id }}">{{ $label->name }}</a>
     @endforeach
     <div class=icons>
 
