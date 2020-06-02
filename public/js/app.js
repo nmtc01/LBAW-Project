@@ -246,6 +246,10 @@ function addEventListeners() {
         [].forEach.call(labelDeleters, function(deleter) {
             deleter.addEventListener('click', sendDeleteLabelRequest);
         });
+    
+    let labelCreater = document.getElementById('create_label');
+    if (labelCreater != null)
+        labelCreater.addEventListener('click', sendAddLabelRequest);
 }
 
 
@@ -474,10 +478,12 @@ function labelEditedHandler() {
 
     // Edit Label
     let new_name = editLabelName(info);
+    let new_label = createAddLabelBtn();
 
     let badge_name = document.querySelector("div#question-div #question_label"+info[1]);
 
     badge_name.innerHTML = new_name.innerHTML;
+    badge_name.after(new_label);
 
     // Focus 
     new_name.focus();
@@ -530,6 +536,8 @@ function questionUpdatedHandler() {
     new_title.focus();
     new_description.focus();
 
+    sendCreateLabelsRequest(info[2]);
+
     addEventListeners();
 }
 
@@ -539,9 +547,16 @@ function labelUpdatedHandler() {
     // Update question
     let new_name = updateLabelName(info);
 
-    let a_name = document.querySelector("div#question-div #question_label"+info[1]);
+    let badge_name = document.querySelector("div#question-div #question_label"+info[1]);
+    //let labels = document.querySelectorAll(".label_form");
 
-    a_name.outerHTML = new_name.innerHTML;
+    badge_name.outerHTML = new_name.innerHTML;
+
+    /*for (let i = 0; i < labels.length; i++) {
+        labels[i].innerHTML =  `<a class="badge badge-dark badge-pill labels" id="question_label34" data-id="34">${labels[i].textContent}
+                                    <span class="x-label"> x</span>
+                                </a>`
+    }*/
 
     // Focus 
     new_name.focus();
@@ -894,7 +909,6 @@ function sendCreateLabelsRequest(question_index) {
         if (forms[i] == null)
             return;
         let name = forms[i].value;
-
         if (name != '')
             sendAjaxRequest('post', '/api/label', { name: name, question_index: question_index });
     }
@@ -1090,6 +1104,14 @@ function editLabelName(info) {
 
     return new_name;
 
+}
+
+function createAddLabelBtn() {
+    let new_label = document.createElement('label');
+    new_label.innerHTML =  `<div id="labels">
+                                <a class="badge badge-dark badge-pill" id="add_label">+ Label</a>
+                            </div>`;
+    return new_label;
 }
 
 function editAnswerContent(info) {

@@ -224,7 +224,7 @@ class QuestionController extends Controller
       $question->description = $request->input('description');
       $question->save();
       
-      $info = [$question->title, $question->description];
+      $info = [$question->title, $question->description, $question->id];
 
       return $info;
 
