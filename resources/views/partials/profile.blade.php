@@ -44,7 +44,7 @@
 <div class="container profile">
     <div class="row my-2">
         <div class="col-lg-4 order-lg-1 text-center">
-            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="user image">
             <h6 class="mt-2">Upload a different photo</h6>
             <div class="file btn btn-link">
                 Choose file
