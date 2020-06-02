@@ -72,7 +72,7 @@ class User extends Authenticatable
     }
 
     public function listNotificationsBell(){
-        $user_notifications = Notification::where('user_id', $this->id)->orderBy('date', 'DESC')->limit(6)->get();
+        $user_notifications = Notification::where('user_id', $this->id)->orderBy('date', 'DESC')->orderBy('id', 'DESC')->limit(6)->get();
         return $user_notifications;
     }
 

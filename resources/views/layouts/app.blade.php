@@ -104,7 +104,7 @@
                                     <textarea class="form-control" id="formControlTextareaDescription" rows="3"></textarea>
                                 </div>
                                 <div id="labels">
-                                    <a class="badge badge-dark badge-pill" id="create_label">+ Label</a>
+                                    <a class="badge badge-dark badge-pill" id="add_label">+ Label</a>
                                 </div>
                                 <div id="form-buttons" class="form-group row">
                                     <input type="file" class="form-control-file col-sm-9" id="exampleFormControlFile1" accept="image/png, image/jpeg">
