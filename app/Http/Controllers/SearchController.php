@@ -18,6 +18,8 @@ class SearchController extends Controller
         $this->userController = new UserController();
         $this->answerController = new AnswerController();
         $this->questionFollowingController = new QuestionFollowingController();
+        $this->questionLabelController = new QuestionLabelController();
+        $this->labelController = new LabelController();
     }
 
     public function show($content) {
@@ -64,8 +66,16 @@ class SearchController extends Controller
 
         // for sidenavs
         $popular_questions = $this->questionController->listPopular();
+
+        $p_l = $this->questionLabelController->getPopularLabels();
+        $popular_labels = [];
+        $i = 0;
+        foreach($p_l as $l){
+            $popular_labels[$i] = $this->labelController->getLabel($l);
+            $i++;
+        }
         
-        return view('pages.search',['questions' => $questions, 'users' => $users, 'nr_answers' => $nr_answers, 'questions_followed' => $questions_followed, 'KeyWord' => $KeyWord, 'questionsVotes' => $questionsVotes, 'popular_questions' => $popular_questions]);
+        return view('pages.search',['questions' => $questions, 'users' => $users, 'nr_answers' => $nr_answers, 'questions_followed' => $questions_followed, 'KeyWord' => $KeyWord, 'questionsVotes' => $questionsVotes, 'popular_questions' => $popular_questions, 'popular_labels' => $popular_labels]);
     }
 
     public function startSearch(Request $request)

@@ -19,9 +19,14 @@
 </div>
 <div id="sidenav_right" class="sidenav d-none d-md-block">
     <label>Popular labels</label>
+    {{-- 
     <a class="row" href="{{asset('/search/science')}}">#science</a>
     <a class="row" href="{{asset('/search/virus')}}">#virus</a>
     <a class="row" href="{{asset('/search/english')}}">#english</a>
     <a class="row" href="{{asset('/search/culture')}}">#culture</a>
     <a class="row" href="{{asset('/search/music')}}">#music</a>
+    --}}
+    @foreach($popular_labels as $label)
+        <a class="row" href="{{asset('/search/'.$label)}}">#{{$label}}</a>
+    @endforeach
 </div>

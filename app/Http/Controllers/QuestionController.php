@@ -17,6 +17,7 @@ class QuestionController extends Controller
       $this->commentController = new CommentController();
       $this->answerController = new AnswerController();
       $this->labelController = new LabelController();
+      $this->questionLabelController = new QuestionLabelController();
     }
 
     /**
@@ -197,7 +198,15 @@ class QuestionController extends Controller
       // for sidenavs
       $popular_questions = $this->listPopular();
 
-    return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments, 'questions_followed' => $questions_followed, 'labels' => $labels, 'vote' => $vote ,'answersVotes' => $answersVotes, 'popular_questions' => $popular_questions]);
+      $p_l = $this->questionLabelController->getPopularLabels();
+      $popular_labels = [];
+      $i = 0;
+      foreach($p_l as $l){
+          $popular_labels[$i] = $this->labelController->getLabel($l);
+          $i++;
+      }
+
+    return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments, 'questions_followed' => $questions_followed, 'labels' => $labels, 'vote' => $vote ,'answersVotes' => $answersVotes, 'popular_questions' => $popular_questions, 'popular_labels' => $popular_labels]);
     }
 
     public function delete(Request $request, $id)

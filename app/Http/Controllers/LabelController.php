@@ -63,6 +63,11 @@ class LabelController extends Controller
         return $labels;
     }
 
+    public function getLabel($id){
+      $label = Label::find($id);
+      return $label[0]->name;
+    }
+
     public function edit(Request $request, $id) 
     {
       $label = Label::find($id);
