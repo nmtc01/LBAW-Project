@@ -58,8 +58,47 @@ class LabelController extends Controller
      */
     public function list($id)
     {
-        $labels = DB::select(DB::raw("select label.name from question_label, label where question_label.question_id = $id and question_label.label_id = label.id"));
-
+        $labels = DB::select(DB::raw("select label.* from question_label, label where question_label.question_id = $id and question_label.label_id = label.id"));
+        
         return $labels;
+    }
+
+    public function edit(Request $request, $id) 
+    {
+      $label = Label::find($id);
+
+      $this->authorize('edit', $label);
+
+      $label->name = $request->input('name');
+      
+      $info = [$label->name, $id];
+
+      return $info;
+
+    }
+
+    public function update(Request $request, $id) 
+    {
+      $label = Label::find($id);
+
+      $this->authorize('update', $label);
+
+      $label->name = $request->input('name');
+      $label->save();
+      
+      $info = [$label->name, $label->id];
+
+      return $info;
+
+    }
+
+    public function delete(Request $request, $id)
+    {
+      $label = Label::find($id);
+
+      $this->authorize('delete', $label);
+      $label->delete();
+
+      return $label;
     }
 }

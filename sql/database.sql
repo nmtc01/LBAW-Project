@@ -375,7 +375,7 @@ CREATE TRIGGER vote_once
 
 
 --Trigger 9
-CREATE OR REPLACE FUNCTION report_status_responsible() RETURNS TRIGGER AS
+/*CREATE OR REPLACE FUNCTION report_status_responsible() RETURNS TRIGGER AS
 $BODY$
 BEGIN
     IF NOT EXISTS (SELECT user_management.user_id 
@@ -393,7 +393,7 @@ LANGUAGE plpgsql;
 CREATE TRIGGER report_status_responsible
     BEFORE INSERT OR UPDATE ON report_status
     FOR EACH ROW
-    EXECUTE PROCEDURE report_status_responsible();
+    EXECUTE PROCEDURE report_status_responsible();*/
 
 
 --Trigger 10

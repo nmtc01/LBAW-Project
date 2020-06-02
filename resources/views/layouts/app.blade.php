@@ -46,7 +46,7 @@
                         @else
                         <li>
                             <li class="nav-item">
-                                <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#ask_something" type="submit">Ask Something</button>
+                                <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#ask_something">Ask Something</button>
                             </li>
                             <li class="nav-link ml-2">
                                 <div class="dropdown">
@@ -60,19 +60,20 @@
                             <li class="nav-link ml-2">
                                 <div class="dropdown">
                                     <div id="notifications_menu" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuNotificationsButton">
-                                    <?php
-                                    /*$img = array("bob_iger.jpeg","robert-jr.jpg");
-                                    $user = array("pedro_dantas","cr7fan");
-                                    $question = array("Will Erling Braut Haaland be a future winner of the Ballon d’Or?","How can I learn C and C++?");
-                                    for($i = 0; $i < 2; $i++) {
-                                        draw_notification($img[0], $user[0], $question[0]);
-                                        draw_notification($img[1], $user[1], $question[1]);
-                                    }*/
-                                    ?>
+                                    @foreach(Auth::user()->listNotificationsBell(); as $notification)
+                                        @if($notification->question_id != null)
+                                            <a role="button" class="dropdown-item" href="{{ asset('/question/'.$notification->question_id) }}">{{$notification->content}}</a>
+                                        @else
+                                            <a role="button" class="dropdown-item" href="{{ asset('/user/'.Auth::user()->id) }}">{{$notification->content}}</a>
+                                        @endif
+                                    @endforeach
                                     </div>
                                 </div>
+                                @if(Auth::user()->hasSeen())
                                 <a role="button" class="fas fa-bell fa-lg dropdown-toggle" id="dropdownMenuNotificationsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                                </a>
+                                @else
+                                <a role="button" class="fas fa-bell fa-lg yellow dropdown-toggle" id="dropdownMenuNotificationsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                                @endif
                             </li>
                         </li>
                         @endif
@@ -103,7 +104,7 @@
                                     <textarea class="form-control" id="formControlTextareaDescription" rows="3"></textarea>
                                 </div>
                                 <div id="labels">
-                                    <a class="badge badge-dark badge-pill" id="add_label">+ Label</a>
+                                    <a class="badge badge-dark badge-pill" id="create_label">+ Label</a>
                                 </div>
                                 <div id="form-buttons" class="form-group row">
                                     <input type="file" class="form-control-file col-sm-9" id="exampleFormControlFile1" accept="image/png, image/jpeg">

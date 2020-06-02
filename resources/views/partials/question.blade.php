@@ -46,10 +46,26 @@
         <p class="row-sm text-truncate" id="username-question"><a href="{{ asset('/user/'.$user->id) }}">{{ $user->username }}</a></p>
     </div>
 </div>
+@if ($user->getUserCurrentRole() == 'banned')
+<div class="alert alert-danger">
+    The owner of this question was banned due to inappropriate behavior.
+</div>
+@elseif ($user->getUserCurrentRole() == 'deleted')
+<div class="alert alert-danger">
+    The owner of this question deleted the account.
+</div>
+@endif
 <div>
     <p id="question_description">{{ $question->description }}</p>
     @foreach ($labels as $label)
-    <a class="badge badge-dark badge-pill" id="question_label">{{ $label->name }}</a>
+    <a class="badge badge-dark badge-pill labels" id="question_label{{ $label->id }}" data-id="{{ $label->id }}">{{ $label->name }}
+        @if(Auth::check())
+            @if(Auth::user()->getUserCurrentRole() == 'administrator' ||
+                Auth::user()->id == $question->user_id)
+        <span class="x-label"> x</span>
+            @endif
+        @endif
+    </a>
     @endforeach
     <div class=icons>
 
@@ -101,7 +117,7 @@
         </a>
         @endif
         <a class="icon-answers">
-            <i class="fas fa-bug"> Report</i>
+            <i class="fas fa-bug" data-toggle="modal" data-target="#report_something"> Report</i>
         </a>
     </div>
 </div>

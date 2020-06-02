@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\User;
+use App\Notification;
 use App\UserManagement;
 
 class UserController extends Controller
@@ -36,30 +37,53 @@ class UserController extends Controller
     }
 
     public function profile($id) {
-      /*$questions = $this->questionController->list();
+      if (!Auth::check())
+        return redirect('/');
 
-      $questions_followed=[];
-      if(Auth::check()){
-          $questions_followed = $this->questionFollowingController->listFollowedQuestions();
-      }
-      
-      
       $users = [];
       $nr_answers = [];
       $questionsVotes = [];
+      $nr_answers = [];
 
-      foreach($questions as $question){
-          $users[$question->id] = $this->userController->getUsername($question->user_id);
-          $nr_answers[$question->id] = $this->answerController->getNrAnswers($question->id);
-          if(Auth::check()){
-              $questionsVotes[$question->id] = DB::table('vote')->where([['user_id', Auth::user()->id], ['question_id', $question->id],])->first();
-          }else $questionsVotes[$question->id] = 0;
-      }*/
+      $userQuestions = DB::select(DB::raw("SELECT question.*
+      from question 
+      where question.user_id = $id
+      limit 5;"));
 
-      //$userInfo = DB::select(DB::raw("select * from 'user' where id = $id"));
-      $userInfo = DB::table('user')->where('id', $id)->first();
+      $answerController = new AnswerController();
+      
+      foreach($userQuestions as $question){
+        $nr_answers[$question->id] = $answerController->getNrAnswers($question->id);
+        
+      }
 
-      return view('pages.profile', ['userInfo' => $userInfo]);
+      $userInfo = User::find($id);
+
+      return view('pages.profile', ['userInfo' => $userInfo, 'userQuestions' => $userQuestions, 'nr_answers' => $nr_answers,]);
+    }
+
+    public function listReported(){
+
+      $userReports = [];
+      
+      $reportedUsers = DB::table('user')
+                          ->join('report', 'user.id', '=', 'report.user_id')
+                          ->join('report_status', 'report.id', '=', 'report_status.report_id')
+                          ->select('user.*')
+                          ->where('report_status.state', '<>', 'resolved')
+                          ->groupby('user.id')
+                          ->get();
+
+      foreach($reportedUsers as $reportedUser) {
+        $userReports[$reportedUser->id] = DB::table('report')
+                                                  ->where('user_id', $reportedUser->id)
+                                                  ->get();
+      }
+
+      $info = ['userReports' => $userReports, 'reportedUsers' => $reportedUsers];
+
+      return $info;
+      
     }
 
     public function editProfile(Request $request, $id){
@@ -78,4 +102,29 @@ class UserController extends Controller
       error_log($id);
       return $info;
     }
+    
+    public function listBestScoreUsers(){
+      $best = DB::table('user')
+                  ->join('user_management', 'user.id', '=', 'user_management.user_id')
+                  ->select('user.*')
+                  ->where('user_management.status', 'user')
+                  ->orderByRaw('score DESC')
+                  ->limit(10)
+                  ->get();
+
+      return $best;
+    }
+
+    public function listBestScoreModerators(){
+      $best = DB::table('user')
+                  ->join('user_management', 'user.id', '=', 'user_management.user_id')
+                  ->select('user.*')
+                  ->where('user_management.status', 'moderator')
+                  ->orderByRaw('score DESC')
+                  ->limit(10)
+                  ->get();
+
+      return $best;
+    }
+
 }

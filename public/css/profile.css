@@ -17,3 +17,13 @@
     right: 0;
     top: 0;
 }
+
+.question-header-profile{
+    text-decoration: none;
+    color: black;
+}
+
+.question-header-profile:hover{
+    text-decoration: none;
+    color: black;
+}

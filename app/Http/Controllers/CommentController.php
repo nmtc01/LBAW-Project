@@ -102,12 +102,13 @@ class CommentController extends Controller
 
     public function listReported(){
 
-      //TODO report message
       $commentReports = [];
       
       $reportedComments = DB::table('comment')
                           ->join('report', 'comment.id', '=', 'report.comment_id')
+                          ->join('report_status', 'report.id', '=', 'report_status.report_id')
                           ->select('comment.*')
+                          ->where('report_status.state', '<>', 'resolved')
                           ->groupby('comment.id')
                           ->get();
 

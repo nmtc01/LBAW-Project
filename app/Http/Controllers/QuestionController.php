@@ -16,7 +16,6 @@ class QuestionController extends Controller
       $this->userController = new UserController();
       $this->commentController = new CommentController();
       $this->answerController = new AnswerController();
-      //$this->questionFollowingController = new QuestionFollowingController();
       $this->labelController = new LabelController();
     }
 
@@ -225,7 +224,7 @@ class QuestionController extends Controller
       $question->description = $request->input('description');
       $question->save();
       
-      $info = [$question->title, $question->description];
+      $info = [$question->title, $question->description, $question->id];
 
       return $info;
 
@@ -245,18 +244,20 @@ class QuestionController extends Controller
      */
     public function listReported()
     {
-      //TODO report message
       $questionsReports = [];
       
       $reportedQuestions = DB::table('question')
                           ->join('report', 'question.id', '=', 'report.question_id')
+                          ->join('report_status', 'report.id', '=', 'report_status.report_id')
                           ->select('question.*')
+                          ->where('report_status.state', '<>', 'resolved')
                           ->groupby('question.id')
                           ->get();
 
       foreach($reportedQuestions as $reportedQuestion) {
         $questionsReports[$reportedQuestion->id] = DB::table('report')
-                                                  ->where('question_id', $reportedQuestion->id)
+                                                  ->select('report.*')
+                                                  ->where('report.question_id', $reportedQuestion->id)
                                                   ->get();
       }
 

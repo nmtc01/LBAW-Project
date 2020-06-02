@@ -80,7 +80,7 @@
     padding: 2rem;
 }
 
-.wrapper .media-body .comment div {
+.wrapper .media-body .comment div.content {
     border-top-style: solid;
     border-top-width: .05rem;
     padding-top: 0.1rem;
@@ -196,4 +196,12 @@ li.answer_item .ans-body p {
 
 #question_title {
     color: #34556a;
+}
+
+.collapsed_report {
+    margin-top: 1rem;
+}
+
+.x-label {
+    color:#207fae;
 }

@@ -55,6 +55,9 @@ Route::put('/api/answer/{id}/downvote', 'VoteController@addDislikeA');
 //Labels
 Route::put('/api/label', 'LabelController@startLabel');
 Route::post('/api/label', 'LabelController@create');
+Route::put('/api/label/{id}', 'LabelController@edit');
+Route::put('/api/label/{id}/update', 'LabelController@update');
+Route::delete('/api/label/{id}', 'LabelController@delete');
 
 // Static pages
 Route::get('/about', 'StaticController@about');
@@ -66,8 +69,19 @@ Route::post('/search', 'SearchController@startSearch');
 
 // Moderate
 Route::get('/admin', 'ModerationController@show');
+Route::post('/admin/{report_id}', 'ReportStatusController@resolve');
+Route::put('/api/question/{id}/report', 'ReportController@createQ');
+Route::put('/api/answer/{id}/report', 'ReportController@createA');
+Route::put('/api/comment/{id}/report', 'ReportController@createC');
+Route::put('/user/{id}/promote', 'ModerationController@promote');
+Route::put('/user/{id}/demote', 'ModerationController@demote');
+Route::put('/user/{id}/ban', 'ModerationController@ban');
 
 //Profile
 Route::get('/user/{id}', 'UserController@profile');
 Route::put('/api/user/{id}', 'UserController@editProfile');
+Route::put('/user/{id}/delete', 'ModerationController@delete');
+
+// Notification
+Route::put('/api/notification', 'NotificationController@update');
 

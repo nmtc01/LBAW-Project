@@ -190,6 +190,70 @@ function addEventListeners() {
     if (editProfile != null) {
         editProfile.addEventListener('click', sendEditProfileRequest);
     }
+    // reports
+
+    let resolvers = document.querySelectorAll('.resolve-btn');
+    if (resolvers != null)
+        [].forEach.call(resolvers, function(resolveReport) {
+            resolveReport.addEventListener('click', sendResolveReportRequest);
+        });
+
+    let questionReporter = document.querySelector('#report_question');
+    if (questionReporter != null) {
+        questionReporter.addEventListener('click', sendReportQuestionRequest);
+    }
+
+    let answerReporters = document.querySelectorAll('.report_answer');
+    if (answerReporters != null)
+        [].forEach.call(answerReporters, function(reportAnswer) {
+            reportAnswer.addEventListener('click', sendReportAnswerRequest);
+        });
+
+    let commentReporters = document.querySelectorAll('.report_comment');
+    if (commentReporters != null)
+        [].forEach.call(commentReporters, function(reportComment) {
+            reportComment.addEventListener('click', sendReportCommentRequest);
+        });
+
+    // moderate
+
+    let promoter = document.querySelector('#promote-btn');
+    if (promoter != null) {
+        promoter.addEventListener('click', sendPromoteRequest);
+    }
+
+    let demoter = document.querySelector('#demote-btn');
+    if (demoter != null) {
+        demoter.addEventListener('click', sendDemoteRequest);
+    }
+
+    let banner = document.querySelector('#ban-btn');
+    if (banner != null) {
+        banner.addEventListener('click', sendBanRequest);
+    }
+
+    let accountDeleter = document.querySelector('#delete-account-btn');
+    if (accountDeleter != null) {
+        accountDeleter.addEventListener('click', sendDeleteAccountRequest);
+    }
+
+    // notifications
+
+    let notificationBell = document.querySelector('#dropdownMenuNotificationsButton.yellow');
+    if (notificationBell != null) {
+        notificationBell.addEventListener('click', sendUpdateNotificationsRequest);
+    }
+
+    // labels
+    let labelDeleters = document.querySelectorAll('.x-label');
+    if (labelDeleters != null)
+        [].forEach.call(labelDeleters, function(deleter) {
+            deleter.addEventListener('click', sendDeleteLabelRequest);
+        });
+
+    let labelCreater = document.getElementById('create_label');
+    if (labelCreater != null)
+        labelCreater.addEventListener('click', sendAddLabelRequest);
 }
 
 
@@ -217,6 +281,15 @@ function sendAjaxRequest(method, url, data, handler) {
 /**
  * Handlers 
  */
+function resolvedReport() {
+    if (this.status == 200) {
+        window.location = "/admin";
+    }
+}
+
+function reportAddedHanlder() {
+
+}
 
 function editProfileHandler() {
     info = JSON.parse(this.responseText);
@@ -384,6 +457,14 @@ function questionDeletedHandler() {
     div.remove();
 }
 
+function labelDeletedHandler() {
+    if (this.status == 200) {
+        let label = JSON.parse(this.responseText);
+        let a = document.querySelector('div#question-div #question_label' + label.id);
+        a.remove();
+    }
+}
+
 function questionEditedHandler() {
     let info = JSON.parse(this.responseText);
 
@@ -400,6 +481,24 @@ function questionEditedHandler() {
     // Focus 
     new_title.focus();
     new_description.focus();
+
+    addEventListeners();
+}
+
+function labelEditedHandler() {
+    let info = JSON.parse(this.responseText);
+
+    // Edit Label
+    let new_name = editLabelName(info);
+    let new_label = createAddLabelBtn();
+
+    let badge_name = document.querySelector("div#question-div #question_label" + info[1]);
+
+    badge_name.innerHTML = new_name.innerHTML;
+    badge_name.after(new_label);
+
+    // Focus 
+    new_name.focus();
 
     addEventListeners();
 }
@@ -448,6 +547,31 @@ function questionUpdatedHandler() {
     // Focus 
     new_title.focus();
     new_description.focus();
+
+    sendCreateLabelsRequest(info[2]);
+
+    addEventListeners();
+}
+
+function labelUpdatedHandler() {
+    let info = JSON.parse(this.responseText);
+
+    // Update question
+    let new_name = updateLabelName(info);
+
+    let badge_name = document.querySelector("div#question-div #question_label" + info[1]);
+    //let labels = document.querySelectorAll(".label_form");
+
+    badge_name.outerHTML = new_name.innerHTML;
+
+    /*for (let i = 0; i < labels.length; i++) {
+        labels[i].innerHTML =  `<a class="badge badge-dark badge-pill labels" id="question_label34" data-id="34">${labels[i].textContent}
+                                    <span class="x-label"> x</span>
+                                </a>`
+    }*/
+
+    // Focus 
+    new_name.focus();
 
     addEventListeners();
 }
@@ -612,13 +736,22 @@ function unfollowRequestHandlerQ() {
 
 }
 
+function manageUsersHandler() {
+    if (this.status == 200)
+        window.location = '/admin';
+}
+
+function manageDeletedUserHandler() {
+    if (this.status == 200)
+        window.location = '/login';
+}
 
 /**
  * Send requests
  */
 
 function sendEditProfileRequest() {
-    let id = this.closest('#userProfile').getAttribute('data-id');
+    let id = document.getElementById("manage_users").getAttribute('data-id');
     let first_name = document.getElementById("first_name").value;
     let last_name = document.getElementById("last_name").value;
     let email = document.getElementById("email").value;
@@ -672,6 +805,11 @@ function sendDeleteQuestionRequest() {
     sendAjaxRequest('delete', '/api/question/' + id, null, questionDeletedHandler);
 }
 
+function sendDeleteLabelRequest(event) {
+    let id = event.target.parentElement.getAttribute('data-id');
+    sendAjaxRequest('delete', '/api/label/' + id, null, labelDeletedHandler);
+}
+
 function sendEditQuestionRequest() {
     let id = this.closest('div#question-div').getAttribute('data-id');
     let title = document.querySelector("div#question-div h1").textContent;
@@ -679,6 +817,16 @@ function sendEditQuestionRequest() {
 
     if (title != '' && description != '')
         sendAjaxRequest('put', '/api/question/' + id, { title: title, description: description }, questionEditedHandler);
+
+    let labels = document.querySelectorAll('.badge.badge-dark.badge-pill.labels');
+    [].forEach.call(labels, function(label) {
+        let label_id = label.getAttribute('data-id');
+        let name = label.textContent;
+        let span = label.firstChild.textContent;
+        name = name.substring(0, span.length);
+        if (label_id != '' && name != '')
+            sendAjaxRequest('put', '/api/label/' + label_id, { name: name }, labelEditedHandler);
+    });
 }
 
 function sendEditAnswerRequest() {
@@ -705,6 +853,14 @@ function sendUpdateQuestionRequest() {
 
     if (title != "" && description != "")
         sendAjaxRequest('put', '/api/question/' + id + '/update', { title: title, description: description }, questionUpdatedHandler);
+
+    let labels = document.querySelectorAll('.badge.badge-dark.badge-pill.labels');
+    [].forEach.call(labels, function(label) {
+        let label_id = label.getAttribute('data-id');
+        let name = label.firstChild.value;
+        if (label_id != '' && name != '')
+            sendAjaxRequest('put', '/api/label/' + label_id + '/update', { name: name }, labelUpdatedHandler);
+    });
 }
 
 function sendUpdateAnswerRequest() {
@@ -782,7 +938,6 @@ function sendCreateLabelsRequest(question_index) {
         if (forms[i] == null)
             return;
         let name = forms[i].value;
-
         if (name != '')
             sendAjaxRequest('post', '/api/label', { name: name, question_index: question_index });
     }
@@ -828,6 +983,122 @@ function setBestAnswerRequest() {
 
 }
 
+// reports
+
+function sendResolveReportRequest(event) {
+    let div = event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+    let id = div.getAttribute('data-id');
+    let type = div.getAttribute('id')
+
+    let class1;
+    let id2;
+
+    if (type == 'reported_question' + id) {
+        class1 = 'reportForQuestion';
+        id2 = 'resolveReportedQuestion';
+    } else if (type == 'reported_answer' + id) {
+        class1 = 'reportForAnswer';
+        id2 = 'resolveReportedAnswer';
+    } else if (type == 'reported_comment' + id) {
+        class1 = 'reportForComment';
+        id2 = 'resolveReportedComment';
+    } else if (type == 'reported_user' + id) {
+        class1 = 'reportForUser';
+        id2 = 'resolveReportedUser';
+    }
+
+    let reports = document.querySelectorAll('.modal-report.' + class1 + '' + id);
+    [].forEach.call(reports, function(reports) {
+        let report_id = reports.getAttribute('data-id');
+        let comment = document.querySelector("#" + id2 + "" + id + " textarea").value;
+        if (comment != '' && report_id != '')
+            sendAjaxRequest('post', '/admin/' + report_id, { comment: comment }, resolvedReport);
+    });
+}
+
+function sendReportQuestionRequest() {
+    let id = document.getElementById('question-div').getAttribute('data-id');
+    let elem = document.querySelector('#report_something textarea');
+    let description = '';
+
+    if (elem != null)
+        description = elem.value;
+
+    if (id != '' && description != '')
+        sendAjaxRequest('put', '/api/question/' + id + '/report', { description: description }, reportAddedHanlder);
+
+    elem.value = "";
+    event.preventDefault();
+}
+
+function sendReportAnswerRequest() {
+    let id = this.closest('li').getAttribute('data-id');
+    let elem = document.querySelector('#collapseReportAnswer' + id + ' textarea');
+    let description = '';
+
+    if (elem != null)
+        description = elem.value;
+
+    if (id != '' && description != '')
+        sendAjaxRequest('put', '/api/answer/' + id + '/report', { description: description }, reportAddedHanlder);
+
+    elem.value = "";
+    event.preventDefault();
+}
+
+function sendReportCommentRequest() {
+    let id = this.closest('div.comment').getAttribute('data-id');
+    let elem = document.querySelector('#collapseReportComment' + id + ' textarea');
+    let description = '';
+
+    if (elem != null)
+        description = elem.value;
+
+    if (id != '' && description != '')
+        sendAjaxRequest('put', '/api/comment/' + id + '/report', { description: description }, reportAddedHanlder);
+
+    elem.value = "";
+    event.preventDefault();
+}
+
+// moderate
+
+function sendPromoteRequest() {
+    let id = this.closest('#manage_users').getAttribute('data-id');
+
+    if (id != '')
+        sendAjaxRequest('put', '/user/' + id + '/promote', null, manageUsersHandler);
+}
+
+function sendDemoteRequest() {
+    let id = this.closest('#manage_users').getAttribute('data-id');
+
+    if (id != '')
+        sendAjaxRequest('put', '/user/' + id + '/demote', null, manageUsersHandler);
+}
+
+function sendBanRequest() {
+    let id = this.closest('#manage_users').getAttribute('data-id');
+
+    if (id != '')
+        sendAjaxRequest('put', '/user/' + id + '/ban', null, manageUsersHandler);
+}
+
+function sendDeleteAccountRequest() {
+    let id = this.closest('#manage_users').getAttribute('data-id');
+
+    if (id != '')
+        sendAjaxRequest('put', '/user/' + id + '/delete', null, manageDeletedUserHandler);
+}
+
+
+// notifications
+
+function sendUpdateNotificationsRequest() {
+    sendAjaxRequest('put', '/api/notification', null, notificationsHandler);
+}
+
+
 
 /**
  * Auxiliary functions
@@ -851,6 +1122,22 @@ function editDescription(info) {
 
     return new_question;
 
+}
+
+function editLabelName(info) {
+    let new_name = document.createElement('name');
+    new_name.innerHTML = `<input class="form-control" type="text" value="${info[0]}">`;
+
+    return new_name;
+
+}
+
+function createAddLabelBtn() {
+    let new_label = document.createElement('label');
+    new_label.innerHTML = `<div id="labels">
+                                <a class="badge badge-dark badge-pill" id="add_label">+ Label</a>
+                            </div>`;
+    return new_label;
 }
 
 function editAnswerContent(info) {
@@ -888,6 +1175,15 @@ function updateDescription(info) {
 
     return new_question;
 
+}
+
+function updateLabelName(info) {
+    let new_label = document.createElement('label');
+    new_label.innerHTML = `<a class="badge badge-dark badge-pill labels" id="question_label${info[1]}" data-id="${info[1]}">${info[0]}
+                            <span class="x-label"> x</span>
+                           </a>`;
+
+    return new_label;
 }
 
 function updateAnswerContent(info) {
@@ -933,7 +1229,7 @@ function createAnswer(info) {
                                         <a class="icon-answers" data-toggle="collapse" href="#collapsed_comments${info[3]}">
                                             <i class="fas fa-comment">0</i>
                                         </a>
-                                        <a class="icon-answers">
+                                        <a class="icon-answers" data-toggle="collapse" data-target="#collapseReportAnswer${info[3]}" aria-expanded="false">
                                             <i class="fas fa-bug"> Report</i>
                                         </a>
                                         <a class="icon-answers edit_answer_btn" id="edit_answer${info[3]}">
@@ -958,6 +1254,20 @@ function createAnswer(info) {
                                         </div>  
                                     </div>
                                 </div>
+                                <div class="collapse collapsed_report" id="collapseReportAnswer${info[3]}">
+                                    <div class="card card-header">
+                                        <h5>Help us</h5>
+                                    </div>
+                                    <div class="card card-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="formControlTextareaQuestion">Write here a brief description of the problem</label>
+                                                <textarea class="form-control" rows="5"></textarea>
+                                            </div>
+                                        </form>
+                                        <button type="submit" class="btn btn-primary report_answer" data-toggle="collapse" data-target="#collapseReportAnswer${info[3]}">Send</button>
+                                    </div>
+                                </div>
                             </li>`;
 
     return new_answer;
@@ -969,9 +1279,9 @@ function createComment(info) {
     new_comment.setAttribute('data-id', info[3]);
     new_comment.classList.add('comment');
     new_comment.setAttribute('id', 'comment' + info[3]);
-    new_comment.innerHTML = `<div>
+    new_comment.innerHTML = `<div class="content">
                                 <a href="/user/${info[4]}" class="username">${info[1]}</a>
-                                <a class="icon-comments">
+                                <a class="icon-comments" data-toggle="collapse" data-target="#collapseReportComment${info[3]}" aria-expanded="false">
                                     <i class="fas fa-bug"> Report</i>
                                 </a>
                                 <a class="icon-comments edit_comment_btn" id="edit_comment${info[3]}">
@@ -987,6 +1297,20 @@ function createComment(info) {
                                 <p id="comment_content">
                                     ${info[0]}
                                 </p>
+                            </div>
+                            <div class="collapse collapsed_report" id="collapseReportComment${info[3]}">
+                                <div class="card card-header">
+                                    <h5>Help us</h5>
+                                </div>
+                                <div class="card card-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="formControlTextareaQuestion">Write here a brief description of the problem</label>
+                                            <textarea class="form-control" rows="2"></textarea>
+                                        </div>
+                                    </form>
+                                    <button type="submit" class="btn btn-primary report_comment" data-toggle="collapse" data-target="#collapseReportComment${info[3]}">Send</button>
+                                </div>
                             </div>`;
 
 
@@ -1405,10 +1729,16 @@ function setBestAnswerHandler() {
 
     }
 
+}
 
+// notifications
 
+function notificationsHandler() {
 
+    let bell = document.querySelector("#dropdownMenuNotificationsButton.yellow");
+    bell.classList.remove('yellow');
 
+    addEventListeners();
 
 }
 

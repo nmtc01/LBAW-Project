@@ -10,6 +10,30 @@
 @endsection
 
 @section('content')
+<div class="modal fade" id="report_something" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Help us</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="formControlTextareaQuestion">Write here a brief description of the problem</label>
+                        <textarea class="form-control" rows="5"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="report_question" type="submit" class="btn btn-primary" data-dismiss="modal">Send</button>
+            </div>
+        </div>
+    </div>
+</div> 
+
 <div id="question-div" class="container-fluid col-md-6" data-id = "{{$question->id}}">
     <div class="wrapper">
         @include('partials.question')

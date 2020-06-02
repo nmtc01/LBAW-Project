@@ -13,6 +13,7 @@ class AnswerController extends Controller
 {
     public function __construct(){
       $this->commentController = new CommentController();
+      $this->notificationController = new NotificationController();
     }
 
 
@@ -53,6 +54,31 @@ class AnswerController extends Controller
       $answer->user_id = Auth::user()->id;
       $answer->question_id = $request->input('question_index');
       $answer->save();
+
+      // notifies question's user
+
+      $notification_question = DB::table('question')
+                  ->select('question.*')
+                  ->where('question.id', $answer->question_id)
+                  ->first();
+      $content = 'A user has answered a question of yours';
+
+      DB::table('notification')->insert([
+        ['content' => $content, 'user_id' => $notification_question->user_id, 'question_id' => $notification_question->id]
+      ]);
+
+      $notification_follow = DB::table('question_following')
+                            ->select('question_following.*')
+                            ->where('question_following.question_id', $answer->question_id)
+                            ->get();
+      $content = 'A user has answered a question you follow';
+      foreach($notification_follow as $n){
+        DB::table('notification')->insert([
+          ['content' => $content, 'user_id' => $n->user_id, 'question_id' => $n->question_id]
+        ]);
+      }
+
+      // ----
       
       $username = Auth::user()->username;
       $user_score = Auth::user()->score;
@@ -152,12 +178,13 @@ class AnswerController extends Controller
 
     public function listReported(){
 
-      //TODO report message
       $answerReports = [];
       
       $reportedAnswers = DB::table('answer')
                           ->join('report', 'answer.id', '=', 'report.answer_id')
+                          ->join('report_status', 'report.id', '=', 'report_status.report_id')
                           ->select('answer.*')
+                          ->where('report_status.state', '<>', 'resolved')
                           ->groupby('answer.id')
                           ->get();
 

@@ -283,3 +283,7 @@ a.badge-dark.badge-pill {
 #search-bar form input {
     width: 100%;
 }
+
+#dropdownMenuNotificationsButton.yellow{
+    color: gold;
+}
