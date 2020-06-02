@@ -108,11 +108,18 @@ class ModerationController extends Controller
         if ($currentRole == 'user') {
             $user_management->status = 'moderator';
             $user_management->save();
+            $content = 'You have been promoted to Moderator!';
         }
         else if ($currentRole == 'moderator') {
             $user_management->status = 'administrator';
             $user_management->save();
+            $content = 'You have been promoted to Administrator!';
         }
+
+        // notifies user's promotion
+        DB::table('notification')->insert([
+            ['content' => $content, 'user_id' => $id]
+        ]);
     }
 
     public function demote($id) {
@@ -131,11 +138,18 @@ class ModerationController extends Controller
         if ($currentRole == 'moderator') {
             $user_management->status = 'user';
             $user_management->save();
+            $content = 'You have been demoted to an average User.';
         }
         else if ($currentRole == 'administrator') {
             $user_management->status = 'moderator';
             $user_management->save();
+            $content = 'You have been demoted to Moderator.';
         }
+
+        // notifies user's promotion
+        DB::table('notification')->insert([
+            ['content' => $content, 'user_id' => $id]
+        ]);
     }
 
     public function ban($id) {

@@ -86,6 +86,22 @@ class UserController extends Controller
       
     }
 
+    public function editProfile(Request $request, $id){
+      $user = User::find($id);
+
+      $user->first_name = $request->input('first_name');
+      $user->last_name = $request->input('last_name');
+      $user->email = $request->input('email');
+      $user->bio = $request->input('description');
+      $user->username = $request->input('username');
+
+      $user->save();
+      
+      $info = [$id];
+
+      return $info;
+    }
+
     public function listBestScoreUsers(){
       $best = DB::table('user')
                   ->join('user_management', 'user.id', '=', 'user_management.user_id')

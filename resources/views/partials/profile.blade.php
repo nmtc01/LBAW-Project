@@ -186,50 +186,50 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="{{$userInfo->first_name}}">
+                                <input class="form-control" id="first_name" type="text" value="{{$userInfo->first_name}}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Last name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="{{$userInfo->last_name}}">
+                                <input class="form-control" id="last_name" type="text" value="{{$userInfo->last_name}}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Email</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" value="{{$userInfo->email}}">
+                                <input class="form-control" id="email" type="email" value="{{$userInfo->email}}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Description</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="{{$userInfo->bio}}">
+                                <input class="form-control" id="bio" type="text" value="{{$userInfo->bio}}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Username</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="{{$userInfo->username}}">
+                                <input class="form-control" id="username" type="text" value="{{$userInfo->username}}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Password</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password">
+                                <input class="form-control" id="password" type="password">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password">
+                                <input class="form-control" id="confirmPassword" type="password">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
                                 <input type="reset" class="btn btn-secondary" value="Cancel">
-                                <input type="button" class="btn btn-primary" value="Save Changes">
+                                <input type="button" class="btn btn-primary" id="editProfile" value="Save Changes">
                             </div>
                         </div>
                     </form>

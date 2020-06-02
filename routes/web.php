@@ -79,6 +79,7 @@ Route::put('/user/{id}/ban', 'ModerationController@ban');
 
 //Profile
 Route::get('/user/{id}', 'UserController@profile');
+Route::put('/api/user/{id}', 'UserController@editProfile');
 Route::put('/user/{id}/delete', 'ModerationController@delete');
 
 // Notification

@@ -64,7 +64,7 @@
                                         @if($notification->question_id != null)
                                             <a role="button" class="dropdown-item" href="{{ asset('/question/'.$notification->question_id) }}">{{$notification->content}}</a>
                                         @else
-                                            <a role="button" class="dropdown-item" href="">{{$notification->content}}</a>
+                                            <a role="button" class="dropdown-item" href="{{ asset('/user/'.Auth::user()->id) }}">{{$notification->content}}</a>
                                         @endif
                                     @endforeach
                                     </div>
