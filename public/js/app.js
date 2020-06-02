@@ -235,7 +235,7 @@ function addEventListeners() {
 
     // notifications
 
-    let notificationBell = document.querySelector('#dropdownMenuNotificationsButton2');
+    let notificationBell = document.querySelector('#dropdownMenuNotificationsButton.yellow');
     if (notificationBell != null) {
         notificationBell.addEventListener('click', sendUpdateNotificationsRequest);
     }
@@ -1716,12 +1716,8 @@ function setBestAnswerHandler(){
 
 function notificationsHandler(){
 
-    let bell = document.querySelector("#dropdownMenuNotificationsButton2");
-
-    let new_bell = document.createElement('i');
-    new_bell.innerHTML = `<a role="button" class="fas fa-bell fa-lg dropdown-toggle" id=" dropdownMenuNotificationsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>`;
-
-    bell.outerHTML = new_bell.innerHTML;
+    let bell = document.querySelector("#dropdownMenuNotificationsButton.yellow");
+    bell.classList.remove('yellow');
     
     addEventListeners();
 
