@@ -99,10 +99,9 @@ class UserController extends Controller
       
       $info = [$id];
 
-      error_log($id);
       return $info;
     }
-    
+
     public function listBestScoreUsers(){
       $best = DB::table('user')
                   ->join('user_management', 'user.id', '=', 'user_management.user_id')

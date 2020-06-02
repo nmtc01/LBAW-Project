@@ -760,11 +760,11 @@ function sendEditProfileRequest() {
     let password = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirmPassword").value;
 
-    //if (password == confirmPassword) {
-    sendAjaxRequest('put', '/api/user/' + id, { first_name: first_name, last_name: last_name, email: email, description: description, username: username, password: password }, editProfileHandler);
-    //} else {
-    //    return;
-    //}
+    if (password == confirmPassword) {
+        sendAjaxRequest('put', '/api/user/' + id, { first_name: first_name, last_name: last_name, email: email, description: description, username: username, password: password }, editProfileHandler);
+    } else {
+        return;
+    }
 }
 
 function sendSearchRequest(e) {
