@@ -61,4 +61,21 @@ class UserController extends Controller
 
       return view('pages.profile', ['userInfo' => $userInfo]);
     }
+
+    public function editProfile(Request $request, $id){
+      $user = User::find($id);
+
+      $user->first_name = $request->input('first_name');
+      $user->last_name = $request->input('last_name');
+      $user->email = $request->input('email');
+      $user->bio = $request->input('description');
+      $user->username = $request->input('username');
+
+      $user->save();
+      
+      $info = [$id];
+
+      error_log($id);
+      return $info;
+    }
 }

@@ -69,4 +69,5 @@ Route::get('/admin', 'ModerationController@show');
 
 //Profile
 Route::get('/user/{id}', 'UserController@profile');
+Route::put('/api/user/{id}', 'UserController@editProfile');
 

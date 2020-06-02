@@ -67,56 +67,56 @@ function addEventListeners() {
 
     let questionDislikeP = document.querySelector('.dislike1P');
     if (questionDislikeP != null)
-        questionDislikeP.addEventListener('click', QuestionDislikeQ);        
+        questionDislikeP.addEventListener('click', QuestionDislikeQ);
 
     let answerLike = document.querySelectorAll('.like2');
-    if (answerLike != null){
+    if (answerLike != null) {
         [].forEach.call(answerLike, function(al) {
             al.addEventListener('click', QuestionLikeA);
-        });   
+        });
     }
 
     let answerLikeP = document.querySelectorAll('.like2P');
-    if (answerLikeP != null){
+    if (answerLikeP != null) {
         [].forEach.call(answerLikeP, function(alP) {
             alP.addEventListener('click', QuestionLikeA);
-        });   
+        });
     }
-        
-    
+
+
     let answerdislike = document.querySelectorAll('.dislike2');
-    if (answerdislike != null){
+    if (answerdislike != null) {
         [].forEach.call(answerdislike, function(ad) {
             ad.addEventListener('click', QuestionDislikeA);
-        });   
+        });
     }
 
     let answerdislikeP = document.querySelectorAll('.dislike2P');
-    if (answerdislikeP != null){
+    if (answerdislikeP != null) {
         [].forEach.call(answerdislikeP, function(adP) {
             adP.addEventListener('click', QuestionDislikeA);
-        });   
+        });
     }
 
     let homeLike = document.querySelectorAll('.like3');
-        [].forEach.call(homeLike, function(homeL) {
-            homeL.addEventListener('click', homeLikeF);
-        });   
+    [].forEach.call(homeLike, function(homeL) {
+        homeL.addEventListener('click', homeLikeF);
+    });
 
     let homeDislike = document.querySelectorAll('.dislike3');
-        [].forEach.call(homeDislike, function(homeD) {
-            homeD.addEventListener('click', homeDislikeF);
-        });    
+    [].forEach.call(homeDislike, function(homeD) {
+        homeD.addEventListener('click', homeDislikeF);
+    });
 
     let homeLikeP = document.querySelectorAll('.like3P');
-        [].forEach.call(homeLikeP, function(homeLP) {
-            homeLP.addEventListener('click', homeLikeF);
-        });   
+    [].forEach.call(homeLikeP, function(homeLP) {
+        homeLP.addEventListener('click', homeLikeF);
+    });
 
     let homeDislikeP = document.querySelectorAll('.dislike3P');
-        [].forEach.call(homeDislikeP, function(homeDP) {
-            homeDP.addEventListener('click', homeDislikeF);
-        }); 
+    [].forEach.call(homeDislikeP, function(homeDP) {
+        homeDP.addEventListener('click', homeDislikeF);
+    });
 
     let answerEditors = document.querySelectorAll('.edit_answer_btn');
     if (answerEditors != null)
@@ -186,6 +186,10 @@ function addEventListeners() {
             bestAnswer.addEventListener('click', setBestAnswerRequest);
         });
 
+    let editProfile = document.querySelector('#editProfile');
+    if (editProfile != null) {
+        editProfile.addEventListener('click', sendEditProfileRequest);
+    }
 }
 
 
@@ -214,8 +218,16 @@ function sendAjaxRequest(method, url, data, handler) {
  * Handlers 
  */
 
+function editProfileHandler() {
+    info = JSON.parse(this.responseText);
+
+    if (this.status == 200) {
+        window.location = '/user/' + info[0];
+    }
+}
+
 function showSearchHandler() {
-    if (this.status == 200) 
+    if (this.status == 200)
         window.location = '/search/' + this.responseText;
 }
 
@@ -226,7 +238,7 @@ function questionAddedHandler() {
     document.getElementById("formControlTextareaQuestion").value = "";
     document.getElementById("formControlTextareaDescription").value = "";
 
-    if (this.status == 200) 
+    if (this.status == 200)
         window.location = '/question/' + info[0];
 
     sendCreateLabelsRequest(info[0]);
@@ -492,11 +504,11 @@ function followRequestHandlerH() {
     new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg unfollowH"> unfollow </i>`
     btn.outerHTML = new_unfollow.innerHTML;
     btn.innerHTML = " unfollow";
-    
+
     // updates EventListeners
     addEventListeners();
 
-    
+
     // updates sidenav
     if (info[2] <= 6) {
 
@@ -521,7 +533,7 @@ function followRequestHandlerQ() {
 
     // gets the button
     let btn = document.querySelector(".followQ");
-        
+
     // changes the button style
     let new_unfollow = document.createElement('i');
     new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg unfollowQ"> unfollow </i>`
@@ -531,7 +543,7 @@ function followRequestHandlerQ() {
     // updates EventListeners
     addEventListeners();
 
-    
+
     // updates sidenav
     if (info[2] <= 6) {
 
@@ -555,7 +567,7 @@ function unfollowRequestHandlerH() {
 
     // gets the button
     let btn = document.querySelector(".questions-list[data-id='" + info[1] + "'] .unfollowH");
-    
+
     // changes the button style
     let new_follow = document.createElement('i');
     new_follow.innerHTML = `<i class="fas fa-arrow-right fa-lg followH"> follow </i>`
@@ -564,8 +576,8 @@ function unfollowRequestHandlerH() {
 
     // updates EventListeners
     addEventListeners();
-    
-    
+
+
     // updates sidenav
     let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
     if (li != null) {
@@ -581,7 +593,7 @@ function unfollowRequestHandlerQ() {
 
     // gets the button
     let btn = document.querySelector(".unfollowQ");
-        
+
     // changes the button style
     let new_unfollow = document.createElement('i');
     new_unfollow.innerHTML = `<i class="fas fa-arrow-right fa-lg followQ"> follow </i>`
@@ -590,13 +602,13 @@ function unfollowRequestHandlerQ() {
 
     // updates EventListeners
     addEventListeners();
-    
-    
+
+
     let li = document.querySelector('a.row[data-id="' + info[1] + '"]');
     if (li != null) {
         li.remove();
     }
-    
+
 
 }
 
@@ -604,6 +616,23 @@ function unfollowRequestHandlerQ() {
 /**
  * Send requests
  */
+
+function sendEditProfileRequest() {
+    let id = this.closest('#userProfile').getAttribute('data-id');
+    let first_name = document.getElementById("first_name").value;
+    let last_name = document.getElementById("last_name").value;
+    let email = document.getElementById("email").value;
+    let description = document.getElementById("bio").value;
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+
+    //if (password == confirmPassword) {
+    sendAjaxRequest('put', '/api/user/' + id, { first_name: first_name, last_name: last_name, email: email, description: description, username: username, password: password }, editProfileHandler);
+    //} else {
+    //    return;
+    //}
+}
 
 function sendSearchRequest(e) {
     if (e.key === 'Enter') {
@@ -615,11 +644,11 @@ function sendSearchRequest(e) {
         let end_date = '';
         if (start != null)
             if (start.value != '')
-                start_date = '&strDate='+start.value;
+                start_date = '&strDate=' + start.value;
         if (end != null)
             if (end.value != '')
-                end_date ='&endDate='+end.value;
-        content = keyword+start_date+end_date;
+                end_date = '&endDate=' + end.value;
+        content = keyword + start_date + end_date;
 
         if (content != '')
             sendAjaxRequest('post', '/search', { content }, showSearchHandler);
@@ -791,11 +820,11 @@ function sendUnfollowRequestQ() {
 
 // best answer
 
-function setBestAnswerRequest(){
+function setBestAnswerRequest() {
 
     let id = this.closest('.answer_item').getAttribute('data-id');
     let username = document.querySelector('#username-question a').innerHTML;
-    sendAjaxRequest('put', '/api/answer/' + id + '/best', { id: id, username : username }, setBestAnswerHandler);
+    sendAjaxRequest('put', '/api/answer/' + id + '/best', { id: id, username: username }, setBestAnswerHandler);
 
 }
 
@@ -1056,38 +1085,38 @@ function startLabel() {
 
 function QuestionLikeQ() {
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, handleLikeQ);
+    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id: id }, handleLikeQ);
 }
 
-function QuestionDislikeQ(){
+function QuestionDislikeQ() {
     let id = this.closest('div#question-div').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, handleDislikeQ);
+    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id: id }, handleDislikeQ);
 }
 
 function QuestionLikeA() {
     let id = this.closest('.answer_item').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/answer/' + id + '/vote', { id : id}, handleLikeA);
+    sendAjaxRequest('put', '/api/answer/' + id + '/vote', { id: id }, handleLikeA);
 }
 
 function QuestionDislikeA() {
     let id = this.closest('.answer_item').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/answer/' + id + '/downvote', { id : id}, handleDislikeA);
+    sendAjaxRequest('put', '/api/answer/' + id + '/downvote', { id: id }, handleDislikeA);
 }
 
 
 function homeLikeF() {
     let id = this.closest('div.questions-list').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id : id}, handleLikeH);
+    sendAjaxRequest('put', '/api/question/' + id + '/vote', { id: id }, handleLikeH);
 }
 
 
-function homeDislikeF() {  
+function homeDislikeF() {
     let id = this.closest('div.questions-list').getAttribute('data-id');
-    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id : id}, handleDislikeH);
+    sendAjaxRequest('put', '/api/question/' + id + '/downvote', { id: id }, handleDislikeH);
 }
 
 
-function handleLikeQ(){
+function handleLikeQ() {
     let info = JSON.parse(this.responseText);
 
     let buttonl = document.querySelector('.like1');
@@ -1097,20 +1126,20 @@ function handleLikeQ(){
     if (buttond === null) buttond = document.querySelector('.dislike1P');
 
 
-    if(info[3] == 1){ //only like placed
-        let newL = likePurple(info[0],1);
+    if (info[3] == 1) { //only like placed
+        let newL = likePurple(info[0], 1);
 
         buttonl.outerHTML = newL.innerHTML;
-        buttond.innerHTML = ' '+ info[1];
-    }else if(info[3] == 2){ //like erased
-        let newL = likeBlack(info[0],1);
+        buttond.innerHTML = ' ' + info[1];
+    } else if (info[3] == 2) { //like erased
+        let newL = likeBlack(info[0], 1);
 
         buttonl.outerHTML = newL.innerHTML;
-        buttond.innerHTML = ' '+ info[1];
+        buttond.innerHTML = ' ' + info[1];
 
-    }else{//like added and dislike removed
-        let newL = likePurple(info[0],1);
-        let newD = dislikeBlack(info[1],1);
+    } else { //like added and dislike removed
+        let newL = likePurple(info[0], 1);
+        let newD = dislikeBlack(info[1], 1);
 
         buttonl.outerHTML = newL.innerHTML;
         buttond.outerHTML = newD.innerHTML;
@@ -1120,7 +1149,7 @@ function handleLikeQ(){
 
 }
 
-function handleDislikeQ(){
+function handleDislikeQ() {
     let info = JSON.parse(this.responseText);
 
     let buttond = document.querySelector('.dislike1');
@@ -1130,20 +1159,20 @@ function handleDislikeQ(){
     if (buttonl === null) buttonl = document.querySelector('.like1P');
 
 
-    if(info[3] == 1){ //only dislike placed
-        let newD = dislikePurple(info[1],1);
+    if (info[3] == 1) { //only dislike placed
+        let newD = dislikePurple(info[1], 1);
 
         buttond.outerHTML = newD.innerHTML;
-        buttonl.innerHTML = ' '+ info[0];
-    }else if(info[3] == 2){ //dislike erased
-        let newD = dislikeBlack(info[1],1);
+        buttonl.innerHTML = ' ' + info[0];
+    } else if (info[3] == 2) { //dislike erased
+        let newD = dislikeBlack(info[1], 1);
 
         buttond.outerHTML = newD.innerHTML;
-        buttonl.innerHTML = ' '+ info[0];
+        buttonl.innerHTML = ' ' + info[0];
 
-    }else{//dislike added and like removed
-        let newL = likeBlack(info[0],1);
-        let newD = dislikePurple(info[1],1);
+    } else { //dislike added and like removed
+        let newL = likeBlack(info[0], 1);
+        let newD = dislikePurple(info[1], 1);
 
         buttonl.outerHTML = newL.innerHTML;
         buttond.outerHTML = newD.innerHTML;
@@ -1153,7 +1182,7 @@ function handleDislikeQ(){
 
 }
 
-function handleLikeA(){
+function handleLikeA() {
     let info = JSON.parse(this.responseText);
 
     /*
@@ -1163,28 +1192,28 @@ function handleLikeA(){
     let buttond = document.querySelector('.dislike2');
     if (buttond === null) buttond = document.querySelector('.dislike2P');
     */
-   let buttonl = document.querySelector(".answer_item[data-id='" + info[3] + "'] .like2");
+    let buttonl = document.querySelector(".answer_item[data-id='" + info[3] + "'] .like2");
     if (buttonl === null) buttonl = document.querySelector(".answer_item[data-id='" + info[3] + "'] .like2P");
 
     let buttond = document.querySelector(".answer_item[data-id='" + info[3] + "'] .dislike2");
     if (buttond === null) buttond = document.querySelector(".answer_item[data-id='" + info[3] + "'] .dislike2P");
 
 
-    if(info[2] == 1){ //only like placed
-        let newL = likePurple(info[0],2);
+    if (info[2] == 1) { //only like placed
+        let newL = likePurple(info[0], 2);
 
         buttonl.outerHTML = newL.innerHTML;
-        buttond.innerHTML = ' '+ info[1];
-    }else if(info[2] == 2){ //like erased
-        let newL = likeBlack(info[0],2);
+        buttond.innerHTML = ' ' + info[1];
+    } else if (info[2] == 2) { //like erased
+        let newL = likeBlack(info[0], 2);
 
         console.log(newL);
         buttonl.outerHTML = newL.innerHTML;
-        buttond.innerHTML = ' '+ info[1];
+        buttond.innerHTML = ' ' + info[1];
 
-    }else{//like added and dislike removed
-        let newL = likePurple(info[0],2);
-        let newD = dislikeBlack(info[1],2);
+    } else { //like added and dislike removed
+        let newL = likePurple(info[0], 2);
+        let newD = dislikeBlack(info[1], 2);
 
         buttonl.outerHTML = newL.innerHTML;
         buttond.outerHTML = newD.innerHTML;
@@ -1194,7 +1223,7 @@ function handleLikeA(){
 
 }
 
-function handleDislikeA(){
+function handleDislikeA() {
     let info = JSON.parse(this.responseText);
 
     /*
@@ -1212,20 +1241,20 @@ function handleDislikeA(){
     if (buttonl === null) buttonl = document.querySelector(".answer_item[data-id='" + info[3] + "'] .like2P");
 
 
-    if(info[2] == 1){ //only dislike placed
-        let newD = dislikePurple(info[1],2);
+    if (info[2] == 1) { //only dislike placed
+        let newD = dislikePurple(info[1], 2);
 
         buttond.outerHTML = newD.innerHTML;
-        buttonl.innerHTML = ' '+ info[0];
-    }else if(info[2] == 2){ //dislike erased
-        let newD = dislikeBlack(info[1],2);
+        buttonl.innerHTML = ' ' + info[0];
+    } else if (info[2] == 2) { //dislike erased
+        let newD = dislikeBlack(info[1], 2);
 
         buttond.outerHTML = newD.innerHTML;
-        buttonl.innerHTML = ' '+ info[0];
+        buttonl.innerHTML = ' ' + info[0];
 
-    }else{//dislike added and like removed
-        let newL = likeBlack(info[0],2);
-        let newD = dislikePurple(info[1],2);
+    } else { //dislike added and like removed
+        let newL = likeBlack(info[0], 2);
+        let newD = dislikePurple(info[1], 2);
 
         buttonl.outerHTML = newL.innerHTML;
         buttond.outerHTML = newD.innerHTML;
@@ -1235,7 +1264,7 @@ function handleDislikeA(){
 
 }
 
-function handleLikeH(){
+function handleLikeH() {
     let info = JSON.parse(this.responseText);
 
     let buttonl = document.querySelector(".questions-list[data-id='" + info[2] + "'] .like3");
@@ -1244,20 +1273,20 @@ function handleLikeH(){
     let buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] .dislike3");
     if (buttond === null) buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] .dislike3P");
 
-    if(info[3] == 1){ //only like placed
-        let newL = likePurple(info[0],3);
+    if (info[3] == 1) { //only like placed
+        let newL = likePurple(info[0], 3);
 
         buttonl.outerHTML = newL.innerHTML;
-        buttond.innerHTML = ' '+ info[1];
-    }else if(info[3] == 2){ //like erased
-        let newL = likeBlack(info[0],3);
+        buttond.innerHTML = ' ' + info[1];
+    } else if (info[3] == 2) { //like erased
+        let newL = likeBlack(info[0], 3);
 
         buttonl.outerHTML = newL.innerHTML;
-        buttond.innerHTML = ' '+ info[1];
+        buttond.innerHTML = ' ' + info[1];
 
-    }else{//like added and dislike removed
-        let newL = likePurple(info[0],3);
-        let newD = dislikeBlack(info[1],3);
+    } else { //like added and dislike removed
+        let newL = likePurple(info[0], 3);
+        let newD = dislikeBlack(info[1], 3);
 
         buttonl.outerHTML = newL.innerHTML;
         buttond.outerHTML = newD.innerHTML;
@@ -1266,7 +1295,7 @@ function handleLikeH(){
     addEventListeners();
 }
 
-function handleDislikeH(){
+function handleDislikeH() {
     let info = JSON.parse(this.responseText);
 
 
@@ -1277,20 +1306,20 @@ function handleDislikeH(){
     if (buttond === null) buttond = document.querySelector(".questions-list[data-id='" + info[2] + "'] .dislike3P");
 
 
-    if(info[3] == 1){ //only dislike placed
-        let newD = dislikePurple(info[1],3);
+    if (info[3] == 1) { //only dislike placed
+        let newD = dislikePurple(info[1], 3);
 
         buttond.outerHTML = newD.innerHTML;
-        buttonl.innerHTML = ' '+ info[0];
-    }else if(info[3] == 2){ //dislike erased
-        let newD = dislikeBlack(info[1],3);
+        buttonl.innerHTML = ' ' + info[0];
+    } else if (info[3] == 2) { //dislike erased
+        let newD = dislikeBlack(info[1], 3);
 
         buttond.outerHTML = newD.innerHTML;
-        buttonl.innerHTML = ' '+ info[0];
+        buttonl.innerHTML = ' ' + info[0];
 
-    }else{//dislike added and like removed
-        let newL = likeBlack(info[0],3);
-        let newD = dislikePurple(info[1],3);
+    } else { //dislike added and like removed
+        let newL = likeBlack(info[0], 3);
+        let newD = dislikePurple(info[1], 3);
 
         buttonl.outerHTML = newL.innerHTML;
         buttond.outerHTML = newD.innerHTML;
@@ -1308,7 +1337,7 @@ function likePurple(nr_likes, index) {
     return new_like;
 }
 
-function likeBlack(nr_likes,index) {
+function likeBlack(nr_likes, index) {
     let new_like = document.createElement('i');
     new_like.innerHTML = ` 
      <i class="fas fa-thumbs-up fa-lg like${index}" aria-hidden="true"> ${nr_likes}</i>`
@@ -1331,9 +1360,9 @@ function dislikeBlack(nr_dislikes, index) {
 
 // best answer
 
-function setBestAnswerHandler(){
+function setBestAnswerHandler() {
 
-    if(this.status == 403){
+    if (this.status == 403) {
         return;
     }
 
@@ -1341,10 +1370,10 @@ function setBestAnswerHandler(){
     let answer_id = info[0];
     let value = info[1];
 
-    if(value){
+    if (value) {
 
         let marked_before = document.querySelector('#best-answer-green');
-        if(marked_before != null){
+        if (marked_before != null) {
             // changes the button style
             let update_before = document.createElement('i');
             update_before.innerHTML = `<i class="fas fa-check-circle" id="best-answer-black"> Set as best answer</i>`
@@ -1352,7 +1381,7 @@ function setBestAnswerHandler(){
             marked_before.innerHTML = " Set as best answer";
         }
 
-        let marked_new = document.querySelector("#answer" + answer_id +"[data-id='" + answer_id + "'] #best-answer-black");
+        let marked_new = document.querySelector("#answer" + answer_id + "[data-id='" + answer_id + "'] #best-answer-black");
         // changes the button style
         let update_new = document.createElement('i');
         update_new.innerHTML = `<i class="fas fa-check-circle" id="best-answer-green"> Set as best answer</i>`
@@ -1361,11 +1390,10 @@ function setBestAnswerHandler(){
 
         // updates EventListeners
         addEventListeners();
-        
-    }
-    else{
 
-        let marked_new = document.querySelector("#answer" + answer_id +"[data-id='" + answer_id + "'] #best-answer-green");
+    } else {
+
+        let marked_new = document.querySelector("#answer" + answer_id + "[data-id='" + answer_id + "'] #best-answer-green");
         // changes the button style
         let update_new = document.createElement('i');
         update_new.innerHTML = `<i class="fas fa-check-circle" id="best-answer-black"> Set as best answer</i>`
@@ -1376,9 +1404,9 @@ function setBestAnswerHandler(){
         addEventListeners();
 
     }
-    
 
-    
+
+
 
 
 
@@ -1386,4 +1414,3 @@ function setBestAnswerHandler(){
 
 
 addEventListeners();
-
