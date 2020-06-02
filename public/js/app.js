@@ -459,16 +459,19 @@ function questionEditedHandler() {
     // Edit Question
     let new_title = editTitle(info);
     let new_description = editDescription(info);
+    let new_label = createAddLabelBtn();
 
     let div_title = document.querySelector("div#question-div h1");
     let div_description = document.querySelector("div#question-div #question_description");
 
     div_title.innerHTML = new_title.innerHTML;
     div_description.innerHTML = new_description.innerHTML;
+    div_description.after(new_label);
 
     // Focus 
     new_title.focus();
     new_description.focus();
+    new_label.focus();
 
     addEventListeners();
 }
@@ -478,12 +481,9 @@ function labelEditedHandler() {
 
     // Edit Label
     let new_name = editLabelName(info);
-    let new_label = createAddLabelBtn();
-
     let badge_name = document.querySelector("div#question-div #question_label"+info[1]);
 
     badge_name.innerHTML = new_name.innerHTML;
-    badge_name.after(new_label);
 
     // Focus 
     new_name.focus();
@@ -532,11 +532,20 @@ function questionUpdatedHandler() {
     div_title.outerHTML = new_title.innerHTML;
     div_description.outerHTML = new_description.innerHTML;
 
+    sendCreateLabelsRequest(info[2]);
+
+    let btn = document.getElementById('add_label');
+    if (btn != null)
+        btn.remove();
+    let labels_names = document.querySelectorAll('label_name input');
+    for (let i = 0; i < labels_names.length; i++) {
+        labels_names[i].outerHTML = `<a class="badge badge-dark badge-pill labels">${labels_names[i].value}
+                                     </a>`;
+    }
+
     // Focus 
     new_title.focus();
     new_description.focus();
-
-    sendCreateLabelsRequest(info[2]);
 
     addEventListeners();
 }
@@ -548,15 +557,14 @@ function labelUpdatedHandler() {
     let new_name = updateLabelName(info);
 
     let badge_name = document.querySelector("div#question-div #question_label"+info[1]);
-    //let labels = document.querySelectorAll(".label_form");
+    let labels = document.querySelectorAll("label_name input");
 
     badge_name.outerHTML = new_name.innerHTML;
 
-    /*for (let i = 0; i < labels.length; i++) {
-        labels[i].innerHTML =  `<a class="badge badge-dark badge-pill labels" id="question_label34" data-id="34">${labels[i].textContent}
-                                    <span class="x-label"> x</span>
+    for (let i = 0; i < labels.length; i++) {
+        labels[i].outerHTML =  `<a class="badge badge-dark badge-pill labels" id="question_label">${labels[i].firstChild.value}
                                 </a>`
-    }*/
+    }
 
     // Focus 
     new_name.focus();
@@ -826,6 +834,7 @@ function sendUpdateQuestionRequest() {
         sendAjaxRequest('put', '/api/question/' + id + '/update', { title: title, description: description }, questionUpdatedHandler);
 
     let labels = document.querySelectorAll('.badge.badge-dark.badge-pill.labels');
+    console.log(labels);
     [].forEach.call(labels, function(label) {
         let label_id = label.getAttribute('data-id');
         let name = label.firstChild.value;
@@ -1107,10 +1116,8 @@ function editLabelName(info) {
 }
 
 function createAddLabelBtn() {
-    let new_label = document.createElement('label');
-    new_label.innerHTML =  `<div id="labels">
-                                <a class="badge badge-dark badge-pill" id="add_label">+ Label</a>
-                            </div>`;
+    let new_label = document.createElement('label_name');
+    new_label.innerHTML =  `<a class="badge badge-dark badge-pill" id="add_label">+ Label</a>`;
     return new_label;
 }
 
@@ -1375,7 +1382,7 @@ function hideUpdateComment() {
 
 function startLabel() {
     let start_label = document.createElement('div');
-    start_label.innerHTML = `<input class="badge-dark badge-pill form-control col-sm-4 label_form" type="text" placeholder="#">
+    start_label.innerHTML = `<input class="labels badge-dark badge-pill form-control col-sm-4 label_form" type="text" placeholder="#">
                              <a class="badge badge-dark badge-pill" id="add_label">+</a>`;
 
     return start_label;
