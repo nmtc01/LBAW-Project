@@ -46,6 +46,11 @@
         <p class="row-sm text-truncate" id="username-question"><a href="{{ asset('/user/'.$user->id) }}">{{ $user->username }}</a></p>
     </div>
 </div>
+@if ($user->getUserCurrentRole() == 'banned')
+<div class="alert alert-danger">
+    The owner of this question was banned due to inappropriate behavior.
+</div>
+@endif
 <div>
     <p id="question_description">{{ $question->description }}</p>
     @foreach ($labels as $label)
