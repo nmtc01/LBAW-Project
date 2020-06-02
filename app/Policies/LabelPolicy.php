@@ -26,14 +26,20 @@ class LabelPolicy
 
     public function edit(User $user, Label $label)
     {
-      // Only an label owner, an admin or a moderator can edit it
+      // Only a label owner, an admin or a moderator can edit it
       return $user->id == $label->user_id || $user->getUserCurrentRole() == 'administrator' || $user->getUserCurrentRole() == 'moderator';
     }
 
     public function update(User $user, Label $label)
     {
-      // Only an label owner, an admin or a moderator can update it
+      // Only a label owner, an admin or a moderator can update it
       return $user->id == $label->user_id || $user->getUserCurrentRole() == 'administrator' || $user->getUserCurrentRole() == 'moderator';
+    }
+
+    public function delete(User $user, Label $label)
+    {
+      // Only a label owner or an admin can delete it
+      return $user->id == $label->user_id || $user->getUserCurrentRole() == 'administrator';
     }
     
 }

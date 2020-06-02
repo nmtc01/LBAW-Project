@@ -57,6 +57,7 @@ Route::put('/api/label', 'LabelController@startLabel');
 Route::post('/api/label', 'LabelController@create');
 Route::put('/api/label/{id}', 'LabelController@edit');
 Route::put('/api/label/{id}/update', 'LabelController@update');
+Route::delete('/api/label/{id}', 'LabelController@delete');
 
 // Static pages
 Route::get('/about', 'StaticController@about');

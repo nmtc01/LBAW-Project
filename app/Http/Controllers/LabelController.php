@@ -91,4 +91,14 @@ class LabelController extends Controller
       return $info;
 
     }
+
+    public function delete(Request $request, $id)
+    {
+      $label = Label::find($id);
+
+      $this->authorize('delete', $label);
+      $label->delete();
+
+      return $label;
+    }
 }

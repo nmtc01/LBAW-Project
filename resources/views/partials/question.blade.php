@@ -58,7 +58,14 @@
 <div>
     <p id="question_description">{{ $question->description }}</p>
     @foreach ($labels as $label)
-    <a class="badge badge-dark badge-pill labels" id="question_label{{ $label->id }}" data-id="{{ $label->id }}">{{ $label->name }}</a>
+    <a class="badge badge-dark badge-pill labels" id="question_label{{ $label->id }}" data-id="{{ $label->id }}">{{ $label->name }}
+        @if(Auth::check())
+            @if(Auth::user()->getUserCurrentRole() == 'administrator' ||
+                Auth::user()->id == $question->user_id)
+        <span class="x-label"> x</span>
+            @endif
+        @endif
+    </a>
     @endforeach
     <div class=icons>
 

@@ -155,14 +155,14 @@ CREATE TABLE question_following (
 -- Table: label_following
 CREATE TABLE label_following (
     user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
-    label_id         INTEGER         REFERENCES "label" (id) NOT NULL,
+    label_id         INTEGER         REFERENCES "label" (id) ON DELETE CASCADE NOT NULL,
     PRIMARY KEY (user_id, label_id)
 );
 
 -- Table: question_label
 CREATE TABLE question_label (
     question_id      INTEGER         REFERENCES "question" (id) ON DELETE CASCADE NOT NULL,
-    label_id         INTEGER         REFERENCES "label" (id) NOT NULL,
+    label_id         INTEGER         REFERENCES "label" (id) ON DELETE CASCADE NOT NULL,
     PRIMARY KEY (question_id, label_id)
 );
 

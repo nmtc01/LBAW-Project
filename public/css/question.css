@@ -201,3 +201,7 @@ li.answer_item .ans-body p {
 .collapsed_report {
     margin-top: 1rem;
 }
+
+.x-label {
+    color:#207fae;
+}

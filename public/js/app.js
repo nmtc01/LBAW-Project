@@ -240,6 +240,12 @@ function addEventListeners() {
         notificationBell.addEventListener('click', sendUpdateNotificationsRequest);
     }
 
+    // labels
+    let labelDeleters = document.querySelectorAll('.x-label');
+    if (labelDeleters != null)
+        [].forEach.call(labelDeleters, function(deleter) {
+            deleter.addEventListener('click', sendDeleteLabelRequest);
+        });
 }
 
 
@@ -433,6 +439,14 @@ function questionDeletedHandler() {
     let question = JSON.parse(this.responseText);
     let div = document.querySelector('div#question-div[data-id="' + question.id + '"]');
     div.remove();
+}
+
+function labelDeletedHandler() {
+    if (this.status == 200) {
+        let label = JSON.parse(this.responseText);
+        let a = document.querySelector('div#question-div #question_label'+label.id);
+        a.remove();
+    }
 }
 
 function questionEditedHandler() {
@@ -747,6 +761,11 @@ function sendDeleteQuestionRequest() {
     sendAjaxRequest('delete', '/api/question/' + id, null, questionDeletedHandler);
 }
 
+function sendDeleteLabelRequest(event) {
+    let id = event.target.parentElement.getAttribute('data-id');
+    sendAjaxRequest('delete', '/api/label/' + id, null, labelDeletedHandler);
+}
+
 function sendEditQuestionRequest() {
     let id = this.closest('div#question-div').getAttribute('data-id');
     let title = document.querySelector("div#question-div h1").textContent;
@@ -759,6 +778,8 @@ function sendEditQuestionRequest() {
     [].forEach.call(labels, function(label) {
         let label_id = label.getAttribute('data-id');
         let name = label.textContent;
+        let span = label.firstChild.textContent;
+        name = name.substring(0, span.length);
         if (label_id != '' && name != '')
             sendAjaxRequest('put', '/api/label/' + label_id, { name: name }, labelEditedHandler);
     });
@@ -1110,7 +1131,9 @@ function updateDescription(info) {
 
 function updateLabelName(info) {
     let new_label = document.createElement('label');
-    new_label.innerHTML = `<a class="badge badge-dark badge-pill labels" id="question_label${info[1]}" data-id="${info[1]}">${info[0]}</a>`;
+    new_label.innerHTML = `<a class="badge badge-dark badge-pill labels" id="question_label${info[1]}" data-id="${info[1]}">${info[0]}
+                            <span class="x-label"> x</span>
+                           </a>`;
 
     return new_label;
 }
