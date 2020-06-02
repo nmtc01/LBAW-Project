@@ -61,8 +61,11 @@ class SearchController extends Controller
                 $questionsVotes[$question->id] = DB::table('vote')->where([['user_id', Auth::user()->id], ['question_id', $question->id],])->first();
             }else $questionsVotes[$question->id] = 0;
         }
+
+        // for sidenavs
+        $popular_questions = $this->questionController->listPopular();
         
-        return view('pages.search',['questions' => $questions, 'users' => $users, 'nr_answers' => $nr_answers, 'questions_followed' => $questions_followed, 'KeyWord' => $KeyWord, 'questionsVotes' => $questionsVotes]);
+        return view('pages.search',['questions' => $questions, 'users' => $users, 'nr_answers' => $nr_answers, 'questions_followed' => $questions_followed, 'KeyWord' => $KeyWord, 'questionsVotes' => $questionsVotes, 'popular_questions' => $popular_questions]);
     }
 
     public function startSearch(Request $request)

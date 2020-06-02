@@ -43,9 +43,12 @@ class HomeController extends Controller
             }else $questionsVotes[$question->id] = 0;
         }
 
+        // for sidenavs
+        $popular_questions = $this->questionController->listPopular();
 
 
-        return view('pages.home',['questions' => $questions, 'users' => $users, 'nr_answers' => $nr_answers, 'questions_followed' => $questions_followed, 'questionsVotes' => $questionsVotes]);
+
+        return view('pages.home',['questions' => $questions, 'users' => $users, 'nr_answers' => $nr_answers, 'questions_followed' => $questions_followed, 'questionsVotes' => $questionsVotes, 'popular_questions' => $popular_questions]);
     }
 
     public function home() {

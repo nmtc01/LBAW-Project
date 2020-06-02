@@ -73,6 +73,14 @@ class QuestionController extends Controller
 
     }
 
+    public function listPopular()
+    {
+      $questions = DB::select(DB::raw("select * from question order by (nr_likes - nr_dislikes) desc"));
+
+      return $questions;
+
+    }
+
     /**
      * Shows all questions.
      *
@@ -186,7 +194,10 @@ class QuestionController extends Controller
         }
       }
 
-    return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments, 'questions_followed' => $questions_followed, 'labels' => $labels, 'vote' => $vote ,'answersVotes' => $answersVotes]);
+      // for sidenavs
+      $popular_questions = $this->listPopular();
+
+    return view('pages.question_page', ['question' => $question, 'user' => $user, 'comments' => $comments, 'answers' => $answers, 'userComments' => $userComments, 'userAnswers' => $userAnswers, 'subComments' => $subComments, 'userSubComments' => $userSubComments, 'questions_followed' => $questions_followed, 'labels' => $labels, 'vote' => $vote ,'answersVotes' => $answersVotes, 'popular_questions' => $popular_questions]);
     }
 
     public function delete(Request $request, $id)
