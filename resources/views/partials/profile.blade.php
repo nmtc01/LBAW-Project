@@ -8,7 +8,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                @if ($userInfo->getUserCurrentRole() == 'user')
+                @if (Auth::user()->id == $userInfo->id)
+                <p>This process is irreversible. Are you sure you want to delete your account?</p>
+                <button class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                <button id="delete-account-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Yes</button>
+
+                @elseif ($userInfo->getUserCurrentRole() == 'user')
                 <p>This user is a normal authenticated user</p> 
                 <button id="promote-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Promote</button>
                 <button id="ban-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Ban</button>
@@ -22,8 +27,11 @@
                 <p>This user is an administrator</p>
                 <button id="demote-btn" type="submit" class="btn btn-primary" data-dismiss="modal">Demote</button>
 
-                @else
+                @elseif ($userInfo->getUserCurrentRole() == 'banned') 
                 <p>This user was banned</p>
+
+                @else
+                <p>This user deleted the account</p>
 
                 @endif
             </div>
@@ -45,7 +53,7 @@
         </div>
         <div class="col-lg-8 order-lg-2">
             <div class="row">
-                <ul class="nav nav-tabs col-10">
+                <ul class="nav nav-tabs col-9">
                     <li class="nav-item">
                         <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
                     </li>
@@ -67,6 +75,8 @@
                 </ul>
                 @if(Auth::user()->getUserCurrentRole() == 'administrator' && Auth::user()->id != $userInfo->id)
                 <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#manage_users">Moderate</button>
+                @elseif (Auth::user()->id == $userInfo->id)
+                <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#manage_users">Delete account</button>
                 @endif
             </div>
             <div class="tab-content py-4">

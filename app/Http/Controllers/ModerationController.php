@@ -142,8 +142,6 @@ class ModerationController extends Controller
         
         //Get user with id
         $user = User::find($id);
-        //Get its current role
-        $currentRole = $user->getUserCurrentRole();
 
         //Create new user_management
         $user_management = UserManagement::where('user_id', $id)->first();
@@ -151,8 +149,22 @@ class ModerationController extends Controller
         $this->authorize('ban', [$user_management, $user]);
         
         //Demote user
-        $user_management->user_id = $id;
         $user_management->status = 'banned';
+        $user_management->save();
+    }
+
+    public function delete($id) {
+        
+        //Get user with id
+        $user = User::find($id);
+  
+        //Create new user_management
+        $user_management = UserManagement::where('user_id', $id)->first();
+  
+        $this->authorize('delete', [$user_management, $user]);
+        
+        //Demote user
+        $user_management->status = 'deleted';
         $user_management->save();
     }
 

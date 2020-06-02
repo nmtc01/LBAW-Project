@@ -45,7 +45,7 @@ CREATE TABLE user_management (
     date_last_changed   DATE            DEFAULT 'Now' NOT NULL,
     user_id             INTEGER         REFERENCES "user" (id) NOT NULL UNIQUE,
     CHECK (
-        status = 'user' OR status = 'moderator' OR status = 'administrator' OR status = 'banned'
+        status = 'user' OR status = 'moderator' OR status = 'administrator' OR status = 'banned' OR status = 'deleted'
     )
 );
 

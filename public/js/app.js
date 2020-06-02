@@ -228,6 +228,11 @@ function addEventListeners() {
         banner.addEventListener('click', sendBanRequest);
     }
 
+    let accountDeleter = document.querySelector('#delete-account-btn');
+    if (accountDeleter != null) {
+        accountDeleter.addEventListener('click', sendDeleteAccountRequest);
+    }
+
     // notifications
 
     let notificationBell = document.querySelector('#dropdownMenuNotificationsButton2');
@@ -663,6 +668,11 @@ function manageUsersHandler() {
         window.location = '/admin';
 }
 
+function manageDeletedUserHandler() {
+    if (this.status == 200)
+        window.location = '/login';
+}
+
 /**
  * Send requests
  */
@@ -963,6 +973,13 @@ function sendBanRequest() {
 
     if (id != '')
         sendAjaxRequest('put', '/user/'+id+'/ban', null, manageUsersHandler);
+}
+
+function sendDeleteAccountRequest() {
+    let id = this.closest('#manage_users').getAttribute('data-id');
+
+    if (id != '')
+        sendAjaxRequest('put', '/user/'+id+'/delete', null, manageDeletedUserHandler);
 }
 
 

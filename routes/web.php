@@ -70,12 +70,13 @@ Route::post('/admin/{report_id}', 'ReportStatusController@resolve');
 Route::put('/api/question/{id}/report', 'ReportController@createQ');
 Route::put('/api/answer/{id}/report', 'ReportController@createA');
 Route::put('/api/comment/{id}/report', 'ReportController@createC');
-Route::put('/user/{user_id}/promote', 'ModerationController@promote');
-Route::put('/user/{user_id}/demote', 'ModerationController@demote');
-Route::put('/user/{user_id}/ban', 'ModerationController@ban');
+Route::put('/user/{id}/promote', 'ModerationController@promote');
+Route::put('/user/{id}/demote', 'ModerationController@demote');
+Route::put('/user/{id}/ban', 'ModerationController@ban');
 
 //Profile
 Route::get('/user/{id}', 'UserController@profile');
+Route::put('/user/{id}/delete', 'ModerationController@delete');
 
 // Notification
 Route::put('/api/notification', 'NotificationController@update');

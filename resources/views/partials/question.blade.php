@@ -50,6 +50,10 @@
 <div class="alert alert-danger">
     The owner of this question was banned due to inappropriate behavior.
 </div>
+@elseif ($user->getUserCurrentRole() == 'deleted')
+<div class="alert alert-danger">
+    The owner of this question deleted the account.
+</div>
 @endif
 <div>
     <p id="question_description">{{ $question->description }}</p>

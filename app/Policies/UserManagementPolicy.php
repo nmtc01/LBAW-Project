@@ -31,4 +31,10 @@ class UserManagementPolicy
         && $banned_user->getUserCurrentRole() != 'administrator' && $banned_user->getUserCurrentRole() != 'moderator';
     }
 
+    public function delete(User $user, UserManagement $status, User $deleted_user)
+    {
+      // Only administrators can demote users
+      return $user->id == $deleted_user->id;
+    }    
+
 }
