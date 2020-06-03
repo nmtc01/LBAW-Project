@@ -28,9 +28,9 @@ class SearchController extends Controller
         $start_date = '';
         $end_date = '';
 
-        $KeyWord = Input::get('search_keyword');
-        $start_date = Input::get('search_start_date');
-        $end_date = Input::get('search_end_date');
+        $KeyWord = Input::get('keyword');
+        $start_date = Input::get('strDate');
+        $end_date = Input::get('endDate');
 
         $questions = $this->questionController->listSearch($KeyWord, $start_date, $end_date);
 

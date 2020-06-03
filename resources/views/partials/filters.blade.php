@@ -9,11 +9,11 @@
                     <div class="dates row m-auto my-auto">
                         <fieldset>
                             <label class="text-white">Start</label>
-                            <input id="start_date" type="date" name="search_start_date">
+                            <input id="start_date" type="date" name="strDate">
                         </fieldset>
                         <fieldset>
                             <label class="text-white">End</label>
-                            <input id="end_date" type="date" name="search_end_date">
+                            <input id="end_date" type="date" name="endDate">
                         </fieldset>
                     </div>
                 </div>

@@ -62,7 +62,7 @@ Route::get('/about', 'StaticController@about');
 Route::get('/404', 'StaticController@p404');
 
 // Search page
-Route::post('/search', 'SearchController@show');
+Route::get('/search', 'SearchController@show');
 
 // Moderate
 Route::get('/admin', 'ModerationController@show');
