@@ -483,7 +483,7 @@ function labelEditedHandler() {
 
     // Edit Label
     let new_name = editLabelName(info);
-    let badge_name = document.querySelector("div#question-div #question_label"+info[1]);
+    let badge_name = document.querySelector("div#question-div #question_label" + info[1]);
 
     badge_name.innerHTML = new_name.innerHTML;
 
@@ -558,13 +558,13 @@ function labelUpdatedHandler() {
     // Update question
     let new_name = updateLabelName(info);
 
-    let badge_name = document.querySelector("div#question-div #question_label"+info[1]);
+    let badge_name = document.querySelector("div#question-div #question_label" + info[1]);
     let labels = document.querySelectorAll("label_name input");
 
     badge_name.outerHTML = new_name.innerHTML;
 
     for (let i = 0; i < labels.length; i++) {
-        labels[i].outerHTML =  `<a class="badge badge-dark badge-pill labels" id="question_label">${labels[i].firstChild.value}
+        labels[i].outerHTML = `<a class="badge badge-dark badge-pill labels" id="question_label">${labels[i].firstChild.value}
                                 </a>`
     }
 
@@ -863,8 +863,8 @@ function sendCreateQuestionRequest(event) {
 
     if (title != '' && description != '')
         sendAjaxRequest('put', '/api/question', { title: title, description: description }, questionAddedHandler);
-    else{
-        
+    else {
+
         let older_alert = document.getElementById('alert_question');
         if (older_alert != null)
             return;
@@ -877,7 +877,7 @@ function sendCreateQuestionRequest(event) {
         section.insertBefore(new_alert, list.childNodes[0]);
 
         return;
-        
+
     }
 
     event.preventDefault();
@@ -1125,7 +1125,7 @@ function editLabelName(info) {
 
 function createAddLabelBtn() {
     let new_label = document.createElement('label_name');
-    new_label.innerHTML =  `<a class="badge badge-dark badge-pill" id="add_label">+ Label</a>`;
+    new_label.innerHTML = `<a class="badge badge-dark badge-pill" id="add_label">+ Label</a>`;
     return new_label;
 }
 
