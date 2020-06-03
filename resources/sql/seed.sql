@@ -551,16 +551,16 @@ $$ LANGUAGE plpgsql;
 
 --user
 --password for user 2: 1234
-insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8');
+insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
+	values ('Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'nuno.png');
 insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
 	values ('Pedro', 'Dantas', 'pedrodantas@hotmail.com', 'UP student', 'pedrodantas', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 'dantas.jpg');
-insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Eduardo', 'Macedo', 'edumacedo@gmail.com', 'UP student', 'edu1234', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d');
-insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Roberto', 'Mourato', 'robmoura@hotmail.com', 'UP student', 'bob56moura', '75748e28843cab0cc7ca4ba8dcdc11552ea7bb3b652a3cbd26c53dec861408bc');
-insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Lurdes', 'Cardoso', 'lurdes01@hotmail.com', 'babysitter', 'lurdes01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
+insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
+	values ('Eduardo', 'Macedo', 'edumacedo@gmail.com', 'UP student', 'edu1234', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d', 'eduardo.jpg');
+insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
+	values ('Roberto', 'Mourato', 'robmoura@hotmail.com', 'UP student', 'bob56moura', '75748e28843cab0cc7ca4ba8dcdc11552ea7bb3b652a3cbd26c53dec861408bc', 'beto.jpg');
+insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
+	values ('Eduardo', 'Cardoso', 'lurdes01@hotmail.com', 'babysitter', 'edu01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 'eduardo.jpg');
 insert into "user" (first_name, last_name, email, bio, username, password)
 	values ('Paula', 'Tavares', 'paultavares@hotmail.com', 'hairdresser', 'paula64', '39427764c90328dc57389a2adb9202ae18cb3c38f27f5e7d3a19e5d23d7bbe4f');	
 insert into "user" (first_name, last_name, email, bio, username, password)
