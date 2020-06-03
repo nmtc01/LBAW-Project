@@ -1199,7 +1199,7 @@ function createAnswer(info) {
     new_answer.innerHTML = `<li id="answer${info[3]}" class="answer_item" data-id="${info[3]}">
                                 <div class="row">
                                     <a class="col-sm-3 d-none d-sm-block text-center" href="/user/${info[4]}">
-                                        <img src="/img/unknown.png" alt="Generic placeholder image">
+                                        <img src="/img/${info[5]}" alt="Generic placeholder image">
                                     </a>
                                     <div class="col-sm-9">
                                         <span class="badge badge-success"><i class="fas fa-star"></i>Score ${info[2]}</span>

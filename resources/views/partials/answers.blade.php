@@ -24,7 +24,7 @@
         @endif
         <div class="row">
             <a class="col-sm-3 d-none d-sm-block text-center" href="{{ asset('/user/'.$userAnswers[$answer->id]->id) }}">
-                <img src="{{ asset('img/unknown.png') }}" alt="user image">
+                <img src="{{asset('/img/' . $userAnswers[$answer->id]->photo_path)}}" alt="user image">
             </a>
             <div class="col-sm-9">
                 <span class="badge badge-success"><i class="fas fa-star"></i>Score {{ $userAnswers[$answer->id]->score }}</span>

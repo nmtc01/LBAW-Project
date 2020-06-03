@@ -44,12 +44,14 @@
 <div class="container profile">
     <div class="row my-2">
         <div class="col-lg-4 order-lg-1 text-center">
-            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="user image">
+            <img src="{{asset('/img/' . $userInfo->photo_path)}}"  width ="250rem" height="250rem" class="mx-auto img-fluid img-circle d-block" alt="user image">
+            @if(Auth::user()->id == $userInfo->id)
             <h6 class="mt-2">Upload a different photo</h6>
             <div class="file btn btn-link">
                 Choose file
                 <input type="file" name="file" />
             </div>
+            @endif
         </div>
         <div class="col-lg-8 order-lg-2">
             <div class="row">
@@ -238,19 +240,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                <a class="page-link previous" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                <a class="page-link next" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
                 @endif

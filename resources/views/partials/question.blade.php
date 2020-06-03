@@ -41,7 +41,7 @@
     </div>
     <div id="prof-img" class="col-sm-3 text-center">
         <a class="row-sm" href="{{ asset('/user/'.$question->user_id) }}">
-            <img src="{{asset('/img/unknown.png')}}" alt="user image">
+            <img src="{{asset('/img/' . $user->photo_path)}}" alt="user image">
         </a>
         <p class="row-sm text-truncate" id="username-question"><a href="{{ asset('/user/'.$user->id) }}">{{ $user->username }}</a></p>
     </div>
