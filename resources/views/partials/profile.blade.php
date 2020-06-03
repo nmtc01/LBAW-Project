@@ -44,7 +44,7 @@
 <div class="container profile">
     <div class="row my-2">
         <div class="col-lg-4 order-lg-1 text-center">
-            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="user image">
             <h6 class="mt-2">Upload a different photo</h6>
             <div class="file btn btn-link">
                 Choose file
@@ -126,13 +126,13 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
                             <li class="page-item disabled">
-                            <a id="previous" class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            <a class="page-link previous" href="#" tabindex="-1" aria-disabled="true">Previous</a>
                             </li>
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item">
-                            <a id="next" class="page-link" href="#">Next</a>
+                            <a class="page-link next" href="#">Next</a>
                             </li>
                         </ul>
                     </nav>
@@ -169,20 +169,20 @@
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-center">
                                 <li class="page-item disabled">
-                                <a id="previous" class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                <a class="page-link previous" href="#" tabindex="-1" aria-disabled="true">Previous</a>
                                 </li>
                                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item">
-                                <a id="next" class="page-link" href="#">Next</a>
+                                <a class="page-link next" href="#">Next</a>
                                 </li>
                             </ul>
                         </nav>
                     </div>
                 </div>
                 <div class="tab-pane" id="edit">
-                    <form role="form">
+                    <form>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
                             <div class="col-lg-9">
@@ -267,13 +267,13 @@
                         <nav aria-label="Page navigation example">
                             <ul class="pagination justify-content-center">
                                 <li class="page-item disabled">
-                                <a id="previous" class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                <a class="page-link previous" href="#" tabindex="-1" aria-disabled="true">Previous</a>
                                 </li>
                                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                                 <li class="page-item">
-                                <a id="next" class="page-link" href="#">Next</a>
+                                <a class="page-link next" href="#">Next</a>
                                 </li>
                             </ul>
                         </nav>

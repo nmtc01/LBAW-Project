@@ -45,6 +45,12 @@
     </div>
 </div>
 <div class="col-md-6 container-fluid">
+    @if (count($questions) == 0)
+    <div id="question-list-first" class="wrapper home_question container-fluid">
+        <p>No results found...</p>
+        <p>Please try another search!</p>
+    </div>
+    @endif
     @for($i = 0; $i < count($questions); $i++)
     <div @if($i == 0) id="question-list-first" @else id="question-list" @endif class="wrapper home_question container-fluid" data-id="{{$questions[$i]->id}}">
         <div class="row">
