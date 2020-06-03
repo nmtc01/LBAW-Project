@@ -154,8 +154,10 @@
                                 <?php $i = 1; ?>
                                 @foreach($userQuestions as $question)
                                     <tr>
-                                        <th scope="row">{{$i}}</th>
-                                        <td>{{$question->title}}</td>
+                                    <th scope="row">{{$i}}</th>
+                                        <td>
+                                        <span class="float-right font-weight-bold"></span> <a class="question-header-profile" href="{{ asset('/question/'.$question->id) }}">{{$question->title}}</a>
+                                        </td>
                                         <td>{{ $nr_answers[$question->id] }}</td>
                                         <td>{{$question->nr_likes - $question->nr_dislikes}}</td>
                                     </tr>
@@ -253,7 +255,9 @@
                                 @foreach($userQuestions as $question)
                                     <tr>
                                         <th scope="row">{{$i}}</th>
-                                        <td>{{$question->title}}</td>
+                                        <td>
+                                        <span class="float-right font-weight-bold"></span> <a class="question-header-profile" href="{{ asset('/question/'.$question->id) }}">{{$question->title}}</a>
+                                        </td>
                                         <td>{{ $nr_answers[$question->id] }}</td>
                                         <td>{{$question->nr_likes - $question->nr_dislikes}}</td>
                                     </tr>

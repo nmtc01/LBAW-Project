@@ -61,7 +61,7 @@ class AnswerController extends Controller
                   ->select('question.*')
                   ->where('question.id', $answer->question_id)
                   ->first();
-      $content = 'A user has answered a question of yours';
+      $content = Auth::user()->username . " has answered a question of yours";
 
       DB::table('notification')->insert([
         ['content' => $content, 'user_id' => $notification_question->user_id, 'question_id' => $notification_question->id]
@@ -71,7 +71,7 @@ class AnswerController extends Controller
                             ->select('question_following.*')
                             ->where('question_following.question_id', $answer->question_id)
                             ->get();
-      $content = 'A user has answered a question you follow';
+      $content = Auth::user()->username . " has answered a question you follow";
       foreach($notification_follow as $n){
         DB::table('notification')->insert([
           ['content' => $content, 'user_id' => $n->user_id, 'question_id' => $n->question_id]

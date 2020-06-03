@@ -33,8 +33,9 @@
                     <a href="{{ asset('/') }}">Answerly</a>
                 </div>
                 <div id="search-bar" class="collapse navbar-collapse navbarSupportedContent m-auto">
-                    <form class="form-inline navbar-nav m-auto">
-                        <input id="start_search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <form class="form-inline navbar-nav m-auto" method="GET" action="/search" role="search">
+                        <input id="start_search" class="form-control col-md-10" type="search" placeholder="Search" aria-label="Search" name="keyword">
+                        @include('partials.filters')
                     </form>
                 </div>
                 <div id="sign-in" class="collapse navbar-collapse navbarSupportedContent col-sm-3">
@@ -106,13 +107,11 @@
                                 <div id="labels">
                                     <a class="badge badge-dark badge-pill" id="add_label">+ Label</a>
                                 </div>
-                                <div id="form-buttons" class="form-group row">
-                                    <input type="file" class="form-control-file col-sm-9" id="exampleFormControlFile1" accept="image/png, image/jpeg">
-                                </div>
+                                
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button id="add_question_btn" type="submit" class="btn btn-primary" {{--data-dismiss="modal"--}}>Add</button>
+                            <button id="add_question_btn" type="submit" class="btn btn-primary">Add</button>
                         </div>
                     </div>
                 </div>

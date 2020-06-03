@@ -3,11 +3,6 @@
  */
 
 function addEventListeners() {
-    let search = document.querySelector('#start_search');
-    if (search != null) {
-        search.addEventListener('keypress', sendSearchRequest);
-    }
-
     let questionCreator = document.querySelector('#add_question_btn');
     if (questionCreator != null) {
         questionCreator.addEventListener('click', sendCreateQuestionRequest);
@@ -297,11 +292,6 @@ function editProfileHandler() {
     if (this.status == 200) {
         window.location = '/user/' + info[0];
     }
-}
-
-function showSearchHandler() {
-    if (this.status == 200)
-        window.location = '/search/' + this.responseText;
 }
 
 function questionAddedHandler() {
@@ -772,29 +762,6 @@ function sendEditProfileRequest() {
         sendAjaxRequest('put', '/api/user/' + id, { first_name: first_name, last_name: last_name, email: email, description: description, username: username, password: password }, editProfileHandler);
     } else {
         return;
-    }
-}
-
-function sendSearchRequest(e) {
-    if (e.key === 'Enter') {
-        let keyword = document.getElementById("start_search").value;
-        let start = document.querySelector('.dates #start_date');
-        let end = document.querySelector('.dates #end_date');
-
-        let start_date = '';
-        let end_date = '';
-        if (start != null)
-            if (start.value != '')
-                start_date = '&strDate=' + start.value;
-        if (end != null)
-            if (end.value != '')
-                end_date = '&endDate=' + end.value;
-        content = keyword + start_date + end_date;
-
-        if (content != '')
-            sendAjaxRequest('post', '/search', { content }, showSearchHandler);
-
-        event.preventDefault();
     }
 }
 
