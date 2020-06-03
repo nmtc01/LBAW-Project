@@ -1,15 +1,1 @@
-#about {
-    margin: 3% 15%;
-    background-color: white;
-    padding: 5%;
-    border-radius: .25rem;
-}
-
-#about h1 {
-    font-size: 1.5rem;
-    color: #207fae;
-}
-
-#about article p span {
-    color: #207fae;
-}
+#about{margin:3% 15%;background-color:#fff;padding:5%;border-radius:.25rem}#about h1{font-size:1.5rem;color:#207fae}#about article p span{color:#207fae}

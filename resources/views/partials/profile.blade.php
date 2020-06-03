@@ -47,10 +47,13 @@
             <img src="{{asset('/img/' . $userInfo->photo_path)}}"  width ="250rem" height="250rem" class="mx-auto img-fluid img-circle d-block" alt="user image">
             @if(Auth::user()->id == $userInfo->id)
             <h6 class="mt-2">Upload a different photo</h6>
-            <div class="file btn btn-link">
-                Choose file
-                <input type="file" name="file" />
-            </div>
+            {{--<form method="POST" action="{{ action('UserController@uploadImage') }}">--}}
+                <div class="file btn btn-link">
+                    Choose file
+                    <input type="file" name="file" />
+                </div>
+                <button type="submit">Submit</button>
+            {{--</form>--}}
             @endif
         </div>
         <div class="col-lg-8 order-lg-2">

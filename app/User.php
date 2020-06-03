@@ -62,7 +62,9 @@ class User extends Authenticatable
     public function getUserCurrentRole()
     {
         $user_management = UserManagement::where('id', $this->id)->latest('date_last_changed')->first();
-        $role = $user_management->status;
+        if ($user_management == null)
+            $role = 'user';
+        else $role = $user_management->status;
 
         return $role;
     }
