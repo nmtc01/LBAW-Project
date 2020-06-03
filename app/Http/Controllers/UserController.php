@@ -47,10 +47,9 @@ class UserController extends Controller
       $questionsVotes = [];
       $nr_answers = [];
 
-      $userQuestions = DB::select(DB::raw("SELECT question.*
-      from question 
-      where question.user_id = $id
-      limit 5;"));
+      $userQuestions = DB::table('question')
+                          ->where('user_id', $id)
+                          ->paginate(1);
 
       $answerController = new AnswerController();
       

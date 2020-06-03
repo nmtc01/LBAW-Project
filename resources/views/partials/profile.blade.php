@@ -96,19 +96,9 @@
                             </p>
                         </div>
                         <div class="col-md-6">
-                            <h6>Recent labels</h6>
-                            <a href="#" class="badge badge-dark badge-pill">cana de pesca</a>
-                            <a href="#" class="badge badge-dark badge-pill">anzol</a>
-                            <a href="#" class="badge badge-dark badge-pill">isco</a>
-                            <a href="#" class="badge badge-dark badge-pill">barco</a>
-                            <a href="#" class="badge badge-dark badge-pill">rabanada de vento</a>
-                            <a href="#" class="badge badge-dark badge-pill">mastro</a>
-                            <a href="#" class="badge badge-dark badge-pill">rede</a>
-                            <a href="#" class="badge badge-dark badge-pill">pesca</a>
-                            <hr>
-                            <span class="badge badge-success"><i class="fas fa-star"></i> Score {{$userInfo->score}}</span>
+                            <span class="badge badge-success ml-auto"><i class="fas fa-star"></i> Score {{$userInfo->score}}</span>
                             <a class="icon-profile">
-                                <i class="fas fa-question-circle" data-toggle="modal" data-target="#help_profile"> Help</i>
+                                <i class="fas fa-question-circle mr-5" data-toggle="modal" data-target="#help_profile"> Help</i>
                             </a>
                         </div>
                     </div>
@@ -127,19 +117,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                            <a class="page-link previous" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                            <a class="page-link next" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
                 <div class="tab-pane" id="my-questions">
                     <div class="col-md-12">
@@ -168,22 +145,11 @@
                                     <?php $i = $i + 1; ?>
                                 @endforeach
                                     
-                                    
                                 </tbody>
                             </table>
                         </div>
                         <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                <a class="page-link previous" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                <a class="page-link next" href="#">Next</a>
-                                </li>
-                            </ul>
+                            {{ $userQuestions->links() }}
                         </nav>
                     </div>
                 </div>
