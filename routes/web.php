@@ -19,9 +19,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-//Route::get('/', 'HomeController@home');
-//Route::get('/', 'HomeController@show')->name('home');
-//Route::get('/', 'QuestionController@list');
+//Home page
 Route::get('/', 'HomeController@show');
 
 // Questions
@@ -64,8 +62,7 @@ Route::get('/about', 'StaticController@about');
 Route::get('/404', 'StaticController@p404');
 
 // Search page
-Route::get('/search/{content}', 'SearchController@show');
-Route::post('/search', 'SearchController@startSearch');
+Route::post('/search', 'SearchController@show');
 
 // Moderate
 Route::get('/admin', 'ModerationController@show');

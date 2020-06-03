@@ -33,8 +33,10 @@
                     <a href="{{ asset('/') }}">Answerly</a>
                 </div>
                 <div id="search-bar" class="collapse navbar-collapse navbarSupportedContent m-auto">
-                    <form class="form-inline navbar-nav m-auto">
-                        <input id="start_search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <form class="form-inline navbar-nav m-auto" method="POST" action="/search" role="search">
+                        {{ csrf_field() }}
+                        <input id="start_search" class="form-control col-md-10" type="search" placeholder="Search" aria-label="Search" name="search_keyword">
+                        @include('partials.filters')
                     </form>
                 </div>
                 <div id="sign-in" class="collapse navbar-collapse navbarSupportedContent col-sm-3">
