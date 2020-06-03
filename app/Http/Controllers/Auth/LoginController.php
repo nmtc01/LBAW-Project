@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\DB;
+
+use App\QuestionLabel;
+use App\Label;
 
 class LoginController extends Controller
 {
@@ -44,5 +48,20 @@ class LoginController extends Controller
     public function getUser(){
         return $request->user();
     }
+
+    public function showLogin(){
+        // for footer
+        $p_l = QuestionLabel::select(DB::raw('label_id'))->groupBy('label_id')->orderBy(DB::raw('count(*)'), 'desc')->limit(6)->get();
+        $popular_labels = [];
+        $i = 0;
+        foreach($p_l as $l){
+            $label = Label::find($l);
+            $popular_labels[$i] = $label[0]->name;
+            $i++;
+        }
+
+        return view('auth.login', ['popular_labels' => $popular_labels]);
+    }
+
 
 }

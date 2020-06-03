@@ -13,10 +13,12 @@
 
 
 // Authentication
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+//Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('login', 'Auth\LoginController@showLogin')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+//Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::get('register', 'Auth\RegisterController@showRegistration')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
 //Home page
