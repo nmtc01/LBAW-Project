@@ -868,27 +868,27 @@ insert into question (user_id, title, description, question_date)
 
 
 --notification
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 20);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-2', FALSE, 19);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-3', FALSE, 18);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-4', FALSE, 17);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-5', TRUE, 16);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-6', TRUE, 15);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-7', FALSE, 14);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-8', TRUE, 13);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-9', TRUE, 12);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-10', FALSE, 11);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-11', TRUE, 10);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-12', TRUE, 9);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-13', FALSE, 8);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 7);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 6);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 5);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 4);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 3);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 2);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 20, 19);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-2', FALSE, 4, 1);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-3', FALSE, 18, 19);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-4', FALSE, 17, 18);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-5', TRUE, 1, 3);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-6', TRUE, 15, 16);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-7', FALSE, 14, 15);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-8', TRUE, 13, 14);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-9', TRUE, 59, 30);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-10', FALSE, 41, 20);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-11', TRUE, 10, 9);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-12', TRUE, 9, 10);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-13', FALSE, 8, 7);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 7, 8);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 6, 5);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 5, 7);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 4, 3);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 3, 4);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 2, 1);
 insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 2, 2);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 1);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 1, 2);
 	
 --answer
 insert into answer (user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 
