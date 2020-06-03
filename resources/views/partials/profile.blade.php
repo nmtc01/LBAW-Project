@@ -187,7 +187,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Password</label>
                             <div class="col-lg-9">
-                                <input class="form-control" id="password" type="password">
+                                <input class="form-control" id="password" type="password" >
                             </div>
                         </div>
                         <div class="form-group row">
