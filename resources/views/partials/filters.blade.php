@@ -1,8 +1,8 @@
 <div id="accordion" class="ml-auto align-self-sm-center">
-    <a role="filter" class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseOne">
+    <a role="button" class="btn btn-link text-white" data-toggle="collapse" data-target="#collapseOne">
     Filters
     </a>
-    <div id="collapseOne" class="collapse float-right" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapseOne" class="collapse float-right" data-parent="#accordion">
         <div class="card-body filters">
             <div id="filters-bar">
                 <div class="row">
