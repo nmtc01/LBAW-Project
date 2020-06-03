@@ -14,6 +14,6 @@
 <div id="sidenav_right" class="sidenav d-none d-md-block">
     <label>Popular labels</label>
     @foreach($popular_labels as $label)
-        <a class="row" href="{{asset('/search/'.$label)}}">#{{$label}}</a>
+        <a class="row" href="{{asset('/search?keyword='.$label)}}">#{{$label}}</a>
     @endforeach
 </div>

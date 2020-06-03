@@ -10,10 +10,12 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Notification;
 use App\UserManagement;
+use App\QuestionLabel;
+use App\Label;
 
 class UserController extends Controller
 {
-    
+  
 
     /**
      * Shows all questions.
@@ -59,7 +61,16 @@ class UserController extends Controller
 
       $userInfo = User::find($id);
 
-      return view('pages.profile', ['userInfo' => $userInfo, 'userQuestions' => $userQuestions, 'nr_answers' => $nr_answers,]);
+      $p_l = QuestionLabel::select(DB::raw('label_id'))->groupBy('label_id')->orderBy(DB::raw('count(*)'), 'desc')->limit(6)->get();
+      $popular_labels = [];
+      $i = 0;
+      foreach($p_l as $l){
+          $label = Label::find($l);
+          $popular_labels[$i] = $label[0]->name;
+          $i++;
+      }
+
+      return view('pages.profile', ['userInfo' => $userInfo, 'userQuestions' => $userQuestions, 'nr_answers' => $nr_answers, 'popular_labels' => $popular_labels]);
     }
 
     public function listReported(){

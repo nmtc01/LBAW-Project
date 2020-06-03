@@ -158,13 +158,13 @@
                     <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Most Popular</h3>
                     <ul class="list-unstyled">
                         <li>
-                        <a href="#!">#Sports</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[0])}}>#{{$popular_labels[0]}}</a>
                         </li>
                         <li>
-                        <a href="#!">#Astronomy</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[1])}}>#{{$popular_labels[1]}}</a>
                         </li>
                         <li>
-                        <a href="#!">#Web_development</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[2])}}>#{{$popular_labels[2]}}</a>
                         </li>
                     </ul>
                 </div>
@@ -175,13 +175,13 @@
                     <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Most Popular</h3>
                     <ul class="list-unstyled">
                         <li>
-                        <a href="#!">#Physics</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[3])}}>#{{$popular_labels[3]}}</a>
                         </li>
                         <li>
-                        <a href="#!">#Anatomy</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[4])}}>#{{$popular_labels[4]}}</a>
                         </li>
                         <li>
-                        <a href="#!">#Comics</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[5])}}>#{{$popular_labels[5]}}</a>
                         </li>
                     </ul>
                 </div>
