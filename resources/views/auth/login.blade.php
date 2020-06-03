@@ -48,10 +48,6 @@
                                     </span>
                                 @endif
 
-                                <div class="form-group">
-                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                </div>
-
                                 <input type="submit" id="login_button" class="btnRegister" value="Login">
                             
                                 <div class="align-middle d-flex justify-content-end">

@@ -54,20 +54,6 @@
                       @endif
                     </div>
 
-
-                    <div class="form-group">
-                      <div class="maxl">
-                          <label class="radio inline">
-                              <input type="radio" name="gender" value="male" checked>
-                              <span> Male </span>
-                          </label>
-                          <label class="radio inline">
-                              <input type="radio" name="gender" value="female">
-                              <span>Female </span>
-                          </label>
-                      </div>
-                    </div>
-
                   </div>
                   <div class="col-md-6 ml-auto">
 
