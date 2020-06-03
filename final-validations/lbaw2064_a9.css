@@ -362,12 +362,12 @@ nav .pagination .page-item .page-link {
     color: #207fae;
 }
 
-nav .pagination .page-item #previous {
+nav .pagination .page-item .previous {
     background-color: #207fae;
     color: white;
 }
 
-nav .pagination .page-item #next {
+nav .pagination .page-item .next {
     background-color: #207fae;
     color: white;
 }
