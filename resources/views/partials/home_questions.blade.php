@@ -8,7 +8,7 @@
     <div class="wrapper home_question container-fluid questions-list" data-id="{{$questions[$i]->id}}">
         <div class="row mb-3">
             <div class="col-3 text-center">
-                <img src="{{asset('/img/unknown.png')}}" alt="user image">
+                <img src="{{asset('/img/' . $users[$questions[$i]->id]->photo_path)}}" alt="user image">
                 <p><a class="row-2 d-none d-sm-block" href="{{ asset('/user/'.$users[$questions[$i]->id]->id) }}">{{$users[$questions[$i]->id]->username}}</a></p>
             </div>
             <div class="col-9">
