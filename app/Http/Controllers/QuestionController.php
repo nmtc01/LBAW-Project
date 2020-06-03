@@ -70,6 +70,11 @@ class QuestionController extends Controller
     {
       $questions = DB::select(DB::raw("select * from question order by question_date desc, (nr_likes - nr_dislikes) desc"));
 
+      $questions = DB::table('question')
+                      ->orderByRaw('question_date DESC')
+                      ->orderByRaw('(nr_likes - nr_dislikes) DESC')
+                      ->paginate(15);
+
       return $questions;
 
     }
@@ -113,7 +118,7 @@ class QuestionController extends Controller
                                         and (question_date <= '$end_date')) 
                                         order by question_date desc, (nr_likes - nr_dislikes) desc"));
 
-        $question_labels = DB::select(DB::raw("SELECT question.* FROM question JOIN question_label on question.id = question_label.question_id JOIN label l on l.id = question_label.label_id WHERE (l.name = '$keyWord') and (question_date <= '$end_date'))"));
+        $question_labels = DB::select(DB::raw("SELECT question.* FROM question JOIN question_label on question.id = question_label.question_id JOIN label l on l.id = question_label.label_id WHERE (l.name = '$keyWord') and (question_date <= '$end_date')"));
       }
       else if ($start_date != '' && $end_date != '') {
         $questions = DB::select(DB::raw("SELECT * from question 
@@ -121,7 +126,7 @@ class QuestionController extends Controller
                                         and (question_date >= '$start_date' and question_date <= '$end_date')) 
                                         order by question_date desc, (nr_likes - nr_dislikes) desc"));
 
-        $question_labels = DB::select(DB::raw("SELECT question.* FROM question JOIN question_label on question.id = question_label.question_id JOIN label l on l.id = question_label.label_id WHERE (l.name = '$keyWord') and (question_date >= '$start_date' and question_date <= '$end_date')"));
+        $question_labels = DB::select(DB::raw("SELECT question.* FROM question JOIN question_label on question.id = question_label.question_id JOIN label l on l.id = question_label.label_id WHERE (l.name = '$keyWord') and (question_date >= '$start_date') and (question_date <= '$end_date')"));
       }
 
       $result = array_merge($questions, $question_labels);

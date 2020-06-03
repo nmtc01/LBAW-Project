@@ -10,10 +10,12 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Notification;
 use App\UserManagement;
+use App\QuestionLabel;
+use App\Label;
 
 class UserController extends Controller
 {
-    
+  
 
     /**
      * Shows all questions.
@@ -45,10 +47,9 @@ class UserController extends Controller
       $questionsVotes = [];
       $nr_answers = [];
 
-      $userQuestions = DB::select(DB::raw("SELECT question.*
-      from question 
-      where question.user_id = $id
-      limit 5;"));
+      $userQuestions = DB::table('question')
+                          ->where('user_id', $id)
+                          ->paginate(1);
 
       $answerController = new AnswerController();
       
@@ -59,7 +60,16 @@ class UserController extends Controller
 
       $userInfo = User::find($id);
 
-      return view('pages.profile', ['userInfo' => $userInfo, 'userQuestions' => $userQuestions, 'nr_answers' => $nr_answers,]);
+      $p_l = QuestionLabel::select(DB::raw('label_id'))->groupBy('label_id')->orderBy(DB::raw('count(*)'), 'desc')->limit(6)->get();
+      $popular_labels = [];
+      $i = 0;
+      foreach($p_l as $l){
+          $label = Label::find($l);
+          $popular_labels[$i] = $label[0]->name;
+          $i++;
+      }
+
+      return view('pages.profile', ['userInfo' => $userInfo, 'userQuestions' => $userQuestions, 'nr_answers' => $nr_answers, 'popular_labels' => $popular_labels]);
     }
 
     public function listReported(){
@@ -94,6 +104,11 @@ class UserController extends Controller
       $user->email = $request->input('email');
       $user->bio = $request->input('description');
       $user->username = $request->input('username');
+      
+      if($request->input('password') != ""){
+        error_log("ahahahah");
+        $user->password = bcrypt($request->input('password'));
+      }
 
       $user->save();
       

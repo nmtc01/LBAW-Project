@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\User;
 use App\UserManagement;
+use App\QuestionLabel;
+use App\Label;
 
 class ModerationController extends Controller
 {
@@ -88,7 +90,17 @@ class ModerationController extends Controller
         $best_users = $this->userController->listBestScoreUsers();
         $best_moderators = $this->userController->listBestScoreModerators();
 
-        return view('pages.moderate', ['questionsReports' => $questionsReports, 'reportedQuestions' => $reportedQuestions, 'owners' => $owners, 'reporters' => $reporters, 'answerReports' => $answerReports, 'reportedAnswers' => $reportedAnswers, 'answer_owners' => $answer_owners, 'answer_reporters' => $answer_reporters, 'commentReports' => $commentReports, 'reportedComments' => $reportedComments, 'comment_owners' => $comment_owners, 'comment_reporters' => $comment_reporters, 'userReports' => $userReports, 'reportedUsers' => $reportedUsers, 'user_reporters' => $user_reporters, 'best_users' => $best_users, 'best_moderators' => $best_moderators]);
+        // for footer
+        $p_l = QuestionLabel::select(DB::raw('label_id'))->groupBy('label_id')->orderBy(DB::raw('count(*)'), 'desc')->limit(6)->get();
+        $popular_labels = [];
+        $i = 0;
+        foreach($p_l as $l){
+            $label = Label::find($l);
+            $popular_labels[$i] = $label[0]->name;
+            $i++;
+        }
+
+        return view('pages.moderate', ['questionsReports' => $questionsReports, 'reportedQuestions' => $reportedQuestions, 'owners' => $owners, 'reporters' => $reporters, 'answerReports' => $answerReports, 'reportedAnswers' => $reportedAnswers, 'answer_owners' => $answer_owners, 'answer_reporters' => $answer_reporters, 'commentReports' => $commentReports, 'reportedComments' => $reportedComments, 'comment_owners' => $comment_owners, 'comment_reporters' => $comment_reporters, 'userReports' => $userReports, 'reportedUsers' => $reportedUsers, 'user_reporters' => $user_reporters, 'best_users' => $best_users, 'best_moderators' => $best_moderators, 'popular_labels' => $popular_labels]);
 
     }
 

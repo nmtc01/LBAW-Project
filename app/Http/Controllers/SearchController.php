@@ -6,6 +6,7 @@ use App\QuestionFollowing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class SearchController extends Controller
 {
@@ -22,27 +23,14 @@ class SearchController extends Controller
         $this->labelController = new LabelController();
     }
 
-    public function show($content) {
+    public function show() {
         $KeyWord = '';
         $start_date = '';
         $end_date = '';
-        
-        $array = preg_split("/&strDate=/", $content);
-        if (count($array) == 1) {
-            $array = preg_split("/&endDate=/", $array[0]);
-            $KeyWord = $array[0];
-            if (count($array) == 2) {
-                $end_date = $array[1];
-            }
-        }
-        else if (count($array) == 2) {
-            $KeyWord = $array[0];
-            $array = preg_split("/&endDate=/", $array[1]);
-            $start_date = $array[0];
-            if (count($array) == 2) {
-                $end_date = $array[1];
-            }
-        }
+
+        $KeyWord = Input::get('keyword');
+        $start_date = Input::get('strDate');
+        $end_date = Input::get('endDate');
 
         $questions = $this->questionController->listSearch($KeyWord, $start_date, $end_date);
 
@@ -51,17 +39,10 @@ class SearchController extends Controller
             $questions_followed = $this->questionFollowingController->listFollowedQuestions();
         }
         
-        
         $users = [];
-        $nr_answers = [];
-        $questionsVotes = [];
 
         foreach($questions as $question){
             $users[$question->id] = $this->userController->getUsername($question->user_id);
-            $nr_answers[$question->id] = $this->answerController->getNrAnswers($question->id);
-            if(Auth::check()){
-                $questionsVotes[$question->id] = DB::table('vote')->where([['user_id', Auth::user()->id], ['question_id', $question->id],])->first();
-            }else $questionsVotes[$question->id] = 0;
         }
 
         // for sidenavs
@@ -75,12 +56,7 @@ class SearchController extends Controller
             $i++;
         }
         
-        return view('pages.search',['questions' => $questions, 'users' => $users, 'nr_answers' => $nr_answers, 'questions_followed' => $questions_followed, 'KeyWord' => $KeyWord, 'questionsVotes' => $questionsVotes, 'popular_questions' => $popular_questions, 'popular_labels' => $popular_labels]);
+        return view('pages.search',['questions' => $questions, 'users' => $users,  'questions_followed' => $questions_followed, 'KeyWord' => $KeyWord, 'popular_questions' => $popular_questions, 'popular_labels' => $popular_labels]);
     }
-
-    public function startSearch(Request $request)
-    {
-        $content = $request->input('content');
-        return $content;
-    }
+        
 }

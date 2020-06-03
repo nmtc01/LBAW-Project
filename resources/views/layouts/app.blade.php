@@ -33,8 +33,9 @@
                     <a href="{{ asset('/') }}">Answerly</a>
                 </div>
                 <div id="search-bar" class="collapse navbar-collapse navbarSupportedContent m-auto">
-                    <form class="form-inline navbar-nav m-auto">
-                        <input id="start_search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <form class="form-inline navbar-nav m-auto" method="GET" action="/search" role="search">
+                        <input id="start_search" class="form-control col-md-10" type="search" placeholder="Search" aria-label="Search" name="keyword">
+                        @include('partials.filters')
                     </form>
                 </div>
                 <div id="sign-in" class="collapse navbar-collapse navbarSupportedContent col-sm-3">
@@ -157,13 +158,13 @@
                     <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Most Popular</h3>
                     <ul class="list-unstyled">
                         <li>
-                        <a href="#!">#Sports</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[0])}}>#{{$popular_labels[0]}}</a>
                         </li>
                         <li>
-                        <a href="#!">#Astronomy</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[1])}}>#{{$popular_labels[1]}}</a>
                         </li>
                         <li>
-                        <a href="#!">#Web_development</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[2])}}>#{{$popular_labels[2]}}</a>
                         </li>
                     </ul>
                 </div>
@@ -174,13 +175,13 @@
                     <h3 class="font-weight-bold text-uppercase mt-3 mb-4">Most Popular</h3>
                     <ul class="list-unstyled">
                         <li>
-                        <a href="#!">#Physics</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[3])}}>#{{$popular_labels[3]}}</a>
                         </li>
                         <li>
-                        <a href="#!">#Anatomy</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[4])}}>#{{$popular_labels[4]}}</a>
                         </li>
                         <li>
-                        <a href="#!">#Comics</a>
+                            <a href={{asset('/search?keyword='.$popular_labels[5])}}>#{{$popular_labels[5]}}</a>
                         </li>
                     </ul>
                 </div>

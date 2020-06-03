@@ -80,4 +80,7 @@
         </div>
     </div>
     @endfor
+    <div class="d-flex flex-row-reverse">
+    {{ $questions->links() }}
+    </div>
 </div>
