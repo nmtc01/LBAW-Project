@@ -148,9 +148,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        <nav aria-label="Page navigation example">
-                            {{ $userQuestions->links() }}
-                        </nav>
                     </div>
                 </div>
                 <div class="tab-pane" id="edit">
