@@ -1,15 +1,15 @@
 --user
 --password for user 2: 1234
-insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8');
-insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Pedro', 'Dantas', 'pedrodantas@hotmail.com', 'UP student', 'pedrodantas', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
-insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Eduardo', 'Macedo', 'edumacedo@gmail.com', 'UP student', 'edu1234', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d');
-insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Roberto', 'Mourato', 'robmoura@hotmail.com', 'UP student', 'bob56moura', '75748e28843cab0cc7ca4ba8dcdc11552ea7bb3b652a3cbd26c53dec861408bc');
-insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Lurdes', 'Cardoso', 'lurdes01@hotmail.com', 'babysitter', 'lurdes01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
+insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
+	values ('Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'nuno.png');
+insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
+	values ('Pedro', 'Dantas', 'pedrodantas@hotmail.com', 'UP student', 'pedrodantas', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 'dantas.jpg');
+insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
+	values ('Eduardo', 'Macedo', 'edumacedo@gmail.com', 'UP student', 'edu1234', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d', 'eduardo.jpg');
+insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
+	values ('Roberto', 'Mourato', 'robmoura@hotmail.com', 'UP student', 'bob56moura', '75748e28843cab0cc7ca4ba8dcdc11552ea7bb3b652a3cbd26c53dec861408bc', 'beto.jpg');
+insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
+	values ('Eduardo', 'Cardoso', 'lurdes01@hotmail.com', 'babysitter', 'edu01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 'eduardo.jpg');
 insert into "user" (first_name, last_name, email, bio, username, password)
 	values ('Paula', 'Tavares', 'paultavares@hotmail.com', 'hairdresser', 'paula64', '39427764c90328dc57389a2adb9202ae18cb3c38f27f5e7d3a19e5d23d7bbe4f');	
 insert into "user" (first_name, last_name, email, bio, username, password)
@@ -186,28 +186,6 @@ insert into label (name) values ('rock');
 insert into label (name) values ('pop');
 insert into label (name) values ('english');
 
---notification
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 20);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-2', FALSE, 19);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-3', FALSE, 18);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-4', FALSE, 17);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-5', TRUE, 16);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-6', TRUE, 15);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-7', FALSE, 14);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-8', TRUE, 13);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-9', TRUE, 12);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-10', FALSE, 11);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-11', TRUE, 10);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-12', TRUE, 9);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-13', FALSE, 8);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 7);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 6);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 5);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 4);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 3);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', FALSE, 2);
-insert into notification (content, date, viewed, user_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 1);
-
 --user_management
 insert into user_management (status, date_last_changed, user_id) values ('administrator', '2020-03-01', 1);
 insert into user_management (status, date_last_changed, user_id) values ('administrator', '2020-03-01', 2);
@@ -338,6 +316,30 @@ insert into question (user_id, title, description, question_date)
 	values (49, 'History', 'Who are some historical figures wrongly portrayed in popular culture?', '2019-09-01');		
 insert into question (user_id, title, description, question_date) 
 	values (59, 'Popular cliches in movies', 'What is a movie cliche you never get tired of seeing?', '2019-08-01');
+
+
+--notification
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 20, 19);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-2', FALSE, 4, 1);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-3', FALSE, 18, 19);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-4', FALSE, 17, 18);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-5', TRUE, 1, 3);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-6', TRUE, 15, 16);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-7', FALSE, 14, 15);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-8', TRUE, 13, 14);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-9', TRUE, 59, 30);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-10', FALSE, 41, 20);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-11', TRUE, 10, 9);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-12', TRUE, 9, 10);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-13', FALSE, 8, 7);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 7, 8);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 6, 5);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 5, 7);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 4, 3);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 3, 4);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 2, 1);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 2, 2);
+insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 1, 2);
 	
 --answer
 insert into answer (user_id, question_id, answer_date, content, nr_likes, nr_dislikes, marked_answer) 

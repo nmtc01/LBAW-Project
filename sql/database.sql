@@ -20,6 +20,7 @@ DROP TABLE IF EXISTS question_label CASCADE;
 -- Tables
 -----------------------------------------
 
+
 -- Table: user
 CREATE TABLE "user" (
     id              SERIAL          PRIMARY KEY,
@@ -29,22 +30,14 @@ CREATE TABLE "user" (
     bio             TEXT,
     username        TEXT            NOT NULL UNIQUE,
     password        TEXT            NOT NULL,
-    score           INTEGER         NOT NULL DEFAULT 0              
+    score           INTEGER         NOT NULL DEFAULT 0,
+	photo_path      TEXT      		DEFAULT 'unknown.png'
 );
 
 -- Table: label
 CREATE TABLE label (
     id              SERIAL          PRIMARY KEY,
     name            TEXT            NOT NULL          
-);
-
--- Table: notification
-CREATE TABLE notification (
-    id              SERIAL          PRIMARY KEY,
-    content         TEXT            NOT NULL,
-    date            DATE            DEFAULT 'Now' NOT NULL,
-    viewed          BOOLEAN         DEFAULT FALSE NOT NULL,
-    user_id         INTEGER         REFERENCES "user" (id) NOT NULL
 );
 
 -- Table: user_management
@@ -54,7 +47,7 @@ CREATE TABLE user_management (
     date_last_changed   DATE            DEFAULT 'Now' NOT NULL,
     user_id             INTEGER         REFERENCES "user" (id) NOT NULL UNIQUE,
     CHECK (
-        status = 'user' OR status = 'moderator' OR status = 'administrator' OR status = 'banned'
+        status = 'user' OR status = 'moderator' OR status = 'administrator' OR status = 'banned' OR status = 'deleted'
     )
 );
 
@@ -70,6 +63,16 @@ CREATE TABLE question (
     CHECK (
         nr_likes >= 0 AND nr_dislikes >= 0
     )         
+);
+
+-- Table: notification
+CREATE TABLE notification (
+    id              SERIAL          PRIMARY KEY,
+    content         TEXT            NOT NULL,
+    date            DATE            DEFAULT 'Now' NOT NULL,
+    viewed          BOOLEAN         DEFAULT FALSE NOT NULL,
+    user_id         INTEGER         REFERENCES "user" (id) NOT NULL,
+	question_id		INTEGER			DEFAULT NULL REFERENCES "question" (id)
 );
 
 -- Table: answer
@@ -154,14 +157,14 @@ CREATE TABLE question_following (
 -- Table: label_following
 CREATE TABLE label_following (
     user_id          INTEGER         REFERENCES "user" (id) NOT NULL,
-    label_id         INTEGER         REFERENCES "label" (id) NOT NULL,
+    label_id         INTEGER         REFERENCES "label" (id) ON DELETE CASCADE NOT NULL,
     PRIMARY KEY (user_id, label_id)
 );
 
 -- Table: question_label
 CREATE TABLE question_label (
     question_id      INTEGER         REFERENCES "question" (id) ON DELETE CASCADE NOT NULL,
-    label_id         INTEGER         REFERENCES "label" (id) NOT NULL,
+    label_id         INTEGER         REFERENCES "label" (id) ON DELETE CASCADE NOT NULL,
     PRIMARY KEY (question_id, label_id)
 );
 
@@ -220,6 +223,41 @@ CREATE TRIGGER update_score_question
     FOR EACH ROW
     EXECUTE PROCEDURE update_score_question();
 
+--extra trigger
+
+CREATE OR REPLACE FUNCTION update_score_question_delete() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = FALSE) THEN
+		UPDATE question
+		SET nr_dislikes = nr_dislikes-1
+		WHERE OLD.question_id = id;
+		UPDATE "user"
+		SET score = score+1
+		FROM question
+		WHERE OLD.question_id = question.id AND question.user_id = "user".id;
+    ELSE IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = TRUE) THEN
+        UPDATE question
+		SET nr_likes = nr_likes-1
+		WHERE OLD.question_id = id;
+		UPDATE "user"
+		SET score = score-1
+		FROM question
+		WHERE OLD.question_id = question.id AND question.user_id = "user".id;
+    END IF;
+	END IF;
+    RETURN OLD;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER update_score_question_delete
+    AFTER DELETE ON vote
+    FOR EACH ROW
+    EXECUTE PROCEDURE update_score_question_delete();
+
+	------
+
 
 --Trigger 2
 CREATE OR REPLACE FUNCTION update_score_answer() RETURNS TRIGGER AS
@@ -253,6 +291,40 @@ CREATE TRIGGER update_score_answer
     FOR EACH ROW
     EXECUTE PROCEDURE update_score_answer();
 
+--extra trigger 2
+
+
+CREATE OR REPLACE FUNCTION update_score_answer_delete() RETURNS TRIGGER AS
+$BODY$
+BEGIN
+    IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = FALSE) THEN
+		UPDATE answer
+		SET nr_dislikes = nr_dislikes-1
+		WHERE OLD.answer_id = id;
+		UPDATE "user"
+		SET score = score+1
+		FROM answer
+		WHERE OLD.answer_id = answer.id AND answer.user_id = "user".id;
+    ELSE IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = TRUE) THEN
+        UPDATE answer
+		SET nr_likes = nr_likes-1
+		WHERE OLD.answer_id = id;
+		UPDATE "user"
+		SET score = score-1
+		FROM answer
+		WHERE OLD.answer_id = answer.id AND answer.user_id = "user".id;
+    END IF;
+	END IF;
+    RETURN OLD;
+END
+$BODY$
+LANGUAGE plpgsql;
+ 
+CREATE TRIGGER update_score_answer_delete
+    AFTER DELETE ON vote
+    FOR EACH ROW
+    EXECUTE PROCEDURE update_score_answer_delete();
+--
 
 --Trigger 3
 CREATE OR REPLACE FUNCTION vote_own_question() RETURNS TRIGGER AS
@@ -415,75 +487,6 @@ CREATE TRIGGER marked_answer
     FOR EACH ROW
     EXECUTE PROCEDURE marked_answer();
 
---Trigger 11
-
---extra trigger
-
-CREATE OR REPLACE FUNCTION update_score_question_delete() RETURNS TRIGGER AS
-$BODY$
-BEGIN
-    IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = FALSE) THEN
-		UPDATE question
-		SET nr_dislikes = nr_dislikes-1
-		WHERE OLD.question_id = id;
-		UPDATE "user"
-		SET score = score+1
-		FROM question
-		WHERE OLD.question_id = question.id AND question.user_id = "user".id;
-    ELSE IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = TRUE) THEN
-        UPDATE question
-		SET nr_likes = nr_likes-1
-		WHERE OLD.question_id = id;
-		UPDATE "user"
-		SET score = score-1
-		FROM question
-		WHERE OLD.question_id = question.id AND question.user_id = "user".id;
-    END IF;
-	END IF;
-    RETURN OLD;
-END
-$BODY$
-LANGUAGE plpgsql;
- 
-CREATE TRIGGER update_score_question_delete
-    AFTER DELETE ON vote
-    FOR EACH ROW
-    EXECUTE PROCEDURE update_score_question_delete();
-
-
---Trigger 12
-
-CREATE OR REPLACE FUNCTION update_score_answer_delete() RETURNS TRIGGER AS
-$BODY$
-BEGIN
-    IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = FALSE) THEN
-		UPDATE answer
-		SET nr_dislikes = nr_dislikes-1
-		WHERE OLD.answer_id = id;
-		UPDATE "user"
-		SET score = score+1
-		FROM answer
-		WHERE OLD.answer_id = answer.id AND answer.user_id = "user".id;
-    ELSE IF EXISTS (SELECT vote.id FROM vote WHERE OLD."vote" = TRUE) THEN
-        UPDATE answer
-		SET nr_likes = nr_likes-1
-		WHERE OLD.answer_id = id;
-		UPDATE "user"
-		SET score = score-1
-		FROM answer
-		WHERE OLD.answer_id = answer.id AND answer.user_id = "user".id;
-    END IF;
-	END IF;
-    RETURN OLD;
-END
-$BODY$
-LANGUAGE plpgsql;
- 
-CREATE TRIGGER update_score_answer_delete
-    AFTER DELETE ON vote
-    FOR EACH ROW
-    EXECUTE PROCEDURE update_score_answer_delete();
-
 -----------------------------------------
 -- TRANSACTIONS FUNCTIONS
 -----------------------------------------
@@ -540,8 +543,6 @@ BEGIN
 		VALUES (CONCAT((SELECT username AS responsible FROM "user" WHERE id=comment_user_id), ' commented your answer!'), answer_user_id);
 END;
 $$ LANGUAGE plpgsql;
-
-
 
 -----------------------------------------
 -- end
