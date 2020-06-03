@@ -78,6 +78,7 @@
                 @elseif (Auth::user()->id == $userInfo->id)
                 <button class="btn my-2 my-sm-0" data-toggle="modal" data-target="#manage_users">Delete account</button>
                 @endif
+                
             </div>
             <div class="tab-content py-4">
                 <div class="tab-pane active" id="profile">
@@ -106,6 +107,9 @@
                             <a href="#" class="badge badge-dark badge-pill">pesca</a>
                             <hr>
                             <span class="badge badge-success"><i class="fas fa-star"></i> Score {{$userInfo->score}}</span>
+                            <a class="icon-profile">
+                                <i class="fas fa-question-circle" data-toggle="modal" data-target="#help_profile"> Help</i>
+                            </a>
                         </div>
                     </div>
                     <!--/row-->

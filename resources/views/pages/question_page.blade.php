@@ -34,6 +34,36 @@
     </div>
 </div> 
 
+<div class="modal fade" id="help_question" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Help</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <h3>What does this page mean?</h3>
+                    <p>This page represents a question. It consists of a title and a brief description. You can tell if it was a helpful question or not using the like and dislike buttons. You can also follow it to be notified everytime it's answered. Below, you have its comments and answers. You can also rank and comment answers.</p>
+                </div>
+                <div>
+                    <h3>What happens when I report a question, comment or answer?</h3>
+                    <p>If you believe a given post is disrespectful, absurd or even racist you can report it to our Moderators and Admins. You will be asked to write a brief description of the problem to make their jobs more efficient. Reporting this type of behaviour helps us enhance your user experience and create a more thriving community.</p>
+                </div>
+                <div>
+                    <h3>Some answers have a green tick on their wildcard. What does that mean?</h3>
+                    <p>If you see a green tick on an answer, that means it is considered by the question holder as a valid response. That is, the user who asked believes its question has been successfully answered.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close_help_question" class="btn btn-primary" data-dismiss="modal">Ok, thank you</button>
+            </div>
+        </div>
+    </div>
+</div> 
+
 <div id="question-div" class="container-fluid col-md-6" data-id = "{{$question->id}}">
     <div class="wrapper">
         @include('partials.question')

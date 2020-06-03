@@ -13,4 +13,5 @@ class StaticController extends Controller
     public function p404() {
         return view('errors.404', []);
     }
+
 }
