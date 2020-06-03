@@ -70,6 +70,11 @@ class QuestionController extends Controller
     {
       $questions = DB::select(DB::raw("select * from question order by question_date desc, (nr_likes - nr_dislikes) desc"));
 
+      $questions = DB::table('question')
+                      ->orderByRaw('question_date DESC')
+                      ->orderByRaw('(nr_likes - nr_dislikes) DESC')
+                      ->paginate(15);
+
       return $questions;
 
     }
