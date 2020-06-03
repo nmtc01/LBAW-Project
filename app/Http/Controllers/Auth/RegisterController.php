@@ -6,6 +6,10 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
+
+use App\QuestionLabel;
+use App\Label;
 
 class RegisterController extends Controller
 {
@@ -75,6 +79,20 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function showRegistration(){
+        // for footer
+        $p_l = QuestionLabel::select(DB::raw('label_id'))->groupBy('label_id')->orderBy(DB::raw('count(*)'), 'desc')->limit(6)->get();
+        $popular_labels = [];
+        $i = 0;
+        foreach($p_l as $l){
+            $label = Label::find($l);
+            $popular_labels[$i] = $label[0]->name;
+            $i++;
+        }
+
+        return view('auth.register', ['popular_labels' => $popular_labels]);
     }
     
     
