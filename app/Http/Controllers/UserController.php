@@ -93,6 +93,11 @@ class UserController extends Controller
       $user->email = $request->input('email');
       $user->bio = $request->input('description');
       $user->username = $request->input('username');
+      
+      if($request->input('password') != ""){
+        error_log("ahahahah");
+        $user->password = bcrypt($request->input('password'));
+      }
 
       $user->save();
       

@@ -119,5 +119,8 @@
         <a class="icon-answers">
             <i class="fas fa-bug" data-toggle="modal" data-target="#report_something"> Report</i>
         </a>
+        <a class="icon-answers">
+            <i class="fas fa-question-circle" data-toggle="modal" data-target="#help_question"> Help</i>
+        </a>
     </div>
 </div>
