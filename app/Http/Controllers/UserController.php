@@ -47,9 +47,10 @@ class UserController extends Controller
       $questionsVotes = [];
       $nr_answers = [];
 
-      $userQuestions = DB::table('question')
-                          ->where('user_id', $id)
-                          ->paginate(1);
+      $userQuestions = DB::select(DB::raw("SELECT question.*
+      from question 
+      where question.user_id = $id;"));
+
 
       $answerController = new AnswerController();
       
@@ -106,7 +107,6 @@ class UserController extends Controller
       $user->username = $request->input('username');
       
       if($request->input('password') != ""){
-        error_log("ahahahah");
         $user->password = bcrypt($request->input('password'));
       }
 
