@@ -41,7 +41,7 @@ class QuestionController extends Controller
       $question->save();
       
       //$info = [$question->title, $question->description, $username, $date, $question->id];
-      $info = [$question->id];
+      $info = [$question->id, $question->title, $question->description];
 
       return $info;
     }

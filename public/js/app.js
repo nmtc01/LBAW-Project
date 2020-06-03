@@ -896,6 +896,22 @@ function sendCreateQuestionRequest(event) {
 
     if (title != '' && description != '')
         sendAjaxRequest('put', '/api/question', { title: title, description: description }, questionAddedHandler);
+    else{
+        
+        let older_alert = document.getElementById('alert_question');
+        if (older_alert != null)
+            return;
+
+        let new_alert = createAlertQuestion();
+
+        let section = document.getElementById("add_question_form");
+        let list = document.getElementById("add_question_form");
+
+        section.insertBefore(new_alert, list.childNodes[0]);
+
+        return;
+        
+    }
 
     event.preventDefault();
 
@@ -1330,6 +1346,17 @@ function createAlert(type) {
     new_alert.innerHTML = ` <div id="alert_${type}" class="card text-white bg-danger">
                                 <div class="card-body">
                                 <p class="card-text">You have to be logged in to ${type} this question</p>
+                                </div>
+                            </div>`
+    return new_alert;
+}
+
+function createAlertQuestion() {
+    let new_alert = document.createElement('alert');
+    new_alert.classList.add('alert');
+    new_alert.innerHTML = ` <div id="alert_question" class="card text-white bg-danger">
+                                <div class="card-body">
+                                <p class="card-text">You must fill both title and description</p>
                                 </div>
                             </div>`
     return new_alert;

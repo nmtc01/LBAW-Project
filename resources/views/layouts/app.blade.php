@@ -94,7 +94,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form id=add_question_form>
                                 <div class="form-group">
                                     <label for="formControlTextareaQuestion">Write your question here</label>
                                     <textarea class="form-control" id="formControlTextareaQuestion" rows="1"></textarea>
@@ -112,7 +112,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button id="add_question_btn" type="submit" class="btn btn-primary" data-dismiss="modal">Add</button>
+                            <button id="add_question_btn" type="submit" class="btn btn-primary" {{--data-dismiss="modal"--}}>Add</button>
                         </div>
                     </div>
                 </div>
