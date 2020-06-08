@@ -487,6 +487,42 @@ CREATE TRIGGER marked_answer
     FOR EACH ROW
     EXECUTE PROCEDURE marked_answer();
 
+--Trigger 11
+CREATE OR REPLACE FUNCTION add_new_management_to_user() RETURNS TRIGGER AS 
+$BODY$
+BEGIN
+	IF EXISTS (SELECT * FROM user_management WHERE user_management.user_id = NEW.user_id) THEN
+	DELETE FROM user_management WHERE user_management.user_id = NEW.user_id;
+	END IF;
+	RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER add_new_management_to_user
+    BEFORE INSERT ON user_management
+    FOR EACH ROW
+    EXECUTE PROCEDURE add_new_management_to_user();
+
+
+--Trigger 12
+CREATE OR REPLACE FUNCTION add_management_to_user() RETURNS TRIGGER AS 
+$BODY$
+BEGIN
+	IF NOT EXISTS (SELECT * FROM user_management WHERE user_management.user_id = NEW.id) THEN
+	INSERT INTO user_management (id, user_id)
+		VALUES (NEW.id, NEW.id);
+	END IF;
+	RETURN NEW;
+END
+$BODY$
+LANGUAGE plpgsql;
+
+CREATE TRIGGER add_management_to_user
+    AFTER INSERT ON "user"
+    FOR EACH ROW
+    EXECUTE PROCEDURE add_management_to_user();
+
 -----------------------------------------
 -- TRANSACTIONS FUNCTIONS
 -----------------------------------------
