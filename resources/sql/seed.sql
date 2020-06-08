@@ -72,7 +72,7 @@ CREATE TABLE notification (
     date            DATE            DEFAULT 'Now' NOT NULL,
     viewed          BOOLEAN         DEFAULT FALSE NOT NULL,
     user_id         INTEGER         REFERENCES "user" (id) NOT NULL,
-	question_id		INTEGER			DEFAULT NULL REFERENCES "question" (id)
+	question_id		INTEGER			DEFAULT NULL REFERENCES "question" (id) ON DELETE CASCADE
 );
 
 -- Table: answer
