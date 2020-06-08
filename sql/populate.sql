@@ -1,139 +1,139 @@
 --user
 --password for user 2: 1234
 insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
-	values ('Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'nuno.png');
+	values ('Nuno', 'Cardoso', 'nmtc01@hotmail.com', 'UP student', 'nmtc01', '$2y$12$gYS18rCFQiEiw5DTey8Z6eY2uWKGO9cNT1EnywoBKAhkxfiDvJTty', 'nuno.png');
 insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
 	values ('Pedro', 'Dantas', 'pedrodantas@hotmail.com', 'UP student', 'pedrodantas', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 'dantas.jpg');
 insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
-	values ('Eduardo', 'Macedo', 'edumacedo@gmail.com', 'UP student', 'edu1234', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d', 'eduardo.jpg');
+	values ('Eduardo', 'Macedo', 'edumacedo@gmail.com', 'UP student', 'edu1234', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy', 'eduardo.jpg');
 insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
-	values ('Roberto', 'Mourato', 'robmoura@hotmail.com', 'UP student', 'bob56moura', '75748e28843cab0cc7ca4ba8dcdc11552ea7bb3b652a3cbd26c53dec861408bc', 'beto.jpg');
-insert into "user" (first_name, last_name, email, bio, username, password, photo_path)
-	values ('Eduardo', 'Cardoso', 'lurdes01@hotmail.com', 'babysitter', 'edu01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W', 'eduardo.jpg');
+	values ('Roberto', 'Mourato', 'robmoura@hotmail.com', 'UP student', 'bob56moura', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy', 'beto.jpg');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Paula', 'Tavares', 'paultavares@hotmail.com', 'hairdresser', 'paula64', '39427764c90328dc57389a2adb9202ae18cb3c38f27f5e7d3a19e5d23d7bbe4f');	
+	values ('Lurdes', 'Cardoso', 'lurdes01@hotmail.com', 'babysitter', 'lurdes01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Paulo', 'Cardoso', 'pcardoso@gmail.com', 'caixa', 'pcardoso', '359b5c9cef644b8cf40dd4c4b046bb69602efe18f2ffb75350d3d15dcff275c0');
+	values ('Paula', 'Tavares', 'paultavares@hotmail.com', 'hairdresser', 'paula64', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');	
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Juliana', 'Pinto', 'jupinto@gmail.com', 'beautician', 'juju', 'b04a508509a4b3cd0aa7a5a5824c3bce43e8512572cbc35506a255f6a56da2c5');
+	values ('Paulo', 'Cardoso', 'pcardoso@gmail.com', 'caixa', 'pcardoso', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Carolina', 'Santos', 'carol@gmail.com', 'Up student', 'carolas', 'b04a508509a4b3cd0aa7a5a5824c3bce43e8512572cbc35506a255f6a56da2c5');	
+	values ('Juliana', 'Pinto', 'jupinto@gmail.com', 'beautician', 'juju', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Clarinda', 'Teixeira', 'cteixeira@gmail.com', 'secretary', 'lindas', 'f15c4ab57663235d2212e96c280feae3e73ece417252d82c8784b34bad60cac');	
+	values ('Carolina', 'Santos', 'carol@gmail.com', 'Up student', 'carolas', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');	
+insert into "user" (first_name, last_name, email, bio, username, password)
+	values ('Clarinda', 'Teixeira', 'cteixeira@gmail.com', 'secretary', 'lindas', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');	
 insert into "user" (first_name, last_name, email, bio, username, password)
 	values ('Teresa', 'Teixeira', 'teresateixeira@gmail.com', 'seamstress', 'costureirinha', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Susana', 'Silva', 'ssilva@gmail.com', 'translator', 'silva77', 'd7aceb7abf5cf0b582ed8d10f324bb35495611edf04a8d30d699e21ffa6a64ff');
+	values ('Susana', 'Silva', 'ssilva@gmail.com', 'translator', 'silva77', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Margarida', 'Pereira', 'mpereira@gmail.com', 'doctor', 'per77', 'b427c3dec9045990213ccc3dbffbdf189e75c7ce18e1a86ed7c4fe9a2db5d627');
+	values ('Margarida', 'Pereira', 'mpereira@gmail.com', 'doctor', 'per77', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Elisa', 'Neves', 'eneves@gmail.com', 'receptionist', 'neves02', '724bc1231a18dc91fb24605bcd7c542cdf176d7d26958416c08aca24b37b2eb5');
+	values ('Elisa', 'Neves', 'eneves@gmail.com', 'receptionist', 'neves02', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Ana', 'Aires', 'aaires@gmail.com', 'psychiatrist', 'aires01', '33b1d188f33b0b088783aec571d122c38b060bb550c114f642191aa089c217db');
+	values ('Ana', 'Aires', 'aaires@gmail.com', 'psychiatrist', 'aires01', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Arlete', 'Araujo', 'arlete@gmail.com', 'urologist', 'araujo34', 'e98a98f373df403810bd4e569273e55351adede3f82461dbbc266affeddece1a');	
+	values ('Arlete', 'Araujo', 'arlete@gmail.com', 'urologist', 'araujo34', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');	
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Aurora', 'Pinto', 'apinto@gmail.com', 'florist', 'flo55', '7cf60a4b93054d6ed588dddfc392903c18ed03161d70a9f161a62ad37bac9806');	
+	values ('Aurora', 'Pinto', 'apinto@gmail.com', 'florist', 'flo55', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');	
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Albino', 'Costa', 'alcosta@gmail.com', 'chmist', 'ch10', '4e73b8eacfd31c5e8b51eb897694758b59d8d562ed684ee18783873ebe96775f');
+	values ('Albino', 'Costa', 'alcosta@gmail.com', 'chmist', 'ch10', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Aberto', 'Ferreira', 'ferreira01@gmail.com', 'librarian', 'afer5', '106dde628c0da1d7d96851ca4110e68d31513bec50a905597a74feafe4510df3');
+	values ('Aberto', 'Ferreira', 'ferreira01@gmail.com', 'librarian', 'afer5', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('António', 'Carvalho', 'antcarvalho@gmail.com', 'barber', 'bar01', '8287464bb9bba50593d53d95ced168b43db7db958d1263544a6d6e310b2f193c');
+	values ('António', 'Carvalho', 'antcarvalho@gmail.com', 'barber', 'bar01', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Cândido', 'Faria', 'cfaria@gmail.com', 'carpenter', 'carp5', '365e72262bed1b6afb91ff1c7107b12bd7206d1f7a8c0c70217c57af54fdf506');
+	values ('Cândido', 'Faria', 'cfaria@gmail.com', 'carpenter', 'carp5', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Cosme', 'Dias', 'cdias@gmail.com', 'adminstrator', 'adm11', '9911486dbd7cbe092287bb63e1ed44fee854d215eff4979b9b9ea837890c21e1');
+	values ('Cosme', 'Dias', 'cdias@gmail.com', 'adminstrator', 'adm11', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Delfim', 'Mendes', 'dmendes@gmail.com', 'bricklayer', 'bri02', 'f28f28bbe8e16e9c6541f5e9c018d2060aaf5d0557202b916a0954b6922b6f16');
+	values ('Delfim', 'Mendes', 'dmendes@gmail.com', 'bricklayer', 'bri02', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Carlos', 'Freitas', 'freitas01@gmail.com', 'biomedical', 'frei70', 'a03d4e5546dea2b8a82c13e06542f6d454040c84a5d5caa5f106ebe1b00de1ac');
+	values ('Carlos', 'Freitas', 'freitas01@gmail.com', 'biomedical', 'frei70', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Domingos', 'Figueiredo', 'figueiredo1@gmail.com', 'mechanical', 'fig11', '6f490a2fe7dbe7cfcf08b48446db534791813b952b28f7c7051770a7fe80052f');
+	values ('Domingos', 'Figueiredo', 'figueiredo1@gmail.com', 'mechanical', 'fig11', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('David', 'Faria', 'davfaria@gmail.com', 'magician', 'magic', '3be7a505483c0050243c5cbad4700da13925aa4137a55e9e33efd8bc4d05850f');
+	values ('David', 'Faria', 'davfaria@gmail.com', 'magician', 'magic', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Emanuel', 'Fonseca', 'fonsec11@gmail.com', 'musician', 'fonseca22', 'd6518aa213ea4939fde8bd047ca8fb775cac36bf95d26f28cf2c77f2ebf5bf86');
+	values ('Emanuel', 'Fonseca', 'fonsec11@gmail.com', 'musician', 'fonseca22', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Eduardo', 'Santos', 'edsantos@gmail.com', 'oncologist', 'edu70', '4a53d7664413d4e5eefff5ad99e59ac1657b1cbdd6f1acbeea2a5f683b766c68');
+	values ('Eduardo', 'Santos', 'edsantos@gmail.com', 'oncologist', 'edu70', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Carlos', 'Cruz', 'cruz@gmail.com', 'fisheman', 'cruz24', '2faecef2c88d125f3ba7dcac070b493f99d701ff43070c298cfa20a9f1459fd5');
+	values ('Carlos', 'Cruz', 'cruz@gmail.com', 'fisheman', 'cruz24', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Teodora', 'Vieira', 'vieira@gmail.com', 'cattle breeder', 'vieira01', '$2y$10$HfzIhGCCaxqyaIdGgjARSuOKAcm1Uy82YfLuNaajn6JrjLWy9Sj/W');
+	values ('Teodora', 'Vieira', 'vieira@gmail.com', 'cattle breeder', 'vieira01', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Silvia', 'Rodrigues', 'silrodrigues@gmail.com', 'librarian', 'sil14', 'f820f43abb76bc0ff9a3a1b5ddbea160efa28921723b601caf746533be992957');
+	values ('Silvia', 'Rodrigues', 'silrodrigues@gmail.com', 'librarian', 'sil14', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Pedro', 'Dantas', 'dantas@hotmail.com', 'UP student', 'dantas', 'ed5ae5a93a86c36e004d985cd801b3390dc91e4dda5c6d59b421c9f356f4b6b3');
+	values ('Pedro', 'Dantas', 'dantas@hotmail.com', 'UP student', 'dantas', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Eduardo', 'Macedo', 'macedo@gmail.com', 'UP student', 'edu1', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d');
+	values ('Eduardo', 'Macedo', 'macedo@gmail.com', 'UP student', 'edu1', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Roberto', 'Mourato', 'bmoura@hotmail.com', 'UP student', '56moura', '75748e28843cab0cc7ca4ba8dcdc11552ea7bb3b652a3cbd26c53dec861408bc');
+	values ('Roberto', 'Mourato', 'bmoura@hotmail.com', 'UP student', '56moura', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Ana', 'Aires', 'aires@gmail.com', 'psychiatrist', 'res01', '33b1d188f33b0b088783aec571d122c38b060bb550c114f642191aa089c217db');
+	values ('Ana', 'Aires', 'aires@gmail.com', 'psychiatrist', 'res01', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Arlete', 'Araujo', 'lete@gmail.com', 'urologist', 'araujo', 'e98a98f373df403810bd4e569273e55351adede3f82461dbbc266affeddece1a');	
+	values ('Arlete', 'Araujo', 'lete@gmail.com', 'urologist', 'araujo', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');	
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Aurora', 'Pinto', 'pinto@gmail.com', 'florist', 'flo', '7cf60a4b93054d6ed588dddfc392903c18ed03161d70a9f161a62ad37bac9806');		
+	values ('Aurora', 'Pinto', 'pinto@gmail.com', 'florist', 'flo', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');		
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Arlete', 'Araujo', 'arlete1@gmail.com', 'urologist', 'ar34', 'e98a98f373df403810bd4e569273e55351adede3f82461dbbc266affeddece1a');	
+	values ('Arlete', 'Araujo', 'arlete1@gmail.com', 'urologist', 'ar34', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');	
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Aurora', 'Pinto', 'aurora@gmail.com', 'florist', 'flo2', '7cf60a4b93054d6ed588dddfc392903c18ed03161d70a9f161a62ad37bac9806');		
+	values ('Aurora', 'Pinto', 'aurora@gmail.com', 'florist', 'flo2', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');		
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Paula', 'Tavares', 'paul@hotmail.com', 'hairdresser', 'paula', '39427764c90328dc57389a2adb9202ae18cb3c38f27f5e7d3a19e5d23d7bbe4f');	
+	values ('Paula', 'Tavares', 'paul@hotmail.com', 'hairdresser', 'paula', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');	
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Paulo', 'Cardoso', 'paulo@gmail.com', 'caixa', 'cardoso', '359b5c9cef644b8cf40dd4c4b046bb69602efe18f2ffb75350d3d15dcff275c0');
+	values ('Paulo', 'Cardoso', 'paulo@gmail.com', 'caixa', 'cardoso', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Juliana', 'Pinto', 'juliana@gmail.com', 'beautician', 'pinto', 'b04a508509a4b3cd0aa7a5a5824c3bce43e8512572cbc35506a255f6a56da2c5');	
+	values ('Juliana', 'Pinto', 'juliana@gmail.com', 'beautician', 'pinto', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');	
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Emanuel', 'Fonseca', 'fonseca@gmail.com', 'musician', 'f22', 'd6518aa213ea4939fde8bd047ca8fb775cac36bf95d26f28cf2c77f2ebf5bf86');
+	values ('Emanuel', 'Fonseca', 'fonseca@gmail.com', 'musician', 'f22', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Eduardo', 'Santos', 'eduardo@gmail.com', 'oncologist', 'edu', '4a53d7664413d4e5eefff5ad99e59ac1657b1cbdd6f1acbeea2a5f683b766c68');
+	values ('Eduardo', 'Santos', 'eduardo@gmail.com', 'oncologist', 'edu', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Maria João', 'Gonçalves', 'joao@gmail.com', 'jeweler', 'joao1', '6354f4d43066bed4fe6ad569ee99bf27c759c1e90b91ee5aef80b9267e09c91e');
+	values ('Maria João', 'Gonçalves', 'joao@gmail.com', 'jeweler', 'joao1', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Rui', 'Brás', 'ruibras@gmail.com', 'lawer', 'lawer', '00efdad92afe16836c0a2fccd7c4ac73e65f678691a98d031f74cc7032f00b3f');
+	values ('Rui', 'Brás', 'ruibras@gmail.com', 'lawer', 'lawer', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Leonor', 'Pinto', 'leonorpinto@gmail.com', 'dentist', 'leonor', '7a06c3703cc09df6281b90b8011a154f4e73a918bfe4305cfbd71385cb60b163');
+	values ('Leonor', 'Pinto', 'leonorpinto@gmail.com', 'dentist', 'leonor', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Luís', 'Ferreira', 'ferreira@gmail.com', 'magician', 'mag', 'f8685538bda2d6dc0d6d013011da6c986f1646c66f1b7a09035fc199d77999fb');	
+	values ('Luís', 'Ferreira', 'ferreira@gmail.com', 'magician', 'mag', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');	
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Rui', 'Brás', 'bras67@gmail.com', 'lawer', 'rui01', '00efdad92afe16836c0a2fccd7c4ac73e65f678691a98d031f74cc7032f00b3f');
+	values ('Rui', 'Brás', 'bras67@gmail.com', 'lawer', 'rui01', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Carlos', 'Cruz', '20cruz@gmail.com', 'fisheman', 'cruz', '2faecef2c88d125f3ba7dcac070b493f99d701ff43070c298cfa20a9f1459fd5');
+	values ('Carlos', 'Cruz', '20cruz@gmail.com', 'fisheman', 'cruz', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Teodora', 'Vieira', 'teodora@gmail.com', 'cattle breeder', 'tvieira', 'e4a80fee9a4d8f87b0a5a408103ad723e2f83db981cdb10ef8c64a50fd70d508');
+	values ('Teodora', 'Vieira', 'teodora@gmail.com', 'cattle breeder', 'tvieira', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Silvia', 'Rodrigues', 'silvia@gmail.com', 'librarian', 'silr', 'f820f43abb76bc0ff9a3a1b5ddbea160efa28921723b601caf746533be992957');
+	values ('Silvia', 'Rodrigues', 'silvia@gmail.com', 'librarian', 'silr', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('amilcar', 'Dantas', 'dantas2@hotmail.com', 'make-up artist', 'artist', 'ed5ae5a93a86c36e004d985cd801b3390dc91e4dda5c6d59b421c9f356f4b6b3');
+	values ('amilcar', 'Dantas', 'dantas2@hotmail.com', 'make-up artist', 'artist', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Laurinda', 'Marques', 'marques@gmail.com', 'gynaecologist', 'gy20', '54ada40a5452d89d06fdfc1f3ac106a8ee360a6437cb3749ac1b5263bb84974d');
+	values ('Laurinda', 'Marques', 'marques@gmail.com', 'gynaecologist', 'gy20', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Albino', 'Costa', 'costa@gmail.com', 'chmist', 'costa10', '4e73b8eacfd31c5e8b51eb897694758b59d8d562ed684ee18783873ebe96775f');
+	values ('Albino', 'Costa', 'costa@gmail.com', 'chmist', 'costa10', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Raul', 'Ferreira', 'raul01@gmail.com', 'librarian', 'ra20', '106dde628c0da1d7d96851ca4110e68d31513bec50a905597a74feafe4510df3');
+	values ('Raul', 'Ferreira', 'raul01@gmail.com', 'librarian', 'ra20', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('António', 'Carvalho', 'carvalho@gmail.com', 'barber', 'carv01', '8287464bb9bba50593d53d95ced168b43db7db958d1263544a6d6e310b2f193c');
+	values ('António', 'Carvalho', 'carvalho@gmail.com', 'barber', 'carv01', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Cândido', 'Faria', 'faria@gmail.com', 'carpenter', 'faria20', '365e72262bed1b6afb91ff1c7107b12bd7206d1f7a8c0c70217c57af54fdf506');
+	values ('Cândido', 'Faria', 'faria@gmail.com', 'carpenter', 'faria20', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Cosme', 'Dias', 'dias@gmail.com', 'adminstrator', 'cosm01', '9911486dbd7cbe092287bb63e1ed44fee854d215eff4979b9b9ea837890c21e1');
+	values ('Cosme', 'Dias', 'dias@gmail.com', 'adminstrator', 'cosm01', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Juliana', 'Pinto', 'pinto4@gmail.com', 'beautician', 'juli', 'b04a508509a4b3cd0aa7a5a5824c3bce43e8512572cbc35506a255f6a56da2c5');	
+	values ('Juliana', 'Pinto', 'pinto4@gmail.com', 'beautician', 'juli', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');	
 insert into "user" (first_name, last_name, email, bio, username, password)
-	values ('Emanuel', 'Fonseca', 'efonseca@gmail.com', 'musician', 'efonseca', 'd6518aa213ea4939fde8bd047ca8fb775cac36bf95d26f28cf2c77f2ebf5bf86');
+	values ('Emanuel', 'Fonseca', 'efonseca@gmail.com', 'musician', 'efonseca', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password) 
-	values ('Francisco', 'Noval', 'xicotruques@gmail.com', 'Handball coach, 20y', 'truques5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482');
+	values ('Francisco', 'Noval', 'xicotruques@gmail.com', 'Handball coach, 20y', 'truques5', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password) 
-	values ('Gonçalo', 'Nogueira', 'salinhonogueira@gmail.com', 'Try a little harder to be a little better', 'salinho5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482');
+	values ('Gonçalo', 'Nogueira', 'salinhonogueira@gmail.com', 'Try a little harder to be a little better', 'salinho5', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password) 
-	values ('Joao', 'Torgal', 'joaotorgal@gmail.com', '21y, bl4z3 it', 'torgal5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482');
+	values ('Joao', 'Torgal', 'joaotorgal@gmail.com', '21y, bl4z3 it', 'torgal5', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password) 
-	values ('Luis', 'Fernandes', 'luisfernandes@gmail.com', 'Engineering student, NEEGIUM', 'luisfernandes5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482');
+	values ('Luis', 'Fernandes', 'luisfernandes@gmail.com', 'Engineering student, NEEGIUM', 'luisfernandes5', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password) 
-	values ('Raquel', 'Fonseca', 'carlafonseca@gmail.com', '21y, FEUP, Portugal', 'raquelfonseca5', '172ba889dbec45e652e5ce30bd7a9ae195879ccfba508a8897ecfe21c256d482');
+	values ('Raquel', 'Fonseca', 'carlafonseca@gmail.com', '21y, FEUP, Portugal', 'raquelfonseca5', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 insert into "user" (first_name, last_name, email, bio, username, password) 
-	values ('Vitor', 'Goncalves', 'vitorturrinheira@gmail.com', '20y, FEUP, Pardelhas', 'vitorturrinheira6', 'ed5ae5a93a86c36e004d985cd801b3390dc91e4dda5c6d59b421c9f356f4b6b3');
+	values ('Vitor', 'Goncalves', 'vitorturrinheira@gmail.com', '20y, FEUP, Pardelhas', 'vitorturrinheira6', '$2y$12$0CVZhfRDF9ZVNWI.qPgVKe9Q/xI72lB1/QGjLFg3Wq0gyjQTLlVEy');
 
 --label	
 insert into label (name) values ('environment');
@@ -337,8 +337,8 @@ insert into notification (content, date, viewed, user_id, question_id) values ('
 insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 5, 7);
 insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 4, 3);
 insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', TRUE, 3, 4);
-insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 2, 1);
-insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question of yours', '2019-12-1', FALSE, 2, 2);
+insert into notification (content, date, viewed, user_id, question_id) values ('nmtc01 has answered a question you follow', '2019-12-1', TRUE, 2, 1);
+insert into notification (content, date, viewed, user_id, question_id) values ('edu1234 has answered a question of yours', '2019-12-1', FALSE, 2, 2);
 insert into notification (content, date, viewed, user_id, question_id) values ('A user has answered a question you follow', '2019-12-1', TRUE, 1, 2);
 	
 --answer
